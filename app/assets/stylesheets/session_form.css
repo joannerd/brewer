@@ -1,48 +1,74 @@
 html {
   background-color:  rgb(236, 236, 236);
-}
-
-.button {
-  text-transform: uppercase;
   font-family: Helvetica;
+}
+
+.session-link {
+  text-transform: uppercase;
   font-size: 130%;
+  background-color: white;
+  padding: 15px;
 }
 
-.current {
-  color: black;
-  
-}
-
-.other {
-  color: red;
-}
-
-h3:hover {
-  color: black;
+.flex-center {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: white;
+  box-shadow: 2px 2px 15px rgb(194, 194, 194);
+  border-radius: 5px;
   width: 400px;
-  height: 500px;
+  height: 550px;
 }
 
-.other-link {
-  display: block;
+.form {
+  width: inherit;
+}
+
+.links {
+  margin-bottom: 30px;
+}
+
+.other, .forgot {
+  color: red;
+  text-decoration: none;
+}
+
+.other:hover, .current, .forgot:hover {
+  color: black;
 }
 
 .input {
-  width: 250px;
+  width: 80%;
+  padding: 10px;
+  box-sizing: border-box;
+  color: grey;
 }
 
 .submit {
   background-color: red;
   color: white;
+  text-transform: uppercase;
 }
 
 .submit:hover {
   background-color: black;
+}
+
+.forgot {
+  font-size: 12px;
+}
+
+.forgot-container {
+  font-size: 15px;
+  margin: 15px;
+  color: grey;
+}
+
+.hidden {
+  display: none;
 }

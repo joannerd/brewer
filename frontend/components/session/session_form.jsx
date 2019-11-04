@@ -32,23 +32,31 @@ class SessionForm extends React.Component {
       );
     } else {
       return (
-        <div className="form-container">
-          <div>
-            <button className="button">{this.props.formHeader}</button>
-            <button className="button other">
-              <Link to={this.props.otherFormUrl}>{this.props.otherForm}</Link>
-            </button>
+        <div className="form-container flex-center">
+
+          <img src="https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png"/>
+
+          <div className="links">
+            <span className="session-link link">{this.props.formHeader}</span>
+            <span className="session-link">
+              <Link to={this.props.otherFormUrl} className="other">{this.props.otherForm}</Link>
+            </span>
           </div>
 
-          <div className="form">
-            <form onSubmit={this.handleSubmit}>
-              <input className="input" onChange={this.handleChange} type="text" name="email" value="Email" /><br />
+          <form className="form flex-center" onSubmit={this.handleSubmit}>
+            <input className="input" onChange={this.handleChange} type="text" name="username" value="Username" /><br />
 
-              <input className="input" onChange={this.handleChange} type="password" name="password" /><br />
+            <input className="input" onChange={this.handleChange} type="password" name="password" value="Password" /><br />
 
-              <input className="input submit" type="submit" value="Submit" />
-            </form>
-          </div>
+            <input className={this.props.formType === 'signup' ? "input" : "hidden"} onChange={this.handleChange} type="text" name="email" value="Email" /><br />
+
+            <input className="input submit" type="submit" value={this.props.formHeader} />
+            <br></br>
+          </form>
+
+          <span className={this.props.formType === 'login' ? "forgot-container" : "hidden"}>
+            <a className="forgot">Forgot your username?</a> | <a className="forgot">Forgot your password?</a>
+          </span>
         </div>
       );
     }
