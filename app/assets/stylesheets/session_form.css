@@ -1,0 +1,48 @@
+html {
+  background-color:  rgb(236, 236, 236);
+}
+
+.button {
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 130%;
+}
+
+.current {
+  color: black;
+  
+}
+
+.other {
+  color: red;
+}
+
+h3:hover {
+  color: black;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+}
+
+.other-link {
+  display: block;
+}
+
+.input {
+  width: 250px;
+}
+
+.submit {
+  background-color: red;
+  color: white;
+}
+
+.submit:hover {
+  background-color: black;
+}
