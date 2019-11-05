@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
   formType: 'signup',
   formHeader: 'Sign Up',
   otherForm: 'Log In',
-  otherFormUrl: '/login',
+  // otherFormUrl: '/login',
 
   currentUser: state.session.id
 });

@@ -8,16 +8,16 @@ class Api::SessionsController < ApplicationController
       render json: ['User not found'], status: 401
     else
       login(@user)
-      render '/api/users/show';
+      render '/';
     end
   end
 
   def destroy
-    # if current_user
+    if current_user
       logout
       render json: ['You have logged out. See you next time!']
-    # else
-    #   render json: ['There is no user logged in.'], status: 404
-    # end
+    else
+      render json: ['There is no user logged in.'], status: 404
+    end
   end
 end

@@ -1,20 +1,18 @@
+/*
+form-container flex-center
+  links
+    session-link login
+    session-link signup
+  form flex-center
+    input
+    input / hidden
+    input submit
+  forgot-container / hidden
+*/
+
 html {
   background-color:  rgb(236, 236, 236);
   font-family: Helvetica;
-}
-
-.session-link {
-  text-transform: uppercase;
-  font-size: 130%;
-  background-color: white;
-  padding: 15px;
-}
-
-.flex-center {
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-  justify-content:center;
 }
 
 .form-container {
@@ -25,21 +23,36 @@ html {
   height: 550px;
 }
 
-.form {
-  width: inherit;
+.flex-center {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
 }
 
-.links {
-  margin-bottom: 30px;
+
+.session-link {
+  text-transform: uppercase;
+  font-size: 130%;
+  background-color: white;
+  padding: 8px;
+  margin: 20px;
+  text-decoration: none;
 }
 
-.other, .forgot {
+.inactive:hover, .active, .forgot:hover {
+  color: black;
+}
+
+.inactive, .forgot {
   color: red;
   text-decoration: none;
 }
 
-.other:hover, .current, .forgot:hover {
-  color: black;
+.form {
+  border-top: 1px solid grey;
+  width: inherit;
+  margin-top: 10px
 }
 
 .input {
@@ -60,14 +73,16 @@ html {
   background-color: black;
 }
 
-.forgot {
-  font-size: 12px;
-}
+
 
 .forgot-container {
   font-size: 15px;
   margin: 15px;
   color: grey;
+}
+
+.forgot {
+  font-size: 12px;
 }
 
 .hidden {

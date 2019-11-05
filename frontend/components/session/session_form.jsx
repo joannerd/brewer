@@ -10,11 +10,20 @@ class SessionForm extends React.Component {
       email: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
     this.update = this.update.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.processForm(user);
+    this.props.history.push("/");
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    this.setState({ username: "demo_user", password: "123456", email: "demo@email.com" });
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
     this.props.history.push("/");
@@ -36,20 +45,54 @@ class SessionForm extends React.Component {
           <img src="https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png"/>
 
           <div className="links">
-            <span className="session-link link">{this.props.formHeader}</span>
-            <span className="session-link">
-              <Link to={this.props.otherFormUrl} className="other">{this.props.otherForm}</Link>
-            </span>
+            <Link to="/login" className="session-link"><span className={this.props.formType === "login" ? "active" : "inactive"}>LOG IN</span>
+            </Link>
+
+            <Link to="/signup" className="session-link"><span className={this.props.formType === "signup" ? "active" : "inactive"}>SIGN UP</span>
+            </Link>
           </div>
 
-          <form className="form flex-center" onSubmit={this.handleSubmit}>
-            <input className="input" onChange={this.update("username")} placeholder="Username" type="text" name="username" value={this.state.username} />
+          <form className="form flex-center">
+            <input
+              className="input"
+              onChange={this.update("username")}
+              placeholder="Username"
+              type="text"
+              name="username"
+              value={this.state.username}
+            />
 
-            <input className="input" onChange={this.update("password")} placeholder="Password" type="password" name="password" value={this.state.password} />
+            <input
+              className="input"
+              onChange={this.update("password")}
+              placeholder="Password"
+              type="password"
+              name="password"
+              value={this.state.password}
+            />
 
-            <input className={this.props.formType === "signup" ? "input" : "hidden"} onChange={this.update("email")} placeholder="Email" type="text" name="email" value={this.state.email} />
+            <input
+              className={this.props.formType === "signup" ? "input" : "hidden"}
+              onChange={this.update("email")}
+              placeholder="Email"
+              type="text"
+              name="email" 
+              value={this.state.email}
+            />
 
-            <input className="input submit" type="submit" value={this.props.formHeader} />
+            <input
+              className="input submit"
+              onClick={this.handleSubmit}
+              type="submit"
+              value={this.props.formHeader}
+            />
+
+            <input
+              className="input submit"
+              onClick={this.handleDemo}
+              type="submit"
+              value={this.props.formType === "signup" ? "Demo Signup" : "Demo Login"}
+            />
           </form>
 
           <span className={this.props.formType === "login" ? "forgot-container" : "hidden"}>

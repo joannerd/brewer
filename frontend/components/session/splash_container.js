@@ -4,7 +4,7 @@ import Splash from './splash';
 
 
 const mapStateToProps = (state) => ({
-  currentUser: state.users
+  currentUser: state.entities.users
 });
 
 const mapDispatchToProps = (dispatch) => ({

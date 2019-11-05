@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { isNullOrUndefined } from 'util';
 
 const Splash = (props) => {
-    console.log(props)
-  if (props.currentUser) {
+  if (isNullOrUndefined(props.currentUser)) {
     return (
       <div className="greeting loggedin">
         <h1>Welcome {props.currentUser.username}</h1>
         <button onClick={props.logout}>Sign Out</button>
       </div>
-
     )
   } else {
 
