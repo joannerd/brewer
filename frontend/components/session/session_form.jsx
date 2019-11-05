@@ -35,11 +35,11 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    if (this.props.currentUser) {
-      return (
-        <Redirect to="/" />
-      );
-    } else {
+    // if (this.props.currentUser) {
+    //   return (
+    //     <Redirect to="/" />
+    //   );
+    // } else {
       return (
         <div className="form-container flex-center">
 
@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
           </span>
         </div>
       );
-    }
+    // }
   }
 }
 
