@@ -23,7 +23,9 @@ time, mark, audio, video {
 	font-family: inherit;
 	vertical-align: baseline;
   color: black;
+  background-color: white;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -48,7 +50,10 @@ table {
 	border-spacing: 0;
 }
 
+#main-body {
+  text-align: center;
+}
+
 #root {
-  display: flex;
-  justify-content: center;
+	display: inline-block;
 }

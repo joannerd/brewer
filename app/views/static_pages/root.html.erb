@@ -1,12 +1,14 @@
-<% if logged_in? %>
-  <script type="text/javascript">
-    window.currentUser = <%= render(
-      "api/users/user.json.jbuilder",
-      user: current_user)
-      .html_safe %>;
-  </script>
-<% end %>
+<main id="main-body">
+  <% if logged_in? %>
+    <script type="text/javascript">
+      window.currentUser = <%= render(
+        "api/users/user.json.jbuilder",
+        user: current_user)
+        .html_safe %>;
+    </script>
+  <% end %>
 
-<main id='root'>
-  React is not working!
+  <div id='root'>
+    React is not working!
+  </div>
 </main>

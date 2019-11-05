@@ -11,8 +11,7 @@ form-container flex-center
 */
 
 html {
-  background-color:  rgb(236, 236, 236);
-  font-family: Helvetica;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .form-container {

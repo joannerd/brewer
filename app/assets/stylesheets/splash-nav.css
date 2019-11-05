@@ -1,0 +1,39 @@
+.nav-logo {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 50px;
+  height: 30px;
+  line-height: 30px;
+  padding: 25px;
+  color: white;
+  font-weight: bold;
+  background-color: red;
+}
+
+nav, .nav-index, .nav-contact {
+  font-size: 15px;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: row;
+}
+
+nav *, .nav-index *, .nav-contact * {
+  padding: 5px;
+  flex: 0 1 auto;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-index *, .nav-contact * {
+  color: rgb(238, 0, 0);
+  
+}
+
+li:hover:not(.active) {
+  color: rgb(117, 0, 0);
+  cursor: pointer;
+}
+
+li:active {
+  border: 1px dotted red;
+  cursor: pointer;
+}
