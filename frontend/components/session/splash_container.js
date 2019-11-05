@@ -4,11 +4,11 @@ import Splash from './splash';
 
 
 const mapStateToProps = (state) => ({
-  currentUser: state.entities.users
+  currentUser: Object.values(state.entities.users)[0]
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  logout: () => dispatch(logout()).then(() => ownProps.history.push("/"))
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch(logout())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);

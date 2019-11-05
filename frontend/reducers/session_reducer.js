@@ -5,7 +5,6 @@ const sessionReducer = (oldState = { id: null }, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      debugger
       return Object.assign({}, { id: Object.keys(action.user)[0] });
     case LOG_OUT_CURRENT_USER:
       return Object.assign({}, { id: null })
