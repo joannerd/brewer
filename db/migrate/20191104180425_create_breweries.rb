@@ -11,7 +11,6 @@ class CreateBreweries < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :breweries, :name
     add_index :breweries, :city_id
     add_index :breweries, :guide_id
   end

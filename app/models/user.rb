@@ -8,19 +8,20 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  username        :string           not null
 #
 
 class User < ApplicationRecord
-  validates :email, :password_digest, :session_token, presence: true
-  validates :email, uniqueness: true
+  validates :email, :username, :password_digest, :session_token, presence: true
+  validates :email, :username, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   
   attr_reader :password
   before_validation :ensure_session_token
   has_many :favorites
 
-  def self.find_by_credentials(email, password)
-    user = User.find_by(email: email)
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
   end
 

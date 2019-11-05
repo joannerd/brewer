@@ -2,16 +2,16 @@
 #
 # Table name: breweries
 #
-#  id         :integer          not null, primary key
-#  name       :string           not null
-#  lat        :float            not null
-#  lng        :float            not null
-#  address    :string           not null
-#  website    :string           not null
-#  city_id    :integer          not null
-#  guide_id   :integer          not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  lat         :float            not null
+#  lng         :float            not null
+#  address     :string           not null
+#  website     :string           not null
+#  city_id     :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  description :text
 #
 
 class Brewery < ApplicationRecord
@@ -19,5 +19,8 @@ class Brewery < ApplicationRecord
   validates :name, uniqueness: true
 
   belongs_to :city
-  belongs_to :guide
+  has_many :brewery_guides
+  has_many :guides,
+    through: :brewery_guides,
+    source: :guide
 end

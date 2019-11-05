@@ -15,5 +15,8 @@ class Guide < ApplicationRecord
   validates :title, uniqueness: true
 
   belongs_to :city
-  has_many :breweries
+  has_many :brewery_guides
+  has_many :breweries,
+    through: :brewery_guides,
+    source: :brewery
 end

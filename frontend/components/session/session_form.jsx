@@ -6,10 +6,11 @@ class SessionForm extends React.Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      email: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.update = this.update.bind(this);
   }
 
   handleSubmit(e) {
@@ -19,10 +20,8 @@ class SessionForm extends React.Component {
     this.props.history.push("/");
   }
 
-  handleChange(e) {
-    this.setState({
-      [e.currentTarget.name]: e.currentTarget.value
-    });
+  update(field) {
+    return e => this.setState({[field]: e.target.value});
   }
 
   render() {
@@ -44,17 +43,16 @@ class SessionForm extends React.Component {
           </div>
 
           <form className="form flex-center" onSubmit={this.handleSubmit}>
-            <input className="input" onChange={this.handleChange} type="text" name="username" value="Username" /><br />
+            <input className="input" onChange={this.update("username")} placeholder="Username" type="text" name="username" value={this.state.username} />
 
-            <input className="input" onChange={this.handleChange} type="password" name="password" value="Password" /><br />
+            <input className="input" onChange={this.update("password")} placeholder="Password" type="password" name="password" value={this.state.password} />
 
-            <input className={this.props.formType === 'signup' ? "input" : "hidden"} onChange={this.handleChange} type="text" name="email" value="Email" /><br />
+            <input className={this.props.formType === "signup" ? "input" : "hidden"} onChange={this.update("email")} placeholder="Email" type="text" name="email" value={this.state.email} />
 
             <input className="input submit" type="submit" value={this.props.formHeader} />
-            <br></br>
           </form>
 
-          <span className={this.props.formType === 'login' ? "forgot-container" : "hidden"}>
+          <span className={this.props.formType === "login" ? "forgot-container" : "hidden"}>
             <a className="forgot">Forgot your username?</a> | <a className="forgot">Forgot your password?</a>
           </span>
         </div>

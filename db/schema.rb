@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_180518) do
+ActiveRecord::Schema.define(version: 2019_11_05_011939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,12 +22,20 @@ ActiveRecord::Schema.define(version: 2019_11_04_180518) do
     t.string "address", null: false
     t.string "website", null: false
     t.integer "city_id", null: false
-    t.integer "guide_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["city_id"], name: "index_breweries_on_city_id"
-    t.index ["guide_id"], name: "index_breweries_on_guide_id"
     t.index ["name"], name: "index_breweries_on_name"
+  end
+
+  create_table "brewery_guides", force: :cascade do |t|
+    t.integer "brewery_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "guide_id"
+    t.index ["brewery_id"], name: "index_brewery_guides_on_brewery_id"
+    t.index ["guide_id"], name: "index_brewery_guides_on_guide_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -64,8 +72,9 @@ ActiveRecord::Schema.define(version: 2019_11_04_180518) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email"
+    t.string "username", null: false
     t.index ["session_token"], name: "index_users_on_session_token"
+    t.index ["username"], name: "index_users_on_username"
   end
 
 end
