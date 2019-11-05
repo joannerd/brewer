@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
       render json: ['User not found'], status: 401
     else
       login(@user)
-      render '/';
+      render '/api/users/show'
     end
   end
 

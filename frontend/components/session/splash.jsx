@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { isNullOrUndefined } from 'util';
 
 const Splash = (props) => {
-  if (isNullOrUndefined(props.currentUser)) {
+  if (!isNullOrUndefined(props.currentUser)) {
     return (
       <div className="greeting loggedin">
         <h1>Welcome {props.currentUser.username}</h1>

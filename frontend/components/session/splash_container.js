@@ -7,8 +7,8 @@ const mapStateToProps = (state) => ({
   currentUser: state.entities.users
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()) 
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  logout: () => dispatch(logout()).then(() => ownProps.history.push("/"))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
