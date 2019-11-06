@@ -6,8 +6,8 @@ class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.toggleHide = this.toggleHide.bind(this);
-    // this.rehide = this.rehide.bind(this);
+    this.unhide = this.unhide.bind(this);
+    this.rehide = this.rehide.bind(this);
   }
 
   handleClick(e) {
@@ -16,17 +16,12 @@ class Splash extends React.Component {
       .then(() => ownProps.history.push("/"))
   }
 
-  toggleHide(e) {
-    const target = e.currentTarget.nextElementSibling
+  unhide(e) {
+    e.currentTarget.nextElementSibling.className = "not-hidden";
+  }
 
-    if (target.className === "hidden") {
-      target.className = "";
-    } else {
-      target.className = "hidden";
-    }
-
-    $(e.target.parentElement).off('click', toggleHide);
-    $(document).on('click', toggleHide);
+  rehide(e) {
+    e.currentTarget.nextElementSibling.className = "hidden";
   }
 
   render() {
@@ -40,7 +35,7 @@ class Splash extends React.Component {
 
           <ul className="nav-index">
             <div className="nav-index-cities">
-              <Link onClick={this.toggleHide} to="/">Cities▼</Link>
+              <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">Cities▼</span>
               <ul className="hidden">
                 <li><Link to="/">LA</Link></li>
                 <li><Link to="/">SF</Link></li>
@@ -52,7 +47,7 @@ class Splash extends React.Component {
             <li><Link to="/">Breweries</Link></li>
 
             <div className="nav-index-more">
-              <Link onClick={this.toggleHide} to="/">More▼</Link>
+              <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">More▼</span>
               <ul className="hidden">
                 <li><Link to="/">1</Link></li>
                 <li><Link to="/">2</Link></li>
@@ -61,22 +56,18 @@ class Splash extends React.Component {
           </ul>
           
           <div className="nav-contact">
-            <Link to="/">
-              {/* <a className="fas fa-linkedin" ></a> */}
-              [LinkedIn]</Link>
-            <Link to="/">
-              {/* <a className="" /> */}
-              [GitHub]</Link>
-            <Link to="/">
-              {/* <a className="fas fa-envelope" /> */}
-              [Email]</Link>
+            <a href="https://www.linkedin.com/in/xchenj/" className="fa fa-linkedin-square" alt="linkedin"/>
+            <a href="https://www.slideshare.net/slideshow/embed_code/key/AyCH5FH6ZNA1Pb" className="fa fa-file-text" alt="resume"/>
+            <a href="http://www.junnac.org/" className="fa fa-folder" alt="portfolio"/>
+            <a href="https://github.com/junnac" className="fa fa-github" alt="github"/>
+            <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" alt="email"/>
           </div>
 
           <div className="nav-user">
-            <button className="input submit" onClick={this.handleClick}>Sign Out</button>
+            <button className="input submit" onClick={this.handleClick}>Log Out</button>
           </div>
 
-          <Link to="/" className="nav-search"><button className="input submit">Search</button></Link>
+          <a href="/" className="fa fa-search"/>
         </nav>
       )
     } else {

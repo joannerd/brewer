@@ -1,7 +1,7 @@
 nav {
   width: inherit;
-  height: 120px;
-  border-bottom: 1px solid black;
+  height: 60px;
+  border-bottom: 1px solid rgb(172, 172, 172);
 }
 
 .nav-logo {
@@ -12,7 +12,7 @@ nav {
   padding: 25px;
   color: white;
   font-weight: bold;
-  background-color: red;
+  background-color: rgb(220, 0, 0);
   box-sizing: border-box;
 }
 
@@ -37,17 +37,17 @@ nav, .nav-index, .nav-contact {
   flex: 0 1 auto;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgb(238, 0, 0);
+  color: rgb(220, 0, 0);
 }
 
 li:hover:not(.active) {
   color: rgb(117, 0, 0);
   cursor: pointer;
-  text-decoration: underline;
+  border-bottom: ;
 }
 
 li:active {
-  border: 1px dotted red;
+  border: 1px dotted rgb(220, 0, 0);
   cursor: pointer;
 }
 
@@ -62,24 +62,22 @@ li:active {
 
 
 .fa {
-  padding: 20px;
+  padding: 0px;
   font-size: 30px;
   width: 50px;
   text-align: center;
   text-decoration: none;
   margin: 5px 2px;
+  color: rgb(220, 0, 0);
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.5;
 }
 
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
+.not-hidden {
+  position: absolute;
+  top: 50px;
+  width: 50px;
+  z-index: 2;
 }

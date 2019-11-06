@@ -82,6 +82,7 @@ html {
   color: white;
   text-transform: uppercase;
   border-radius: 10px;
+  outline: none;
 }
 
 .submit:hover {
