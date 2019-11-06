@@ -33,11 +33,14 @@ class Splash extends React.Component {
     if (this.props.currentUser) {
       return (
         <nav>
-          <div className="nav-logo">BREWER</div>
+          <div>
+            <span className="nav-logo">BREWER</span>
+            <h3 className="nav-welcome">Welcome {this.props.currentUser.username}</h3>
+          </div>
 
           <ul className="nav-index">
             <div className="nav-index-cities">
-              <Link onClick={this.toggleHide} to="/">Cities ▼</Link>
+              <Link onClick={this.toggleHide} to="/">Cities▼</Link>
               <ul className="hidden">
                 <li><Link to="/">LA</Link></li>
                 <li><Link to="/">SF</Link></li>
@@ -48,30 +51,32 @@ class Splash extends React.Component {
             <li><Link to="/">Maps</Link></li>
             <li><Link to="/">Breweries</Link></li>
 
-            <li className="nav-index-more">
-              <Link onClick={this.toggleHide} to="/">More ▼</Link>
+            <div className="nav-index-more">
+              <Link onClick={this.toggleHide} to="/">More▼</Link>
               <ul className="hidden">
                 <li><Link to="/">1</Link></li>
                 <li><Link to="/">2</Link></li>
               </ul>
-            </li>
+            </div>
           </ul>
           
-          <ul className="nav-contact">
-            <li><Link to="/">[TW]</Link></li>
-            <li><Link to="/">[FB]</Link></li>
-            <li><Link to="/">[YT]</Link></li>
-            <li><Link to="/">[IG]</Link></li>
-          </ul>
-
-          <div className="nav-user">
-            Welcome {this.props.currentUser.username}<br />
-            <button onClick={this.handleClick}>Sign Out</button>
+          <div className="nav-contact">
+            <Link to="/">
+              {/* <a className="fas fa-linkedin" ></a> */}
+              [LinkedIn]</Link>
+            <Link to="/">
+              {/* <a className="" /> */}
+              [GitHub]</Link>
+            <Link to="/">
+              {/* <a className="fas fa-envelope" /> */}
+              [Email]</Link>
           </div>
 
-          <button>
-            <Link to="/" className="nav-search">Search</Link>
-          </button>
+          <div className="nav-user">
+            <button className="input submit" onClick={this.handleClick}>Sign Out</button>
+          </div>
+
+          <Link to="/" className="nav-search"><button className="input submit">Search</button></Link>
         </nav>
       )
     } else {

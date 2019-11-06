@@ -1,3 +1,9 @@
+nav {
+  width: inherit;
+  height: 120px;
+  border-bottom: 1px solid black;
+}
+
 .nav-logo {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 50px;
@@ -10,16 +16,17 @@
   box-sizing: border-box;
 }
 
-nav {
-  width: inherit;
-  height: 150px;
-  border-bottom: 1px solid black;
+.nav-welcome {
+  font-size: 20px;
+  padding-top: 5px;
+  box-sizing: border-box;
 }
 
 nav, .nav-index, .nav-contact {
   font-size: 15px;
   font-weight: lighter;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
   align-items: baseline;
   box-sizing: border-box;
@@ -30,9 +37,6 @@ nav, .nav-index, .nav-contact {
   flex: 0 1 auto;
   text-transform: uppercase;
   text-decoration: none;
-}
-
-.nav-index *, .nav-contact * {
   color: rgb(238, 0, 0);
 }
 
@@ -54,4 +58,28 @@ li:active {
 .nav-index-cities, .nav-index-more {
   display: flex;
   flex-direction: column;
+}
+
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
 }

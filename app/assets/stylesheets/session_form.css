@@ -22,6 +22,21 @@ html {
   height: 550px;
 }
 
+.logo {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 50px;
+  padding: 50px;
+  margin: 20px;
+  height: 70px;
+  line-height: 15px;
+  color: white;
+  font-weight: bold;
+  background-color: red;
+  box-sizing: border-box;
+  border-radius: 25px;
+  box-shadow: 2px 2px 15px rgb(194, 194, 194);
+}
+
 .flex-center {
   display:flex;
   flex-direction:column;
@@ -66,12 +81,12 @@ html {
   background-color: red;
   color: white;
   text-transform: uppercase;
+  border-radius: 10px;
 }
 
 .submit:hover {
   background-color: black;
 }
-
 
 
 .forgot-container {

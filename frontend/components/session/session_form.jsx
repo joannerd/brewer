@@ -35,73 +35,67 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    // if (this.props.currentUser) {
-    //   return (
-    //     <Redirect to="/" />
-    //   );
-    // } else {
-      return (
-        <div className="form-container flex-center">
+    return (
+      <div className="form-container flex-center">
 
-          <img src="https://www.wilsonfamilychiropracticcenter.net/wp-content/uploads/2018/12/placeholder-logo-2.png"/>
+        <span className="logo">BREWER</span>        
 
-          <div className="links">
-            <Link to="/login" className="session-link"><span className={this.props.formType === "login" ? "active" : "inactive"}>LOG IN</span>
-            </Link>
+        <div className="links">
+          <Link to="/login" className="session-link"><span className={this.props.formType === "login" ? "active" : "inactive"}>LOG IN</span>
+          </Link>
 
-            <Link to="/signup" className="session-link"><span className={this.props.formType === "signup" ? "active" : "inactive"}>SIGN UP</span>
-            </Link>
-          </div>
-
-          <form className="form flex-center">
-            <input
-              className="input"
-              onChange={this.update("username")}
-              placeholder="Username"
-              type="text"
-              name="username"
-              value={this.state.username}
-            />
-
-            <input
-              className="input"
-              onChange={this.update("password")}
-              placeholder="Password"
-              type="password"
-              name="password"
-              value={this.state.password}
-            />
-
-            <input
-              className={this.props.formType === "signup" ? "input" : "hidden"}
-              onChange={this.update("email")}
-              placeholder="Email"
-              type="text"
-              name="email" 
-              value={this.state.email}
-            />
-
-            <input
-              className="input submit"
-              onClick={this.handleSubmit}
-              type="submit"
-              value={this.props.formHeader}
-            />
-
-            <input
-              className={this.props.formType === "login" ? "input submit" : "hidden"}
-              onClick={this.handleDemo}
-              type="submit"
-              value="Demo Login"
-            />
-          </form>
-
-          <span className={this.props.formType === "login" ? "forgot-container" : "hidden"}>
-            <a className="forgot">Forgot your username?</a> | <a className="forgot">Forgot your password?</a>
-          </span>
+          <Link to="/signup" className="session-link"><span className={this.props.formType === "signup" ? "active" : "inactive"}>SIGN UP</span>
+          </Link>
         </div>
-      );
-    // }
+
+        <form className="form flex-center">
+          <input
+            className="input"
+            onChange={this.update("username")}
+            placeholder="Username"
+            type="text"
+            name="username"
+            value={this.state.username}
+          />
+
+          <input
+            className="input"
+            onChange={this.update("password")}
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={this.state.password}
+          />
+
+          <input
+            className={this.props.formType === "signup" ? "input" : "hidden"}
+            onChange={this.update("email")}
+            placeholder="Email"
+            type="text"
+            name="email" 
+            value={this.state.email}
+          />
+
+          <input
+            className="input submit"
+            onClick={this.handleSubmit}
+            type="submit"
+            value={this.props.formHeader}
+          />
+
+          <input
+            className={this.props.formType === "login" ? "input submit" : "hidden"}
+            onClick={this.handleDemo}
+            type="submit"
+            value="Demo Login"
+          />
+        </form>
+
+        <span className={this.props.formType === "login" ? "forgot-container" : "hidden"}>
+          <a className="forgot">Forgot your username?</a> | <a className="forgot">Forgot your password?</a>
+        </span>
+      </div>
+    );
   }
 }
 
