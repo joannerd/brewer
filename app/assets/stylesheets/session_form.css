@@ -15,7 +15,7 @@ html {
 }
 
 .form-container {
-  background-color: white;
+  background-color: black;
   box-shadow: 2px 2px 15px rgb(194, 194, 194);
   border-radius: 5px;
   width: 400px;
@@ -31,7 +31,7 @@ html {
   line-height: 15px;
   color: white;
   font-weight: bold;
-  background-color: red;
+  background-color: #daa520;
   box-sizing: border-box;
   border-radius: 25px;
   box-shadow: 2px 2px 15px rgb(194, 194, 194);
@@ -49,18 +49,16 @@ html {
 .session-link {
   text-transform: uppercase;
   font-size: 130%;
-  background-color: white;
-  padding: 8px;
   margin: 20px;
   text-decoration: none;
 }
 
-.inactive:hover, .active, .forgot:hover {
-  color: black;
+.inactive, .forgot:hover {
+  color: white;
 }
 
-.inactive, .forgot {
-  color: red;
+.inactive:hover, .active, .forgot {
+  color: #daa520;
   text-decoration: none;
 }
 
@@ -79,15 +77,18 @@ html {
 }
 
 .submit {
-  background-color: red;
-  color: white;
+  background-color: #daa520;
+  color: black;
   text-transform: uppercase;
   border-radius: 10px;
   outline: none;
+  border: 1px solid black;
 }
 
 .submit:hover {
   background-color: black;
+  color: white;
+  border: 1px solid white;
 }
 
 
@@ -103,4 +104,8 @@ html {
 
 .hidden {
   display: none;
+}
+
+.user-auth-errors {
+  color: red;
 }

@@ -35,6 +35,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const errors = Object.values(this.props.errors.session);
+    // debugger
     return (
       <div className="form-container flex-center">
 
@@ -46,6 +48,12 @@ class SessionForm extends React.Component {
 
           <Link to="/signup" className="session-link"><span className={this.props.formType === "signup" ? "active" : "inactive"}>SIGN UP</span>
           </Link>
+        </div><br/>
+
+        <div>
+          { errors ? errors.map(err => (
+            <span className="user-auth-errors">{err}</span>
+          )) : ""}
         </div>
 
         <form className="form flex-center">

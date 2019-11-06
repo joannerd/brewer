@@ -12,9 +12,9 @@ nav {
   padding: 25px;
   color: white;
   font-weight: bold;
-  background-color: rgb(220, 0, 0);
+  background-color: #daa520;
   box-sizing: border-box;
-  box-shadow: 2px 2px 5px rgb(194, 194, 194);
+  box-shadow: 0px 0px 10px rgb(194, 194, 194);
   text-shadow: 2px 2px 5px rgb(194, 194, 194);
   margin-right: 5px;
 }
@@ -40,7 +40,7 @@ nav, .nav-index, .nav-contact {
   flex: 0 1 auto;
   text-transform: uppercase;
   text-decoration: none;
-  color: rgb(220, 0, 0);
+  color: #daa520;
 }
 
 li:hover:not(.active) {
@@ -48,11 +48,11 @@ li:hover:not(.active) {
   cursor: pointer;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #daa520;
 }
 
 li:active {
-  border: 1px dotted rgb(220, 0, 0);
+  border: 1px dotted #daa520;
   cursor: pointer;
 }
 
@@ -72,7 +72,7 @@ li:active {
   font-size: 20px;
   width: 30px;
   text-decoration: none;
-  color: rgb(220, 0, 0);
+  color: #daa520;
 }
 
 .fa:hover {
@@ -89,11 +89,11 @@ li:active {
 .logout {
   height: 25px;
   line-height: 5px;
-  width: 65px;
+  width: 70px;
   text-align: center;
 }
 
 .fa-envelope {
-  border: 1px solid red;
+  border: 1px solid #daa520;
   padding: 5px;
 }

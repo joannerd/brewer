@@ -38,31 +38,31 @@ class Splash extends React.Component {
               <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">Cities 
               <i className="fa fa-angle-down" /></span>
               <ul className="hidden">
-                <li><Link to="/">LA</Link></li>
-                <li><Link to="/">SF</Link></li>
+                <li><Link to="/" target="_blank" >LA</Link></li>
+                <li><Link to="/" target="_blank" >SF</Link></li>
               </ul>
             </div>
 
-            <li><Link to="/">Guides</Link></li>
-            <li><Link to="/">Maps</Link></li>
-            <li><Link to="/">Breweries</Link></li>
+            <li><Link to="/" target="_blank" >Guides</Link></li>
+            <li><Link to="/" target="_blank" >Maps</Link></li>
+            <li><Link to="/" target="_blank" >Breweries</Link></li>
 
             <div className="nav-index-more">
               <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">More 
               <i className="fa fa-angle-down" /></span>
               <ul className="hidden">
-                <li><Link to="/">1</Link></li>
-                <li><Link to="/">2</Link></li>
+                <li><Link to="/" target="_blank" >1</Link></li>
+                <li><Link to="/" target="_blank" >2</Link></li>
               </ul>
             </div>
           </ul>
           
           <div className="nav-contact">
-            <a href="https://www.linkedin.com/in/xchenj/" className="fa fa-linkedin-square" alt="linkedin"/>
-            <a href="https://www.slideshare.net/slideshow/embed_code/key/AyCH5FH6ZNA1Pb" className="fa fa-file-text" alt="resume"/>
-            <a href="http://www.junnac.org/" className="fa fa-folder" alt="portfolio"/>
-            <a href="https://github.com/junnac" className="fa fa-github" alt="github"/>
-            <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" alt="email"/>
+            <a href="https://www.linkedin.com/in/xchenj/" className="fa fa-linkedin-square" target="_blank" alt="linkedin"/>
+            <a href="https://www.slideshare.net/slideshow/embed_code/key/AyCH5FH6ZNA1Pb" className="fa fa-file-text" target="_blank" alt="resume"/>
+            <a href="http://www.junnac.org/" className="fa fa-folder" target="_blank" alt="portfolio"/>
+            <a href="https://github.com/junnac" className="fa fa-github" target="_blank" alt="github"/>
+            <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" target="_blank" alt="email"/>
           </div>
 
           <a href="/" className="fa fa-search"/>
