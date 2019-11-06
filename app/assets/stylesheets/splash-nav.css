@@ -1,12 +1,19 @@
 .nav-logo {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 50px;
-  height: 30px;
-  line-height: 30px;
+  height: inherit;
+  line-height: inherit;
   padding: 25px;
   color: white;
   font-weight: bold;
   background-color: red;
+  box-sizing: border-box;
+}
+
+nav {
+  width: inherit;
+  height: 150px;
+  border-bottom: 1px solid black;
 }
 
 nav, .nav-index, .nav-contact {
@@ -14,9 +21,11 @@ nav, .nav-index, .nav-contact {
   font-weight: lighter;
   display: flex;
   flex-direction: row;
+  align-items: baseline;
+  box-sizing: border-box;
 }
 
-nav *, .nav-index *, .nav-contact * {
+.nav-index *, .nav-contact * {
   padding: 5px;
   flex: 0 1 auto;
   text-transform: uppercase;
@@ -25,15 +34,24 @@ nav *, .nav-index *, .nav-contact * {
 
 .nav-index *, .nav-contact * {
   color: rgb(238, 0, 0);
-  
 }
 
 li:hover:not(.active) {
   color: rgb(117, 0, 0);
   cursor: pointer;
+  text-decoration: underline;
 }
 
 li:active {
   border: 1px dotted red;
   cursor: pointer;
+}
+
+.nav-search, .not-logged {
+  text-decoration: none;
+}
+
+.nav-index-cities, .nav-index-more {
+  display: flex;
+  flex-direction: column;
 }

@@ -6,12 +6,27 @@ class Splash extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.toggleHide = this.toggleHide.bind(this);
+    // this.rehide = this.rehide.bind(this);
   }
 
   handleClick(e) {
     e.preventDefault();
     this.props.logout()
       .then(() => ownProps.history.push("/"))
+  }
+
+  toggleHide(e) {
+    const target = e.currentTarget.nextElementSibling
+
+    if (target.className === "hidden") {
+      target.className = "";
+    } else {
+      target.className = "hidden";
+    }
+
+    $(e.target.parentElement).off('click', toggleHide);
+    $(document).on('click', toggleHide);
   }
 
   render() {
@@ -21,17 +36,24 @@ class Splash extends React.Component {
           <div className="nav-logo">BREWER</div>
 
           <ul className="nav-index">
-            <li><Link to="/">Cities ▼</Link>
-              <li><Link to="/">LA</Link></li>
-              <li><Link to="/">SF</Link></li>
-            </li>
+            <div className="nav-index-cities">
+              <Link onClick={this.toggleHide} to="/">Cities ▼</Link>
+              <ul className="hidden">
+                <li><Link to="/">LA</Link></li>
+                <li><Link to="/">SF</Link></li>
+              </ul>
+            </div>
 
             <li><Link to="/">Guides</Link></li>
             <li><Link to="/">Maps</Link></li>
             <li><Link to="/">Breweries</Link></li>
-            <li><Link to="/">More ▼</Link>
-              <li><Link to="/">1</Link></li>
-              <li><Link to="/">2</Link></li>
+
+            <li className="nav-index-more">
+              <Link onClick={this.toggleHide} to="/">More ▼</Link>
+              <ul className="hidden">
+                <li><Link to="/">1</Link></li>
+                <li><Link to="/">2</Link></li>
+              </ul>
             </li>
           </ul>
           
@@ -43,16 +65,24 @@ class Splash extends React.Component {
           </ul>
 
           <div className="nav-user">
-            Welcome {this.props.currentUser.username}<br/>
+            Welcome {this.props.currentUser.username}<br />
             <button onClick={this.handleClick}>Sign Out</button>
           </div>
+
+          <button>
+            <Link to="/" className="nav-search">Search</Link>
+          </button>
         </nav>
       )
     } else {
       return (
         <div className="nav-bar">
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/login">Log In</Link>
+          <button>
+            <Link to="/signup" className="not-logged">Sign Up</Link>
+          </button>
+          <button>
+            <Link to="/login" className="not-logged">Log In</Link>
+          </button>
         </div>
       );
     };
