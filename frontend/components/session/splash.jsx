@@ -60,7 +60,7 @@ class Splash extends React.Component {
             <a href="https://www.slideshare.net/slideshow/embed_code/key/AyCH5FH6ZNA1Pb" className="fa fa-file-text" alt="resume"/>
             <a href="http://www.junnac.org/" className="fa fa-folder" alt="portfolio"/>
             <a href="https://github.com/junnac" className="fa fa-github" alt="github"/>
-            <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" alt="email">Email</a>
+            <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" alt="email"/>
           </div>
 
           <a href="/" className="fa fa-search"/>

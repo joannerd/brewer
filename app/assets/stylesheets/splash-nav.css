@@ -92,6 +92,5 @@ li:active {
 
 .fa-envelope {
   border: 1px solid red;
-  width: 80px;
-  text-transform: lowercase;
+  padding: 5px;
 }
