@@ -15,7 +15,7 @@
 #
 
 class Brewery < ApplicationRecord
-  validates :name, :lat, :lng, :address, :website, :city_id, :guide_id, presence: true
+  validates :name, :lat, :lng, :address, :website, :city_id, presence: true
   validates :name, uniqueness: true
 
   belongs_to :city
