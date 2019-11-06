@@ -6,10 +6,7 @@ import SplashContainer from './session/splash_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-  <div>
-    <header>
-        {/* <h1>Brewer</h1> */}
-    </header>
+  <div className="app flex-center">
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

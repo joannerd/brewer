@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
     if @user.nil?
-      render json: ['User not found'], status: 401
+      render json: ['User not found'], status: 404
     else
       login(@user)
       render '/api/users/show'
@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     if current_user
       logout
-      render json: ['You have logged out. See you next time!']
+      render json: ['You have logged out. See you next time!'], status: 200
     else
       render json: ['There is no user logged in.'], status: 404
     end

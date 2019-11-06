@@ -1,40 +1,31 @@
-/*
-form-container flex-center
-  links
-    session-link login
-    session-link signup
-  form flex-center
-    input
-    input / hidden
-    input submit
-  forgot-container / hidden
-*/
-
 html {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .form-container {
+  position: absolute;
   background-color: black;
-  box-shadow: 2px 2px 15px rgb(194, 194, 194);
+  box-shadow: 0px 0px 15px rgb(194, 194, 194);
   border-radius: 5px;
   width: 400px;
   height: 550px;
+  top: 10%
 }
 
 .logo {
   font-family: 'Cinzel Decorative', cursive;
   font-size: 50px;
+  color: white;
+  font-weight: bold;
+  
+  background-color: #daa520;
   padding: 50px;
   margin: 20px;
   height: 70px;
-  line-height: 15px;
-  color: white;
-  font-weight: bold;
-  background-color: #daa520;
+  line-height: 25%;
   box-sizing: border-box;
   border-radius: 25px;
-  box-shadow: 2px 2px 15px rgb(194, 194, 194);
+  box-shadow: 0px 0px 15px rgb(194, 194, 194);
   text-shadow: 2px 2px 5px rgb(194, 194, 194);
 }
 
@@ -82,13 +73,13 @@ html {
   text-transform: uppercase;
   border-radius: 10px;
   outline: none;
-  border: 1px solid black;
+  border: 1px solid black
 }
 
 .submit:hover {
   background-color: black;
   color: white;
-  border: 1px solid white;
+  border: 1px solid white
 }
 
 
@@ -108,4 +99,8 @@ html {
 
 .user-auth-errors {
   color: red;
+}
+
+.email {
+  margin: 9px;
 }

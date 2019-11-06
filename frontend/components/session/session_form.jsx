@@ -14,6 +14,10 @@ class SessionForm extends React.Component {
     this.update = this.update.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -35,8 +39,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const errors = Object.values(this.props.errors.session);
-    // debugger
     return (
       <div className="form-container flex-center">
 
@@ -51,9 +53,9 @@ class SessionForm extends React.Component {
         </div><br/>
 
         <div>
-          { errors ? errors.map(err => (
-            <span className="user-auth-errors">{err}</span>
-          )) : ""}
+          { this.props.errors.map((err, i) => (
+            <div className="user-auth-errors" key={i}>{err}</div>
+          ))}
         </div>
 
         <form className="form flex-center">
@@ -76,7 +78,7 @@ class SessionForm extends React.Component {
           />
 
           <input
-            className={this.props.formType === "signup" ? "input" : "hidden"}
+            className={this.props.formType === "signup" ? "input email" : "hidden"}
             onChange={this.update("email")}
             placeholder="Email"
             type="text"
@@ -99,9 +101,9 @@ class SessionForm extends React.Component {
           />
         </form>
 
-        <span className={this.props.formType === "login" ? "forgot-container" : "hidden"}>
+        {/* <span className={this.props.formType === "login" ? "forgot-container" : "hidden"}>
           <a className="forgot">Forgot your username?</a> | <a className="forgot">Forgot your password?</a>
-        </span>
+        </span> */}
       </div>
     );
   }
