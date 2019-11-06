@@ -35,6 +35,7 @@ html {
   box-sizing: border-box;
   border-radius: 25px;
   box-shadow: 2px 2px 15px rgb(194, 194, 194);
+  text-shadow: 2px 2px 5px rgb(194, 194, 194);
 }
 
 .flex-center {

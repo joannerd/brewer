@@ -14,6 +14,9 @@ nav {
   font-weight: bold;
   background-color: rgb(220, 0, 0);
   box-sizing: border-box;
+  box-shadow: 2px 2px 5px rgb(194, 194, 194);
+  text-shadow: 2px 2px 5px rgb(194, 194, 194);
+  margin-right: 5px;
 }
 
 .nav-welcome {
