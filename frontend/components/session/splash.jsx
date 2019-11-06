@@ -35,7 +35,8 @@ class Splash extends React.Component {
 
           <ul className="nav-index">
             <div className="nav-index-cities">
-              <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">Cities▼</span>
+              <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">Cities 
+              <i className="fa fa-angle-down" /></span>
               <ul className="hidden">
                 <li><Link to="/">LA</Link></li>
                 <li><Link to="/">SF</Link></li>
@@ -47,7 +48,8 @@ class Splash extends React.Component {
             <li><Link to="/">Breweries</Link></li>
 
             <div className="nav-index-more">
-              <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">More▼</span>
+              <span onMouseOver={this.unhide} onMouseOut={this.rehide} to="/">More 
+              <i className="fa fa-angle-down" /></span>
               <ul className="hidden">
                 <li><Link to="/">1</Link></li>
                 <li><Link to="/">2</Link></li>
