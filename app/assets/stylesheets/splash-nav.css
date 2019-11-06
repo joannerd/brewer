@@ -43,7 +43,9 @@ nav, .nav-index, .nav-contact {
 li:hover:not(.active) {
   color: rgb(117, 0, 0);
   cursor: pointer;
-  border-bottom: ;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid red;
 }
 
 li:active {
@@ -63,11 +65,10 @@ li:active {
 
 .fa {
   padding: 0px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
+  margin: 0px;
+  font-size: 20px;
+  width: 30px;
   text-decoration: none;
-  margin: 5px 2px;
   color: rgb(220, 0, 0);
 }
 
@@ -80,4 +81,17 @@ li:active {
   top: 50px;
   width: 50px;
   z-index: 2;
+}
+
+.logout {
+  height: 25px;
+  line-height: 5px;
+  width: 65px;
+  text-align: center;
+}
+
+.fa-envelope {
+  border: 1px solid red;
+  width: 80px;
+  text-transform: lowercase;
 }
