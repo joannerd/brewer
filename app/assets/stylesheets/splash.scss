@@ -1,33 +1,31 @@
 .splash {
   width: inherit;
   height: inherit;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
 }
 
 .splash-image-container {
-  margin-top: 150px;
-  width: 70%;
   display: flex;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 150px;
 }
 
 .pic-left {
-  width: 99%;
-  height: 99%;
-  flex: 0 1 auto;
+  width: 400px;
+  height: 600px;
 }
 
 .pics-right {
-  width: 70%;
-  height: 70%;
-  flex: 0 1 auto;
+  width: 424px;
 }
 
-.splash-items-right {
+.splash-items.right {
   display: flex;
   flex-direction: column;
   max-height: inherit;
+}
+
+.splash-items {
+  width: inherit;
 }
