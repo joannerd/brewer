@@ -29,3 +29,7 @@
 .splash-items {
   width: inherit;
 }
+
+.pic-left:hover, .pics-right:hover {
+  opacity: 0.5;
+}

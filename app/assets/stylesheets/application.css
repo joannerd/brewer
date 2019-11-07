@@ -14,7 +14,7 @@
  */
 
 @import './reset.css';
-@import './session_form.scss';
-@import './nav-bar.scss';
-@import './splash.scss';
-@import './brewery.scss';
+@import './session_form.css';
+@import './nav-bar.css';
+@import './splash.css';
+@import './brewery.css';
