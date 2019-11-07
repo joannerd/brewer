@@ -1,16 +1,33 @@
-// .splash {
-//   // margin-top: 90px;
-//   color: white;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
+.splash {
+  width: inherit;
+  height: inherit;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-// .pic-left {
-//   size: 10%;
-//   width: 40%;
-//   height: 40%;
-// }
+.splash-image-container {
+  margin-top: 150px;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-// .pics-right {
+.pic-left {
+  width: 99%;
+  height: 99%;
+  flex: 0 1 auto;
+}
 
-// }
+.pics-right {
+  width: 70%;
+  height: 70%;
+  flex: 0 1 auto;
+}
+
+.splash-items-right {
+  display: flex;
+  flex-direction: column;
+  max-height: inherit;
+}

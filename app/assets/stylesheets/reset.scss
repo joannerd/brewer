@@ -22,7 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font-family: inherit;
 	vertical-align: top;
-  color: black;
+  color: white;
   background-color: black;
 }
 
@@ -62,19 +62,5 @@ table {
   display:flex;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
-}
-
-.flex-center {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content:center;
-}
-
-.flex-center-row {
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content:center;
+  justify-content: center;
 }

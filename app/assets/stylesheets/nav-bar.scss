@@ -2,6 +2,9 @@ nav {
   width: inherit;
   height: 90px;
   border-bottom: 1px solid rgb(172, 172, 172);
+  position: sticky;
+  z-index: 3;
+  top: 0;
 }
 
 .nav-logo {
@@ -15,6 +18,7 @@ nav {
   box-shadow: 0px 0px 10px rgb(194, 194, 194);
   text-shadow: 2px 2px 5px rgb(194, 194, 194);
   margin-right: 10px;
+  vertical-align: none;
 }
 
 .nav-welcome {
