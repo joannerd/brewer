@@ -7,6 +7,11 @@ class NavBar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+
+    // this.props.receiveCurrentUser(this.props.currentUser)
+  }
+
   handleClick(e) {
     e.preventDefault();
     this.props.logout()
@@ -14,6 +19,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    if (this.props.currentUser === undefined) return null;
     return (
       <div>
         <nav>

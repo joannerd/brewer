@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
   formHeader: 'Sign Up',
   otherForm: 'Log In',
 
-  currentUser: state.session.id
+  // currentUser: Object.values(state.entities.users)
+  // currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = (dispatch) => ({

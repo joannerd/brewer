@@ -10,6 +10,11 @@ const receiveCurrentUser = user => ({
   user
 });
 
+// const fetchUser = userId => ({
+//   type: RECEIVE_CURRENT_USER,
+//   user: 
+// });
+
 const logoutCurrentUser = () => ({
   type: LOG_OUT_CURRENT_USER
 });
