@@ -1,17 +1,19 @@
 import React from 'react';
-import { Route, Redirect, Switch, Link } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import LogInFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
-import SplashContainer from './session/splash_container';
+import NavBarContainer from './session/navigation_bar_container';
+import Splash from './splash';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div className="app flex-center">
+    <ProtectedRoute component={NavBarContainer} />
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <ProtectedRoute exact path="/" component={SplashContainer} />
     </Switch>
+    {/* <ProtectedRoute component={Splash} /> */}
   </div>
 );
 
