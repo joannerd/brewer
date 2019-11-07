@@ -8,8 +8,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  // receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user)),
-  // fetchUser: (userId) => dispatch(receiveCurrentUser(userId)),
   logout: () => dispatch(logout())
 });
 

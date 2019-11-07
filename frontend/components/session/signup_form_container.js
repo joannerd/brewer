@@ -7,10 +7,7 @@ const mapStateToProps = (state) => ({
   errors: state.errors.session,
   formType: 'signup',
   formHeader: 'Sign Up',
-  otherForm: 'Log In',
-
-  // currentUser: Object.values(state.entities.users)
-  // currentUser: state.entities.users[state.session.id]
+  otherForm: 'Log In'
 });
 
 const mapDispatchToProps = (dispatch) => ({
