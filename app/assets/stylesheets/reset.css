@@ -23,7 +23,7 @@ time, mark, audio, video {
 	font-family: inherit;
 	vertical-align: top;
   color: white;
-  background-color: black;
+  background-color: #222121;
 }
 
 /* HTML5 display-role reset for older browsers */

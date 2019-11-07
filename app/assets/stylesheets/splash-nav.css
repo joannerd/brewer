@@ -1,27 +1,33 @@
 nav {
-  width: inherit;
+  margin-top: -465px;
   height: 90px;
   border-bottom: 1px solid rgb(172, 172, 172);
-  position: sticky;
+  position: fixed;
   z-index: 3;
-  top: 0;
 }
 
-.nav-logo {
-  font-family: 'Cinzel Decorative', cursive;
-  font-size: 50px;
+.welcome {
   padding: 25px;
-  padding-top: 10px;
-  color: white;
-  font-weight: bold;
-  background-color: #daa520;
+  background-color: #BF965C;
   box-shadow: 0px 0px 10px rgb(194, 194, 194);
-  text-shadow: 2px 2px 5px rgb(194, 194, 194);
   margin-right: 10px;
   vertical-align: none;
 }
 
+.nav-logo {
+  padding-top: 10px;
+  background-color: inherit;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgb(194, 194, 194);
+}
+
 .nav-welcome {
+  background-color: inherit;
+  font-size: 8px;
+  color: black;
   font-size: 20px;
   padding-top: 5px;
   box-sizing: border-box;
@@ -47,18 +53,18 @@ nav, .nav-index, .nav-contact {
   flex: 0 1 auto;
   text-transform: uppercase;
   text-decoration: none;
-  color: #daa520;
+  color: #BF965C;
 }
 
 li:hover:not(.active) {
   color: rgb(117, 0, 0);
   cursor: pointer;
   padding-bottom: 15px;
-  border-bottom: 2px solid #daa520;
+  border-bottom: 2px solid #BF965C;
 }
 
 li:active {
-  border: 1px dotted #daa520;
+  border: 1px dotted #BF965C;
   cursor: pointer;
 }
 
@@ -78,7 +84,7 @@ li:active {
   font-size: 20px;
   width: 30px;
   text-decoration: none;
-  color: #daa520;
+  color: #BF965C;
 }
 
 .fa:hover {
@@ -100,7 +106,7 @@ li:active {
 }
 
 .fa-envelope {
-  border: 1px solid #daa520;
+  border: 1px solid #BF965C;
   padding: 5px;
 }
 
@@ -113,7 +119,7 @@ li:active {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #daa520;
+  background-color: #BF965C;
   min-width: 70px;
   z-index: 1;
 }
@@ -123,13 +129,13 @@ li:active {
 }
 
 .dropdown-content * {
-  color: #daa520;
+  color: #BF965C;
   display: block;
 }
 
 .dropdown-content *:hover {
-  background-color: #daa520;
-  color: black;
+  background-color: #BF965C;
+  color: #222121;
 }
 
 .dropdown:hover .dropdown-content {
