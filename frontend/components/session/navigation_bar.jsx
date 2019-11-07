@@ -10,7 +10,7 @@ class NavBar extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.logout()
-      .then(() => this.props.history.push("/"))
+      .then(() => this.props.history.push("/login"))
   }
 
   render() {
