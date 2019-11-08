@@ -5,13 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPjYkDq0-iiCd6W5-qCw46J-r0EW39L1U">
-    </script>
-    
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
-    
+
+    <script type="text/javascript">
+      window.mboxAPIKey = "<%= Rails.application.credentials.mbox[:api_key] %>"
+    </script>
+
     <style>
       @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
     </style>
