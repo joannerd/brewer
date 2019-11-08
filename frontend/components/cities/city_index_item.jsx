@@ -7,7 +7,7 @@ class City extends React.Component {
     const city = this.props.city
     return (
         <div className="city-info">
-          <h3><Link to={`/cities/${city.id}`} target="_blank" >{city.name}</Link></h3>
+          <h3><Link to={`/cities/${city.id}`} >{city.name}</Link></h3>
           <p>description about city</p>
         </div>
     )

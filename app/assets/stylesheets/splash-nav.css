@@ -2,17 +2,19 @@ nav {
   height: 90px;
   border-bottom: 1px solid rgb(172, 172, 172);
   position: fixed;
-  left: 10%;
+  left: 0;
   right: 0;
   z-index: 3;
 }
 
 .welcome {
   padding: 25px;
+  padding-bottom: 20px;
   background-color: #BF965C;
   box-shadow: 0px 0px 10px rgb(194, 194, 194);
   margin-right: 10px;
   vertical-align: none;
+  margin-left: 10%;
 }
 
 .nav-logo {
@@ -36,6 +38,7 @@ nav {
 }
 
 nav, .nav-index, .nav-contact {
+  padding-left: 8%;
   font-size: 15px;
   font-weight: lighter;
   display: flex;

@@ -1,5 +1,6 @@
 import React from 'react';
 import City from './city_index_item';
+import Map from './city_map';
 
 class CityIndex extends React.Component {
   componentDidMount() {
@@ -16,12 +17,7 @@ class CityIndex extends React.Component {
           ))}
         </ul>
 
-        {/* <BreweryMap breweries={this.props.breweries} /> */}
-        <div id="map-container" ref="map">
-          <h3>Brewery Map</h3>
-          <div id="map" ref="...">
-          </div>
-        </div>
+        <Map places={this.props.cities} />
       </section>
     )
   }

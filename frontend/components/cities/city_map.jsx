@@ -1,7 +1,7 @@
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
 
-class BreweriesMap extends React.Component {
+class Map extends React.Component {
   constructor(props) {
     super(props);
     this.map;
@@ -9,8 +9,8 @@ class BreweriesMap extends React.Component {
 
   componentDidMount() {
     const mapOptions = {
-      center: { lat: this.props.breweries[0].lat, lng: this.props.breweries[0].lng },
-      zoom: 13
+      center: { lat: 39.596918, lng: -97.473672 },
+      zoom: 4
     };
     const mapDOMNode = document.getElementById('map');
     this.map = new google.maps.Map(mapDOMNode, mapOptions);
@@ -18,13 +18,13 @@ class BreweriesMap extends React.Component {
 
   componentDidUpdate() {
     this.MarkerManager = new MarkerManager(this.map);
-    this.MarkerManager.updateMarkers(this.props.breweries);
+    this.MarkerManager.updateMarkers(this.props.places);
   }
 
   render() {
     return (
       <div id="map-container" ref="map">
-        <h3>Brewery Map:</h3>
+        <h3>City Map:</h3>
         <div id="map" ref={map => this.mapNode = map}>
         </div>
       </div>
@@ -32,4 +32,4 @@ class BreweriesMap extends React.Component {
   }
 }
 
-export default BreweriesMap;
+export default Map;
