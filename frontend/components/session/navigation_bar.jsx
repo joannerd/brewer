@@ -22,13 +22,13 @@ class NavBar extends React.Component {
     return (
       <nav className="center">
         <div className="welcome">
-          <span className="nav-logo">BREWER</span>
+          <Link className="nav-logo" to="/">BREWER</Link>
           <h3 className="nav-welcome">Welcome {this.props.currentUser.username}</h3>
         </div>
 
         <ul className="nav-index">
           <div className="dropdown">
-            <span><Link to="/cities" target="_black" >Cities</Link><i className="fa fa-angle-down"/></span>
+            <span><Link to="/cities">Cities</Link><i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
               {this.props.cities.map((city, i) => (
                 <Link to={`/cities/${city.id}`} key={i}>{city.name}</Link>
@@ -36,9 +36,9 @@ class NavBar extends React.Component {
             </div>
           </div>
 
-          <li><Link to="/guides" target="_blank" >Guides</Link></li>
-          <li><Link to="/maps" target="_blank" >Maps</Link></li>
-          <li><Link to="/breweries" target="_blank" >Breweries</Link></li>
+          <li><Link to="/guides">Guides</Link></li>
+          <li><Link to="/maps">Maps</Link></li>
+          <li><Link to="/breweries">Breweries</Link></li>
 
           <div className="dropdown">
             <span>More<i className="fa fa-angle-down"/></span>

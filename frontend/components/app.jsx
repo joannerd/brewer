@@ -10,7 +10,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div className="app flex-center">
-    <ProtectedRoute component={NavBarContainer} />
+    <header>
+      <ProtectedRoute component={NavBarContainer} />
+    </header>
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

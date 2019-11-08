@@ -1,4 +1,11 @@
-/* .brewery {
-
+.brewery-index {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 150px;
+  text-align: center;
 }
- */
+/* 
+.brewery li:hover:not(.active) {
+  text-decoration: none;
+} */

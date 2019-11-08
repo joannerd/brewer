@@ -9,12 +9,19 @@ class CityIndex extends React.Component {
   render() {
     return (
       <section className="city-index">
-        <h1>Cities Index</h1>
         <ul className="city-index-list">
+          <h1>Cities Index</h1>
           {this.props.cities.map((city, i) => (
             <City city={city} key={i}/>
           ))}
         </ul>
+
+        {/* <BreweryMap breweries={this.props.breweries} /> */}
+        <div id="map-container" ref="map">
+          <h3>Brewery Map</h3>
+          <div id="map" ref="...">
+          </div>
+        </div>
       </section>
     )
   }
