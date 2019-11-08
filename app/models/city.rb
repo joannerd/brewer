@@ -11,7 +11,6 @@
 
 class City < ApplicationRecord
   validates :name, :state, presence: true
-  validates :name, :state, uniqueness: true
 
   has_many :breweries
   has_many :guides

@@ -1,0 +1,1 @@
+json.extract! brewery, :id, :name, :lat, :lng, :address, :website, :city_id

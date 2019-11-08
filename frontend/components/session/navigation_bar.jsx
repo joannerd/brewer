@@ -7,6 +7,10 @@ class NavBar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchCities();
+  }
+
   handleClick(e) {
     e.preventDefault();
     this.props.logout()
@@ -23,24 +27,24 @@ class NavBar extends React.Component {
         </div>
 
         <ul className="nav-index">
-
           <div className="dropdown">
-            <span>Cities<i className="fa fa-angle-down"/></span>
+            <span><Link to="/cities" target="_black" >Cities</Link><i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
-              <Link to="/" target="_blank" >LA</Link>
-              <Link to="/" target="_blank" >SF</Link>
+              {this.props.cities.map((city, i) => (
+                <Link to={`/cities/${city.id}`} key={i}>{city.name}</Link>
+              ))}
             </div>
           </div>
 
-          <li><Link to="/" target="_blank" >Guides</Link></li>
-          <li><Link to="/" target="_blank" >Maps</Link></li>
-          <li><Link to="/" target="_blank" >Breweries</Link></li>
+          <li><Link to="/guides" target="_blank" >Guides</Link></li>
+          <li><Link to="/maps" target="_blank" >Maps</Link></li>
+          <li><Link to="/breweries" target="_blank" >Breweries</Link></li>
 
           <div className="dropdown">
             <span>More<i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
-              <Link to="/" target="_blank" >1</Link>
-              <Link to="/" target="_blank" >2</Link>
+              <Link to="/more1" target="_blank" >1</Link>
+              <Link to="/more2" target="_blank" >2</Link>
             </div>
           </div>
         </ul>

@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_11_05_011939) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.index ["city_id"], name: "index_breweries_on_city_id"
-    t.index ["name"], name: "index_breweries_on_name"
   end
 
   create_table "brewery_guides", force: :cascade do |t|

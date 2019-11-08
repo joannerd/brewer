@@ -6,11 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create({ username: "DemoUser", password: "123456", email: "demo@email.com" })
+User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
 
+City.create({name: "Asheville", state: "North Carolina"})
+City.create({name: "Austin", state: "Texas"})
 City.create({name: "Boston", state: "Massachusetts"})
-City.create({name: "San Francisco", state: "California"})
+City.create({name: "Cincinnati", state: "Ohio"})
+City.create({name: "Denver", state: "Colorado"})
+City.create({name: "Grand Rapids", state: "Michigan"})
+City.create({name: "Indianapolis", state: "Minneapolis"})
 City.create({name: "Kalamazoo", state: "Michigan"})
+City.create({name: "Oakland", state: "California"})
+City.create({name: "Portland", state: "Maine"})
+City.create({name: "Richmond", state: "Virginia"})
+City.create({name: "San Diego", state: "California"})
+City.create({name: "Seattle", state: "Washington"})
+
 
 Brewery.create({
   name: "Lord Hobo Brewing Company",

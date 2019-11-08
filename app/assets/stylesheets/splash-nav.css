@@ -64,7 +64,7 @@ li:hover:not(.active) {
 }
 
 li:active {
-  border: 1px dotted #BF965C;
+  /* border: 1px dotted #BF965C; */
   cursor: pointer;
 }
 
@@ -131,6 +131,7 @@ li:active {
 .dropdown-content * {
   color: #BF965C;
   display: block;
+  text-align: left;
 }
 
 .dropdown-content *:hover {
