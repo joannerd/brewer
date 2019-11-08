@@ -38,7 +38,6 @@ nav {
 }
 
 nav, .nav-index, .nav-contact {
-  padding-left: 8%;
   font-size: 15px;
   font-weight: lighter;
   display: flex;
@@ -49,6 +48,7 @@ nav, .nav-index, .nav-contact {
 }
 
 .nav-index, .nav-contact {
+  padding-left: 8%;
   vertical-align: baseline;
   margin-top: 30px;
 }
@@ -107,6 +107,7 @@ li:active {
   line-height: 5px;
   width: 70px;
   text-align: center;
+  margin-left: 3%;
 }
 
 .fa-envelope {

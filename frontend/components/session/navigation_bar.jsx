@@ -55,9 +55,9 @@ class NavBar extends React.Component {
           <a href="http://www.junnac.org/" className="fa fa-folder" target="_blank" alt="portfolio"/>
           <a href="https://github.com/junnac" className="fa fa-github" target="_blank" alt="github"/>
           <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" target="_blank" alt="email"/>
+          <a href="/" className="fa fa-search"/>
         </div>
 
-        <a href="/" className="fa fa-search"/>
         <button className="input submit logout" onClick={this.handleClick}>Logout</button>
       </nav>
     )
