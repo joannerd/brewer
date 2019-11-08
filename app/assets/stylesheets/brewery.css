@@ -1,11 +1,42 @@
 .brewery-index {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 150px;
-  text-align: center;
+  
 }
-/* 
-.brewery li:hover:not(.active) {
+
+.brewery-index-list {
+  width: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin-top: 150px;
+}
+
+.brewery {
+  margin: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 30px;
+}
+
+.brewery h1 * {
+  font-size: larger;
+  color: #D4A25B;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.brewery a {
   text-decoration: none;
-} */
+  color: #D4A25B;
+}
+
+.brewery a:hover {
+  color: rgb(107, 84, 52);
+  text-decoration: none;
+}
+
+.brewery p {
+  padding: 5%;
+  text-align: left;
+  text-indent: 2em;
+  word-spacing: 0.2em;
+}

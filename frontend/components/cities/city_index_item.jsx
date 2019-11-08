@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import BreweryMap from './brewery_map';
 
 class City extends React.Component {
   render() {
     const city = this.props.city
     return (
         <div className="city-info">
-          <h3><Link to={`/cities/${city.id}`} >{city.name}</Link></h3>
-          <p>description about city</p>
+          <h1><Link to={`/cities/${city.id}`} >{city.name}</Link></h1>
+          <p>description about city's beer scene: {city.description}</p>
         </div>
     )
   }

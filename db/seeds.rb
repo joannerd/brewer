@@ -8,19 +8,19 @@
 
 User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
 
-City.create({name: "Asheville", state: "North Carolina"})
-City.create({name: "Austin", state: "Texas"})
-City.create({name: "Boston", state: "Massachusetts"})
-City.create({name: "Cincinnati", state: "Ohio"})
-City.create({name: "Denver", state: "Colorado"})
-City.create({name: "Grand Rapids", state: "Michigan"})
-City.create({name: "Indianapolis", state: "Minneapolis"})
-City.create({name: "Kalamazoo", state: "Michigan"})
-City.create({name: "Oakland", state: "California"})
-City.create({name: "Portland", state: "Maine"})
-City.create({name: "Richmond", state: "Virginia"})
-City.create({name: "San Diego", state: "California"})
-City.create({name: "Seattle", state: "Washington"})
+City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515})
+City.create({name: "Austin", state: "Texas", lat: 30.2672, lng: -97.7431})
+City.create({name: "Boston", state: "Massachusetts", lat: 42.3601, lng: -71.0589})
+City.create({name: "Cincinnati", state: "Ohio", lat: 39.1031, lng: -84.5120})
+City.create({name: "Denver", state: "Colorado", lat: 39.7392, lng: -104.9903})
+City.create({name: "Grand Rapids", state: "Michigan", lat: 42.9634, lng: -85.6681})
+City.create({name: "Indianapolis", state: "Indiana", lat: 39.7684, lng: -86.1581})
+City.create({name: "Kalamazoo", state: "Michigan", lat: 42.2917, lng: -85.5872})
+City.create({name: "Oakland", state: "California", lat: 37.8044, lng: -122.2712})
+City.create({name: "Portland", state: "Maine", lat: 45.5051, lng: -122.6750})
+City.create({name: "Richmond", state: "Virginia", lat: 37.5407, lng: -77.4360})
+City.create({name: "San Diego", state: "California", lat: 32.7157, lng: -117.1611})
+City.create({name: "Seattle", state: "Washington", lat: 47.6062, lng: -122.3321})
 
 
 Brewery.create({
@@ -30,9 +30,7 @@ Brewery.create({
   address: "5 Draper St, Woburn, MA 01801",
   website: "lordhobobrewing.com",
   city_id: 1,
-  description: "With beer on a pedestal and adventure up our sleeve, we set out to craft style-defining New England beers that highlight paramount traits of quality ingredients. Like us, our beers are elegant yet raw, free-spirited yet sophisticated. Beer has a unique ability to bring all kinds of people together, from the Lords that only enjoy the finer things in life, to the Hobos that work hard to earn their small pleasures, great beer is an accessible luxury.
-
-  Proudly brewed in Massachusetts, we’re bringing the New England beer experience to thirsty fans everywhere. We relish in the connection and find sanctuary in the beers that unite us. — Lords and Hobos alike, we all deserve to drink like royalty."
+  description: "With beer on a pedestal and adventure up our sleeve, we set out to craft style-defining New England beers that highlight paramount traits of quality ingredients. Like us, our beers are elegant yet raw, free-spirited yet sophisticated. Beer has a unique ability to bring all kinds of people together, from the Lords that only enjoy the finer things in life, to the Hobos that work hard to earn their small pleasures, great beer is an accessible luxury. Proudly brewed in Massachusetts, we’re bringing the New England beer experience to thirsty fans everywhere. We relish in the connection and find sanctuary in the beers that unite us. — Lords and Hobos alike, we all deserve to drink like royalty."
 });
 Brewery.create({
   name: "Bell's Brewery",

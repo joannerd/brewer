@@ -20,31 +20,23 @@ class NavBar extends React.Component {
   render() {
     // if (this.props.currentUser === undefined) return null;
     return (
-      <nav className="center">
+      <nav className="nav-container">
         <div className="welcome">
           <Link className="nav-logo" to="/">BREWER</Link>
           <h3 className="nav-welcome">Welcome {this.props.currentUser.username}</h3>
         </div>
 
         <ul className="nav-index">
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/guides">Guides</Link></li>
+          <li><Link to="/breweries">Breweries</Link></li>
+
           <div className="dropdown">
             <span><Link to="/cities">Cities</Link><i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
               {this.props.cities.map((city, i) => (
                 <Link to={`/cities/${city.id}`} key={i}>{city.name}</Link>
               ))}
-            </div>
-          </div>
-
-          <li><Link to="/guides">Guides</Link></li>
-          <li><Link to="/maps">Maps</Link></li>
-          <li><Link to="/breweries">Breweries</Link></li>
-
-          <div className="dropdown">
-            <span>More<i className="fa fa-angle-down"/></span>
-            <div className="dropdown-content">
-              <Link to="/more1" target="_blank" >1</Link>
-              <Link to="/more2" target="_blank" >2</Link>
             </div>
           </div>
         </ul>
@@ -57,7 +49,7 @@ class NavBar extends React.Component {
           <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" target="_blank" alt="email"/>
           <a href="/" className="fa fa-search"/>
         </div>
-
+        
         <button className="input submit logout" onClick={this.handleClick}>Logout</button>
       </nav>
     )

@@ -7,8 +7,8 @@ export default class MarkerManager {
   }
 
   createMarkerFromPlace(place) {
-    // const myPos = { lat: place.lat, lng: place.lng };
-    const myPos = { lat: 39.596918, lng: -97.473672 };
+    const myPos = { lat: place.lat, lng: place.lng };
+    // const myPos = { lat: 39.596918, lng: -97.473672 };
     const marker = new google.maps.Marker({
       position: myPos,
       map: this.map,
