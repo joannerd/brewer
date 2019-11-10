@@ -1,5 +1,6 @@
 @breweries.each do |brewery|
   json.set! brewery.id do
     json.partial! 'api/breweries/brewery', brewery: brewery
+    # json.photoUrl url_for(brewery.photo)
   end
 end

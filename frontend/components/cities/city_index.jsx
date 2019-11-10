@@ -16,7 +16,7 @@ class CityIndex extends React.Component {
           ))}
         </ul>
 
-        <Map places={this.props.cities} />
+        {/* <Map places={this.props.cities} /> */}
       </section>
     )
   }

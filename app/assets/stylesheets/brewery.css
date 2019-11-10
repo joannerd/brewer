@@ -12,10 +12,13 @@
 }
 
 .brewery {
-  margin: 30px;
+  margin: 60px;
   margin-left: 10%;
   margin-right: 10%;
-  padding: 30px;
+  padding: 5%;
+
+  outline: 5px inset white;
+  outline-offset: 20px;
 }
 
 .brewery h1 * {
@@ -23,6 +26,13 @@
   color: #D4A25B;
   font-weight: bold;
   margin: 5px;
+}
+
+.brewery h2 {
+  font-size: small;
+  color: grey;
+  padding-bottom: 3%;
+  border-bottom: 1px solid grey;
 }
 
 .brewery a {
@@ -37,11 +47,23 @@
 
 .brewery p {
   padding: 5%;
-  text-align: left;
-  text-indent: 2em;
   word-spacing: 0.2em;
+  text-align: justify;
 }
 
-/* 
-1. 
-*/
+.gmap-link {
+  background-color: #BF965C;
+  color: #222121;
+  outline: none;
+  border: 1px solid #222121;
+  padding: 5px;
+}
+
+
+
+.gmap-link:hover {
+  background-color: #222121;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}

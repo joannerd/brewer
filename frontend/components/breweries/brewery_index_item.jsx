@@ -7,12 +7,17 @@ class Brewery extends React.Component {
     return (
       <div className="brewery">
         <h1>
-          <a href={`https://www.${this.props.brewery.website}`} target="_blank">{this.props.brewery.name}</a>
+          <a href={this.props.brewery.website} target="_blank">
+            {this.props.brewery.name}
+          </a>
         </h1>
         <h2>
-          <a href={`https://www.google.com/maps/place/${addressLink}/`} target="_blank">{this.props.brewery.address}</a>
+          {this.props.brewery.address}
         </h2>
         <p>{this.props.brewery.description}</p>
+        <a href={`https://www.google.com/maps/place/${addressLink}/`} target="_blank"><button className="gmap-link">
+          Open in Google Maps
+        </button></a>
       </div>
     )
   }
