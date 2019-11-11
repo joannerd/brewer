@@ -1,14 +1,24 @@
 .brewery-index {
-
+  min-width: 600px;
+  margin-top: 150px;
 }
 
 .brewery-index-list {
-  min-width: 600px;
+  min-width: 500px;
   width: 50%;
   position: absolute;
-  top: 0px;
+  top: 90px;
   left: 0px;
-  margin-top: 150px;
+  background-image: url('beer-wall.jpg');
+  background-position: left;
+  background-repeat: repeat-y;
+  background-size: 100%;
+  background-attachment: fixed;
+  opacity: .8;
+}
+
+.brewery-index-list * {
+  background-color: black;
 }
 
 .brewery {
@@ -17,20 +27,20 @@
   margin-right: 10%;
   padding: 5%;
 
+  box-shadow: 0px 0px 15px grey;
   outline: 5px inset white;
   outline-offset: 20px;
 }
 
 .brewery h1 * {
-  font-size: larger;
-  color: #D4A25B;
-  font-weight: bold;
-  margin: 5px;
+  font-size: 27px;
+  padding: 0px
 }
 
 .brewery h2 {
   font-size: small;
   color: grey;
+  padding-top: 3%;
   padding-bottom: 3%;
   border-bottom: 1px solid grey;
 }
@@ -47,8 +57,8 @@
 
 .brewery p {
   padding: 5%;
-  word-spacing: 0.2em;
   text-align: justify;
+  line-height: 1.5;
 }
 
 .gmap-link {
@@ -57,9 +67,8 @@
   outline: none;
   border: 1px solid #222121;
   padding: 5px;
+  transition: 0.3s;
 }
-
-
 
 .gmap-link:hover {
   background-color: #222121;

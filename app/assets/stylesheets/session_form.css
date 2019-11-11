@@ -1,5 +1,5 @@
 html {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Catamaran', sans-serif;
 }
 
 .form-container {
@@ -36,13 +36,17 @@ html {
   text-decoration: none;
 }
 
-.inactive, .forgot:hover {
+.inactive {
   color: white;
 }
 
-.inactive:hover, .active, .forgot {
+.inactive:hover, .active {
   color: #BF965C;
   text-decoration: none;
+}
+
+.inactive, .active {
+  transition: 0.3s;
 }
 
 .form {
@@ -66,6 +70,7 @@ html {
   border-radius: 10px;
   outline: none;
   border: 1px solid #222121;
+  transition: 0.3s;
 }
 
 .submit:hover {
@@ -73,17 +78,6 @@ html {
   color: white;
   border: 1px solid white;
   cursor: pointer;
-}
-
-
-.forgot-container {
-  font-size: 15px;
-  margin: 15px;
-  color: grey;
-}
-
-.forgot {
-  font-size: 12px;
 }
 
 .hidden {

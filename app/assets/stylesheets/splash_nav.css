@@ -35,7 +35,7 @@ nav {
 
 .nav-welcome {
   background-color: inherit;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Catamaran', sans-serif;
   color: white;
   font-size: 16px;
   padding-top: 5px;
@@ -71,6 +71,7 @@ li:hover:not(.active) {
   cursor: pointer;
   padding-bottom: 15px;
   border-bottom: 2px solid #BF965C;
+  transition: 0.3s;
 }
 
 li:active {
@@ -94,6 +95,7 @@ li:active {
   width: 30px;
   text-decoration: none;
   color: #BF965C;
+  transition: 0.3s;
 }
 
 .fa:hover {
@@ -142,6 +144,7 @@ li:active {
   color: #BF965C;
   display: block;
   text-align: left;
+  transition: 0.3s;
 }
 
 .dropdown-content *:hover {
