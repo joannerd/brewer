@@ -1,15 +1,23 @@
+body {
+	background-image: image-url('beer-wall.jpg');
+  background-repeat: repeat-y;
+  background-size: 100%;
+  background-attachment: fixed;
+}
+
 html {
   font-family: 'Catamaran', sans-serif;
 }
 
 .form-container {
   position: absolute;
-  background-color: #222121;
   box-shadow: 0px 0px 15px rgb(194, 194, 194);
   border-radius: 5px;
   width: 400px;
   height: 550px;
-  top: 10%
+  top: 10%;
+  background-color: black;
+  opacity: .9;
 }
 
 .logo {

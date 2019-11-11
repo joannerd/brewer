@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import './session_form.css';
+@import './session_form.scss';
 @import './splash_nav.css';
 @import './splash.css';
 @import './map.css';

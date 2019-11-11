@@ -1,5 +1,6 @@
 .nav-container {  
   justify-content: space-between;
+  background-color: #222121;
 }
 
 nav {
@@ -56,6 +57,7 @@ nav, .nav-index, .nav-contact {
   padding-left: 8%;
   vertical-align: baseline;
   margin-top: 30px;
+  background-color: #222121;
 }
 
 .nav-index *, .nav-contact * {
@@ -131,8 +133,8 @@ li:active {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #BF965C;
-  min-width: 70px;
+  background-color: #222121;
+  min-width: 110px;
   z-index: 1;
 }
 

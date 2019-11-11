@@ -23,7 +23,6 @@ time, mark, audio, video {
 	font-family: inherit;
 	vertical-align: top;
   color: white;
-  background-color: #222121;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -52,6 +51,7 @@ table {
 
 #main-body {
   text-align: center;
+  background-color:rgb(15, 15, 15);
 }
 
 #root {

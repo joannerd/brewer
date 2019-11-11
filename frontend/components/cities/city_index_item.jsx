@@ -7,7 +7,6 @@ class City extends React.Component {
     return (
         <div className="city-info">
           <h1><Link to={`/cities/${city.id}`} >{city.name}</Link></h1>
-          <p>description about city's beer scene: {city.description}</p>
         </div>
     )
   }

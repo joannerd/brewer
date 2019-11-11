@@ -1,6 +1,6 @@
 class Api::BreweriesController < ApplicationController
   def index
-    @breweries = Brewery.all
+    @breweries = Brewery.all.order(:city_id)
     render '/api/breweries/index'
   end
 

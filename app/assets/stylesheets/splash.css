@@ -8,14 +8,14 @@
 }
 
 .pic-left {
-  width: 444px;
-  height: 666px;
+  width: 500px;
+  height: 750px;
   border: 3px solid #222121;
   transition: 0.3s;
 }
 
 .pics-right {
-  width: 466px;
+  width: 525px;
   border: 3px solid #222121;
   transition: 0.3s;
 }

@@ -54,7 +54,9 @@ class SessionForm extends React.Component {
 
         <div>
           { this.props.errors.map((err, i) => (
-            <div className="user-auth-errors" key={i}>{err}</div>
+            <div className="user-auth-errors" key={i}>
+              {err}
+            </div>
           ))}
         </div>
 

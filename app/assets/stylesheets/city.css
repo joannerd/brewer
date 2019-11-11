@@ -1,18 +1,25 @@
 .city-index {
-  
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(15, 15, 15);
 }
 
 .city-index-list {
-  width: 50%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
   margin-top: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .city-info {
+  flex: 1 0 21%;
   margin: 3%;
   padding: 3%;
+  height: 120px;
 }
 
 .city-info h1 {

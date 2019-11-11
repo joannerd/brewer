@@ -1,6 +1,5 @@
 import React from 'react';
 import City from './city_index_item';
-import Map from '../map/map';
 
 class CityIndex extends React.Component {
   componentDidMount() {
@@ -15,8 +14,6 @@ class CityIndex extends React.Component {
             <City city={city} key={i}/>
           ))}
         </ul>
-
-        {/* <Map places={this.props.cities} /> */}
       </section>
     )
   }
