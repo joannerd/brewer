@@ -12,23 +12,37 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
 .city-info {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  width: 100px;
+  height: 100px;
+  transition: 0.3s;
+
   flex: 1 0 21%;
   margin: 3%;
   padding: 3%;
-  height: 120px;
+
+  display: grid;
+  line-height: 100px;
 }
 
-.city-info h1 {
-  font-size: larger;
+.city-info:hover {
+  opacity: 0.5;
 }
 
 .city-info a {
+  font-size: 28px;
   text-decoration: none;
-  color: #D4A25B;
+  color: white;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  padding: 1%;
+  background-color: rgba(134, 134, 134, 0.432);
+  vertical-align: middle
 }
 
 .city-info a:hover {

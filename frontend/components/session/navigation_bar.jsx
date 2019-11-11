@@ -27,7 +27,7 @@ class NavBar extends React.Component {
         </div>
 
         <ul className="nav-index">
-          <li><Link to="/about">About</Link></li>
+          <li><Link to="/profile">Profile</Link></li>
           <li><Link to="/guides">Guides</Link></li>
           <li><Link to="/breweries">Breweries</Link></li>
 

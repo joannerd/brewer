@@ -18,8 +18,6 @@ class Brewery < ApplicationRecord
   validates :name, :lat, :lng, :address, :website, :city_id, presence: true
   validates :name, uniqueness: true
 
-  has_one_attached :photo
-
   belongs_to :city
   has_many :brewery_guides
   has_many :guides,

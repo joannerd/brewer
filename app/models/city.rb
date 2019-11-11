@@ -14,6 +14,8 @@
 class City < ApplicationRecord
   validates :name, :state, :lat, :lng, presence: true
 
+  has_one_attached :photo
+
   has_many :breweries
   has_many :guides
 end

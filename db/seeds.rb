@@ -1,25 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
 User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
 
-City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515})
-City.create({name: "Austin", state: "Texas", lat: 30.2672, lng: -97.7431})
-City.create({name: "Boston", state: "Massachusetts", lat: 42.3601, lng: -71.0589})
-City.create({name: "Cincinnati", state: "Ohio", lat: 39.1031, lng: -84.5120})
-City.create({name: "Denver", state: "Colorado", lat: 39.7392, lng: -104.9903})
-City.create({name: "Grand Rapids", state: "Michigan", lat: 42.9634, lng: -85.6681})
-City.create({name: "Indianapolis", state: "Indiana", lat: 39.7684, lng: -86.1581})
-City.create({name: "Kalamazoo", state: "Michigan", lat: 42.2917, lng: -85.5872})
-City.create({name: "Oakland", state: "California", lat: 37.8044, lng: -122.2712})
-City.create({name: "Portland", state: "Maine", lat: 45.5051, lng: -122.6750})
-City.create({name: "San Diego", state: "California", lat: 32.7157, lng: -117.1611})
-City.create({name: "Seattle", state: "Washington", lat: 47.6062, lng: -122.3321})
+City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/asheville.jpg"), filename: "asheville.jpg")
+
+City.create({name: "Austin", state: "Texas", lat: 30.2672, lng: -97.7431}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/austin.jpg"), filename: "austin.jpg")
+
+City.create({name: "Boston", state: "Massachusetts", lat: 42.3601, lng: -71.0589}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/boston.jpg"), filename: "boston.jpg")
+
+City.create({name: "Cincinnati", state: "Ohio", lat: 39.1031, lng: -84.5120}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/cincinatti.jpg"), filename: "cincinatti.jpg")
+
+City.create({name: "Denver", state: "Colorado", lat: 39.7392, lng: -104.9903}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/denver.jpg"), filename: "denver.jpg")
+
+City.create({name: "Grand Rapids", state: "Michigan", lat: 42.9634, lng: -85.6681}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/grandrapids.jpg"), filename: "grandrapids.jpg")
+
+City.create({name: "Indianapolis", state: "Indiana", lat: 39.7684, lng: -86.1581}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/indianapolis.jpg"), filename: "indianapolis.jpg")
+
+City.create({name: "Kalamazoo", state: "Michigan", lat: 42.2917, lng: -85.5872}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/kalamazoo.jpg"), filename: "kalamazoo.jpg")
+
+City.create({name: "Oakland", state: "California", lat: 37.8044, lng: -122.2712}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/oakland.jpg"), filename: "oakland.jpg")
+
+City.create({name: "Portland", state: "Maine", lat: 45.5051, lng: -122.6750}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/portland.jpg"), filename: "portland.jpg")
+
+City.create({name: "San Diego", state: "California", lat: 32.7157, lng: -117.1611}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/sandiego.jpg"), filename: "sandiego.jpg")
+
+City.create({name: "Seattle", state: "Washington", lat: 47.6062, lng: -122.3321}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/seattle.jpg"), filename: "seattle.jpg")
+
 
 
 
