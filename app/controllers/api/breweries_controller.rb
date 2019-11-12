@@ -6,7 +6,6 @@ class Api::BreweriesController < ApplicationController
 
   def show
     @brewery = Brewery.find(params[:id])
-    @guides = @brewery.guides
     render '/api/breweries/show'
   end
 end

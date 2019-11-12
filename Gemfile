@@ -47,9 +47,13 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.comconfig.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)/rails/spring
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
+  gem "guard", ">= 2.2.2", :require => false
+  gem "guard-livereload",  :require => false
+  gem "rack-livereload"
+  gem "rb-fsevent",        :require => false
 end
 
 group :test do

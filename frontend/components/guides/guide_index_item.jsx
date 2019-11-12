@@ -10,24 +10,24 @@ class Guide extends React.Component {
     const guide = this.props.guide
     return (
       <div className="guide">
+        <img src={guide.cityPhotoUrl} className="guide-photo city-photo" />
         <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
+
+        <Link to={`/guides/${guide.id}/edit`}>
+          <button className="guide-update">
+            Update
+          </button>
+        </Link>
+
+        <h2>{guide.author}</h2>
         <p>{guide.body}</p>
 
         {guide.breweries.map((brewery, i) => (
-          <div className="guide-brewery">
-            <Brewery key={i} brewery={brewery} />
+          <div key={i} className="guide-brewery">
+            <Brewery brewery={brewery} />
           </div>
         ))}
 
-        <div className="guide-links">
-          <button onclick={`location.href = /guides/${guide.id}/edit`}
-            className="guide-submit">
-          {/* <Link to={`/guides/${guide.id}/edit`}> */}
-              Update
-          {/* </Link> */}
-            </button>
-          <button onClick={() => this.props.deleteGuide(guide.id)} className="guide-submit">Delete</button>
-        </div>
       </div>
     )
   }

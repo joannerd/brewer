@@ -12,8 +12,8 @@ class BreweryIndex extends React.Component {
       <section className="brewery-index">
         <div className="brewery-index-list">
           {this.props.breweries.map((brewery, i) => (
-            <div className="brewery">
-              <Brewery key={i} brewery={brewery} />
+            <div key={i} className="brewery">
+              <Brewery brewery={brewery} />
             </div>
           ))}
         </div>

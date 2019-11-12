@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  guide_id   :integer
+#  order      :integer
 #
 
 require 'test_helper'

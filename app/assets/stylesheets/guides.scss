@@ -26,12 +26,45 @@
   outline-offset: 20px;
 }
 
+.guide-photo.city-photo {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
 .guide h1 * {
-  font-size: 27px;
+  font-size: 35px;
   padding: 0px
 }
 
 .guide h2 {
+  color: grey;
+  padding-top: 3%;
+  // padding-bottom: 3%;
+  // border-bottom: 1px solid grey;
+}
+
+.guide a {
+  text-decoration: none;
+  color: rgb(180, 136, 73);
+}
+
+.guide a:hover {
+  opacity: .5;
+}
+
+.guide p {
+  padding: 5%;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+
+.guide-brewery h1 * {
+  font-size: 27px;
+  padding: 0px
+}
+
+.guide-brewery h2 {
   font-size: small;
   color: grey;
   padding-top: 3%;
@@ -39,17 +72,17 @@
   border-bottom: 1px solid grey;
 }
 
-.guide a {
+.guide-brewery a {
   text-decoration: none;
-  color: #D4A25B;
+  color: rgb(134, 134, 134);
 }
 
-.guide a:hover {
-  color: rgb(107, 84, 52);
+.guide-brewery a:hover {
+  color: rgb(180, 136, 73);
   text-decoration: none;
 }
 
-.guide p {
+.guide-brewery p {
   padding: 5%;
   text-align: justify;
   line-height: 1.5;
@@ -73,33 +106,29 @@
 }
 
 .guide .gmap-link:hover {
-  background-color: #222121;
-  color: white;
-  border: 1px solid white;
+  background-color: rgb(180, 136, 73);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(180, 136, 73);
   cursor: pointer;
 }
 
-.guide-links {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: space-between;;
-}
-
-.guide-submit {
-  margin: 1%;
-  padding: 15px;
-  background-color: rgb(70, 70, 70);
+.guide-update {
+  position: absolute;
+  top: 85px;
+  right: 13%;
+  padding: 5px;
   color: white;
-  text-transform: uppercase;
   border-radius: 2px;
   outline: none;
   border: 1px solid black;
   transition: 0.3s;
+  font-size: 12px;
+  background-color: rgb(88, 32, 32);
 }
 
-.guide-submit:hover {
-  background-color: rgb(173, 173, 173);
-  color: #222121;
+.guide-update:hover {
+  background-color: rgb(155, 0, 0);
+  color: white;
   border: 1px solid black;
   cursor: pointer;
 }

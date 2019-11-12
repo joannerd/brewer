@@ -6,6 +6,7 @@ class Api::GuidesController < ApplicationController
 
   def show
     @guide = Guide.find(params[:id])
+    @breweries = Brewery.where
     render '/api/guides/show'
   end
 

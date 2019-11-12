@@ -135,7 +135,7 @@ Brewery.create({name: "Backlash Beer Co", lat: 42.327641, lng: -71.074791, addre
 After contract brewing at various locations for years, a series of hazy decisions led us to buy our first fermenter and put down roots in Roxbury, MA -- opening the doors to our taproom in September of 2018.
 
 While we’ve grown since those early days, we still brew in small batches that defy the corporatization of craft. With curiosity at our core, we brew in defiance."})
-Brewery.create({name: "Cheeky Monkey Brewing Co / Lucky Strike Jillians", lat: 42.34729, lng: -71.0946215, address: "3 Lansdowne St, Boston, Massachusetts, 02215", website: "http://www.cheekymonkeyboston.com", city_id: 3, description: "Cheeky Monkey is a person containing incredible amounts of awesomeness through use of sarcasm. Cheeky Monkey Brewing Co. is excited to bring sarcasm and freshly brewed beers to Lansdowne Street. Going far beyond your average brewery, Cheeky Monkey creates a one of a kind experience in Boston, featuring cross cultured street food and entertainment classics.
+Brewery.create({name: "Cheeky Monkey Brewing Co", lat: 42.34729, lng: -71.0946215, address: "3 Lansdowne St, Boston, Massachusetts, 02215", website: "http://www.cheekymonkeyboston.com", city_id: 3, description: "Cheeky Monkey is a person containing incredible amounts of awesomeness through use of sarcasm. Cheeky Monkey Brewing Co. is excited to bring sarcasm and freshly brewed beers to Lansdowne Street. Going far beyond your average brewery, Cheeky Monkey creates a one of a kind experience in Boston, featuring cross cultured street food and entertainment classics.
 
 Brian Watson has been brewing the highest quality products for decades and is one of the most highly respected and celebrated BrewMasters on the planet. As a globally respected BrewMaster, Brian has won more than 100 international medals and set up breweries in North America, China, the UK, Ireland and Australia.
 
@@ -143,9 +143,6 @@ Jason McCloud is our on site Brewery Manager. Jason’s passion for craft beer d
 
 Brian brings his world renowned brews to Boston with the collaboration of Jason and our team using local ingredients and area trends. The end result is a world class beer made right on Lansdowne Street."})
 Brewery.create({name: "Democracy Brewing", lat: 42.3552962282976, lng: -71.0623157813541, address: "35 Temple Pl, Boston, Massachusetts, 02111", website: "http://www.democracybrewing.com", city_id: 3, description: "Democracy Brewing is a brewery and restaurant located at Downtown Crossing in Boston, MA. committed to demonstrating that a successful business can be democratically governed and worker-operated. Located at 35 Temple Place, serving fresh craft beer and a full menu daily from our 100% scratch kitchen.  The brewery is a perfect gathering place in the tradition of the meeting places and town halls that shaped the fight for democracy."})
-Brewery.create({name: "Night Shift Brewing", lat: 42.406040, lng: -71.067940, address: "87 Santilli Hwy, Everett, MA 02149", website: "https://nightshiftfamily.com/", city_id: 3, description: "Night Shift Brewing has its roots in a small kitchen on Josephine Ave in Somerville, MA. In 2007, Co-Founders Rob, Mike, and Michael began homebrewing at night, making beers for friends and family that they hoped were more interesting and flavorful than the commercial options on shelves. 
-
-In 2012, the trio moved their hobby to a small Everett warehouse and launched the the business. They relied on a “create better” mindset and their passionate community of loyal customers to quickly grow their staff, production, and distribution in the local market. Today, Night Shift Brewing operates locations in Everett and Boston MA, and distributes beer throughout MA, as well as in select areas of NY. "})
 Brewery.create({name: "Harpoon Brewery", lat: 42.3465637, lng: -71.0348293, address: "306 Northern Ave Ste 2, Boston, Massachusetts, 02210", website: "http://www.harpoonbrewery.com", city_id: 3, description: "Harpoon Brewery is an American brewery, with plants in Boston, Massachusetts, and Windsor, Vermont. Founded in 1986, the brewery was the first company to obtain a permit to manufacture and sell alcohol in the Commonwealth of Massachusetts in more than 25 years. In 2000, it purchased the former Catamount Brewery plant in Windsor. As of 2013, it was the twelfth-largest craft brewery and 19th-largest overall brewery in the United States.
 
 The brewery is best known for its Harpoon India Pale Ale. It brews multiple other year-round beers including the award-winning Dark, UFO Hefeweizen, UFO Raspberry Hefeweizen, UFO White, and Boston Irish Stout. It also brews several house beers at Boston bars, including 'Sevens Ale' for The Seven's Ale House in Beacon Hill.
@@ -177,13 +174,12 @@ WALTHAM, MA 02452", website: "http://www.mightysquirrel.com", city_id: 3, descri
 
 Someday we hope to build our own brewery, and in the meantime, Mighty Squirrel is having fun swimming in the shiny fermentation tanks at the von Trapp Brewery!"})
 
+Brewery.create({name: "Night Shift Brewing", lat: 42.406040, lng: -71.067940, address: "87 Santilli Hwy, Everett, MA 02149", website: "https://nightshiftfamily.com/", city_id: 3, description: "Night Shift Brewing has its roots in a small kitchen on Josephine Ave in Somerville, MA. In 2007, Co-Founders Rob, Mike, and Michael began homebrewing at night, making beers for friends and family that they hoped were more interesting and flavorful than the commercial options on shelves. 
+
+In 2012, the trio moved their hobby to a small Everett warehouse and launched the the business. They relied on a “create better” mindset and their passionate community of loyal customers to quickly grow their staff, production, and distribution in the local market. Today, Night Shift Brewing operates locations in Everett and Boston MA, and distributes beer throughout MA, as well as in select areas of NY. "})
 Brewery.create({name: "Samuel Adams Brewery", lat: 42.314330, lng: -71.103400, address: "30 Germania St Ste 1, Boston, Massachusetts, 02130", website: "http://www.samueladams.com", city_id: 3, description: "Samuel Adams is the flagship brand of the Boston Beer Company. The brand name (often shortened to Sam Adams) was chosen in honor of Founding Father of the United States Samuel Adams. Adams inherited his father's brewery on King Street (modern day State Street). Some histories say he was a brewer, while others describe him as a maltster. The Samuel Adams brewery is located in Boston, Massachusetts, United States, where visitors can take a tour, and shop beers and merchandise. Samuel Adams beer is brewed by the Boston Beer Company, which was founded by Jim Koch and Rhonda Kallman in Cincinnati, Ohio. Koch comes from a long line of Cincinnati brewers, and Samuel Adams beer was started using a recipe now known as the Samuel Adams Boston Lager.
 
 The Boston Brewery is where all our beers get their start, with the exception of Boston Lager, which was born in our founder Jim Koch's kitchen. It is the smallest of our three breweries, but it is the most important. At Sam Adams, each year we travel to Germany to select the world's best Heirloom aroma hops for our Boston Lager. Big Industrial beers are made with bittering hops purchased on the global commodity markets. While these provide a lot of bitter they do not have great aroma. Samuel Adams Boston Lager."})
-
-
-
-
 
 Brewery.create({
   name: "Bell's Brewery",
@@ -196,23 +192,17 @@ Brewery.create({
 })
 
 
-
-
-
-
 Guide.create({
-  title: "Best Craft Beer Bars in Cambridge",
-  body: "In the farm-to-table food industry today, it only makes sense that beer lovers are gravitating towards smaller, local brewers. Craft beer has exploded to the point where some are even questioning if there are too many brewers in the United States. For now, craft beer lovers can rejoice in Cambridge where there’s plenty of options from both near and far.",
-  city_id: 1
+  title: "Best Breweries in Boston",
+  body: "In the farm-to-table food industry today, it only makes sense that beer lovers are gravitating towards local brewers. Craft beer has exploded to the point where some are even questioning if there are too many brewers in the United States. For now, beer lovers can rejoice in Boston where there’s plenty of options from both near and far.",
+  city_id: 3,
+  user_id: 1
 })
 
-BreweryGuide.create({brewery_id: 36, guide_id: 1})
-BreweryGuide.create({brewery_id: 37, guide_id: 1})
-BreweryGuide.create({brewery_id: 34, guide_id: 1})
-BreweryGuide.create({brewery_id: 39, guide_id: 1})
-BreweryGuide.create({brewery_id: 32, guide_id: 1})
-BreweryGuide.create({brewery_id: 35, guide_id: 1})
+BreweryGuide.create({brewery_id: 35, guide_id: 1, order: 1})
+BreweryGuide.create({brewery_id: 36, guide_id: 1, order: 2})
+BreweryGuide.create({brewery_id: 38, guide_id: 1, order: 3})
+BreweryGuide.create({brewery_id: 39, guide_id: 1, order: 4})
+BreweryGuide.create({brewery_id: 32, guide_id: 1, order: 5})
 
-Favorite.create({user_id: 1, brewery_id: 36})
-Favorite.create({user_id: 1, brewery_id: 40})
-Favorite.create({user_id: 1, brewery_id: 37})
+# Favorite.create({user_id: 1, brewery_id: 36})

@@ -8,6 +8,7 @@
 #  city_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class Guide < ApplicationRecord
@@ -15,6 +16,7 @@ class Guide < ApplicationRecord
   validates :title, uniqueness: true
 
   belongs_to :city
+  belongs_to :user
   has_many :brewery_guides
   has_many :breweries,
     through: :brewery_guides,
