@@ -1,6 +1,6 @@
 import { RECEIVE_ALL_GUIDES, RECEIVE_GUIDE, REMOVE_GUIDE } from '../actions/guide_actions';
 
-const GuidesReducer = (oldState = {}, action) => {
+const guidesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   const newState = Object.assign({}, oldState);
 
@@ -18,4 +18,4 @@ const GuidesReducer = (oldState = {}, action) => {
   }
 }
 
-export default GuidesReducer;
+export default guidesReducer;

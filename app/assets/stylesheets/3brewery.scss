@@ -1,0 +1,74 @@
+.brewery-index {
+  min-width: 600px;
+  top: 0;
+  bottom: 0;
+}
+
+.brewery-index-list {
+  min-width: 500px;
+  width: 50%;
+  position: absolute;
+  top: 90px;
+  right: 0px;
+  opacity: .9;
+}
+
+.brewery-index-list * {
+  background-color: black;
+}
+
+.brewery {
+  margin: 60px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 5%;
+
+  box-shadow: 0px 0px 15px grey;
+  outline: 5px inset white;
+  outline-offset: 20px;
+}
+
+.brewery h1 * {
+  font-size: 27px;
+  padding: 0px
+}
+
+.brewery h2 {
+  font-size: small;
+  color: grey;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-bottom: 1px solid grey;
+}
+
+.brewery a {
+  text-decoration: none;
+  color: #D4A25B;
+}
+
+.brewery a:hover {
+  color: rgb(107, 84, 52);
+  text-decoration: none;
+}
+
+.brewery p {
+  padding: 5%;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.gmap-link {
+  background-color: #BF965C;
+  color: #222121;
+  outline: none;
+  border: 1px solid #222121;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.gmap-link:hover {
+  background-color: #222121;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}

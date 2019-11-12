@@ -9,7 +9,7 @@ class GuideForm extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.formType === 'Update Form') this.props.fetchGuide(this.props.match.params.guideId)
+    if (this.props.formType === 'Update Form') this.props.fetchGuide(this.props.match.params.guideId);
   }
 
   handleClick(e) {

@@ -4,6 +4,8 @@
   left: 0;
   right: 0;
   background-color: rgb(15, 15, 15);
+  width: 1200px;
+  min-width: 600px;
 }
 
 .city-index-list {
@@ -12,7 +14,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-width: 600px;
+  box-sizing: border-box;
 }
 
 .city-info {
@@ -20,7 +22,7 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  width: 100px;
+  width: 300px;
   height: 100px;
   transition: 0.3s;
 
@@ -34,21 +36,6 @@
 
 .city-info:hover {
   opacity: 0.5;
-  // background-color: rgba(0,0,0,0);
-
-  // width: 100px;
-  // height: 100px;
-
-  // flex: 1 0 21%;
-  // margin: 3%;
-  // padding: 3%;
-
-  // display: grid;
-  // line-height: 100px;
-
-  // background-size: cover;
-  // background-position: center;
-  // background-repeat: no-repeat;
 }
 
 .city-info a {

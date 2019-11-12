@@ -1,21 +1,21 @@
-.brewery-index {
+.guide-index {
   min-width: 600px;
 }
 
-.brewery-index-list {
+.guide-index-list {
   min-width: 500px;
   width: 50%;
   position: absolute;
   top: 90px;
-  left: 0px;
+  right: 0px;
   opacity: .9;
 }
 
-.brewery-index-list * {
+.guide-index-list * {
   background-color: black;
 }
 
-.brewery {
+.guide {
   margin: 60px;
   margin-left: 10%;
   margin-right: 10%;
@@ -26,12 +26,12 @@
   outline-offset: 20px;
 }
 
-.brewery h1 * {
+.guide h1 * {
   font-size: 27px;
   padding: 0px
 }
 
-.brewery h2 {
+.guide h2 {
   font-size: small;
   color: grey;
   padding-top: 3%;
@@ -39,32 +39,34 @@
   border-bottom: 1px solid grey;
 }
 
-.brewery a {
+.guide a {
   text-decoration: none;
   color: #D4A25B;
 }
 
-.brewery a:hover {
+.guide a:hover {
   color: rgb(107, 84, 52);
   text-decoration: none;
 }
 
-.brewery p {
+.guide p {
   padding: 5%;
   text-align: justify;
   line-height: 1.5;
 }
 
-.gmap-link {
-  background-color: #BF965C;
+.guide-submit {
+  margin: 1%;
+  background-color: rgb(191, 150, 92);
   color: #222121;
+  text-transform: uppercase;
+  border-radius: 2px;
   outline: none;
   border: 1px solid #222121;
-  padding: 5px;
   transition: 0.3s;
 }
 
-.gmap-link:hover {
+.guide-submit:hover {
   background-color: #222121;
   color: white;
   border: 1px solid white;

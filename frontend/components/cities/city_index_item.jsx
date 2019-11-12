@@ -8,7 +8,7 @@ class City extends React.Component {
     const divStyle = {
       backgroundImage: `url('${imgUrl}')`,
     };
-
+    
     return (
       <div style={divStyle} className="city-info">
         <Link to={`/cities/${city.id}`}>{city.name}</Link>

@@ -4,12 +4,12 @@ import configureStore from "./store/store";
 import Root from './components/root';
 
 import { signup, login, logout } from './actions/session_actions';
-import { fetchCities } from './actions/city_actions';
+import { fetchGuides } from './actions/guide_actions';
 
 window.signup = signup;
 window.login = login;
 window.logout = logout;
-window.fetchCities = fetchCities;
+window.fetchGuides = fetchGuides;
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
