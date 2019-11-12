@@ -14,6 +14,7 @@ class Brewery extends React.Component {
         <h2>
           {this.props.brewery.address}
         </h2>
+        <img src={this.props.brewery.photoUrl} className="brewery-photo" />
         <p>{this.props.brewery.description}</p>
         <a href={`https://www.google.com/maps/place/${addressLink}/`} target="_blank"><button className="gmap-link">
           Open in Google Maps

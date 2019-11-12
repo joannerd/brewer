@@ -1,4 +1,3 @@
-json.set! @brewery.id do
-  json.extract! brewery, :id, :city_id, :name, :lat, :lng, :address, :website, :description
-  json.order brewery.brewery_guides.order if brewery.brewery_guides.order
-end
+json.extract! brewery, :id, :name, :lat, :lng, :address, :website, :description
+json.cityId brewery.city_id
+json.photoUrl url_for(brewery.photo) if brewery.photo.attached?

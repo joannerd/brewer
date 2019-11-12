@@ -1,4 +1,4 @@
 json.set! city.id do 
   json.extract! city, :id, :name, :state, :lat, :lng, :description
-  json.photoUrl url_for(city.photo)
+  json.photoUrl url_for(city.photo) if city.photo.attached?
 end
