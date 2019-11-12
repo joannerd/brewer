@@ -14,7 +14,7 @@ City.create({name: "Denver", state: "Colorado", lat: 39.7392, lng: -104.9903}).p
 
 City.create({name: "Grand Rapids", state: "Michigan", lat: 42.9634, lng: -85.6681}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/grandrapids.jpg"), filename: "grandrapids.jpg")
 
-City.create({name: "Indianapolis", state: "Indiana", lat: 39.7684, lng: -86.1581}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/indianapolis-new.jpg"), filename: "indianapolis-new.jpg")
+City.create({name: "Indianapolis", state: "Indiana", lat: 39.7684, lng: -86.1581}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/indianapolis.jpg"), filename: "indianapolis.jpg")
 
 City.create({name: "Kalamazoo", state: "Michigan", lat: 42.2917, lng: -85.5872}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/kalamazoo.jpg"), filename: "kalamazoo.jpg")
 

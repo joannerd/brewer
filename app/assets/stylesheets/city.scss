@@ -12,6 +12,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  min-width: 600px;
 }
 
 .city-info {
@@ -33,6 +34,21 @@
 
 .city-info:hover {
   opacity: 0.5;
+  // background-color: rgba(0,0,0,0);
+
+  // width: 100px;
+  // height: 100px;
+
+  // flex: 1 0 21%;
+  // margin: 3%;
+  // padding: 3%;
+
+  // display: grid;
+  // line-height: 100px;
+
+  // background-size: cover;
+  // background-position: center;
+  // background-repeat: no-repeat;
 }
 
 .city-info a {
@@ -46,6 +62,6 @@
 }
 
 .city-info a:hover {
-  color: rgb(107, 84, 52);
+  color: black;
   text-decoration: none;
 }
