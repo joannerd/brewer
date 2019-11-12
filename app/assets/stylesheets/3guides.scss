@@ -55,20 +55,51 @@
   line-height: 1.5;
 }
 
+.guide-brewery {
+  opacity: .9;
+  background: none;
+  outline: none;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.guide .gmap-link {
+  background-color: #BF965C;
+  color: #222121;
+  outline: none;
+  border: 1px solid #222121;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.guide .gmap-link:hover {
+  background-color: #222121;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.guide-links {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-between;;
+}
+
 .guide-submit {
   margin: 1%;
-  background-color: rgb(191, 150, 92);
-  color: #222121;
+  padding: 15px;
+  background-color: rgb(70, 70, 70);
+  color: white;
   text-transform: uppercase;
   border-radius: 2px;
   outline: none;
-  border: 1px solid #222121;
+  border: 1px solid black;
   transition: 0.3s;
 }
 
 .guide-submit:hover {
-  background-color: #222121;
-  color: white;
-  border: 1px solid white;
+  background-color: rgb(173, 173, 173);
+  color: #222121;
+  border: 1px solid black;
   cursor: pointer;
 }

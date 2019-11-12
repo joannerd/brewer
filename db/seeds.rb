@@ -206,10 +206,13 @@ Guide.create({
   city_id: 1
 })
 
+BreweryGuide.create({brewery_id: 36, guide_id: 1})
+BreweryGuide.create({brewery_id: 37, guide_id: 1})
+BreweryGuide.create({brewery_id: 34, guide_id: 1})
+BreweryGuide.create({brewery_id: 39, guide_id: 1})
+BreweryGuide.create({brewery_id: 32, guide_id: 1})
+BreweryGuide.create({brewery_id: 35, guide_id: 1})
 
-BreweryGuide.create({brewery_id: 1, guide_id: 1})
-BreweryGuide.create({brewery_id: 3, guide_id: 1})
-
-Favorite.create({user_id: 1, brewery_id: 1})
-Favorite.create({user_id: 1, brewery_id: 2})
-Favorite.create({user_id: 1, brewery_id: 3})
+Favorite.create({user_id: 1, brewery_id: 36})
+Favorite.create({user_id: 1, brewery_id: 40})
+Favorite.create({user_id: 1, brewery_id: 37})

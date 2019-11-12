@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Brewery from '../breweries/brewery_index_item';
 
+// if currentUser.id === guide.userId show update/delete
+
 class Guide extends React.Component {
 
   render() {
@@ -11,18 +13,21 @@ class Guide extends React.Component {
         <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
         <p>{guide.body}</p>
 
-        <div className="brewery-index-list">
-          {guide.breweries.map((brewery, i) => (
+        {guide.breweries.map((brewery, i) => (
+          <div className="guide-brewery">
             <Brewery key={i} brewery={brewery} />
-          ))}
-        </div>
+          </div>
+        ))}
 
-        <Link to={`/guides/${guide.id}/edit`}>
-          <button className="guide-submit">
-            Update Guide
-          </button>
-        </Link>
-        <button onClick={() => this.props.deleteGuide(guide.id)} className="guide-submit">Delete Guide</button>
+        <div className="guide-links">
+          <button onclick={`location.href = /guides/${guide.id}/edit`}
+            className="guide-submit">
+          {/* <Link to={`/guides/${guide.id}/edit`}> */}
+              Update
+          {/* </Link> */}
+            </button>
+          <button onClick={() => this.props.deleteGuide(guide.id)} className="guide-submit">Delete</button>
+        </div>
       </div>
     )
   }

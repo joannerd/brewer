@@ -5,7 +5,7 @@ class Brewery extends React.Component {
   render() {
     const addressLink = this.props.brewery.address.split(" ").join("+")
     return (
-      <div className="brewery">
+      <div>
         <h1>
           <a href={this.props.brewery.website} target="_blank">
             {this.props.brewery.name}

@@ -10,8 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
- 
+ @import './1reset.scss';
+ @import './1map.scss';
+ @import './2session_form.scss';
+ @import './2splash.scss';
+ @import './2splash_nav.scss';
+ @import './3brewery.scss';
+ @import './3city.scss';
+ @import './3guides.scss';
