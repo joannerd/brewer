@@ -10,6 +10,7 @@ const guidesReducer = (oldState = {}, action) => {
     case RECEIVE_GUIDE:
       newState[action.guide.id] = action.guide;
       return newState;
+      // return action.guide
     case REMOVE_GUIDE:
       delete newState[action.guideId];
       return newState;

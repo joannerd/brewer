@@ -4,28 +4,36 @@ import Brewery from '../breweries/brewery_index_item';
 
 
 class Guide extends React.Component {
+    constructor(props) {
+      super(props)
+    //   this.state = {
+    //     breweries: "this is Guide#constructor in jsx"
+    //   }
+    }
+
+  componentDidMount() {
+    this.props.fetchBreweries();
+    // this.setState({
+    //   breweries: this.props.breweries
+    // })
+  }
 
   render() {
-    const guide = this.props.guide
+    const guide = this.props.guide;
+    const breweries = this.props.breweries;
     return (
       <div className="guide">
         <img src={guide.cityPhotoUrl} className="city-photo" />
 
-        {/* <Link to={`/guides/${guide.id}/edit`}>
-// if currentUser.id === guide.userId show update/delete
-          <button className="guide-update">
-            Update
-          </button>
-        </Link> */}
         <div className="guide-info">
           <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
           <h2>{guide.author}</h2>
           <p>{guide.body}</p>
         </div>
 
-        {guide.breweries.map((brewery, i) => (
+        {guide.breweryIds.map((breweryId, i) => (
           <div key={i} className="guide-brewery">
-            <Brewery brewery={brewery} />
+            <Brewery breweryId={breweryId} breweries={breweries} />
           </div>
         ))}
 

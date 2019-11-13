@@ -3,7 +3,7 @@ export const RECEIVE_ALL_BREWERIES = 'RECEIVE_ALL_BREWERIES';
 export const RECEIVE_BREWERY = 'RECEIVE_BREWERY';
 
 const receiveAllBreweries = (breweries) => ({
-  type: RECEIVE_ALL_BREWERIES, 
+  type: RECEIVE_ALL_BREWERIES,
   breweries
 });
 

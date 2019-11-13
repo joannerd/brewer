@@ -2,20 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Brewery extends React.Component {
+  constructor(props) {
+    super(props);
+    if (this.props.brewery) {
+      this.state = {
+        brewery: this.props.brewery
+      }
+    } else {
+      this.state = {
+        brewery: this.props.breweries[this.props.breweryId]
+      }
+    }
+  }
+
   render() {
-    const addressLink = this.props.brewery.address.split(" ").join("+")
+    const brewery = this.state.brewery
+    const addressLink = brewery.address.split(" ").join("+")
     return (
       <div>
         <h1>
-          <a href={this.props.brewery.website} target="_blank">
-            {this.props.brewery.name}
+          <a href={brewery.website} target="_blank">
+            {brewery.name}
           </a>
         </h1>
         <h2>
-          {this.props.brewery.address}
+          {brewery.address}
         </h2>
-        <img src={this.props.brewery.photoUrl} className="brewery-photo" />
-        <p>{this.props.brewery.description}</p>
+        <img src={brewery.photoUrl} className="brewery-photo" />
+        <p>{brewery.description}</p>
         <a href={`https://www.google.com/maps/place/${addressLink}/`} target="_blank"><button className="gmap-link">
           Open in Google Maps
         </button></a>
