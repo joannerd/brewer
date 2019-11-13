@@ -1,4 +1,5 @@
 import { RECEIVE_ALL_BREWERIES, RECEIVE_BREWERY } from "../actions/brewery_actions";
+import { RECEIVE_GUIDE } from '../actions/guide_actions';
 
 const breweriesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -10,6 +11,8 @@ const breweriesReducer = (oldState = {}, action) => {
     case RECEIVE_BREWERY:
       newState[action.brewery.id] = action.brewery;
       return newState;
+    case RECEIVE_GUIDE:
+      return action.payload.breweries
     default:
       return oldState
   }

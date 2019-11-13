@@ -8,9 +8,9 @@ const receiveGuides = (guides) => ({
   type: RECEIVE_ALL_GUIDES,
   guides
 })
-const receiveGuide = (guide) => ({
+const receiveGuide = (payload) => ({
   type: RECEIVE_GUIDE,
-  guide
+  payload
 })
 const removeGuide = (guideId) => ({
   type: REMOVE_GUIDE,
@@ -23,15 +23,15 @@ export const fetchGuides = () => dispatch => (
 )
 export const fetchGuide = (guideId) => dispatch => (
   GuideAPIUtil.fetchGuide(guideId)
-    .then(guide => dispatch(receiveGuide(guide)))
+    .then(payload => dispatch(receiveGuide(payload)))
 )
 export const createGuide = (guide) => dispatch => (
   GuideAPIUtil.createGuide(guide)
-    .then(guide => dispatch(receiveGuide(guide)))
+    .then(payload => dispatch(receiveGuide(payload)))
 )
 export const updateGuide = (guide) => dispatch => (
   GuideAPIUtil.updateGuide(guide)
-    .then(guide => dispatch(receiveGuide(guide)))
+    .then(payload => dispatch(receiveGuide(payload)))
 )
 export const deleteGuide = (guideId) => dispatch => (
   GuideAPIUtil.deleteGuide(guideId)

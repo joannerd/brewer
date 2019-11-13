@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Brewery from '../breweries/brewery_index_item';
+import Map from '../map/map';
 
 
 class Guide extends React.Component {
+  componentDidMount() {
+    this.props.fetchGuide(this.props.match.params.guideId)
+  }
+
   render() {
     const guide = this.props.guide;
     const breweries = this.props.breweries;
     return (
+      <section className="guide-index-list">
+        <Map />
+        
       <div className="guide">
         <img src={guide.cityPhotoUrl} className="city-photo" />
 
@@ -24,6 +32,7 @@ class Guide extends React.Component {
         ))}
 
       </div>
+      </section>
     )
   }
 }

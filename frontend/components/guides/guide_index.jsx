@@ -1,27 +1,28 @@
 import React from 'react';
 import Guide from './guide_index_item';
+import GuidePreview from './guide_preview';
 import Map from '../map/map';
 
 class GuideIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchBreweries()
-    .then(() => this.props.fetchGuides());
+    this.props.fetchGuides();
   }
 
   render() {
     return (
-      <section className="guide-index">
-        <Map />
-        <ul className="guide-index-list">
-          {this.props.guides.map((guide, i) => (
-            <Guide
-              key={i}
-              guide={guide}
-              breweries={this.props.breweries}
-            />
-          ))}
-        </ul>
-      </section>
+      <div className="guide-index">
+        {this.props.guides.map((guide, i) => (
+          <GuidePreview
+            key={i}
+            guide={guide}
+            fetchGuide={this.props.fetchGuide}
+          />
+          // <Guide
+          //   key={i}
+          //   guide={guide}
+          // />
+        ))}
+      </div>
     )
   }
 }

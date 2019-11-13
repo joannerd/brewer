@@ -1,14 +1,15 @@
 require 'open-uri'
 
 ActiveRecord::Base.transaction do
-  User.destroy_all
-  City.destroy_all
-  Brewery.destroy_all
-  Guide.destroy_all
-  BreweryGuide.destroy_all
-  # Favorite.destroy_all
+  User.delete_all
+  City.delete_all
+  Brewery.delete_all
+  Guide.delete_all
+  BreweryGuide.delete_all
+  # Favorite.delete_all
 
   User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
+  User.create({username: "DemoUser2", password: "123456", email: "demo2@email.com"})
 
   City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/asheville.jpg"), filename: "asheville.jpg")
 
@@ -211,11 +212,24 @@ ActiveRecord::Base.transaction do
     user_id: 1
   })
 
+  Guide.create({
+    title: "Bay Area Brews",
+    body: "There's never been a better time to have a beer in San Francisco. Now home to as many breweries as there were before prohibition, the city hosts an impressive, fast-paced brewing culture. As beer booms, there have been plenty of acquisitions and stumbling blocks, but locally, the business continues grow and evolve. Right now, right here in SF, these 20 breweries with tap rooms are making and serving the most interesting beers you're likely to see anywhere.",
+    city_id: 11,
+    user_id: 2
+  })
   BreweryGuide.create({brewery_id: 35, guide_id: 1, order: 1})
   BreweryGuide.create({brewery_id: 36, guide_id: 1, order: 2})
   BreweryGuide.create({brewery_id: 38, guide_id: 1, order: 3})
   BreweryGuide.create({brewery_id: 39, guide_id: 1, order: 4})
   BreweryGuide.create({brewery_id: 32, guide_id: 1, order: 5})
+
+
+  BreweryGuide.create({brewery_id: 1, guide_id: 2, order: 1})
+  BreweryGuide.create({brewery_id: 2, guide_id: 2, order: 2})
+  BreweryGuide.create({brewery_id: 3, guide_id: 2, order: 3})
+  BreweryGuide.create({brewery_id: 4, guide_id: 2, order: 4})
+  BreweryGuide.create({brewery_id: 5, guide_id: 2, order: 5})
 
   # Favorite.create({user_id: 1, brewery_id: 36})
 end

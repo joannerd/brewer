@@ -7,10 +7,6 @@ class NavBar extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchCities();
-  }
-
   handleClick(e) {
     e.preventDefault();
     this.props.logout()
@@ -34,9 +30,6 @@ class NavBar extends React.Component {
           <div className="dropdown">
             <span><Link to="/cities">Cities</Link><i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
-              {/* {this.props.cities.map((city, i) => (
-                <Link to={`/cities/${city.id}`} key={i}>{city.name}</Link>
-              ))} */}              
               <Link to="/cities/" >Asheville</Link>
               <Link to="/cities/" >Austin</Link>
               <Link to="/cities/" >Boston</Link>
