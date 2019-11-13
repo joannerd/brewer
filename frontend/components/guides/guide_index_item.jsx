@@ -6,17 +6,11 @@ import Brewery from '../breweries/brewery_index_item';
 class Guide extends React.Component {
     constructor(props) {
       super(props)
-    //   this.state = {
-    //     breweries: "this is Guide#constructor in jsx"
-    //   }
     }
 
-  componentDidMount() {
-    this.props.fetchBreweries();
-    // this.setState({
-    //   breweries: this.props.breweries
-    // })
-  }
+  // componentDidMount() {
+  //   this.props.fetchBreweries();
+  // }
 
   render() {
     const guide = this.props.guide;

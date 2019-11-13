@@ -5,15 +5,14 @@ import { fetchBreweries } from '../../actions/brewery_actions';
 
 const msp = state => {
   return ({
-    // breweries: Object.values(state.entities.breweries),
+    breweries: Object.values(state.entities.breweries),
     guides: Object.values(state.entities.guides)
   })
 };
 
 const mdp = dispatch => ({
   fetchBreweries: () => dispatch(fetchBreweries()),
-  fetchGuides: () => dispatch(fetchGuides()),
-  // deleteGuide: guideId => dispatch(deleteGuide(guideId))
+  fetchGuides: () => dispatch(fetchGuides())
 })
 
 export default connect(msp, mdp)(GuideIndex);

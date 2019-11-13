@@ -6,15 +6,21 @@ import Map from '../map/map';
 class GuideIndex extends React.Component {
   constructor(props) {
     super(props)
-
     // this.state = {
     //   breweries: this.props.breweries
     // }
   }
 
-  componentWillMount() {
-    this.props.fetchBreweries();
-    this.props.fetchGuides();
+  componentDidMount() {
+    console.log('this is before fetch in GI#cDM')
+    this.props.fetchBreweries()
+    .then(() => this.props.fetchGuides());
+
+
+    // console.log('this is before fetchGuides in GI#cDM')
+    // this.props.fetchGuides()
+    // .then(res => console.log('this is GuideIndex#compononentDidMount'));
+    //   //() => this.props.fetchBreweries());
   }
 
   render() {
@@ -23,10 +29,10 @@ class GuideIndex extends React.Component {
         <Map />
         <ul className="guide-index-list">
           {this.props.guides.map((guide, i) => (
-            <GuideContainer
+            <Guide
               key={i}
               guide={guide}
-              // breweries={this.state.breweries}
+              breweries={this.props.breweries}
               // deleteGuide={this.props.deleteGuide}
             />
           ))}
