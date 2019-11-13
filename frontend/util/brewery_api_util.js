@@ -5,10 +5,9 @@ export const fetchBreweries = () => (
   })
 )
 
-export const fetchBrewery = (brewery) => (
+export const fetchBrewery = (breweryId) => (
   $.ajax({
-    url: `/api/breweries/${brewery.id}`,
-    method: 'GET',
-    data: { brewery }
+    url: `/api/breweries/${breweryId}`,
+    method: 'GET'
   })
 )

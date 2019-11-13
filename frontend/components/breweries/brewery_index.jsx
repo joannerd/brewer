@@ -13,7 +13,11 @@ class BreweryIndex extends React.Component {
         <div className="brewery-index-list">
           {this.props.breweries.map((brewery, i) => (
             <div key={i} className="brewery">
-              <Brewery brewery={brewery} />
+              <Brewery
+                breweryId={brewery.id}
+                brewery={brewery}
+                fetchBrewery={this.props.fetchBrewery}
+              />
             </div>
           ))}
         </div>
@@ -22,5 +26,6 @@ class BreweryIndex extends React.Component {
     )
   }
 }
+
 
 export default BreweryIndex;

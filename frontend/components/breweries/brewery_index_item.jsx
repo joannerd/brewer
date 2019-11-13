@@ -4,19 +4,16 @@ import { Link } from 'react-router-dom';
 class Brewery extends React.Component {
   constructor(props) {
     super(props);
-    if (this.props.brewery) {
-      this.state = {
-        brewery: this.props.brewery
-      }
+
+    if (this.props.brewery.id === 'default') {
+      this.state = this.props.breweries[this.props.breweryId]
     } else {
-      this.state = {
-        brewery: this.props.breweries[this.props.breweryId]
-      }
+      this.state = this.props.brewery
     }
   }
 
   render() {
-    const brewery = this.state.brewery
+    const brewery = this.state
     const addressLink = brewery.address.split(" ").join("+")
     return (
       <div>
@@ -35,6 +32,19 @@ class Brewery extends React.Component {
         </button></a>
       </div>
     )
+  }
+}
+
+Brewery.defaultProps = {
+  brewery: {
+    id: 'default',
+    name: "default",
+    lat: 'default',
+    lng: 'default',
+    address: "default",
+    website: "default",
+    description: "default",
+    cityId: 'default'
   }
 }
 

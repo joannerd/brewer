@@ -5,7 +5,7 @@ const guidesReducer = (oldState = {}, action) => {
   const newState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_ALL_GUIDES:
-      return action.guides;
+      return action.payload.guides;
     case RECEIVE_GUIDE:
       return action.payload.guides
     case REMOVE_GUIDE:

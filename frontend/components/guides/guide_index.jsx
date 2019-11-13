@@ -1,7 +1,6 @@
 import React from 'react';
-import Guide from './guide_index_item';
-import GuidePreview from './guide_preview';
-import Map from '../map/map';
+import GuideShow from './guide_show';
+import GuidePreview from './guide_index_item';
 
 class GuideIndex extends React.Component {
   componentDidMount() {
@@ -17,7 +16,7 @@ class GuideIndex extends React.Component {
             guide={guide}
             fetchGuide={this.props.fetchGuide}
           />
-          // <Guide
+          // <GuideShow
           //   key={i}
           //   guide={guide}
           // />

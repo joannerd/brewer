@@ -1,40 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Brewery from '../breweries/brewery_index_item';
-import Map from '../map/map';
 
 
-class Guide extends React.Component {
-  componentDidMount() {
-    this.props.fetchGuide(this.props.match.params.guideId)
-  }
-
+class GuidePreview extends React.Component {
   render() {
     const guide = this.props.guide;
-    const breweries = this.props.breweries;
-    return (
-      <section className="guide-index-list">
-        <Map />
-        
-      <div className="guide">
-        <img src={guide.cityPhotoUrl} className="city-photo" />
+    const divStyle = {
+      backgroundImage: `url('${guide.cityPhotoUrl}')`,
+    };
 
-        <div className="guide-info">
+    return (
+      <div style={divStyle} className="guide-preview">
+        <div className="guide-preview-info">
           <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
           <h2>{guide.author}</h2>
           <p>{guide.body}</p>
         </div>
-
-        {guide.breweryIds.map((breweryId, i) => (
-          <div key={i} className="guide-brewery">
-            <Brewery breweryId={breweryId} breweries={breweries} />
-          </div>
-        ))}
-
       </div>
-      </section>
     )
   }
 }
 
-export default Guide;
+export default GuidePreview;

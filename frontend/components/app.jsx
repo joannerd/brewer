@@ -11,6 +11,7 @@ import BreweryIndexContainer from './breweries/brewery_index_container';
 import CityIndexContainer from './cities/city_index_container';
 
 import GuideIndexContainer from './guides/guide_index_container';
+import GuideContainer from './guides/guide_show_container';
 import CreateGuideContainer from './guides/create_guide_container';
 import UpdateGuideContainer from './guides/update_guide_container';
 
@@ -25,7 +26,7 @@ const App = () => (
     </Switch>
 
     <Switch>
-      {/* <ProtectedRoute exact path="/guides/:guideId/edit" component={UpdateGuideContainer} /> */}
+      <ProtectedRoute exact path="/guides/:guideId" component={GuideContainer} />
       {/* <ProtectedRoute exact path="/guides/new" component={CreateGuideContainer} /> */}
       <ProtectedRoute exact path="/guides/" component={GuideIndexContainer} />
       <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
