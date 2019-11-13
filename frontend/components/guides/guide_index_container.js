@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import GuideIndex from './guide_index';
-import { fetchGuides, deleteGuide } from '../../actions/guide_actions';
+import { fetchGuides } from '../../actions/guide_actions';
 import { fetchBreweries } from '../../actions/brewery_actions';
 
 const msp = state => {
   return ({
-    breweries: Object.values(state.entities.breweries),
+    breweries: state.entities.breweries,
     guides: Object.values(state.entities.guides)
   })
 };

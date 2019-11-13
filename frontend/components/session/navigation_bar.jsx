@@ -34,9 +34,21 @@ class NavBar extends React.Component {
           <div className="dropdown">
             <span><Link to="/cities">Cities</Link><i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
-              {this.props.cities.map((city, i) => (
+              {/* {this.props.cities.map((city, i) => (
                 <Link to={`/cities/${city.id}`} key={i}>{city.name}</Link>
-              ))}
+              ))} */}              
+              <Link to="/cities/" >Asheville</Link>
+              <Link to="/cities/" >Austin</Link>
+              <Link to="/cities/" >Boston</Link>
+              <Link to="/cities/" >Cincinatti</Link>
+              <Link to="/cities/" >Denver</Link>
+              <Link to="/cities/" >Grand Rapids</Link>
+              <Link to="/cities/" >Indianapolis</Link>
+              <Link to="/cities/" >Kalamazoo</Link>
+              <Link to="/cities/" >Portland</Link>
+              <Link to="/cities/" >San Diego</Link>
+              <Link to="/cities/" >San Francisco</Link>
+              <Link to="/cities/" >Seattle</Link>
             </div>
           </div>
         </ul>

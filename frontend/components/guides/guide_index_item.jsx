@@ -4,14 +4,6 @@ import Brewery from '../breweries/brewery_index_item';
 
 
 class Guide extends React.Component {
-    constructor(props) {
-      super(props)
-    }
-
-  // componentDidMount() {
-  //   this.props.fetchBreweries();
-  // }
-
   render() {
     const guide = this.props.guide;
     const breweries = this.props.breweries;
