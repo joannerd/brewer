@@ -15,12 +15,10 @@ const receiveBrewery = (brewery) => ({
 
 export const fetchBreweries = () => dispatch => (
   BreweryAPIUtil.fetchBreweries()
-    .then(breweries => dispatch(receiveAllBreweries(breweries)),
-      errors => dispatch(receiveErrors(errors)))
-);
+    .then(breweries => dispatch(receiveAllBreweries(breweries))
+));
 
 export const fetchBrewery = (breweryId) => dispatch => (
   BreweryAPIUtil.fetchBrewery(breweryId)
-    .then(brewery => dispatch(receiveBrewery(brewery)),
-      errors => dispatch(receiveErrors(errors)))
-);
+    .then(brewery => dispatch(receiveBrewery(brewery))
+));

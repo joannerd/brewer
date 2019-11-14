@@ -250,17 +250,17 @@ ActiveRecord::Base.transaction do
 
   Guide.create({
     title: "Best Oakland Brews",
-    body: "There's never been a better time to have a beer in San Francisco. Now home to as many breweries as there were before prohibition, the city hosts an impressive, fast-paced brewing culture. As beer booms, there have been plenty of acquisitions and stumbling blocks, but locally, the business continues grow and evolve. Right now, right here in SF, these 20 breweries with tap rooms are making and serving the most interesting beers you're likely to see anywhere.",
+    body: "Oakland is all but immune to the advance of Karl the Fog, making it the best place to soak up the sun with a beer in hand. Head to one of these beer gardens, restaurants, and bars for a day or night of outdoor fun. Many of them are cool with both kids and dogs — and all of them are cool. Check out these spots for a weekend (or weekday, if you’re lucky) of fun in the sun.",
     city_id: 11,
     user_id: 1
   })
 
-  # Guide.create({
-  #   title: "Joe's San Francisco Picks",
-  #   body: "There's never been a better time to have a beer in San Francisco. Now home to as many breweries as there were before prohibition, the city hosts an impressive, fast-paced brewing culture. As beer booms, there have been plenty of acquisitions and stumbling blocks, but locally, the business continues grow and evolve. Right now, right here in SF, these 20 breweries with tap rooms are making and serving the most interesting beers you're likely to see anywhere.",
-  #   city_id: 11,
-  #   user_id: 1
-  # })
+  Guide.create({
+    title: "Joe's San Francisco Picks",
+    body: "There's never been a better time to have a beer in San Francisco. Now home to as many breweries as there were before prohibition, the city hosts an impressive, fast-paced brewing culture. As beer booms, there have been plenty of acquisitions and stumbling blocks, but locally, the business continues grow and evolve. Right now, right here in SF, these 20 breweries with tap rooms are making and serving the most interesting beers you're likely to see anywhere.",
+    city_id: 11,
+    user_id: 1
+  })
 
   BreweryGuide.create({brewery_id: 35, guide_id: 1, order: 1})
   BreweryGuide.create({brewery_id: 36, guide_id: 1, order: 2})
@@ -275,11 +275,11 @@ ActiveRecord::Base.transaction do
   BreweryGuide.create({brewery_id: 48, guide_id: 2, order: 4})
   BreweryGuide.create({brewery_id: 46, guide_id: 2, order: 5})
 
-  # BreweryGuide.create({brewery_id: 44, guide_id: 3, order: 1})
-  # BreweryGuide.create({brewery_id: 47, guide_id: 3, order: 2})
-  # BreweryGuide.create({brewery_id: 43, guide_id: 3, order: 3})
-  # BreweryGuide.create({brewery_id: 48, guide_id: 3, order: 4})
-  # BreweryGuide.create({brewery_id: 46, guide_id: 3, order: 5})
+  BreweryGuide.create({brewery_id: 44, guide_id: 3, order: 1})
+  BreweryGuide.create({brewery_id: 47, guide_id: 3, order: 2})
+  BreweryGuide.create({brewery_id: 43, guide_id: 3, order: 3})
+  BreweryGuide.create({brewery_id: 48, guide_id: 3, order: 4})
+  BreweryGuide.create({brewery_id: 46, guide_id: 3, order: 5})
 
-  # Favorite.create({user_id: 1, brewery_id: 36})
+  Favorite.create({user_id: 1, brewery_id: 36})
 end

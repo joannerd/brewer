@@ -21,26 +21,25 @@ const removeGuide = (guideId) => ({
 
 export const fetchGuides = () => dispatch => (
   GuideAPIUtil.fetchGuides()
-    .then(payload => dispatch(receiveGuides(payload)),
-      errors => dispatch(receiveErrors(errors)))
-)
+    .then(payload => dispatch(receiveGuides(payload))
+));
+
 export const fetchGuide = (guideId) => dispatch => (
   GuideAPIUtil.fetchGuide(guideId)
-    .then(payload => dispatch(receiveGuide(payload)),
-      errors => dispatch(receiveErrors(errors)))
-)
+    .then(payload => dispatch(receiveGuide(payload))
+));
+
 export const createGuide = (guide) => dispatch => (
   GuideAPIUtil.createGuide(guide)
-    .then(payload => dispatch(receiveGuide(payload)),
-      errors => dispatch(receiveErrors(errors)))
-)
+    .then(payload => dispatch(receiveGuide(payload))
+));
+
 export const updateGuide = (guide) => dispatch => (
   GuideAPIUtil.updateGuide(guide)
-    .then(payload => dispatch(receiveGuide(payload)),
-      errors => dispatch(receiveErrors(errors)))
-)
+    .then(payload => dispatch(receiveGuide(payload))
+));
+
 export const deleteGuide = (guideId) => dispatch => (
   GuideAPIUtil.deleteGuide(guideId)
-    .then(res => dispatch(removeGuide(guideId)),
-      errors => dispatch(receiveErrors(errors)))
-)
+    .then(res => dispatch(removeGuide(guideId))
+));

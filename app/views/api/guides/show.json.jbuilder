@@ -1,12 +1,14 @@
 json.guides do
-  json.partial! 'api/guides/guide', guide: @guide
+  json.set! @guide.id do
+    json.extract! @guide, :id, :title, :body
+    json.author @guide.user.username
+    json.breweryIds @guide.breweries.order(:order).pluck(:id)
+    json.breweryLocations @guide.breweries.order(:order).pluck(:lng, :lat)
 
-  json.breweryLocations do
-    @guide.breweries.each do |brewery|
-      json.set! brewery.id do
-        json.array! [brewery.lng, brewery.lat]
-      end
-    end
+    json.cityPhotoUrl url_for(@guide.city.photo)
+    json.cityLng @guide.city.lng
+    json.cityLat @guide.city.lat
+    json.userId @guide.user_id
   end
 end 
 

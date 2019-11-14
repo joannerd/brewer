@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Brewery from '../breweries/brewery_index_item';
 import MapContainer from '../map/map_container';
-// import Map from '../map/map';
-
 
 class GuideShow extends React.Component {
   constructor(props) {
@@ -11,13 +9,7 @@ class GuideShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchGuide(this.props.match.params.guideId)
-  }
-
-  componentDidUpdate() {
-    if (this.props.guide.id === 'default') {
-      this.props.fetchGuide(this.props.match.params.guideId)
-    }
+    this.props.fetchGuide(this.props.match.params.guideId);
   }
   
   render() {
@@ -28,7 +20,7 @@ class GuideShow extends React.Component {
     return (
       <section className="guide-index-list">
         <MapContainer
-          places={breweryLocations}
+          // places={breweryLocations}
           guide={guide} 
         />
         

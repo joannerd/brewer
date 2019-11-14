@@ -5,8 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
   return ({
-    guide: state.entities.guides[ownProps.match.params.guideId],
-    places: state.entities.guides.breweryLocations
+    guide: state.entities.guides[ownProps.match.params.guideId]
   })
 };
 

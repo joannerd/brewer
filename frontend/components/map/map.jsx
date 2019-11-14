@@ -8,7 +8,7 @@ class Map extends React.Component {
   }
   
   componentDidMount() {
-    const { cityLng, cityLat } = this.props.guide;
+    const { cityLng, cityLat, breweryLocations } = this.props.guide;
     mapboxgl.accessToken = window.mboxAPIKey;
 
     const mapOptions = {
@@ -19,11 +19,12 @@ class Map extends React.Component {
     };
     this.map = new mapboxgl.Map(mapOptions)
 
-    const markerPlaces = Object.values(this.props.places);
+    const markerPlaces = Object.values(breweryLocations);
 
     this.MarkerManager = new MarkerManager(this.map)
     this.MarkerManager.updateMarkers(markerPlaces)
   }
+
 
   render() {
     if (this.props.guide === undefined) return null;
