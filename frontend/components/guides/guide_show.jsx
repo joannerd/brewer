@@ -20,7 +20,6 @@ class GuideShow extends React.Component {
     return (
       <section className="guide-index-list">
         <MapContainer
-          // places={breweryLocations}
           guide={guide} 
         />
         

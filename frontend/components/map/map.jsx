@@ -4,25 +4,30 @@ import MarkerManager from './marker_manager';
 class Map extends React.Component {
   constructor(props) {
     super(props);
-    this.map;
+    this.MarkerManager;
   }
   
   componentDidMount() {
-    const { cityLng, cityLat, breweryLocations } = this.props.guide;
-    mapboxgl.accessToken = window.mboxAPIKey;
+    this.props.fetchGuide(this.props.match.params.guideId)
+      .then(() => {
+        const { cityLng, cityLat, breweryLocations } = this.props.guide;
+        mapboxgl.accessToken = window.mboxAPIKey;
 
-    const mapOptions = {
-      container: 'map',
-      minZoom: 10,
-      center: [cityLng, cityLat],
-      style: 'mapbox://styles/mapbox/dark-v9'
-    };
-    this.map = new mapboxgl.Map(mapOptions)
+        const mapOptions = {
+          container: 'map',
+          minZoom: 10,
+          center: [cityLng, cityLat],
+          style: 'mapbox://styles/mapbox/dark-v9'
+        };
 
-    const markerPlaces = Object.values(breweryLocations);
+        let mapbox;
+        mapbox = new mapboxgl.Map(mapOptions);
 
-    this.MarkerManager = new MarkerManager(this.map)
-    this.MarkerManager.updateMarkers(markerPlaces)
+        const markerPlaces = Object.values(breweryLocations);
+
+        this.MarkerManager = new MarkerManager(mapbox);
+        this.MarkerManager.updateMarkers(markerPlaces);
+      })
   }
 
 

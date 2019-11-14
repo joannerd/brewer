@@ -1,4 +1,4 @@
-export default class MarkerManager {
+class MarkerManager {
   constructor(map) {
     this.map = map;
     this.updateMarkers = this.updateMarkers.bind(this);
@@ -18,3 +18,5 @@ export default class MarkerManager {
     places.map(place => (this.createMarkerFromPlace(place)));
   }
 }
+
+export default MarkerManager;
