@@ -16,6 +16,7 @@ import CreateGuideContainer from './guides/create_guide_container';
 import UpdateGuideContainer from './guides/update_guide_container';
 
 import MapContainer from './map/map_container';
+import SearchBar from './search/search_bar';
 
 const App = () => (
   <div className="app flex-center">
@@ -26,6 +27,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </Switch>
+
+    <ProtectedRoute exact path="/search" component={SearchBar} />
 
     <Switch>
       <ProtectedRoute exact path="/maps" component={MapContainer} />

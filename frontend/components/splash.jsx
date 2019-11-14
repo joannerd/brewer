@@ -1,4 +1,5 @@
 import React from 'react';
+import CityIndexContainer from './cities/city_index_container';
 
 const Splash = () => (
   <main className="splash">
@@ -14,6 +15,7 @@ const Splash = () => (
       </div>
       
     </div>
+    <CityIndexContainer />
   </main>
 )
 

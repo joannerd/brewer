@@ -1,0 +1,34 @@
+.search-bar-container {
+  margin-top: 120px;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: right;
+}
+
+.search-form-input {
+  // width: 80%;
+  // padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+  color: black;
+}
+
+.search-form-submit {
+  background-color: #BF965C;
+  color: #222121;
+  text-transform: uppercase;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #222121;
+  transition: 0.3s;
+}
+
+.search-form-submit:hover {
+  background-color: #222121;
+  color: white;
+  border: 1px solid rgb(70, 70, 70);
+  cursor: pointer;
+}
