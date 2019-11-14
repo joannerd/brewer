@@ -6,9 +6,9 @@
 
 .brewery-index-list {
   min-width: 500px;
-  width: 60%;
+  width: 55%;
   position: absolute;
-  top: 150px;
+  top: 120px;
   left: 0px;
   opacity: .9;
 }
@@ -76,4 +76,23 @@
   color: white;
   border: 1px solid white;
   cursor: pointer;
+}
+
+
+.beer-diagram-container {
+  width: 50%;
+  position: fixed;
+  top: 155px;
+  right: 0px;
+  overflow: hidden;
+}
+
+.beer-diagram {
+  width: 80%;
+  min-width: 450px;
+  // min-width: auto;
+}
+
+.beer-diagram:hover {
+  overflow-y: scroll
 }

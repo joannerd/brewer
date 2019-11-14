@@ -22,9 +22,9 @@ class BreweryIndex extends React.Component {
           ))}
         </div>
 
-        {/* <div>
+        <div className="beer-diagram-container">
           <img src="./craftbeer.png" className="beer-diagram"/>
-        </div> */}
+        </div>
       </section>
     )
   }
