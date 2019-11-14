@@ -205,6 +205,42 @@ ActiveRecord::Base.transaction do
   })
 
 
+
+  Brewery.create({name: "Ale Industries", lat: 37.7761111, lng: -122.2281897, address: "3096 E 10th St, Oakland, California, 94601", website: "http://www.aleindustries.com", city_id: 11, description: "In 2009 Ale Industries set out with a rebellious spirit, an environmentally-conscious endeavor striving to spread the blissful experience of a craft. We unapologetically refuse to let our beers be categorized into styles, types, or profiles because we believe it relegates our vision of craft beer from a verb to a noun, from a spirit to a product.
+
+  We pioneer brewing technologies to save energy and reduce waste because we understand that investing in the environment will nurture the communities we care about, allowing them to flourish and grow. Oakland, California is our home, where we aim to foster connections with our neighbors and friends.
+
+  Ale Industries is not just in the business of producing craft beer. Ale Industries is for the preservation of craft beer and its founding principals: challenging both your and our notion of what beer is, can, or should be."})
+
+  Brewery.create({name: "Diving Dog Brewhouse", lat: 37.807739, lng: -122.2698881, address: "1802 Telegraph Ave, Oakland, California, 94612", website: "http://www.divingdogbrew.com", city_id: 11, description: "Diving Dog Brewhouse is a craft beer bar with 30 taps and brew-on-premises equipment which allow individuals to brew their own beer on-site. The Brewhouse is located directly across the street from the Fox Theatre."})
+
+  Brewery.create({name: "Ghost Town Brewing", lat: 37.8139174766419, lng: -122.284439629224, address: "1960 Adeline St, Oakland, California, 94607", website: "http://www.ghosttownbrewing.com", city_id: 11, description: "Ghost Town Brewing is a craft brewery founded in West Oakland, CA.  Our  beers  are served in our West Oakland taproom and at the finest craft beer-focused joints throughout  Northern California.
+
+  EL-D-50 Juicy IPA has passed its clinical trials and is ready for consumption. El-D-50 is a pernicious 6.5% ABV with 50 IBUs of El Dorado and a touch of Citra. The heavy dose of El Dorado is paired with an expressive yeast strain to help maximize the fruitiness of the hop, with its prominent notes of nectarines, pears, and orange rind. El-D-50 is a small, experimental batch, but it's to die for.⁠"}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/ghosttown.jpg"), filename: "ghosttown.jpg")
+
+  Brewery.create({name: "Novel Brewing Company", lat: 37.837819, lng: -122.282003, address: "6510 San Pablo Ave, Oakland, California, 94608", website: "http://novelbrewing.com", city_id: 11, description: "Novel Brewing Company is a narrative about who we are, where we've been, and what the future holds. The story is told through the art and science of brewing beer, and the careful curation of artisan snack foods for our local community. Within the pages of Novel Brewing Company are chapters that will be written by our taproom patrons. These chapters will provide nourishment for new stories and the development of new characters. The scenes will extend beyond the boundaries of the brewery and spill into the surrounding neighborhoods, quenching the thirsts of long time friends, sidekicks, and newly discovered cohorts. It is the mission of Novel Brewing Company to help sustain a sense of connectedness through beer, food, and community."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/novelbrewing.jpg"), filename: "novelbrewing.jpg")
+
+  Brewery.create({name: "Old Kan Beer & Co", lat: 37.7995945, lng: -122.2879928, address: "95 Linden St, Oakland, California, 94607", website: "http://www.old-kan.com", city_id: 11, description: "Adam and his wife Alice first found this place in March of 2005. Despite the dirt floors with no plumbing, and their complete lack of experience and money, they knew that this was where they wanted to share their vision for what a community-focused brewery could look like in Oakland. Finally, after years of persistence and resilience, they were able to open Oakland’s first production brewery in 50 years called Linden Street Brewery. Linden Street quickly became a valuable and integral part of the social fabric that helped spawn the incredible growth we see in Oakland’s beer scene today. Linden Street Brewery has since moved to a new location, but Adam and Alice remain where they feel most inspired and most capable of continuing with their mission for the community.
+
+  Now, in partnership with James Syhabout, Adam is excited to offer beers under the “Old Kan” flag! While Adam is proud for the way Linden Street Brewery defined this place, now he gets to make beers that define a lifestyle. Oakland deserves a beer that’s primary purpose is to serve as social currency, with the power to remind people of what they they love about their town and the ability to contribute to its success. Adam isn’t interested in being considered one of Oakland’s most creative or most awarded brewers, as much as he strives to be known for giving Oaklanders something to be proud of."})
+
+  Brewery.create({name: "Original Pattern Brewing Company", lat: 37.796075, lng: -122.2718245, address: "292 4th St, Oakland, California, 94607", website: "http://www.originalpatternbeer.com", city_id: 11, description: "Original Pattern Brewing Company is an award winning employee owned brewery and tasting room in Oakland, California. Our mission is to build a brewery and tasting room that focuses meticulously on quality and freshness, where we can personally share our beers directly with the local community.  With a love for the science and art of fermentation, you will always find something new and interesting on tap.
+
+  We are pleased to announce that we took home a Silver Medal at the 2018 Great American Beer Festival for our Belgian Dubbel, Call of the Void in the other Belgian-Style Ale category."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/originalpattern.jpg"), filename: "originalpattern.jpg")
+
+  Brewery.create({name: "Roses' Taproom", lat: 37.8143551, lng: -122.2683709, address: "4930 Telegraph Ave, Oakland, California, 94609", website: "http://www.rosestaproom.com", city_id: 11, description: "Family-friendly neighborhood beer bar for housemade pints & upscale snacks in sleek quarters.
+
+  Rose’s Taproom opened on the first day of July in the Temescal neighborhood of Oakland, bringing to life the community-driven vision of husband-and-wife team Hillary Huffard, and Luke Janson. It’s a small brewery and taproom, the result of the duo’s passion for homebrewing, and desire for a place that wasn’t “just another beer place.” And don’t call Rose’s a beer garden— there are no picnic benches (or even outdoor space) at this spot."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/rosestaproom.jpg"), filename: "rosestaproom.jpg")
+
+  Brewery.create({name: "Temescal Brewing", lat: 37.8303644, lng: -122.2645038, address: "4115 Telegraph Ave, Oakland, California, 94609", website: "http://www.temescalbrewing.com", city_id: 11, description: "We know that good beer brings people together—and we started Temescal Brewing in 2016 to do just that. 
+  We craft vibrant and delicious beer for our neighborhood and our pals and we’ve created a welcoming space full of Temescal vibes for everyone to enjoy.
+
+  We brew uncompromisingly delicious beer and take pride in bringing a softer, lighter, thoughtful approach to everything we do. We believe beer is fuel for community, and strive to be a welcoming place for folx from all walks of life."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/temescal.jpg"), filename: "temescal.jpg")
+
+  Brewery.create({name: "Woods Bar & Brewery", lat: 37.8069575, lng: -122.2704253, address: "1701 Telegraph Ave, Oakland, California, 94612", website: "http://www.woodsbeer.com", city_id: 11, description: "Woods Beer & Wine Co. is a family of bars, brewpubs, and wineries around the Bay Area.  We make creative, small-batch beer and wine inspired by nature, place, and tradition."})
+
+
+
   Guide.create({
     title: "Best Breweries in Boston",
     body: "In the farm-to-table food industry today, it only makes sense that beer lovers are gravitating towards local brewers. Craft beer has exploded to the point where some are even questioning if there are too many brewers in the United States. For now, beer lovers can rejoice in Boston where there’s plenty of options from both near and far.",
@@ -216,7 +252,7 @@ ActiveRecord::Base.transaction do
     title: "Bay Area Brews",
     body: "There's never been a better time to have a beer in San Francisco. Now home to as many breweries as there were before prohibition, the city hosts an impressive, fast-paced brewing culture. As beer booms, there have been plenty of acquisitions and stumbling blocks, but locally, the business continues grow and evolve. Right now, right here in SF, these 20 breweries with tap rooms are making and serving the most interesting beers you're likely to see anywhere.",
     city_id: 11,
-    user_id: 2
+    user_id: 1
   })
   BreweryGuide.create({brewery_id: 35, guide_id: 1, order: 1})
   BreweryGuide.create({brewery_id: 36, guide_id: 1, order: 2})
@@ -225,11 +261,11 @@ ActiveRecord::Base.transaction do
   BreweryGuide.create({brewery_id: 32, guide_id: 1, order: 5})
 
 
-  BreweryGuide.create({brewery_id: 1, guide_id: 2, order: 1})
-  BreweryGuide.create({brewery_id: 2, guide_id: 2, order: 2})
-  BreweryGuide.create({brewery_id: 3, guide_id: 2, order: 3})
-  BreweryGuide.create({brewery_id: 4, guide_id: 2, order: 4})
-  BreweryGuide.create({brewery_id: 5, guide_id: 2, order: 5})
+  BreweryGuide.create({brewery_id: 44, guide_id: 2, order: 1})
+  BreweryGuide.create({brewery_id: 47, guide_id: 2, order: 2})
+  BreweryGuide.create({brewery_id: 43, guide_id: 2, order: 3})
+  BreweryGuide.create({brewery_id: 48, guide_id: 2, order: 4})
+  BreweryGuide.create({brewery_id: 46, guide_id: 2, order: 5})
 
   # Favorite.create({user_id: 1, brewery_id: 36})
 end
