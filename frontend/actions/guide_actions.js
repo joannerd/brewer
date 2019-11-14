@@ -4,6 +4,8 @@ export const RECEIVE_ALL_GUIDES = "RECEIVE_ALL_GUIDES";
 export const RECEIVE_GUIDE = "RECEIVE_GUIDE";
 export const REMOVE_GUIDE = "REMOVE_GUIDE";
 
+import { receiveErrors } from './session_actions';
+
 const receiveGuides = (payload) => ({
   type: RECEIVE_ALL_GUIDES,
   payload

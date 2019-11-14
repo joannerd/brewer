@@ -21,7 +21,10 @@ class BreweryIndex extends React.Component {
             </div>
           ))}
         </div>
-        <Map places={this.props.breweries} />
+
+        {/* <div>
+          <img src="./craftbeer.png" className="beer-diagram"/>
+        </div> */}
       </section>
     )
   }

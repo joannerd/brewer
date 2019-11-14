@@ -15,6 +15,8 @@ import GuideContainer from './guides/guide_show_container';
 import CreateGuideContainer from './guides/create_guide_container';
 import UpdateGuideContainer from './guides/update_guide_container';
 
+import MapContainer from './map/map_container';
+
 const App = () => (
   <div className="app flex-center">
     <header>
@@ -26,6 +28,7 @@ const App = () => (
     </Switch>
 
     <Switch>
+      <ProtectedRoute exact path="/maps" component={MapContainer} />
       <ProtectedRoute exact path="/guides/:guideId" component={GuideContainer} />
       {/* <ProtectedRoute exact path="/guides/new" component={CreateGuideContainer} /> */}
       <ProtectedRoute exact path="/guides/" component={GuideIndexContainer} />

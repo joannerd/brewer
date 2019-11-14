@@ -1,48 +1,34 @@
 import React from 'react';
+import MarkerManager from './marker_manager';
 
 class Map extends React.Component {
   constructor(props) {
     super(props);
+    this.map;
+  }
+  
+  componentDidMount() {
+    this.props.fetchGuide(this.props.match.params.guideId);
+    mapboxgl.accessToken = window.mboxAPIKey;
 
-    this.state = {};
+    const mapOptions = {
+      container: 'map',
+      minZoom: 10,
+      center: [this.props.guide.cityLng, this.props.guide.cityLat],
+      style: 'mapbox://styles/mapbox/dark-v9'
+    };
+    this.map = new mapboxgl.Map(mapOptions)
   }
 
-  componentDidMount() {
-    debugger
-    const { places, placeIds} = this.props;
+  componentDidUpdate() {
 
-    let centerLng = 0;
-    let centerLat = 0;
+    const markerPlaces = Object.values(this.props.places);
 
-    for (let i = 0; i < places.length; i++) {
-       centerLng += places[i][0];
-       centerLat += places[i][1];
-    }
-
-    mapboxgl.accessToken = window.mboxAPIKey;
-    const map = new mapboxgl.Map({
-      container: 'map',
-      minZoom: 3,
-      center: [-97.473672, 39.596918],
-      // center: [(centerLng/places.length), (centerLat/places.length)],
-      style: 'mapbox://styles/mapbox/dark-v9' })
-
-    placeIds.forEach(id => {
-      const el = document.createElement('div');
-      el.className = 'marker';
-
-      const coordinates = places[id]
-
-      new mapboxgl.Marker(el)
-        .setLngLat(coordinates)
-        .addTo(map);
-    });
-
-    this.setState(this.props.places)
+    this.MarkerManager = new MarkerManager(this.map)
+    this.MarkerManager.updateMarkers(markerPlaces)
   }
 
   render() {
-    debugger
     return (
       <div id="map-container">
         <div id='map'></div>
@@ -50,11 +36,5 @@ class Map extends React.Component {
     )
   }
 }
-
-Map.defaultProps = {
-  places: [],
-  placeIds: []
-}
-
 
 export default Map;

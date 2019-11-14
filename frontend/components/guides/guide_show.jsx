@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Brewery from '../breweries/brewery_index_item';
-import Map from '../map/map';
+import MapContainer from '../map/map_container';
+// import Map from '../map/map';
 
 
 class GuideShow extends React.Component {
   componentDidMount() {
     this.props.fetchGuide(this.props.match.params.guideId)
   }
+  componentDidUpdate() {
+    // this.props.fetchGuide(this.props.match.params.guideId)
+  }
   
   render() {
     const { guide, breweries, breweryLocations } = this.props;
     return (
       <section className="guide-index-list">
-        <Map places={breweryLocations} placeIds={guide.breweryIds}/>
+        <MapContainer places={breweryLocations} placeIds={guide.breweryIds} />
         
         <div className="guide">
           <img src={guide.cityPhotoUrl} className="city-photo" />
@@ -48,8 +52,11 @@ GuideShow.defaultProps = {
     author: 'default',
     breweryIds: [],
     ciyPhotoUrl: 'default',
+    cityLat: 'default',
+    cityLng: 'default',
     userId: 'default'
   }
+
 }
 
 
