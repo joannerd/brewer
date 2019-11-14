@@ -10,31 +10,30 @@ class GuideShow extends React.Component {
   }
   
   render() {
-    const guide = this.props.guide;
-    const breweries = this.props.breweries;
+    const { guide, breweries, breweryLocations } = this.props;
     return (
       <section className="guide-index-list">
-        <Map />
+        <Map places={breweryLocations} placeIds={guide.breweryIds}/>
         
-      <div className="guide">
-        <img src={guide.cityPhotoUrl} className="city-photo" />
+        <div className="guide">
+          <img src={guide.cityPhotoUrl} className="city-photo" />
 
-        <div className="guide-info">
-          <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
-          <h2>{guide.author}</h2>
-          <p>{guide.body}</p>
-        </div>
-
-        {guide.breweryIds.map((breweryId, i) => (
-          <div key={i} className="guide-brewery">
-            <Brewery
-              breweryId={breweryId}
-              breweries={breweries}
-              fetchBrewery={this.props.fetchBrewery} />
+          <div className="guide-info">
+            <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
+            <h2>{guide.author}</h2>
+            <p>{guide.body}</p>
           </div>
-        ))}
 
-      </div>
+          {guide.breweryIds.map((breweryId, i) => (
+            <div key={i} className="guide-brewery">
+              <Brewery
+                breweryId={breweryId}
+                breweries={breweries}
+                fetchBrewery={this.props.fetchBrewery} />
+            </div>
+          ))}
+
+        </div>
       </section>
     )
   }

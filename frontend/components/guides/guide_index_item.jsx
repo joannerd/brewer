@@ -15,6 +15,8 @@ class GuidePreview extends React.Component {
           <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
           <h2>{guide.author}</h2>
           <p>{guide.body}</p>
+          <br/>
+          <Link to={`/guides/${guide.id}`} className="read-more">Read More</Link>
         </div>
       </div>
     )

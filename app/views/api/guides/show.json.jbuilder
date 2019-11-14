@@ -1,5 +1,13 @@
 json.guides do
   json.partial! 'api/guides/guide', guide: @guide
+
+  json.breweryLocations do
+    @guide.breweries.each do |brewery|
+      json.set! brewery.id do
+        json.array! [brewery.lng, brewery.lat]
+      end
+    end
+  end
 end 
 
 json.breweries do
