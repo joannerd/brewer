@@ -51,3 +51,19 @@
 .city-info a:hover {
   text-decoration: none;
 }
+
+
+.city-show {
+  top: 400px;
+}
+
+.city-show > h1 {
+  padding-top: 10px;
+  background-color: inherit;
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 50px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgb(194, 194, 194);
+  text-decoration: none;
+}

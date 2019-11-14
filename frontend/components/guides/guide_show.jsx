@@ -15,8 +15,7 @@ class GuideShow extends React.Component {
   render() {
     if (this.props.guide === undefined) return null;
 
-    const { breweries, breweryLocations } = this.props;
-    const guide = this.props.guide;
+    const { breweries, guide } = this.props;
     return (
       <section className="guide-index-list">
         <MapContainer

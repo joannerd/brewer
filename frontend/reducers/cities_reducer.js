@@ -8,8 +8,9 @@ const citiesReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_CITIES:
       return action.cities
     case RECEIVE_CITY:
-      newState[action.city.id] = action.city;
-      return newState;
+      // newState[action.city.id] = action.city;
+      // return newState;
+      return action.payload.cities
     default:
       return oldState
   }

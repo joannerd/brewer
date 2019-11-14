@@ -1,4 +1,5 @@
 import { RECEIVE_ALL_GUIDES, RECEIVE_GUIDE, REMOVE_GUIDE } from '../actions/guide_actions';
+import { RECEIVE_CITY } from "../actions/city_actions";
 
 const guidesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -11,6 +12,8 @@ const guidesReducer = (oldState = {}, action) => {
     case REMOVE_GUIDE:
       delete newState[action.guideId];
       return newState;
+    case RECEIVE_CITY:
+      return action.payload.guides
     default:
       return oldState;
   }

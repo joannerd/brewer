@@ -9,39 +9,29 @@ import Splash from './splash';
 
 import BreweryIndexContainer from './breweries/brewery_index_container';
 import CityIndexContainer from './cities/city_index_container';
-
 import GuideIndexContainer from './guides/guide_index_container';
-import GuideContainer from './guides/guide_show_container';
-import CreateGuideContainer from './guides/create_guide_container';
-import UpdateGuideContainer from './guides/update_guide_container';
 
-import MapContainer from './map/map_container';
-import SearchBar from './search/search_bar';
+import CityShowContainer from './cities/city_show_container';
+import GuideShowContainer from './guides/guide_show_container';
 
 const App = () => (
   <div className="app flex-center">
     <header>
       <ProtectedRoute component={NavBarContainer} />
-      <ProtectedRoute exact path="/search" component={SearchBar} />
     </header>
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </Switch>
 
-    <ProtectedRoute exact path="/maps" component={MapContainer} />
-
     <Switch>
-      <ProtectedRoute exact path="/guides/:guideId" component={GuideContainer} />
-      {/* <ProtectedRoute exact path="/guides/new" component={CreateGuideContainer} /> */}
+      <ProtectedRoute exact path="/guides/:guideId" component={GuideShowContainer} />
+      <ProtectedRoute exact path="/cities/:cityId" component={CityShowContainer} />
       <ProtectedRoute exact path="/guides/" component={GuideIndexContainer} />
       <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
       <ProtectedRoute exact path="/cities" component={CityIndexContainer} />
       <ProtectedRoute exact path="/" component={Splash} />
     </Switch>
-
-
-    {/* <ProtectedRoute component={FooterContainer} /> */}
   </div>
 );
 

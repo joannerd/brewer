@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBar from '../search/search_bar';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -14,7 +15,11 @@ class NavBar extends React.Component {
   }
 
   render() {
-    // if (this.props.currentUser === undefined) return null;
+    if (this.props.currentUser === undefined) return null;
+
+    const cursorStyle = {
+      cursor: "not-allowed"
+    }
     return (
       <nav className="nav-container">
         <div className="welcome">
@@ -30,18 +35,18 @@ class NavBar extends React.Component {
           <div className="dropdown">
             <span><Link to="/cities">Cities</Link><i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
-              <Link to="/cities/" >Asheville</Link>
-              <Link to="/cities/" >Austin</Link>
-              <Link to="/cities/" >Boston</Link>
-              <Link to="/cities/" >Cincinatti</Link>
-              <Link to="/cities/" >Denver</Link>
-              <Link to="/cities/" >Grand Rapids</Link>
-              <Link to="/cities/" >Indianapolis</Link>
-              <Link to="/cities/" >Kalamazoo</Link>
-              <Link to="/cities/" >Portland</Link>
-              <Link to="/cities/" >San Diego</Link>
-              <Link to="/cities/" >San Francisco</Link>
-              <Link to="/cities/" >Seattle</Link>
+              <Link style={cursorStyle}>Asheville</Link>
+              <Link style={cursorStyle}>Austin</Link>
+              <Link to="/cities/3" >Boston</Link>
+              <Link style={cursorStyle}>Cincinatti</Link>
+              <Link style={cursorStyle}>Denver</Link>
+              <Link style={cursorStyle}>Grand Rapids</Link>
+              <Link style={cursorStyle}>Indianapolis</Link>
+              <Link style={cursorStyle}>Kalamazoo</Link>
+              <Link style={cursorStyle}>Portland</Link>
+              <Link style={cursorStyle}>San Diego</Link>
+              <Link to="/cities/11" >San Francisco</Link>
+              <Link style={cursorStyle}>Seattle</Link>
             </div>
           </div>
         </ul>
@@ -52,10 +57,12 @@ class NavBar extends React.Component {
           <a href="http://www.junnac.org/" className="fa fa-folder" target="_blank" alt="portfolio"/>
           <a href="https://github.com/junnac" className="fa fa-github" target="_blank" alt="github"/>
           <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" target="_blank" alt="email"/>
-          <a href="/" className="fa fa-search"/>
+          <Link to="/search" className="fa fa-search"/>
         </div>
         
         <button className="input submit logout" onClick={this.handleClick}>Logout</button>
+
+        {/* <SearchBar /> */}
       </nav>
     )
   }

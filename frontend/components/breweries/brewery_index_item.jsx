@@ -40,12 +40,12 @@ class Brewery extends React.Component {
 Brewery.defaultProps = {
   brewery: {
     id: '',
-    name: "",
+    name: '',
     lat: '',
     lng: '',
-    address: "",
-    website: "",
-    description: "",
+    address: '',
+    website: '',
+    description: '',
     cityId: ''
   }
 }

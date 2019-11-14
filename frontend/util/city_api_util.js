@@ -5,10 +5,9 @@ export const fetchCities = () => (
   })
 )
 
-export const fetchCity = (city) => (
+export const fetchCity = (cityId) => (
   $.ajax({
-    url: `/api/cities/${city.id}`,
-    method: 'GET',
-    data: { city }
+    url: `/api/cities/${cityId}`,
+    method: 'GET'
   })
 )

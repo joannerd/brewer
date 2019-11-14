@@ -7,16 +7,16 @@ const receiveAllCities = (cities) => ({
   cities
 });
 
-const receiveCity = (city) => ({
+const receiveCity = (payload) => ({
   type: RECEIVE_CITY,
-  city
+  payload
 });
 export const fetchCities = () => dispatch => (
   CityAPIUtil.fetchCities()
     .then(cities => dispatch(receiveAllCities(cities)))
 );
 
-export const fetchCity = (city) => dispatch => (
-  CityAPIUtil.fetchCity(city)
-    .then(city => dispatch(receiveCity(city)))
+export const fetchCity = (cityId) => dispatch => (
+  CityAPIUtil.fetchCity(cityId)
+    .then(payload => dispatch(receiveCity(payload)))
 );
