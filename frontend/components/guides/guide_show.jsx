@@ -6,18 +6,31 @@ import MapContainer from '../map/map_container';
 
 
 class GuideShow extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.fetchGuide(this.props.match.params.guideId)
   }
+
   componentDidUpdate() {
-    // this.props.fetchGuide(this.props.match.params.guideId)
+    if (this.props.guide.id === 'default') {
+      this.props.fetchGuide(this.props.match.params.guideId)
+    }
   }
   
   render() {
-    const { guide, breweries, breweryLocations } = this.props;
+    if (this.props.guide === undefined) return null;
+
+    const { breweries, breweryLocations } = this.props;
+    const guide = this.props.guide;
     return (
       <section className="guide-index-list">
-        <MapContainer places={breweryLocations} placeIds={guide.breweryIds} />
+        <MapContainer
+          places={breweryLocations}
+          guide={guide} 
+        />
         
         <div className="guide">
           <img src={guide.cityPhotoUrl} className="city-photo" />
@@ -42,22 +55,5 @@ class GuideShow extends React.Component {
     )
   }
 }
-
-GuideShow.defaultProps = {
-  // breweries: [],
-  guide: {
-    id: 'default',
-    title: 'default',
-    body: 'default',
-    author: 'default',
-    breweryIds: [],
-    ciyPhotoUrl: 'default',
-    cityLat: 'default',
-    cityLng: 'default',
-    userId: 'default'
-  }
-
-}
-
 
 export default GuideShow;

@@ -30,5 +30,4 @@ class BreweryIndex extends React.Component {
   }
 }
 
-
 export default BreweryIndex;

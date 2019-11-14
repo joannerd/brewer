@@ -5,15 +5,17 @@ class Brewery extends React.Component {
   constructor(props) {
     super(props);
 
-    if (this.props.brewery.id === 'default') {
-      this.state = this.props.breweries[this.props.breweryId]
+    if (this.props.brewery.id === '') {
+      this.brewery = this.props.breweries[this.props.breweryId]
     } else {
-      this.state = this.props.brewery
+      this.brewery = this.props.brewery
     }
   }
 
   render() {
-    const brewery = this.state
+    if (this.props.brewery === undefined) return null;
+
+    const brewery = this.brewery
     const addressLink = brewery.address.split(" ").join("+")
     return (
       <div>
@@ -37,14 +39,14 @@ class Brewery extends React.Component {
 
 Brewery.defaultProps = {
   brewery: {
-    id: 'default',
-    name: "default",
-    lat: 'default',
-    lng: 'default',
-    address: "default",
-    website: "default",
-    description: "default",
-    cityId: 'default'
+    id: '',
+    name: "",
+    lat: '',
+    lng: '',
+    address: "",
+    website: "",
+    description: "",
+    cityId: ''
   }
 }
 

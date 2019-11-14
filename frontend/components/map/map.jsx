@@ -8,19 +8,16 @@ class Map extends React.Component {
   }
   
   componentDidMount() {
-    this.props.fetchGuide(this.props.match.params.guideId);
+    const { cityLng, cityLat } = this.props.guide;
     mapboxgl.accessToken = window.mboxAPIKey;
 
     const mapOptions = {
       container: 'map',
       minZoom: 10,
-      center: [this.props.guide.cityLng, this.props.guide.cityLat],
+      center: [cityLng, cityLat],
       style: 'mapbox://styles/mapbox/dark-v9'
     };
     this.map = new mapboxgl.Map(mapOptions)
-  }
-
-  componentDidUpdate() {
 
     const markerPlaces = Object.values(this.props.places);
 
@@ -29,6 +26,8 @@ class Map extends React.Component {
   }
 
   render() {
+    if (this.props.guide === undefined) return null;
+
     return (
       <div id="map-container">
         <div id='map'></div>

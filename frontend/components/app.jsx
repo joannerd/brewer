@@ -22,16 +22,16 @@ const App = () => (
   <div className="app flex-center">
     <header>
       <ProtectedRoute component={NavBarContainer} />
+      <ProtectedRoute exact path="/search" component={SearchBar} />
     </header>
     <Switch>
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </Switch>
 
-    <ProtectedRoute exact path="/search" component={SearchBar} />
+    <ProtectedRoute exact path="/maps" component={MapContainer} />
 
     <Switch>
-      <ProtectedRoute exact path="/maps" component={MapContainer} />
       <ProtectedRoute exact path="/guides/:guideId" component={GuideContainer} />
       {/* <ProtectedRoute exact path="/guides/new" component={CreateGuideContainer} /> */}
       <ProtectedRoute exact path="/guides/" component={GuideIndexContainer} />
