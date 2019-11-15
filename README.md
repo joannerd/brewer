@@ -46,11 +46,14 @@ $ rails s
 * Index of top craft beer cities in America
 
 ## <a name="technologies">Technologies</a>
-* [Ruby On Rails] - 
 * [React] -
 * [Redux] -
+* [AWS] -
 * [jQuery] - 
+* [Ruby On Rails] - 
 * [PostgreSQL] -
+* [Heroku] -
+* [Mapbox API] - 
 
 Delve deep into ~2 features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions.
 Code snippets to highlight your best code (markdown code snippets, NOT screenshots)
