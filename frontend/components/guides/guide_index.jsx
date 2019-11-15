@@ -16,10 +16,6 @@ class GuideIndex extends React.Component {
             guide={guide}
             fetchGuide={this.props.fetchGuide}
           />
-          // <GuideShow
-          //   key={i}
-          //   guide={guide}
-          // />
         ))}
       </div>
     )
