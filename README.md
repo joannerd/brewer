@@ -1,44 +1,59 @@
-# Brewer [![Inline docs](http://inch-ci.org/github/junnac/brewer.svg?branch=master)](http://inch-ci.org/github/junnac/brewer)  [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/junnac/brewer) 
+# Brewer
 
-Brewer is an application based on Eater that contains guides to top breweries of different cities. The application also features an index of breweries in the top craft beer cities in America.
+Brewer is an application based on Eater that contains guides to top breweries of different cities.
+
+[![Inline docs](http://inch-ci.org/github/junnac/brewer.svg?branch=master)](http://inch-ci.org/github/junnac/brewer)  [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/junnac/brewer) 
 
 <a href="https://junnac-brewer.herokuapp.com/#/">Brewer Live</a>
 
 ## Table of Contents
 
-* [General Info](#general)
-* [Screenshots](#screenshots)
-* [Technologies](#technologies)
-* [Setup](#setup)
+* [Installation](#installation)
 * [Features](#features)
+* [Technologies](#technologies)
 * [Status](#status)
 * [Inspiration](#inspiration)
 
-## <a name="general">General Info</a>
+## <a name="Installation">Installation</a>
+### Clone
+* Clone this to your local machine using `https://github.com/junnac/Brewer.git`
+### Setup
+> Install npm and bundle packages
+```sh
+$ npm install
+$ bundle install
+```
 
+> Open your terminal and run these commands.
 
-## <a name="screenshots">Screenshots</a>
+First Tab:
+```sh
+$ npm start
+```
 
-
-## <a name="technologies">Technologies</a>
-Discussion of technologies used
-Delve deep into ~2 features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions.
-Code snippets to highlight your best code (markdown code snippets, NOT screenshots)
-
-
-## <a name="setup">Setup</a>
-* Ruby version 5.2.3
-* System dependencies
-* Configuration
-* Database creation
-* Database initialization
-* Services
-  * Mapbox
-* Deployment instructions
-
+Second Tab:
+```sh
+$ rails s
+```
 
 ## <a name="features">Features</a>
+* User signup/login
+* Navigation bar
+* Splash page
+* Index of guides created by demo users
+* Guide show pages
+* Index of breweries
+* Index of top craft beer cities in America
 
+## <a name="technologies">Technologies</a>
+* [Ruby On Rails] - 
+* [React] -
+* [Redux] -
+* [jQuery] - 
+* [PostgreSQL] -
+
+Delve deep into ~2 features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions.
+Code snippets to highlight your best code (markdown code snippets, NOT screenshots)
 
 ## <a name="status">Status</a>
 * In progress
@@ -49,3 +64,5 @@ Code snippets to highlight your best code (markdown code snippets, NOT screensho
   * search in brewery index page
 
 ## <a name="inspiration">Inspiration</a>
+* Content organization based off of <a href="https://www.eater.com/">Eater.com</a>
+* Color scheme inspired by <a href="https://lordhobobrewing.com/">Lord Hobo Brewing Co.</a>
