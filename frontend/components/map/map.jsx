@@ -33,7 +33,6 @@ class Map extends React.Component {
 
   render() {
     if (this.props.guide === undefined) return null;
-
     return (
       <div id="map-container">
         <div id='map'></div>

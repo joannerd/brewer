@@ -35,18 +35,18 @@ class NavBar extends React.Component {
           <div className="dropdown">
             <span><Link to="/cities">Cities</Link><i className="fa fa-angle-down"/></span>
             <div className="dropdown-content">
-              <Link style={cursorStyle}>Asheville</Link>
-              <Link style={cursorStyle}>Austin</Link>
+              <Link to="" style={cursorStyle}>Asheville</Link>
+              <Link to="" style={cursorStyle}>Austin</Link>
               <Link to="/cities/3" >Boston</Link>
-              <Link style={cursorStyle}>Cincinatti</Link>
-              <Link style={cursorStyle}>Denver</Link>
-              <Link style={cursorStyle}>Grand Rapids</Link>
-              <Link style={cursorStyle}>Indianapolis</Link>
-              <Link style={cursorStyle}>Kalamazoo</Link>
-              <Link style={cursorStyle}>Portland</Link>
-              <Link style={cursorStyle}>San Diego</Link>
+              <Link to="" style={cursorStyle}>Cincinatti</Link>
+              <Link to="" style={cursorStyle}>Denver</Link>
+              <Link to="" style={cursorStyle}>Grand Rapids</Link>
+              <Link to="" style={cursorStyle}>Indianapolis</Link>
+              <Link to="" style={cursorStyle}>Kalamazoo</Link>
+              <Link to="" style={cursorStyle}>Portland</Link>
+              <Link to="" style={cursorStyle}>San Diego</Link>
               <Link to="/cities/11" >San Francisco</Link>
-              <Link style={cursorStyle}>Seattle</Link>
+              <Link to="" style={cursorStyle}>Seattle</Link>
             </div>
           </div>
         </ul>

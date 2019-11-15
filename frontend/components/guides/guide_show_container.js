@@ -9,7 +9,6 @@ const msp = (state, ownProps) => {
   return ({
     breweries: state.entities.breweries,
     guide: state.entities.guides[ownProps.match.params.guideId],
-    breweryLocations: state.entities.guides.breweryLocations
   })
 };
 

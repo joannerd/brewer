@@ -8,6 +8,7 @@ class BreweryIndex extends React.Component {
   }
 
   render() {
+    if (this.props.breweries.length < 49) return null;
     return (
       <section className="brewery-index">
         <div className="brewery-index-list">

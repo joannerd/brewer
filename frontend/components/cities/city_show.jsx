@@ -26,7 +26,7 @@ class CityShow extends React.Component {
 
     return (
       <section className="city-show">
-        <h1>{city.name}</h1>
+        {/* <h1>{city.name}</h1>
         
         <div>
           {guides.map((guide, i) => (
@@ -35,10 +35,10 @@ class CityShow extends React.Component {
         </div>
 
         <div className="guide">
-          {/* {breweries.map((brewery, i) => (
-            <Brewery brewery={brewery} key={i}/>
-          ))} */}
-        </div>
+          {breweries.map((brewery, i) => (
+            <Brewery breweryId={brewery.id} key={i} breweries={breweries}/>
+          ))}
+        </div> */}
       </section>
     )
   }

@@ -13,7 +13,7 @@ class Brewery extends React.Component {
   }
 
   render() {
-    if (this.props.brewery === undefined) return null;
+    // if (this.props.brewery.id === '') return null;
 
     const brewery = this.brewery
     const addressLink = brewery.address.split(" ").join("+")

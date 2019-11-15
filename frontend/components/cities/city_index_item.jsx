@@ -20,7 +20,7 @@ class City extends React.Component {
       </div>
     ) : (
         <div style={divStyle} className="city-info">
-          <Link style={cursorStyle}>{city.name}</Link>
+          <Link to="" style={cursorStyle}>{city.name}</Link>
         </div>
     )
   }

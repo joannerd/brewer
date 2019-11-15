@@ -8,8 +8,10 @@ ActiveRecord::Base.transaction do
   BreweryGuide.delete_all
   # Favorite.delete_all
 
+  User.create({username: "BeerJo", password: "123456", email: "beerjo@email.com"})
+  User.create({username: "BeerBob", password: "123456", email: "beerbob@email.com"})
+  User.create({username: "BeerBear", password: "123456", email: "BeerBear@email.com"})
   User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
-  User.create({username: "DemoUser2", password: "123456", email: "demo2@email.com"})
 
   City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/asheville.jpg"), filename: "asheville.jpg")
 
@@ -39,17 +41,21 @@ ActiveRecord::Base.transaction do
 
 
   Brewery.create({name: "Archetype Brewing", lat: 35.578240, lng: -82.574930, address: "265 Haywood Rd, Asheville, North Carolina, 28806", website: "http://www.archetypebrewing.com", city_id: 1, description: "Archetype Brewing was founded in 2017, serving up American and Belgian-style beers with a focus on creating complex, mindful, living beer. Offering a wide range of brews, there’s a beer for everyone, from straight forward lagers to intricate barrel-aged saisons. The taproom and brewery are nestled on the corner of Beacham’s Curve in East West Asheville, and provides an open space for the Asheville community to gather and enjoy good company and great beer. Archetype offers a variety of regular events in the taproom including trivia, live music, and sports viewing parties. Archetype beer can be found at restaurants and taprooms throughout the Asheville area, and packaged beers can be found in select craft beer retailers throughout the state."})
-  Brewery.create({name: "Asheville Brewing Co", lat: 35.5917763, lng: -82.5553054474744, address: "77 Coxe Ave, Asheville, North Carolina, 28801", website: "http://www.ashevillepizza.com", city_id: 1, description: "Asheville’s third brewery opened in 1998 as a mash-up pizza joint, second-run movie theater, and brewpub, all wrapped up in a bright, happy, family-friendly space on Merrimon Avenue in North Asheville. A second brewpub, in downtown Asheville’s hip South Slope area, opened in 2006. That location now houses both our 15-barrel and 7-barrel brewhouses, plus plenty of shiny fermentation tanks from which some of Asheville’s most well-loved, creative, award-winning brews emerge. Our third location, a pizza and beer delivery and pick-up kitchen, opened in South Asheville in 2012. Our mission is great food, quality craft beer, excellent service and fun for all ages (kids, kids-at-heart, and canines). Keeping Asheville Hoppy since 1998!"})
-  Brewery.create({name: "Ben's Tune-Up / Ben's Beer", lat: 35.5912756, lng: -82.5557931, address: "195 Hilliard Ave, Asheville, North Carolina, 28801", website: "http://www.benstuneup.com", city_id: 1, description: "Ben's Tune-Up is an American sake brewery and Asian-American fusion restaurant with an urban beer garden that's uniquely Asheville."})
-  Brewery.create({name: "Bhramari Brewhouse", lat: 35.5916676262246, lng: -82.55191879386, address: "101 S Lexington Ave, Asheville, North Carolina, 28801", website: "http://www.bhramaribrewing.com", city_id: 1, description: "Bhramari Brewing Company hasn’t always been our name. As many have found out in this brewing industry, it is hard to find a name that isn’t already taken, but that doesn’t mean it stops being who we are. “Hive Mind” was more than just the original name for our unique brew pub when it was conceived -- it was its founding core. It was dreamt up to be a creative collection of artists sharing their knowledge with each other to build something bigger than any could build by themselves, and the reality has become even better than the dream! There are always challenges to opening any business, but our mission has remained true as Bhramari Brewing Co. is built by the individual talents of our team everyday. Not only has it become a fun place to work, but it has become a place for team members to grow and feel like they’re a part of something bigger than themselves. With passions celebrated and shared freely, our beer, food, and business have become the better and more unique for it…and so it is a more unique name that suits us today: Bhramari Brewing Co. The world’s first word for black bees and the Hindu Goddess of bees, we celebrate this world’s infinite offerings of flavor inspirations to play with and create something completely unique and special just for you. Culinary inspired, locally and globally infused, and experimental at its heart – we at Bhramari Brewing Co. want to always create what inspires us so that you might be inspired as well. Find balance, find whimsy, and discover something completely new in every sip of a Bhramari brew!"})
+  Brewery.create({name: "Asheville Brewing Co", lat: 35.5917763, lng: -82.5553054474744, address: "77 Coxe Ave, Asheville, North Carolina, 28801", website: "http://www.ashevillepizza.com", city_id: 1, description: "Asheville’s third brewery opened in 1998 as a mash-up pizza joint, second-run movie theater, and brewpub, all wrapped up in a bright, happy, family-friendly space on Merrimon Avenue in North Asheville. A second brewpub, in downtown Asheville’s hip South Slope area, opened in 2006. That location now houses both our 15-barrel and 7-barrel brewhouses, plus plenty of shiny fermentation tanks from which some of Asheville’s most well-loved, creative, award-winning brews emerge. Our third location, a pizza and beer delivery and pick-up kitchen, opened in South Asheville in 2012. Our mission is great food, quality craft beer, excellent service and fun for all ages (kids, kids-at-heart, and canines). Keeping Asheville Hoppy since 1998!"}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/ashevillebrewing.jpg"), filename: "ashevillebrewing.jpg")
+
+  Brewery.create({name: "Ben's Tune-Up", lat: 35.5912756, lng: -82.5557931, address: "195 Hilliard Ave, Asheville, North Carolina, 28801", website: "http://www.benstuneup.com", city_id: 1, description: "Ben's Tune-Up is an American sake brewery and Asian-American fusion restaurant with an urban beer garden that's uniquely Asheville."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/benstuneup.jpg"), filename: "benstuneup.jpg")
+
+  Brewery.create({name: "Bhramari Brewhouse", lat: 35.5916676262246, lng: -82.55191879386, address: "101 S Lexington Ave, Asheville, North Carolina, 28801", website: "http://www.bhramaribrewing.com", city_id: 1, description: "Bhramari Brewing Company hasn’t always been our name. As many have found out in this brewing industry, it is hard to find a name that isn’t already taken, but that doesn’t mean it stops being who we are. “Hive Mind” was more than just the original name for our unique brew pub when it was conceived -- it was its founding core. It was dreamt up to be a creative collection of artists sharing their knowledge with each other to build something bigger than any could build by themselves, and the reality has become even better than the dream! There are always challenges to opening any business, but our mission has remained true as Bhramari Brewing Co. is built by the individual talents of our team everyday. Not only has it become a fun place to work, but it has become a place for team members to grow and feel like they’re a part of something bigger than themselves. With passions celebrated and shared freely, our beer, food, and business have become the better and more unique for it…and so it is a more unique name that suits us today: Bhramari Brewing Co. The world’s first word for black bees and the Hindu Goddess of bees, we celebrate this world’s infinite offerings of flavor inspirations to play with and create something completely unique and special just for you. Culinary inspired, locally and globally infused, and experimental at its heart – we at Bhramari Brewing Co. want to always create what inspires us so that you might be inspired as well. Find balance, find whimsy, and discover something completely new in every sip of a Bhramari brew!"}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/bhramari.jpg"), filename: "bhramari.jpg")
+
   Brewery.create({name: "Biltmore Brewing Company", lat: 35.595220, lng: -82.551360, address: "1 N Pack Sq C/O Biltmore Winery Estates, Asheville, North Carolina, 28801", website: "http://www.biltmore.com", city_id: 1, description: "Established in 1895, Biltmore is America's largest home, located in the majestic Blue Ridge Mountains of Asheville, NC. Unless otherwise noted, photos are © The Biltmore Company. Just as first envisioned, Biltmore is all about home – welcoming and celebrating family and friends, and extending the spirit of Biltmore beyond our 8,000 acres. It was true in 1895, and it remains true today."})
   Brewery.create({name: "Burial Beer Co Forestry Camp", lat: 35.588070, lng: -82.553760, address: "40 Collier Ave, Asheville, North Carolina, 28803-2719", website: "https://burialbeer.com/", city_id: 1, description: "Residing in and revitalizing the South Slope District of Asheville, NC, the brewery began its life in summer 2013 as a one-barrel system that grew to a ten-barrel in just over a year. It is now fed from our production facility, barrelhouse and taproom brewery.
 
-  Burial’s taproom also houses a full-service kitchen focusing on Asheville terroir in comfortable American dishes. Our menu is designed by Brian Canipelli, owner of Cucina 24 and James Beard Nominee. The Kitchen is open at all hours that the taproom is open and Sundays often being Brunch with a jazz band, when the weather permits. The offerings revolve with seasonal availability of produce, though staples like our grain-fed double cheeseburger and house fermented hot wings always remain."})
+  Burial’s taproom also houses a full-service kitchen focusing on Asheville terroir in comfortable American dishes. Our menu is designed by Brian Canipelli, owner of Cucina 24 and James Beard Nominee. The Kitchen is open at all hours that the taproom is open and Sundays often being Brunch with a jazz band, when the weather permits. The offerings revolve with seasonal availability of produce, though staples like our grain-fed double cheeseburger and house fermented hot wings always remain."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/burialbeer.jpg"), filename: "burialbeer.jpg")
   Brewery.create({name: "Catawba Brewing Co - Asheville", lat: 35.566640, lng: -82.540800, address: "63 Brook St Ste 1, Asheville, North Carolina, 28803", website: "http://www.catawbavalleybrewingcompany.com", city_id: 1, description: "The roots for Catawba Brewing Company are strongly held in the mountains of western North Carolina, more specifically, the Catawba River for which we are named. The river is formed where the Pyatt boys grew up and winds down through Morganton, where the production brewery is located. It was important to us that our new logo and branding reflect that heritage, while also demonstrating our continued expansion beyond the region."})
   Brewery.create({name: "Green Man Brewing Co", lat: 35.5886248998363, lng: -82.5536715280212, address: "27 Buxton Ave, Asheville, North Carolina, 28801", website: "http://www.greenmanbrewery.com", city_id: 1, description: "The legendary Green Man has existed for centuries but it’s no myth that he’s been brewing great beer in Asheville since 1997. As one of North Carolina’s original breweries, Green Man has been producing some of the beer scene’s most iconic ales. Our offerings are consistently recognized for quality and loyalty to traditional English styles. Additionally, our brewers strive to bring innovative and exciting new flavors to beer-loving folks.
 
-  Continuing our evolution we have constructed a 3 story, 20,000 square ft., packaging hall, a “brewtique”, and an indoor/outdoor top floor taproom that overlooks production and the Blue Ridge Mountains! It is right here on the South Slope, next to “Dirty Jack’s” (which is still open) and our production brewery."})
+  Continuing our evolution we have constructed a 3 story, 20,000 square ft., packaging hall, a “brewtique”, and an indoor/outdoor top floor taproom that overlooks production and the Blue Ridge Mountains! It is right here on the South Slope, next to “Dirty Jack’s” (which is still open) and our production brewery."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/greenman.jpg"), filename: "greenman.jpg")
+
   Brewery.create({name: "Habitat Brewing Co", lat: 35.5986648, lng: -82.5533973, address: "174 Broadway St, Asheville, North Carolina, 28801", website: "http://www.habitatbrewing.com", city_id: 1, description: "We are a neighborhood brewery on the north end of downtown Asheville providing a warm, inviting space in which to create community around classic craft ales and conversation. "})
   Brewery.create({name: "Hi-Wire Brewing Big Top Production Facility", lat: 35.5702055141848, lng: -82.5456631071331, address: "2 Huntsman Pl, Asheville, North Carolina, 28803-2600", website: "http://www.hiwirebrewing.com", city_id: 1, description: "At our core, we brew beer we want to drink on a regular basis, beer we can sit down and have multiple pints with friends. Our flagship and seasonal offerings are brewed to be balanced and approachable, how brewers have been striving to brew beers for thousands of years.
 
@@ -95,11 +101,11 @@ ActiveRecord::Base.transaction do
 
   Brewery.create({name: "Barrel Assembly", lat: 30.2672, lng: -97.7431, address: "Austin, Texas, 78751-3019", website: "http://www.barrelassembly.com", city_id: 2, description: "Our goal is to help Texas breweries create the most exciting beers ever. We are just getting started and have a long way to go before we are fully functional, but we’ll keep you posted as we walk this journey."})
 
-  Brewery.create({name: "(512) Brewing Co", lat: 30.223230, lng: -97.768590, address: "407 Radam Ln Ste F200, Austin, Texas, 78745-1197", website: "http://www.512brewing.com", city_id: 2, description: "(512) Brewing Company is a microbrewery located in the heart of Austin, brewing for the community using as many local, domestic and organic ingredients as possible. The original practice of small breweries supplying their immediate community has been nearly lost, and with it, the quality that is possible from small handcrafted batches. Our beers are built on old world English and Belgian recipes, but enhanced to celebrate bold domestic ingredients. Made with Austin’s mineral rich water, the (512) beers taste like none other."})
+  Brewery.create({name: "(512) Brewing Co", lat: 30.223230, lng: -97.768590, address: "407 Radam Ln Ste F200, Austin, Texas, 78745-1197", website: "http://www.512brewing.com", city_id: 2, description: "(512) Brewing Company is a microbrewery located in the heart of Austin, brewing for the community using as many local, domestic and organic ingredients as possible. The original practice of small breweries supplying their immediate community has been nearly lost, and with it, the quality that is possible from small handcrafted batches. Our beers are built on old world English and Belgian recipes, but enhanced to celebrate bold domestic ingredients. Made with Austin’s mineral rich water, the (512) beers taste like none other."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/512.jpg"), filename: "512.jpg")
 
   Brewery.create({name: "4th Tap Brewing Cooperative", lat: 30.3852024, lng: -97.7118913, address: "10615 Metric Blvd, Austin, Texas, 78758-4520", website: "https://www.4thtap.coop/", city_id: 2, description: "4th Tap is a small, worker-owned brewery located in north Austin. A couple of Austin-natives banded together with a few transplants from Houston, San Antonio, and Corpus Christi to build the 4th Tap brewery in their old stomping grounds of north/central Austin. After 6 years of work, they finally opened their doors to the public in late 2015 with a focus on inspired ingredients to make honest beer.
 
-  The taproom was designed to bring together their neighborhood community - those who live and work in the vicinity - to share in 4th Tap's love of beer, art, music, and much more."})
+  The taproom was designed to bring together their neighborhood community - those who live and work in the vicinity - to share in 4th Tap's love of beer, art, music, and much more."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/4th.jpg"), filename: "4th.jpg")
 
   Brewery.create({name: "Adelbert's Brewery LLC", lat: 30.3826286, lng: -97.7201589, address: "2314 Rutland Dr Ste 100, Austin, Texas, 78758-5273", website: "http://www.adelbertsbeer.com", city_id: 2, description: "Since its founding in 2011, Adelbert’s Brewery has grown to become an award-winning microbrewery in Austin, Texas. We believe excellent beer requires quality ingredients and hands-on brewing. We use non-GMO Bohemian floor malted barley, Noble hops, and fresh yeast propagated at the brewery. While brewing, we utilize a multi-temperature decoction mash to extract a more complex flavor from our grains.
 
@@ -110,15 +116,16 @@ ActiveRecord::Base.transaction do
 
   Brewery.create({name: "Batch Craft Beer and Kolaches", lat: 30.310260, lng: -97.687870, address: "Austin, Texas, 78723", website: "http://www.batchatx.com", city_id: 2, description: "Batch Craft Beer and Kolaches is an Austin, family-owned and operated kolache bakery, taproom, and retail craft beer shop. Our pastry chefs elevate the classic Central Texas Czech pastry to gourmet status through creative variations on the traditional dish and by teaming up with local vendors for fresh, high quality ingredients.
 
-  The curated beer selection features the best of local breweries, the exploding domestic craft beer scene, and the newest and oldest breweries in Europe and beyond. Batch offers a full espresso and coffee program through a partnership with Greater Goods Roasting."})
+  The curated beer selection features the best of local breweries, the exploding domestic craft beer scene, and the newest and oldest breweries in Europe and beyond. Batch offers a full espresso and coffee program through a partnership with Greater Goods Roasting."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/batch.jpg"), filename: "batch.jpg")
 
   Brewery.create({name: "Austin Beerworks", lat: 30.3795705, lng: -97.729844442969, address: "3001 Industrial Ter, Austin, Texas, 78758-7609", website: "http://www.austinbeerworks.com", city_id: 2, description: "Austin, these are the folks who brew your beer. We’ve got backgrounds ranging from military, hair styling, pro disc golf, corporate finance, and some it’s probably best not to discuss publicly. The one thing we all have in common? A deep love and knowledge of craft beer. That and seeing people trip. We know it's mean, but it makes us laugh.
 
-  There’s nothing like drinking our beers fresh out of the tank. Sure it’s 103 degrees and you’re standing on a concrete floor next to a hot tank and velvet painting of Sloth from the Goonies – but don’t forget that drinking out of the tank thing. It’s more than worth it. You’ll see. To see our hours and what's currently on tap, head over here."})
+  There’s nothing like drinking our beers fresh out of the tank. Sure it’s 103 degrees and you’re standing on a concrete floor next to a hot tank and velvet painting of Sloth from the Goonies – but don’t forget that drinking out of the tank thing. It’s more than worth it. You’ll see. To see our hours and what's currently on tap, head over here."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/austinbeerworks.jpg"), filename: "austinbeerworks.jpg")
 
   Brewery.create({name: "Black Star Co-op", lat: 30.3383262, lng: -97.718977, address: "7020 Easy Wind Dr Ste 100, Austin, Texas, 78752-2373", website: "http://www.blackstar.coop", city_id: 2, description: "Here at Black Star, we like to brew interesting, creative and flavorful beers that are still clean and drinkable for the Texas heat. Outside of the traditional 4 main ingredients in beer(malt, water, yeast and hops) we love to experiment with new and interesting ingredients and processes. Seasonality is the name of the game, and with our portfolio of over 55 recipes we are constantly brewing something new.
 
-  Black Star Co-op is the world’s first cooperatively-owned and worker self-managed brewpub. We are owned by a community of more than 3,000 individuals and organizations, and democratically managed by our Workers' Assembly."})
+  Black Star Co-op is the world’s first cooperatively-owned and worker self-managed brewpub. We are owned by a community of more than 3,000 individuals and organizations, and democratically managed by our Workers' Assembly."}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/guides/blackstar.jpg"), filename: "blackstar.jpg")
+
   Brewery.create({name: "Celis Brewery", lat: 30.380220, lng: -97.715860, address: "10001 Metic Blvd., Austin, Texas, 78758", website: "http://www.celisbeers.com", city_id: 2, description: "In the Spring of 1992, my father, Pierre Celis, flew from Belgium to the United States to start a new brewery in the great state of Texas.  No one suspected that he carried something very precious, concealed in his tube socks.  It was the original yeast strain Pierre had been using to brew his world-famous Belgian-style Wit beer for the past 30 years.  And there was no way he was going to brew without it.
 
   The first Celis Brewery opened on July 11th in 1992.  It was an immediate success.  Turns out Texans really liked our beer! Before we “crazy Belgians” arrived, most Texans were drinking one of “the big three” brands on the market. The small craft breweries that we all know and love today simply did not exist. When Pierre Celis started brewing his beloved beer, he created a craft beer that changed everything.
@@ -252,14 +259,21 @@ ActiveRecord::Base.transaction do
     title: "Best Oakland Brews",
     body: "Oakland is all but immune to the advance of Karl the Fog, making it the best place to soak up the sun with a beer in hand. Head to one of these beer gardens, restaurants, and bars for a day or night of outdoor fun. Many of them are cool with both kids and dogs — and all of them are cool. Check out these spots for a weekend (or weekday, if you’re lucky) of fun in the sun.",
     city_id: 11,
-    user_id: 1
+    user_id: 3
   })
 
   Guide.create({
-    title: "Joe's San Francisco Picks",
-    body: "There's never been a better time to have a beer in San Francisco. Now home to as many breweries as there were before prohibition, the city hosts an impressive, fast-paced brewing culture. As beer booms, there have been plenty of acquisitions and stumbling blocks, but locally, the business continues grow and evolve. Right now, right here in SF, these 20 breweries with tap rooms are making and serving the most interesting beers you're likely to see anywhere.",
-    city_id: 11,
-    user_id: 1
+    title: "Top Asheville Beers",
+    body: "This rundown of Asheville’s essential breweries, loaded as it is with exemplary western North Carolina craft producers, is sure to cause a ruckus amongst those lucky enough to spend lots of time in such a beautiful, beer-soaked city. But if you’re uninitiated to the AVL beer scene, or visiting for the first time, it’ll steer you towards some can’t-miss picks. Whether they’re the city’s best of the best is your call to make.",
+    city_id: 1,
+    user_id: 2
+  })
+
+  Guide.create({
+    title: "Austin Craft Beer Destinations",
+    body: "Austin’s craft beer scene is thriving, clearly seen with the expanding number of breweries setting forth for the city (and growing). This means there is certainly no shortage of places to grab excellent local brews from Live Oak Brewing, Austin Beerworks, Hops & Grain, and more.",
+    city_id: 2,
+    user_id: 3
   })
 
   BreweryGuide.create({brewery_id: 35, guide_id: 1, order: 1})
@@ -268,18 +282,23 @@ ActiveRecord::Base.transaction do
   BreweryGuide.create({brewery_id: 39, guide_id: 1, order: 4})
   BreweryGuide.create({brewery_id: 32, guide_id: 1, order: 5})
 
-
   BreweryGuide.create({brewery_id: 44, guide_id: 2, order: 1})
   BreweryGuide.create({brewery_id: 47, guide_id: 2, order: 2})
   BreweryGuide.create({brewery_id: 43, guide_id: 2, order: 3})
   BreweryGuide.create({brewery_id: 48, guide_id: 2, order: 4})
   BreweryGuide.create({brewery_id: 46, guide_id: 2, order: 5})
 
-  BreweryGuide.create({brewery_id: 44, guide_id: 3, order: 1})
-  BreweryGuide.create({brewery_id: 47, guide_id: 3, order: 2})
-  BreweryGuide.create({brewery_id: 43, guide_id: 3, order: 3})
-  BreweryGuide.create({brewery_id: 48, guide_id: 3, order: 4})
-  BreweryGuide.create({brewery_id: 46, guide_id: 3, order: 5})
+  BreweryGuide.create({brewery_id: 6, guide_id: 3, order: 3})
+  BreweryGuide.create({brewery_id: 4, guide_id: 3, order: 1})
+  BreweryGuide.create({brewery_id: 3, guide_id: 3, order: 2})
+  BreweryGuide.create({brewery_id: 2, guide_id: 3, order: 4})
+  BreweryGuide.create({brewery_id: 8, guide_id: 3, order: 5})
+
+  BreweryGuide.create({brewery_id: 24, guide_id: 4, order: 1})
+  BreweryGuide.create({brewery_id: 21, guide_id: 4, order: 2})
+  BreweryGuide.create({brewery_id: 26, guide_id: 4, order: 3})
+  BreweryGuide.create({brewery_id: 22, guide_id: 4, order: 4})
+  BreweryGuide.create({brewery_id: 25, guide_id: 4, order: 5})
 
   Favorite.create({user_id: 1, brewery_id: 36})
 end
