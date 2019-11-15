@@ -12,16 +12,12 @@ class City extends React.Component {
 
     const cursorStyle = {
       cursor: "not-allowed"
-    }    
-    return ((city.id === 3) || (city.id === 11)) ?
-    (
+    }
+
+    return (
       <div style={divStyle} className="city-info">
-        <Link to={`/cities/${city.id}`}>{city.name}</Link>
+        <Link to="/cities" style={cursorStyle}>{city.name}</Link>
       </div>
-    ) : (
-        <div style={divStyle} className="city-info">
-          <Link to="" style={cursorStyle}>{city.name}</Link>
-        </div>
     )
   }
 }

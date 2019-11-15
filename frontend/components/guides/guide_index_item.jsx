@@ -11,13 +11,15 @@ class GuidePreview extends React.Component {
 
     return (
       <div style={divStyle} className="guide-preview">
-        <div className="guide-preview-info">
-          <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
-          <h2>{guide.author}</h2>
-          <p>{guide.body}</p>
-          <br/>
-          <Link to={`/guides/${guide.id}`} className="read-more">Read More</Link>
-        </div>
+        <Link to={`/guides/${guide.id}`}>
+          <div className="guide-preview-info">
+              <h1>{guide.title}</h1>
+              <h2>{guide.author}</h2>
+              <p>{guide.body}</p>
+              <br/>
+              <span className="read-more">Read More</span>
+          </div>
+        </Link>
       </div>
     )
   }

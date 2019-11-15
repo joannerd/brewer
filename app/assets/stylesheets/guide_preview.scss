@@ -1,7 +1,5 @@
 .guide-preview {
   margin: 20px;
-  // margin-top: 20%;
-  // margin-bottom: 20%;
 
   max-width: 600px;
   min-width: 350px;
@@ -28,7 +26,10 @@
   min-height: 320px;
 }
 
-.guide-preview h1 * {
+.guide-preview-info:hover {
+  cursor: pointer;
+}
+.guide-preview h1 {
   font-size: 27px;
   position: sticky;
 }

@@ -28,7 +28,7 @@ class NavBar extends React.Component {
         </div>
 
         <ul className="nav-index">
-          <li><Link to="/profile">Profile</Link></li>
+          <li><Link to="" style={cursorStyle}>Profile</Link></li>
           <li><Link to="/guides">Guides</Link></li>
           <li><Link to="/breweries">Breweries</Link></li>
 
@@ -37,7 +37,7 @@ class NavBar extends React.Component {
             <div className="dropdown-content">
               <Link to="" style={cursorStyle}>Asheville</Link>
               <Link to="" style={cursorStyle}>Austin</Link>
-              <Link to="/cities/3" >Boston</Link>
+              <Link to="" style={cursorStyle} >Boston</Link>
               <Link to="" style={cursorStyle}>Cincinatti</Link>
               <Link to="" style={cursorStyle}>Denver</Link>
               <Link to="" style={cursorStyle}>Grand Rapids</Link>
@@ -45,7 +45,7 @@ class NavBar extends React.Component {
               <Link to="" style={cursorStyle}>Kalamazoo</Link>
               <Link to="" style={cursorStyle}>Portland</Link>
               <Link to="" style={cursorStyle}>San Diego</Link>
-              <Link to="/cities/11" >San Francisco</Link>
+              <Link to="" style={cursorStyle} >San Francisco</Link>
               <Link to="" style={cursorStyle}>Seattle</Link>
             </div>
           </div>

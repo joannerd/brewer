@@ -15,7 +15,7 @@ class Map extends React.Component {
 
         const mapOptions = {
           container: 'map',
-          minZoom: 10,
+          minZoom: 11.5,
           center: [cityLng, cityLat],
           style: 'mapbox://styles/mapbox/dark-v9'
         };
