@@ -41,7 +41,7 @@ Code snippets to highlight your best code (markdown code snippets, NOT screensho
 
 
 ## <a name="status">Status</a>
-* Current: in progress
+* In progress
 * Future features:
   * user profile
   * user creation of brewery guides
