@@ -40,9 +40,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'web-console', '>= 3.3.0'
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'spring'
-  gem 'binding_of_caller'
+  # gem 'binding_of_caller'
 end
 
 group :development do
