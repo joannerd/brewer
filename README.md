@@ -38,16 +38,20 @@ $ rails s
 
 ## <a name="features">Features</a>
 * User signup/login
+![Screen Shot 2019-12-01 at 4 51 56 PM](https://user-images.githubusercontent.com/32081352/69923586-e92eec00-145a-11ea-90bd-662b4399c75a.png)
 * Navigation bar
 * Splash page
 * Index of guides created by demo users
 * Guide show pages
+![Screen Shot 2019-11-15 at 3 41 39 PM](https://user-images.githubusercontent.com/32081352/69923551-a9680480-145a-11ea-9dd2-d0e120b39bdb.png)
+
 * Index of breweries
 * Index of top craft beer cities in America
+![Screen Shot 2019-11-15 at 3 42 29 PM](https://user-images.githubusercontent.com/32081352/69923552-a9680480-145a-11ea-9c72-8f831b93dd28.png)
 
 ## <a name="technologies">Technologies</a>
-* React-Redux](#react-redux)
-* Mapbox API](#mapbox)
+* React-Redux
+* Mapbox API
 * Ruby On Rails
 * AWS
 * jQuery
@@ -56,7 +60,7 @@ $ rails s
 
 Throughout the project's workflow, I learned about the <a name="react-redux">React-Redux</a> cycle and good ways of formatting state shape and obtaining desired state.
 
-I decided to implement <a name="mapbox">Mapbox</a> in my application's guide show pages to render locations of a guide's breweries. I designed my backend database for my `Breweries` and `Cities` tables with map marker creation in mind. Each brewery and city has a latitute `:lat` and longitude `:lng`.  Saving this information in the database resulted in a smooth transition when rendering each guide's map. The map component pulls a brewery's location to render a corresponding marker. The map's center point was based on the city's longitude and latitude (`:cityLat` and `:cityLng`).
+I decided to implement Mapbox in my application's guide show pages to render locations of a guide's breweries. I designed my backend database for my `Breweries` and `Cities` tables with map marker creation in mind. Each brewery and city has a latitute `:lat` and longitude `:lng`.  Saving this information in the database resulted in a smooth transition when rendering each guide's map. The map component pulls a brewery's location to render a corresponding marker. The map's center point was based on the city's longitude and latitude (`:cityLat` and `:cityLng`).
 
 ## <a name="status">Status</a>
 * In progress
