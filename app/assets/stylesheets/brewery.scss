@@ -8,10 +8,35 @@
 
 .brewery-nav {
   position: fixed;
-  top: 25%;
-  right: 2%;
+  top: 90px;
+  right: 0;
   list-style: none;
-  z-index: 1000;
+  z-index: 5;
+  background: black;
+  padding: 10px;
+  width: 30px;
+  box-sizing: border-box;
+  font-size: auto;
+  height: 90%;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+.brewery-nav li {
+  height: 20px;
+  line-height: 20px;
+}
+
+.brewery-nav li:hover {
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  color: #BF965C;
+  font-size: 20px;
 }
 
 .brewery-index-list {
