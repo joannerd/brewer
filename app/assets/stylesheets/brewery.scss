@@ -9,18 +9,17 @@
 .brewery-nav {
   position: fixed;
   top: 90px;
-  right: 0;
+  left: 51%;
   list-style: none;
   z-index: 5;
-  background: black;
   padding: 10px;
-  width: 30px;
+  width: 50%;
   box-sizing: border-box;
   font-size: auto;
-  height: 90%;
+  height: 30px;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-content: center;
   justify-content: space-evenly;
 }

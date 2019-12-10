@@ -11,7 +11,7 @@ class City extends React.Component {
     };
 
     const cursorStyle = {
-      cursor: "not-allowed"
+      // cursor: "not-allowed"
     }
 
     return (

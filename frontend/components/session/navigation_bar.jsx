@@ -18,7 +18,7 @@ class NavBar extends React.Component {
     if (this.props.currentUser === undefined) return null;
 
     const cursorStyle = {
-      cursor: "not-allowed"
+      // cursor: "not-allowed"
     }
     return (
       <nav className="nav-container">
@@ -53,9 +53,9 @@ class NavBar extends React.Component {
         
         <div className="nav-contact">
           <a href="https://www.linkedin.com/in/xchenj/" className="fa fa-linkedin-square" target="_blank" alt="linkedin"/>
-          <a href="https://www.slideshare.net/slideshow/embed_code/key/AyCH5FH6ZNA1Pb" className="fa fa-file-text" target="_blank" alt="resume"/>
-          <a href="http://www.junnac.org/" className="fa fa-folder" target="_blank" alt="portfolio"/>
           <a href="https://github.com/junnac" className="fa fa-github" target="_blank" alt="github"/>
+          <a href="https://angel.co/xchenj" className="fa fa-angellist" target="_blank" alt="angellist"/>
+          <a href="http://junnac.github.io/" className="fa fa-folder" target="_blank" alt="portfolio"/>
           <a href="mailto:x.chenj@gmail.com" className="fa fa-envelope" target="_blank" alt="email"/>
           <Link to="/search" className="fa fa-search"/>
         </div>

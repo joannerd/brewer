@@ -33,6 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     $('#cover').fadeOut(4000);
   })
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
 })

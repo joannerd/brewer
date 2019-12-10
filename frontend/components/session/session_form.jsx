@@ -27,11 +27,49 @@ class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
-    this.setState({ username: "DemoUser", password: "123456", email: "demo@email.com" }, () => {
-      const user = Object.assign({}, this.state);
-      this.props.processForm(user)
-        .then(() => this.props.history.push("/"));
-    });
+
+    let i = 0;
+    let j = 0;
+    let demoUsername = "JoannaChen";
+    let demoPassword = "123456";
+
+    const typeUser = () => {
+      let timeout;
+      if (i < demoUsername.length) {
+        document.getElementById("username").value += demoUsername.charAt(i);
+        i++;
+        timeout = setTimeout(typeUser, 150);
+      } else {
+        clearTimeout(timeout);
+      }
+    }
+
+    const typePw = () => {
+      let timeout;
+      if (j < demoPassword.length) {
+        document.getElementById("password").value += demoPassword.charAt(j);
+        j++;
+        timeout = setTimeout(typePw, 150);
+      } else {
+        clearTimeout(timeout);
+      }
+    }
+
+    if (this.props.formType === 'login') {
+      typeUser();
+
+      window.setTimeout(() => {
+        typePw();
+      }, 150)
+      
+      window.setTimeout(() => {
+        this.setState({ username: "JoannaChen", password: "123456", email: "demo@email.com" }, () => {
+          const user = Object.assign({}, this.state);
+          this.props.processForm(user)
+            .then(() => this.props.history.push("/"));
+        });
+      }, 2000)
+    }
   }
 
   update(field) {
@@ -62,7 +100,8 @@ class SessionForm extends React.Component {
 
         <form className="form flex-center">
           <input
-            className="input"
+            id="username"
+            className="input" 
             onChange={this.update("username")}
             placeholder="Username"
             type="text"
@@ -71,6 +110,7 @@ class SessionForm extends React.Component {
           />
 
           <input
+            id="password"
             className="input"
             onChange={this.update("password")}
             placeholder="Password"
