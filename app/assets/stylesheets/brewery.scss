@@ -1,15 +1,22 @@
 .brewery-index {
+  position: absolute;
   min-width: 600px;
-  top: 0;
+  top: 120px;
+  left: 0;
   bottom: 0;
+}
+
+.brewery-nav {
+  position: fixed;
+  top: 25%;
+  right: 2%;
+  list-style: none;
+  z-index: 1000;
 }
 
 .brewery-index-list {
   min-width: 500px;
   width: 55%;
-  position: absolute;
-  top: 120px;
-  left: 0px;
   opacity: .9;
 }
 
@@ -91,7 +98,6 @@
 .beer-diagram {
   width: 80%;
   min-width: 450px;
-  // min-width: auto;
 }
 
 .beer-diagram:hover {
