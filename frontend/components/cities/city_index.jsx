@@ -3,6 +3,7 @@ import City from './city_index_item';
 
 class CityIndex extends React.Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchCities();
   }
 

@@ -2,7 +2,11 @@ json.set! guide.id do
   json.extract! guide, :id, :title, :body
   json.author guide.user.username
   json.breweryIds guide.breweries.order(:order).pluck(:id)
-  json.breweryLocations guide.breweries.order(:order).pluck(:lng, :lat)
+  json.breweryLocations guide.breweries.order(:order).pluck(:lng, :lat, :id)
+  json.brewInfo do
+    guide.breweries.each { |brewery| json.set! brewery.id, [brewery.lng, brewery.lat] }
+  end
+  
 
   json.cityPhotoUrl url_for(guide.city.photo)
   json.cityLat guide.city.lat

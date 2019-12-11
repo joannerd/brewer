@@ -1,6 +1,5 @@
 .guide-preview {
   margin: 20px;
-
   max-width: 600px;
   min-width: 350px;
   border: 5px outset rgb(167, 167, 167);
@@ -22,8 +21,9 @@
 .guide-preview-info {
   margin: 10%;
   padding: 5%;
-  background-color: rgba(0, 0, 0, 0.664);
+  background-color: rgba(134, 134, 134, 0.432);
   min-height: 320px;
+  border-radius: 10px;
 }
 
 .guide-preview-info:hover {
@@ -35,10 +35,10 @@
 }
 
 .guide-preview h2 {
-  color: rgb(151, 151, 151);
+  color: black;
   padding-top: 1%;
   padding-bottom: 2%;
-  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  text-shadow: none;
   border-bottom: 1px solid white;
 }
 
@@ -54,13 +54,13 @@
   line-height: 1.5;
 
   overflow: hidden;
-  // display: -webkit-box;
   display: inline-block;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
  .read-more {
+  border-radius: 5px;
   font-size: 15px;
   background-color: #BF965C;
   padding-right: 5px;

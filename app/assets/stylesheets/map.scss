@@ -1,10 +1,11 @@
+
+
 #map-container {
-  top: 150px;
+  position: fixed;
+  top: 90px;
+  left: 0px;
   width: 50%;
   height: 100%;
-  position: fixed;
-  top: 0px;
-  left: 0px;
 }
 
 #map {

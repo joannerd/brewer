@@ -5,6 +5,7 @@ const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 
 class BreweryIndex extends React.Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchBreweries()
       .then(() => {
         alphabet.forEach(alpha => {

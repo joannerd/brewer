@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Brewery from '../breweries/brewery_index_item';
-import MapContainer from '../map/map_container';
+import Map from '../map/map';
 
 class GuideShow extends React.Component {
   constructor(props) {
@@ -9,18 +9,29 @@ class GuideShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchGuide(this.props.match.params.guideId);
+    window.scrollTo(0, 0);
+    this.props.fetchGuide(this.props.match.params.guideId)
+      .then(() => {
+        const brewIds = Object.keys(this.props.guide.brewInfo)
+        brewIds.forEach(brewId => {
+          document.getElementsByClassName(`${brewId}`)[0].addEventListener('click', () => {
+            document.getElementById(`brewery${brewId}`).scrollIntoView({
+              block: "start"
+            });
+          })
+        })
+      })
   }
   
   render() {
     if (this.props.guide === undefined) return null;
 
     const { breweries, guide } = this.props;
+    const brewIds = Object.keys(guide.brewInfo)
+    
     return (
       <section className="guide-index-list">
-        <MapContainer
-          guide={guide} 
-        />
+        <Map guide={guide} />
         
         <div className="guide">
           <img src={guide.cityPhotoUrl} className="city-photo" />
@@ -31,8 +42,8 @@ class GuideShow extends React.Component {
             <p>{guide.body}</p>
           </div>
 
-          {guide.breweryIds.map((breweryId, i) => (
-            <div key={i} className="guide-brewery">
+          {brewIds.map((breweryId, i) => (
+            <div id={`brewery${breweryId}`} key={i} className="guide-brewery">
               <Brewery
                 breweryId={breweryId}
                 breweries={breweries}

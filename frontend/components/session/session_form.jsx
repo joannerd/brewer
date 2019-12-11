@@ -49,7 +49,7 @@ class SessionForm extends React.Component {
       if (j < demoPassword.length) {
         document.getElementById("password").value += demoPassword.charAt(j);
         j++;
-        timeout = setTimeout(typePw, 150);
+        timeout = setTimeout(typePw, 200);
       } else {
         clearTimeout(timeout);
       }
@@ -60,7 +60,7 @@ class SessionForm extends React.Component {
 
       window.setTimeout(() => {
         typePw();
-      }, 150)
+      }, 200)
       
       window.setTimeout(() => {
         this.setState({ username: "JoannaChen", password: "123456", email: "demo@email.com" }, () => {

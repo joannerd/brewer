@@ -4,6 +4,7 @@ import GuidePreview from './guide_index_item';
 
 class GuideIndex extends React.Component {
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchGuides();
   }
 

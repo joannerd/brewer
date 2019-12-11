@@ -5,9 +5,9 @@ class MarkerManager {
     this.createMarkerFromPlace = this.createMarkerFromPlace.bind(this);
   }
 
-  createMarkerFromPlace(coordinates) {
+  createMarkerFromPlace(id, coordinates) {
     const el = document.createElement('div');
-    el.className = 'marker';
+    el.className = `marker ${id}`;
 
     new mapboxgl.Marker(el)
       .setLngLat(coordinates)
@@ -15,7 +15,10 @@ class MarkerManager {
   }
 
   updateMarkers(places) {
-    places.map(place => (this.createMarkerFromPlace(place)));
+    Object.keys(places).forEach(placeId => {
+      let place = places[placeId]
+      this.createMarkerFromPlace(placeId, place);
+    });
   }
 }
 

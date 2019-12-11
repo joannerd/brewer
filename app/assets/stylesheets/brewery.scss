@@ -48,6 +48,10 @@
   background-color: black;
 }
 
+.brewery-index-list > * {
+  border-radius: 10px;
+}
+
 .brewery {
   margin: 60px;
   margin-left: 10%;
@@ -76,6 +80,7 @@
 .brewery-photo {
   margin-top: 5%;
   width: 90%;
+  border-radius: 10px;
 }
 
 .brewery a {
