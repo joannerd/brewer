@@ -10,6 +10,8 @@ class GuideForm extends React.Component {
 
   componentDidMount() {
     if (this.props.formType === 'Update Form') this.props.fetchGuide(this.props.match.params.guideId);
+    this.props.fetchBreweries()
+      .then(() => this.props.fetchCities())
   }
 
   handleClick(e) {
@@ -24,15 +26,20 @@ class GuideForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleClick}>
-        {this.props.formType}
-        <label>Title
-          <input onChange={this.update('title')} type="text" value={this.state.title} />
-        </label>
-        <label>Body
-          <textarea onChange={this.update('body')} value={this.state.body} />
-        </label>
+        <h1>{this.props.formType}</h1>
+          <input 
+            type="text" 
+            onChange={this.update('title')} 
+            value={this.state.title} 
+            placeholder="Title"
+          />
+          <textarea 
+            onChange={this.update('body')} 
+            value={this.state.body} 
+            placeholder="Body"
+          />
 
-        <select onChange={this.update('city_id')} name="city">
+        <select onChange={this.update('cityId')} name="city">
           <option value="" selected disabled>Select City</option>
           {this.props.cities.map((city, i) => (
           <option value={city.id} key={i}>{city.name}, {city.state}</option>
@@ -40,7 +47,7 @@ class GuideForm extends React.Component {
         </select>
 
         <select name="breweries">
-          {this.props.breweries.map((brewery, i) => (
+          {this.props.breweries.filter(brewery => brewery.cityId === this.state.cityId).map((brewery, i) => (
           <option value={brewery.id} key={i}>{brewery.name}</option>
           ))}
         </select>

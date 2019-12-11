@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import GuideForm from './guide_form';
-import { createGuide } from '../../actions/guide_actions';
+import { createGuide, fetchGuide } from '../../actions/guide_actions';
+import { fetchBreweries } from '../../actions/brewery_actions';
+import { fetchCities } from '../../actions/city_actions';
 
 const msp = state => ({
   guide: {
     title: '',
     body: '',
-    city_id: ''
+    cityId: ''
   },
   formType: 'Create Guide',
   cities: Object.values(state.entities.cities),
@@ -14,7 +16,9 @@ const msp = state => ({
 })
 
 const mdp = dispatch => ({
-  formAction: guide => dispatch(createGuide(guide))
+  formAction: guide => dispatch(createGuide(guide)),
+  fetchBreweries: () => dispatch(fetchBreweries()),
+  fetchCities: () => dispatch(fetchCities())
 })
 
 export default connect(msp, mdp)(GuideForm);

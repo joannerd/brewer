@@ -1,0 +1,22 @@
+form {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background: black;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 70%;
+}
+
+form h1 {
+  // color: black;
+}
+
+form * {
+  width: 50%;
+  align-self: center;
+}

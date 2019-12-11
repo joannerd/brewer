@@ -14,6 +14,8 @@ import GuideIndexContainer from './guides/guide_index_container';
 import CityShowContainer from './cities/city_show_container';
 import GuideShowContainer from './guides/guide_show_container';
 
+import CreateGuideContainer from './guides/create_guide_container';
+
 const App = () => (
   <div className="app flex-center">
     <header>
@@ -25,6 +27,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </Switch>
     <Switch>
+      <ProtectedRoute exact path="/guides/new" component={CreateGuideContainer} />
       <ProtectedRoute exact path="/guides/:guideId" component={GuideShowContainer} />
       <ProtectedRoute exact path="/cities/:cityId" component={CityShowContainer} />
       <ProtectedRoute exact path="/guides/" component={GuideIndexContainer} />
