@@ -79,7 +79,6 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="form-container flex-center">
-
         <span className="logo">BREWER</span>        
 
         <div className="links">
@@ -88,7 +87,8 @@ class SessionForm extends React.Component {
 
           <Link to="/signup" className="session-link"><span className={this.props.formType === "signup" ? "active" : "inactive"}>SIGN UP</span>
           </Link>
-        </div><br/>
+        </div>
+        <br/>
 
         <div>
           { this.props.errors.map((err, i) => (
@@ -142,10 +142,6 @@ class SessionForm extends React.Component {
             value="Demo Login"
           />
         </form>
-
-        {/* <span className={this.props.formType === "login" ? "forgot-container" : "hidden"}>
-          <a className="forgot">Forgot your username?</a> | <a className="forgot">Forgot your password?</a>
-        </span> */}
       </div>
     );
   }

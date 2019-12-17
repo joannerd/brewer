@@ -10,14 +10,12 @@ class City extends React.Component {
       backgroundImage: `url('${imgUrl}')`,
     };
 
-    const cursorStyle = {
-      // cursor: "not-allowed"
-    }
-
     return (
-      <div style={divStyle} className="city-info">
-        <Link to="/cities" style={cursorStyle}>{city.name}</Link>
-      </div>
+      <Link to={`/cities/${city.id}`} style={divStyle} className="city-info">
+        <div>
+          {city.name}
+        </div>
+      </Link>
     )
   }
 }

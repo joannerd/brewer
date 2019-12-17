@@ -1,24 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class Brewery extends React.Component {
   constructor(props) {
     super(props);
 
-    if (this.props.brewery.id === '') {
-      this.brewery = this.props.breweries[this.props.breweryId]
-    } else {
-      this.brewery = this.props.brewery
-    }
+    // if (this.props.brewery.id === '') {
+    //   this.brewery = this.props.breweries[this.props.breweryId]
+    // } else {
+    //   this.brewery = this.props.brewery
+    // }
   }
 
   render() {
-    // if (this.props.brewery.id === '') return null;
+    if (this.props.brewery.id === '') return null;
 
-    const brewery = this.brewery
+    const brewery = this.props.brewery
     const addressLink = brewery.address.split(" ").join("+")
     return (
-      <div>
+      <>
         <h1>
           <a href={brewery.website} target="_blank">
             {brewery.name}
@@ -32,7 +31,7 @@ class Brewery extends React.Component {
         <a href={`https://www.google.com/maps/place/${addressLink}/`} target="_blank"><button className="gmap-link">
           Open in Google Maps
         </button></a>
-      </div>
+      </>
     )
   }
 }

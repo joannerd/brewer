@@ -2,8 +2,7 @@
   margin: 20px;
   max-width: 600px;
   min-width: 350px;
-  border: 5px outset rgb(167, 167, 167);
-  box-shadow: 0px 0px 5px grey;
+  box-shadow: 0px 0px 5px rgb(255, 255, 255);
   transition: .3s;
   box-sizing: border-box;
 
@@ -30,7 +29,7 @@
   cursor: pointer;
 }
 .guide-preview h1 {
-  font-size: 27px;
+  font-size: 30px;
   position: sticky;
 }
 
@@ -42,7 +41,7 @@
   border-bottom: 1px solid white;
 }
 
-.guide-preview a {
+.guide-preview {
   text-decoration: none;
   color: white;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
@@ -52,23 +51,10 @@
   padding: 5%;
   text-align: justify;
   line-height: 1.5;
+  font-size: 16px;
 
   overflow: hidden;
   display: inline-block;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-}
-
- .read-more {
-  border-radius: 5px;
-  font-size: 15px;
-  background-color: #BF965C;
-  padding-right: 5px;
-  padding-left: 5px;
-  transition: 0.3s;
-}
-
- .read-more:hover {
-  background-color: rgb(180, 136, 73);
-  cursor: pointer;
 }

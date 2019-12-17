@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Brewery from '../breweries/brewery_index_item';
 import GuidePreview from '../guides/guide_index_item';
 
 class CityShow extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
     this.props.fetchCity(this.props.match.params.cityId);
@@ -26,7 +26,7 @@ class CityShow extends React.Component {
 
     return (
       <section className="city-show">
-        {/* <h1>{city.name}</h1>
+        <h1>{city.name}</h1>
         
         <div>
           {guides.map((guide, i) => (
@@ -36,9 +36,9 @@ class CityShow extends React.Component {
 
         <div className="guide">
           {breweries.map((brewery, i) => (
-            <Brewery breweryId={brewery.id} key={i} breweries={breweries}/>
+            <Brewery brewery={brewery} key={i} breweries={breweries}/>
           ))}
-        </div> */}
+        </div>
       </section>
     )
   }

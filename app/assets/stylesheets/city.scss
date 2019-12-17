@@ -27,18 +27,19 @@
   transition: 0.3s;
 
   flex: 1 0 21%;
-  margin: 3%;
+  margin: 0.5%;
   padding: 3%;
 
   display: grid;
   line-height: 100px;
+  text-decoration: none;
 }
 
 .city-info:hover {
   opacity: 0.5;
 }
 
-.city-info a {
+.city-info div {
   font-size: 28px;
   text-decoration: none;
   color: white;
@@ -48,11 +49,6 @@
   vertical-align: middle;
   border-radius: 10px;
 }
-
-.city-info a:hover {
-  text-decoration: none;
-}
-
 
 .city-show {
   top: 400px;

@@ -34,7 +34,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch --mode=development",
     "startproduction": "webpack --mode=production",
-    "postinstall": "webpack"
+    "postinstall": "webpack",
+    "guard": "bundle exec guard -P livereload"
   },
   "repository": {
     "type": "git",

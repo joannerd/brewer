@@ -1,22 +1,45 @@
-form {
+.guide-form {
   position: absolute;
-  top: 25%;
-  left: 25%;
+  top: 90px;
   background: black;
 
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: space-evenly;
-  width: 50%;
-  height: 70%;
+  justify-content: flex-start;
+
+  width: 55%;
+  min-width: 600px;
+  height: 89vh;
+  box-sizing: border-box;
 }
 
-form h1 {
-  // color: black;
+.guide-form h1 {
+  font-size: 30px;
+  color: white;
 }
 
-form * {
-  width: 50%;
+.guide-form textarea {
+  resize: none;
+  height: 200px;
+}
+
+.guide-form * {
+  width: 60%;
   align-self: center;
+  font-family: 'Alata', sans-serif;
+  padding: 15px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.breweries-select {
+  width: 80%;
+  text-align-last:center;
+
+  display: flex;
+  flex-direction: column;
 }

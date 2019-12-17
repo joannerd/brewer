@@ -64,7 +64,7 @@
 }
 
 .brewery h1 * {
-  text-shadow: 2px 2px 5px rgb(134, 87, 0);
+  text-shadow: 0px 0px 5px rgb(134, 87, 0);
   font-size: 32px;
   padding: 0px
 }
@@ -86,10 +86,11 @@
 .brewery a {
   text-decoration: none;
   color: #D4A25B;
+  transition: 0.3s;
 }
 
 .brewery a:hover {
-  color: rgb(107, 84, 52);
+  opacity: 0.5;
   text-decoration: none;
 }
 

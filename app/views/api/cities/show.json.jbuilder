@@ -5,7 +5,9 @@ end
 json.breweries do
   # return nil unless @city.breweries.length > 0
   @city.breweries.each do |brewery|
-    json.partial! 'api/breweries/brewery', brewery: brewery
+    json.set! brewery.id do 
+      json.partial! 'api/breweries/brewery', brewery: brewery
+    end
   end
 end
 
