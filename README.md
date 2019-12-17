@@ -2,8 +2,6 @@
 
 Brewer is an application based on Eater that contains guides to top breweries of different cities. Brewer was created with a React-Redux front-end and a Ruby on Rails back-end.
 
-[![Inline docs](http://inch-ci.org/github/junnac/brewer.svg?branch=master)](http://inch-ci.org/github/junnac/brewer)  [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/junnac/brewer) 
-
 <a href="https://junnac-brewer.herokuapp.com/#/">Brewer Live</a>
 
 ## Table of Contents
