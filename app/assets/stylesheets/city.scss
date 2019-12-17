@@ -51,16 +51,28 @@
 }
 
 .city-show {
-  top: 400px;
+  position: absolute;
+  top: 90px;
+  display: flex;
+  width: 90%;
 }
 
-.city-show > h1 {
-  padding-top: 10px;
-  background-color: inherit;
-  font-family: 'Cinzel Decorative', cursive;
-  font-size: 50px;
-  color: white;
-  font-weight: bold;
-  text-shadow: 2px 2px 5px rgb(194, 194, 194);
+.city-guides {
   text-decoration: none;
+  color: rgb(180, 136, 73);
+}
+
+.city-guides:hover {
+  opacity: .5;
+}
+
+.city-guides h1 * {
+  font-size: 35px;
+  padding: 0px;
+  position: sticky;
+}
+
+.city-guides h2 {
+  color: grey;
+  padding-top: 3%;
 }
