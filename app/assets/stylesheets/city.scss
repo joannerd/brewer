@@ -74,12 +74,56 @@
 .city-show {
   position: absolute;
   top: 90px;
+  width: 50%;
+  background: black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%;
+  justify-content: center;
 }
 
-.city-show * {
-  // border: none;
+.city-show h1 {
+  font-size: 25px;
+  padding-top: 40px;
+}
+
+.city-show-guides a, .city-show-breweries a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.city-show-breweries a:hover, .city-show-guides a:hover {
+  opacity: 0.5;
+}
+
+.city-show > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.city-show div {
+  padding: 20px 20px 40px 20px;
+  width: 70%;
+}
+
+.city-show-guides {
+  border-bottom: 1px solid white;
+}
+
+.guide-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-show-breweries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-show-breweries * {
+  margin: 5px;
 }
