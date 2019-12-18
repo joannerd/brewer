@@ -4,10 +4,6 @@ import Brewery from '../breweries/brewery_index_item';
 import Map from '../map/map';
 
 class GuideShow extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.fetchGuide(this.props.match.params.guideId)
@@ -25,10 +21,7 @@ class GuideShow extends React.Component {
   
   render() {
     if (this.props.guide === undefined) return null;
-
-    const { breweries, guide } = this.props;
-    const brewIds = Object.keys(guide.brewInfo)
-    
+    const { breweries, guide } = this.props;    
     return (
       <section className="guide-index-list">
         <Map guide={guide} />
@@ -42,12 +35,9 @@ class GuideShow extends React.Component {
             <p>{guide.body}</p>
           </div>
 
-          {brewIds.map((breweryId, i) => (
-            <div id={`brewery${breweryId}`} key={i} className="guide-brewery">
-              <Brewery
-                breweryId={breweryId}
-                breweries={breweries}
-                fetchBrewery={this.props.fetchBrewery} />
+          {breweries.map((brewery, i) => (
+            <div id={`brewery${brewery.id}`} key={i} className="guide-brewery">
+              <Brewery brewery={brewery} />
             </div>
           ))}
 
