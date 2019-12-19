@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-const CityShow = (props) => {
-  const { breweries, guides, city, fetchCity, match } = props;
+const CityShow = props => {
+  const { match, breweries, guides, city, fetchCity } = props;
 
   useEffect(() => {
     fetchCity(match.params.cityId)

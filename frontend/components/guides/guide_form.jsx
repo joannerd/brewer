@@ -1,76 +1,70 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-class GuideForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props.guide;
-    this.handleClick = this.handleClick.bind(this);
-    this.update = this.update.bind(this);
-  }
+const GuideForm = props => {
+  const { match, guide, formType, cities, breweries, formAction, fetchGuide, fetchBreweries, fetchCities } = props;
 
-  componentDidMount() {
-    if (this.props.formType === 'Update Form') this.props.fetchGuide(this.props.match.params.guideId);
-    this.props.fetchBreweries()
-      .then(() => this.props.fetchCities())
-  }
+  const [title, setTitle] = useState(guide.title);
+  const [body, setBody] = useState(guide.body);
+  const [cityId, setCity] = useState(guide.cityId);
 
-  handleClick(e) {
+  useEffect(() => {
+    if (formType === 'Update Form') fetchGuide(match.params.guideId);
+    fetchCities()
+      .then(() => fetchBreweries())
+  }, [formType, fetchGuide, match, fetchBreweries, fetchCities])
+
+  function submitGuide(e) {
     e.preventDefault();
-    this.props.formAction(this.state);
+    formAction(formGuide);
   }
 
-  update(field) {
-    return e => this.setState({ [field]: e.target.value })
-  }
+  return (
+    <form className="guide-form" onSubmit={submitGuide}>
+      <h1>{formType}</h1>
+      <input
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        placeholder="Title"
+      />
+      <textarea
+        value={body}
+        onChange={e => setBody(e.target.value)}
+        placeholder="Body"
+      />
 
-  render() {
-    return (
-      <form className="guide-form" onSubmit={this.handleClick}>
-        <h1>{this.props.formType}</h1>
-        <input
-          type="text"
-          onChange={this.update("title")}
-          value={this.state.title}
-          placeholder="Title"
-        />
-        <textarea
-          onChange={this.update("body")}
-          value={this.state.body}
-          placeholder="Body"
-        />
-
-        <div className="breweries-select">
-          <select onChange={this.update("cityId")} name="city">
-            <option selected disabled>
-              City
+      <div className="breweries-select">
+        <select
+          defaultValue="City"
+          name="city"
+          onChange={e => setCity(e.target.value)}>
+          <option disabled>City</option>
+          {cities.map((city, i) => (
+            <option value={city.id} key={i}>
+              {city.name}, {city.state}
             </option>
-            {this.props.cities.map((city, i) => (
-              <option value={city.id} key={i}>
-                {city.name}, {city.state}
-              </option>
-            ))}
-          </select>
-
-          {[...Array(5).keys()].map((breweryNum, i) => (
-            <select name={`brewery-${breweryNum + 1}`} key={i}>
-              <option selected disabled>
-                Brewery #{breweryNum + 1}
-              </option>
-              {this.props.breweries
-                .filter(brewery => brewery.cityId === this.state.cityId)
-                .map((brewery, i) => (
-                  <option value={brewery.id} key={i}>
-                    {brewery.name}
-                  </option>
-                ))}
-            </select>
           ))}
-        </div>
+        </select>
 
-        <input className="submit" type="submit" value={this.props.formType} />
-      </form>
-    );
-  }
+        {[...Array(5).keys()].map((breweryNum, i) => (
+          <select
+            defaultValue={`Brewery #${breweryNum + 1}`}
+            name={`brewery-${breweryNum + 1}`}
+            onChange={e => setCity(e.target.value)}
+            key={i}>
+            <option disabled>Brewery #{breweryNum + 1}</option>
+            {breweries.filter(brewery => brewery.cityId === cityId)
+              .map((brewery, i) => (
+                <option value={brewery.id} key={i}>
+                  {brewery.name}
+                </option>
+              ))}
+          </select>
+        ))}
+      </div>
+
+      <input className="submit" type="submit" value={formType} />
+    </form>
+  );
 }
 
 export default GuideForm;
