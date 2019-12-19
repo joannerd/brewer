@@ -6,7 +6,7 @@ const CityShow = props => {
 
   useEffect(() => {
     fetchCity(match.params.cityId)
-  }, [fetchCity, match])
+  }, [match])
 
   if (
     city === undefined

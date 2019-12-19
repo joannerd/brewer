@@ -1,26 +1,23 @@
-import React from 'react';
-import GuideShow from './guide_show';
+import React, { useEffect } from 'react';
 import GuidePreview from './guide_index_item';
 
-class GuideIndex extends React.Component {
-  componentDidMount() {
+const GuideIndex = ({ guides, fetchGuides, fetchGuide }) => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-    this.props.fetchGuides();
-  }
+    fetchGuides();
+  }, [guides])
 
-  render() {
-    return (
-      <div className="guide-index">
-        {this.props.guides.map((guide, i) => (
-          <GuidePreview
-            key={i}
-            guide={guide}
-            fetchGuide={this.props.fetchGuide}
-          />
-        ))}
-      </div>
-    )
-  }
+  return (
+    <div className="guide-index">
+      {guides.map((guide, i) => (
+        <GuidePreview
+          key={i}
+          guide={guide}
+          fetchGuide={fetchGuide}
+        />
+      ))}
+    </div>
+  )
 }
 
 export default GuideIndex;

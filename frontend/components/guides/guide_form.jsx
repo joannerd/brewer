@@ -11,7 +11,7 @@ const GuideForm = props => {
     if (formType === 'Update Form') fetchGuide(match.params.guideId);
     fetchCities()
       .then(() => fetchBreweries())
-  }, [formType, fetchGuide, match, fetchBreweries, fetchCities])
+  }, [formType, match, guide])
 
   function submitGuide(e) {
     e.preventDefault();
