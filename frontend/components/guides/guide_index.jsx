@@ -5,7 +5,7 @@ const GuideIndex = ({ guides, fetchGuides, fetchGuide }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     fetchGuides();
-  }, [guides])
+  }, [])
 
   return (
     <div className="guide-index">

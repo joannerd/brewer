@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import City from './city_index_item';
 
-class CityIndex extends React.Component {
-  componentDidMount() {
-    window.scrollTo(0, 0);
-    this.props.fetchCities();
-  }
+const CityIndex = ({ cities, fetchCities }) => {
+  window.scrollTo(0, 0);
+  
+  useEffect(() => {
+    document.title = "Brewer - Cities";
+    fetchCities();
+  }, [])
 
-  render() {
-    return (
-      <section className="city-index">
-        <ul className="city-index-list">
-          {this.props.cities.map((city, i) => (
-            <City city={city} key={i}/>
-          ))}
-        </ul>
-      </section>
-    )
-  }
+  return (
+    <section className="city-index">
+      <ul className="city-index-list">
+        {cities.map((city, i) => (
+          <City city={city} key={i}/>
+        ))}
+      </ul>
+    </section>
+  )
 }
 
 export default CityIndex;

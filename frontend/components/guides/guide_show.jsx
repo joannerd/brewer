@@ -17,7 +17,7 @@ const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
           })
         })
       })
-  }, [match])
+  }, [])
   
   if (guide === undefined) return null;
   return (

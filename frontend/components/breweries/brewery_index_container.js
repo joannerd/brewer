@@ -9,7 +9,6 @@ const msp = (state) => ({
 
 const mdp = dispatch => ({
   fetchBreweries: () => dispatch(fetchBreweries()),
-  fetchBrewery: (breweryId) => dispatch(fetchBrewery(breweryId))
 })
 
 export default withRouter(connect(msp, mdp)(BreweryIndex));

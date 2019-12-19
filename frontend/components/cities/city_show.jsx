@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-const CityShow = props => {
-  const { match, breweries, guides, city, fetchCity } = props;
-
+const CityShow = ({ match, breweries, guides, city, fetchCity }) => {
   useEffect(() => {
     fetchCity(match.params.cityId)
-  }, [match])
+  }, [])
 
-  if (
-    city === undefined
-  ) return null;
+  if (city === undefined) return null;
 
   const cityGuides = 
     guides === undefined ? 
