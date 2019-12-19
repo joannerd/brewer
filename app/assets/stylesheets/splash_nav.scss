@@ -109,8 +109,6 @@ li:active {
   position: absolute;
   top: 50px;
   width: 50px;
-  // z-index: 2;
-  // z-index: 7;
 }
 
 .logout {
@@ -125,24 +123,19 @@ li:active {
 .dropdown {
   position: relative;
   display: inline-block;
-  // z-index: 7;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #222121;
-  min-width: 118px;
-  // z-index: 7;
 }
 
 .dropdown span {
   background: none;
-  // z-index: 7;
 }
 
 .dropdown-content * {
-  // z-index: 7;
   color: #BF965C;
   display: block;
   text-align: left;
