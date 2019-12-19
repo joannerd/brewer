@@ -20,25 +20,24 @@
 .guide-preview-info {
   margin: 10%;
   padding: 5%;
-  background-color: rgba(134, 134, 134, 0.432);
-  min-height: 320px;
+  background: rgba(0, 0, 0, 0.85);
   border-radius: 10px;
 }
 
 .guide-preview-info:hover {
   cursor: pointer;
 }
+
 .guide-preview h1 {
   font-size: 30px;
   position: sticky;
 }
 
 .guide-preview h2 {
-  color: black;
+  color: rgb(150, 150, 150);
   padding-top: 1%;
   padding-bottom: 2%;
   text-shadow: none;
-  border-bottom: 1px solid white;
 }
 
 .guide-preview {

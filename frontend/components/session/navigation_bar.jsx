@@ -26,11 +26,19 @@ class NavBar extends React.Component {
 
         <ul className="nav-index">
           <li><Link to="">Profile</Link></li>
-          <li><Link to="/guides">Guides</Link></li>
-          <li><Link to="/breweries">Breweries</Link></li>
 
           <div className="dropdown">
-            <span><Link to="/cities">Cities</Link><i className="fa fa-angle-down"/></span>
+            <Link to="/guides">Guides</Link>
+            <div className="dropdown-content">
+              <Link to="/guides">All</Link>
+              <Link to="/guides/new">Create</Link>
+            </div>
+          </div>
+
+          <li><Link to="/breweries">Breweries</Link></li>
+          
+          <div className="dropdown">
+            <span><Link to="/cities">Cities</Link></span>
             <div className="dropdown-content">
               <Link to="/cities/1">Asheville</Link>
               <Link to="/cities/2">Austin</Link>

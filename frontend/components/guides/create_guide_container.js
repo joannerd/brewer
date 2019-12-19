@@ -8,7 +8,8 @@ const msp = state => ({
   guide: {
     title: '',
     body: '',
-    cityId: ''
+    cityId: '',
+    userId: state.session.id
   },
   formType: 'Create Guide',
   cities: Object.values(state.entities.cities),

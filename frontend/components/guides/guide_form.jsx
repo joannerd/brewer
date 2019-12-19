@@ -10,8 +10,8 @@ class GuideForm extends React.Component {
 
   componentDidMount() {
     if (this.props.formType === 'Update Form') this.props.fetchGuide(this.props.match.params.guideId);
-    // this.props.fetchBreweries()
-    //   .then(() => this.props.fetchCities())
+    this.props.fetchBreweries()
+      .then(() => this.props.fetchCities())
   }
 
   handleClick(e) {
@@ -38,8 +38,6 @@ class GuideForm extends React.Component {
           value={this.state.body}
           placeholder="Body"
         />
-
-        <input type="hidden" name=""/>
 
         <div className="breweries-select">
           <select onChange={this.update("cityId")} name="city">
