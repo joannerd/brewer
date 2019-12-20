@@ -22,8 +22,12 @@ class User < ApplicationRecord
   
   attr_reader :password
   before_validation :ensure_session_token
+
   has_many :guides
-  has_many :favorites
+  # has_many :favorites
+  # has_many :favorite_breweries,
+  #   through: :favorites,
+  #   source: :brewery
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

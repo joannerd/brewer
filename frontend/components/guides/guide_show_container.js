@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import Guide from './guide_show';
+import { withRouter } from 'react-router-dom';
 import { fetchGuide, fetchGuides } from '../../actions/guide_actions'; 
 import { fetchBrewery } from '../../actions/brewery_actions';
-import { withRouter } from 'react-router-dom';
+import Guide from './guide_show';
 
 
 const msp = (state, ownProps) => {

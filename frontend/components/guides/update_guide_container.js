@@ -1,3 +1,4 @@
+import { withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import GuideForm from './guide_form';
 import { fetchGuide, updateGuide } from '../../actions/guide_actions';
@@ -14,4 +15,4 @@ const mdp = dispatch => ({
   formAction: guide => dispatch(updateGuide(guide))
 })
 
-export default connect(msp, mdp)(GuideForm);
+export default withRouter(connect(msp, mdp)(GuideForm));

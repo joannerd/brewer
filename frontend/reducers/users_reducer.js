@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_USER, LOG_OUT_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_USER } from '../actions/user_actions';
 
 const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -7,6 +8,8 @@ const usersReducer = (oldState = {}, action) => {
       return Object.assign({}, action.user)
     case LOG_OUT_CURRENT_USER:
       return Object.assign({}, null)
+    case RECEIVE_USER:
+      return action.payload.users
     default:
       return oldState
   }

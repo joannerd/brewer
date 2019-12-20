@@ -1,0 +1,18 @@
+.profile {
+  position: absolute;
+  top: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+}
+
+.profile div {
+  border: 1px solid red;
+  margin: 30px;
+  padding: 30px;
+  box-sizing: border-box;
+  min-width: 300px;
+  min-height: 300px;
+}

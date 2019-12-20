@@ -18,8 +18,6 @@ class SearchBar extends React.Component {
   handleClick(e) {
     e.preventDefault();
     alert('clicked!')
-
-    
   }
 
   handleEnter(e) {

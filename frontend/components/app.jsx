@@ -9,12 +9,12 @@ import Splash from './splash';
 
 import BreweryIndexContainer from './breweries/brewery_index_container';
 import CityIndexContainer from './cities/city_index_container';
-import GuideIndexContainer from './guides/guide_index_container';
-
 import CityShowContainer from './cities/city_show_container';
+import GuideIndexContainer from './guides/guide_index_container';
 import GuideShowContainer from './guides/guide_show_container';
-
 import CreateGuideContainer from './guides/create_guide_container';
+import ProfileContainer from './profile/profile_container';
+
 
 const App = () => (
   <div className="app flex-center">
@@ -33,6 +33,7 @@ const App = () => (
       <ProtectedRoute exact path="/guides/" component={GuideIndexContainer} />
       <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
       <ProtectedRoute exact path="/cities" component={CityIndexContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
       <ProtectedRoute exact path="/" component={Splash} />
     </Switch>
   </div>
