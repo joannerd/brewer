@@ -172,8 +172,8 @@ class SessionForm extends React.Component {
 
     let i = 0;
     let j = 0;
-    let demoUsername = "JoannaChen";
-    let demoPassword = "123456";
+    let demoUsername = "Joanna";
+    let demoPassword = "123456789";
 
     const typeUser = () => {
       let timeout;
@@ -202,7 +202,7 @@ class SessionForm extends React.Component {
       window.setTimeout(() => typePw(), 1000)
       
       window.setTimeout(() => {
-        this.setState({ username: "JoannaChen", password: "123456", email: "demo@email.com" }, () => {
+        this.setState({ username: "Joanna", password: "123456789" }, () => {
           const user = Object.assign({}, this.state);
           this.props.processForm(user)
             .then(() => this.props.history.push("/"));

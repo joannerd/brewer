@@ -1,17 +1,13 @@
 import { logout } from '../../actions/session_actions';
-import { fetchCities } from '../../actions/city_actions';
 import { connect } from 'react-redux';
 import NavBar from './navigation_bar';
 
-
-const mapStateToProps = (state) => ({
-  currentUser: state.entities.users[state.session.id],
-  cities: Object.values(state.entities.cities)
+const msp = (state) => ({
+  currentUser: state.entities.users[state.session.id]
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()), 
-  fetchCities: () => dispatch(fetchCities())
+const mdp = (dispatch) => ({
+  logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(msp, mdp)(NavBar);

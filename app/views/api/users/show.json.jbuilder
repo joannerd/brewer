@@ -4,9 +4,8 @@ end
 
 json.guides do
   @user.guides.each do |guide|
-    json.set! guide.id do
-      json.partial! 'api/guides/guide', guide: guide
-    end
+    json.partial! 'api/guides/guide', guide: guide
+  end
 end
 
 # json.breweries do

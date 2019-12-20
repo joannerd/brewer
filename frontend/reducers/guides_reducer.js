@@ -14,9 +14,9 @@ const guidesReducer = (oldState = {}, action) => {
       delete newState[action.guideId];
       return newState;
     case RECEIVE_CITY:
-      return action.payload.guides
+      return Object.assign({}, action.payload.guides)
     case RECEIVE_USER:
-      return action.payload.guides
+      return Object.assign({}, action.payload.guides)
     default:
       return oldState;
   }

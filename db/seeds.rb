@@ -8,10 +8,10 @@ ActiveRecord::Base.transaction do
   BreweryGuide.delete_all
   Favorite.delete_all
 
+  User.create({username: "Joanna", password: "123456789", email: "demo@email.com"})
   User.create({username: "BeerJo", password: "123456", email: "beerjo@email.com"})
   User.create({username: "BeerBob", password: "123456", email: "beerbob@email.com"})
   User.create({username: "BeerBear", password: "123456", email: "BeerBear@email.com"})
-  User.create({username: "JoannaChen", password: "123456", email: "demo@email.com"})
 
   City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/asheville.jpg"), filename: "asheville.jpg")
 
@@ -257,21 +257,21 @@ ActiveRecord::Base.transaction do
     title: "Best Oakland Brews",
     body: "Oakland is all but immune to the advance of Karl the Fog, making it the best place to soak up the sun with a beer in hand. Head to one of these beer gardens, restaurants, and bars for a day or night of outdoor fun. Many of them are cool with both kids and dogs — and all of them are cool. Check out these spots for a weekend (or weekday, if you’re lucky) of fun in the sun.",
     city_id: 11,
-    user_id: 3
+    user_id: 1
   })
 
   Guide.create!({
     title: "Top Asheville Beers",
     body: "This rundown of Asheville’s essential breweries, loaded as it is with exemplary western North Carolina craft producers, is sure to cause a ruckus amongst those lucky enough to spend lots of time in such a beautiful, beer-soaked city. But if you’re uninitiated to the AVL beer scene, or visiting for the first time, it’ll steer you towards some can’t-miss picks. Whether they’re the city’s best of the best is your call to make.",
     city_id: 1,
-    user_id: 2
+    user_id: 1
   })
 
   Guide.create!({
     title: "Austin Craft Beer Destinations",
     body: "Austin’s craft beer scene is thriving, clearly seen with the expanding number of breweries setting forth for the city (and growing). This means there is certainly no shortage of places to grab excellent local brews from Live Oak Brewing, Austin Beerworks, Hops & Grain, and more.",
     city_id: 2,
-    user_id: 3
+    user_id: 1
   })
 
   BreweryGuide.create!({brewery_id: 35, guide_id: 1, order: 1})

@@ -6,8 +6,8 @@ const usersReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, action.user)
-    case LOG_OUT_CURRENT_USER:
-      return Object.assign({}, null)
+    // case LOG_OUT_CURRENT_USER:
+    //   return Object.assign({}, null)
     case RECEIVE_USER:
       return action.payload.users
     default:

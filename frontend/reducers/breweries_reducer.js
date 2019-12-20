@@ -16,7 +16,7 @@ const breweriesReducer = (oldState = {}, action) => {
     case RECEIVE_GUIDE:
       return action.payload.breweries
     case RECEIVE_CITY:
-      return action.payload.breweries
+      return Object.assign({}, action.payload.breweries)
     // case RECEIVE_USER:
     //   return action.payload.breweries
     default:

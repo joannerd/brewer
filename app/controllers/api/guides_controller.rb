@@ -44,6 +44,6 @@ class Api::GuidesController < ApplicationController
   private
 
   def guide_params
-    params.require(:guide).permit(:title, :body, :city_id)
+    params.require(:guide).permit(:title, :body, :city_id, :user_id)
   end
 end
