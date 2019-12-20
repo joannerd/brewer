@@ -3,15 +3,18 @@ import { RECEIVE_USER } from '../actions/user_actions';
 
 const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
+  const newState = Object.assign({}, oldState);
+
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return Object.assign({}, action.user)
-    // case LOG_OUT_CURRENT_USER:
-    //   return Object.assign({}, null)
+    newState[Object.keys(action.payload.users)[0]] = Object.values(action.payload.users)[0];
+    return newState;
+    case LOG_OUT_CURRENT_USER:
+      return Object.assign({}, null)
     case RECEIVE_USER:
-      return action.payload.users
+      return action.payload.users;
     default:
-      return oldState
+      return oldState;
   }
 };
 
