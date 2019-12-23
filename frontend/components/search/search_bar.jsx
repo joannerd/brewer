@@ -1,60 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
+const SearchBar = props => {
+  const [searchInput, setSearchInput] = useState('');
 
-    this.state = {
-      searchInput: '',
-      searchResults: []
-    }
-
-    this.handleClick = this.handleClick.bind(this);
-    this.handleEnter = this.handleEnter.bind(this);
-    this.update = this.update.bind(this);
-  }
-
-  handleClick(e) {
+  function handleClick(e) {
     e.preventDefault();
     alert('clicked!')
   }
 
-  handleEnter(e) {
+  function handleEnter(e) {
     if (e.keyCode === 13) {
       this.handleClick(e);
     }
   }
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.target.value
-    });
-  }
+  useEffect(() => {
+    document.querySelector('.fa-search').addEventListener("click", (e) => handleClick(e))
+  }, [])
 
+  return (
+    <div className="search-bar-container">
+      <form className="search-form" onSubmit={handleClick}>
+        <input
+          className="search-form-input"
+          placeholder="Find brewery"
+          onChange={e => setSearchInput(e.target.value)}
+          type="search"
+          autoComplete="off" 
+          value={searchInput}
+        />
 
-  render() {
-    return (
-      <div className="search-bar-container">
-        <form className="search-form" onSubmit={this.handleClick}>
-          <input
-            className="search-form-input"
-            placeholder="Find brewery"
-            onChange={this.update("searchInput")}
-            type="search"
-            autoComplete="off" 
-            value={this.state.searchInput}
-          />
-
-          <i className="fa fa-search" />
-          <input
-            className="search-form-submit"
-            onKeyDown={this.handleEnter}
-            type="submit"
-          />
-        </form>
-      </div>
-    )
-  }
+        <i className="fa fa-search" />
+        <input
+          className="search-form-submit"
+          onKeyDown={handleEnter}
+          type="submit"
+        />
+      </form>
+    </div>
+  )
 }
 
 export default SearchBar;
