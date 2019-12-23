@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -36,20 +35,21 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="search-bar-container">
-        <form className="search-form">
+        <form className="search-form" onSubmit={this.handleClick}>
           <input
             className="search-form-input"
+            placeholder="Find brewery"
             onChange={this.update("searchInput")}
             type="search"
-            name="searchInput" 
+            autoComplete="off" 
             value={this.state.searchInput}
           />
+
+          <i className="fa fa-search" />
           <input
             className="search-form-submit"
-            onClick={this.handleClick}
             onKeyDown={this.handleEnter}
             type="submit"
-            value="Search"
           />
         </form>
       </div>

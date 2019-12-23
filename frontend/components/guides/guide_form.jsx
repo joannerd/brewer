@@ -52,12 +52,12 @@ const GuideForm = props => {
             onChange={e => setCity(e.target.value)}
             key={i}>
             <option disabled>Brewery #{breweryNum + 1}</option>
-            {breweries.filter(brewery => brewery.cityId === cityId)
+            {breweries
               .map((brewery, i) => (
                 <option value={brewery.id} key={i}>
                   {brewery.name}
                 </option>
-              ))}
+            ))}
           </select>
         ))}
       </div>

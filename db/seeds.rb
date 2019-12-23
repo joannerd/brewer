@@ -8,7 +8,7 @@ ActiveRecord::Base.transaction do
   BreweryGuide.delete_all
   Favorite.delete_all
 
-  User.create({username: "Joanna", password: "123456789", email: "demo@email.com"})
+  User.create({username: "JoannaChen", password: "123456789", email: "demo@email.com"})
   User.create({username: "BeerJo", password: "123456", email: "beerjo@email.com"})
   User.create({username: "BeerBob", password: "123456", email: "beerbob@email.com"})
   User.create({username: "BeerBear", password: "123456", email: "BeerBear@email.com"})

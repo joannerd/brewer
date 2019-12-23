@@ -52,7 +52,15 @@ const NavBar = ({ logout, currentUser }) => {
         </div>
       </ul>
 
+      <SearchBar />
+      
       <div className="nav-contact">
+        <a
+          href="http://www.junnac.org/"
+          className="fa fa-folder"
+          target="_blank"
+          alt="portfolio"
+        />
         <a
           href="https://www.linkedin.com/in/xchenj/"
           className="fa fa-linkedin-square"
@@ -72,25 +80,16 @@ const NavBar = ({ logout, currentUser }) => {
           alt="angellist"
         />
         <a
-          href="http://junnac.github.io/"
-          className="fa fa-folder"
-          target="_blank"
-          alt="portfolio"
-        />
-        <a
           href="mailto:x.chenj@gmail.com"
           className="fa fa-envelope"
           target="_blank"
           alt="email"
         />
-        <Link to="/search" className="fa fa-search" />
       </div>
 
       <button className="input submit logout" onClick={logout}>
         Logout
       </button>
-
-      {/* <SearchBar /> */}
     </nav>
   );
 }

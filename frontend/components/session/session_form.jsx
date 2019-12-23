@@ -172,7 +172,7 @@ class SessionForm extends React.Component {
 
     let i = 0;
     let j = 0;
-    let demoUsername = "Joanna";
+    let demoUsername = "JoannaChen";
     let demoPassword = "123456789";
 
     const typeUser = () => {
@@ -202,7 +202,7 @@ class SessionForm extends React.Component {
       window.setTimeout(() => typePw(), 1000)
       
       window.setTimeout(() => {
-        this.setState({ username: "Joanna", password: "123456789" }, () => {
+        this.setState({ username: "JoannaChen", password: "123456789" }, () => {
           const user = Object.assign({}, this.state);
           this.props.processForm(user)
             .then(() => this.props.history.push("/"));

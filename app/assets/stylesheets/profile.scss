@@ -37,7 +37,7 @@
   border-radius: 10px;
   margin: 30px;
   padding: 30px;
-  min-height: 250px;
+  min-height: 300px;
   box-sizing: border-box;
   box-shadow: 0px 0px 5px white;
 }
@@ -47,7 +47,42 @@
   width: 50%;
 }
 
+#profile-pic {
+  box-shadow: none;
+  background: white;
+  margin: 10px;
+  padding: 20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.fa-list-ol:hover, .fa-star:hover {
+  opacity: 1;
+}
+
 .user-breweries {
   min-width: 650px;
   width: 90%;
+}
+
+.user-breweries h4 {
+  margin-top: 10%;
+}
+
+.user-breweries ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-breweries a {
+  text-decoration: none;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.user-breweries a:hover {
+  opacity: 0.5;
 }
