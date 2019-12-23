@@ -23,7 +23,7 @@ const SearchBar = props => {
       <form className="search-form" onSubmit={handleClick}>
         <input
           className="search-form-input"
-          placeholder="Find brewery"
+          placeholder="Search for brewery"
           onChange={e => setSearchInput(e.target.value)}
           type="search"
           autoComplete="off" 

@@ -1,6 +1,7 @@
 .search-bar-container {
   background: white;
   border-radius: 5px;
+  // margin-left: 55px;
 }
 
 .search-form {
@@ -10,10 +11,9 @@
 }
 
 .search-form-input {
-  text-align: center;
   color: black;
   border: none;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 .search-form-input:focus {
