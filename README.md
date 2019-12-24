@@ -34,18 +34,29 @@ Second Tab:
 $ rails s
 ```
 
+
 ## <a name="features">Features</a>
 * User signup/login
 ![Screen Shot 2019-12-01 at 4 51 56 PM](https://user-images.githubusercontent.com/32081352/69923586-e92eec00-145a-11ea-90bd-662b4399c75a.png)
 * Navigation bar
-* Splash page
+
+* User profile page
+![Screen Shot 2019-12-24 at 2 49 30 PM](https://user-images.githubusercontent.com/32081352/71426334-cd36f880-265c-11ea-9129-8a44c99b209a.png)
+
 * Index of guides created by demo users
 * Guide show pages
-![Screen Shot 2019-11-15 at 3 41 39 PM](https://user-images.githubusercontent.com/32081352/69923551-a9680480-145a-11ea-9dd2-d0e120b39bdb.png)
+![Screen Shot 2019-12-24 at 2 50 30 PM](https://user-images.githubusercontent.com/32081352/71426336-cdcf8f00-265c-11ea-8b03-f6f94650fdfb.png)
+
+* Guide creation form
+![Screen Shot 2019-12-24 at 2 49 40 PM](https://user-images.githubusercontent.com/32081352/71426335-cdcf8f00-265c-11ea-8cb9-278409f8e596.png)
 
 * Index of breweries
+![Screen Shot 2019-12-24 at 2 48 33 PM](https://user-images.githubusercontent.com/32081352/71426331-cc9e6200-265c-11ea-8289-b0626d4d192e.png)
+
 * Index of top craft beer cities in America
-![Screen Shot 2019-11-15 at 3 42 29 PM](https://user-images.githubusercontent.com/32081352/69923552-a9680480-145a-11ea-9c72-8f831b93dd28.png)
+![Screen Shot 2019-12-24 at 2 49 01 PM](https://user-images.githubusercontent.com/32081352/71426332-cd36f880-265c-11ea-8084-1cdd22d8cb00.png)
+
+
 
 ## <a name="technologies">Technologies</a>
 * React-Redux
