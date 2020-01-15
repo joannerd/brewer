@@ -14,16 +14,14 @@
 class User < ApplicationRecord
   validates :email, :username, :password_digest, :session_token, presence: true
   validates :email, :username, uniqueness: true
-  validates :password, length: { minimum: 6, maxinum: 10 }, allow_nil: true
-  validates :password, length: { maximum: 20 }
-  validates :username, :email, length: { minimum: 6 }
-  validates :username, length: { maximum: 20 }
-  validates :email, length: { maximum: 20 }
+  validates :password, length: { minimum: 6, maxinum: 20 }, allow_nil: true
+  validates :username, :email, length: { minimum: 6, maximum: 20 }
   
   attr_reader :password
   before_validation :ensure_session_token
 
   has_many :guides
+  has_many :posts
   # has_many :favorites
   # has_many :favorite_breweries,
   #   through: :favorites,

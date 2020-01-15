@@ -19,13 +19,21 @@ const NavBar = ({ logout, currentUser }) => {
           <Link to={`/users/${currentUser.id}`}>Profile</Link>
         </li>
 
-        <div className="dropdown">
+        <li className="dropdown">
+          <Link to="/guides">Guides</Link>
+        </li>
+
+        <li>
+          <Link to={`/forum`}>Forum</Link>
+        </li>
+
+        {/* <div className="dropdown">
           <Link to="/guides">Guides</Link>
           <div className="dropdown-content">
             <Link to="/guides">All</Link>
             <Link to="/guides/new">Create</Link>
           </div>
-        </div>
+        </div> */}
 
         <li>
           <Link to="/breweries">Breweries</Link>

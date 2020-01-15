@@ -25,8 +25,8 @@ const Splash = ({ fetchCities, cities, match }) => {
         <h1>Welcome to Brewer.</h1>
         <h2>Connect with craft beer enthusiasts and the
 world of breweries.</h2>
-        <h3>Learn about brewery news in Forum.</h3>
         <h3>Explore top breweries in Guides.</h3>
+        <h3>Learn about brewery news in Forum.</h3>
         <h3>Find more of what you're looking for with Brewery Search.</h3>
       </div>
     </main>
