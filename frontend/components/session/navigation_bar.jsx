@@ -52,8 +52,6 @@ const NavBar = ({ logout, currentUser }) => {
         </div>
       </ul>
 
-      <SearchBar />
-      
       <div className="nav-contact">
         <a
           href="http://www.junnac.org/"
@@ -68,24 +66,14 @@ const NavBar = ({ logout, currentUser }) => {
           alt="linkedin"
         />
         <a
-          href="https://github.com/junnac"
-          className="fa fa-github"
-          target="_blank"
-          alt="github"
-        />
-        <a
-          href="https://angel.co/xchenj"
-          className="fa fa-angellist"
-          target="_blank"
-          alt="angellist"
-        />
-        <a
           href="mailto:x.chenj@gmail.com"
           className="fa fa-envelope"
           target="_blank"
           alt="email"
         />
       </div>
+
+      <SearchBar />
 
       <button className="input submit logout" onClick={logout}>
         Logout

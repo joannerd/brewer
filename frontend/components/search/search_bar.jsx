@@ -29,7 +29,6 @@ const SearchBar = props => {
           autoComplete="off" 
           value={searchInput}
         />
-
         <i className="fa fa-search" />
         <input
           className="search-form-submit"
