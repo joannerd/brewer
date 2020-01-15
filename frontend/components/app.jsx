@@ -5,7 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import LogInFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/signup_form_container';
 import NavBarContainer from './session/navigation_bar_container';
-import Splash from './splash';
+import SplashContainer from './splash_container';
 
 import BreweryIndexContainer from './breweries/brewery_index_container';
 import CityIndexContainer from './cities/city_index_container';
@@ -34,7 +34,7 @@ const App = () => (
       <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
       <ProtectedRoute exact path="/cities" component={CityIndexContainer} />
       <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
-      <ProtectedRoute exact path="/" component={Splash} />
+      <ProtectedRoute exact path="/" component={SplashContainer} />
     </Switch>
   </div>
 );

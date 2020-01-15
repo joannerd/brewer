@@ -44,7 +44,7 @@ const BreweryIndex = ({ breweries, fetchBreweries }) => {
       </div>
 
       <div className="beer-diagram-container">
-        <img src="./craftbeer.png" className="beer-diagram" />
+        <img src="./ku.jpg" className="beer-diagram" />
       </div>
     </section>
   );

@@ -4,6 +4,8 @@ import Brewery from '../breweries/brewery_index_item';
 import Map from '../map/map';
 
 const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
+  const { cityPhotoUrl, id, title, author, body } = guide;
+
   window.scrollTo(0, 0);
 
   useEffect(() => {
@@ -17,19 +19,18 @@ const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
           })
         })
       })
-  }, [])
-  
-  if (guide === undefined) return null;
-  return (
+  }, []);
+
+  return (guide === undefined) ? null : (
     <section className="guide-index-list">
       <Map guide={guide} />
       
       <div className="guide">
-        <img src={guide.cityPhotoUrl} className="city-photo" />
+        <img src={cityPhotoUrl} className="city-photo" />
         <div className="guide-info">
-          <h1><Link to={`/guides/${guide.id}`}>{guide.title}</Link></h1>
-          <h2>{guide.author}</h2>
-          <p>{guide.body}</p>
+          <h1><Link to={`/guides/${id}`}>{title}</Link></h1>
+          <h2>{author}</h2>
+          <p>{body}</p>
         </div>
         {breweries.map((brewery, i) => (
           <div id={`brewery${brewery.id}`} key={i} className="guide-brewery">
@@ -38,7 +39,7 @@ const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 export default GuideShow;
