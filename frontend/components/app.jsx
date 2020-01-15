@@ -13,6 +13,7 @@ import CityShowContainer from './cities/city_show_container';
 import GuideIndexContainer from './guides/guide_index_container';
 import GuideShowContainer from './guides/guide_show_container';
 import CreateGuideContainer from './guides/create_guide_container';
+import ForumContainer from './forum/forum_container';
 import ProfileContainer from './profile/profile_container';
 
 
@@ -28,11 +29,12 @@ const App = () => (
     </Switch>
     <Switch>
       <ProtectedRoute exact path="/guides/new" component={CreateGuideContainer} />
+      <ProtectedRoute exact path="/guides" component={GuideIndexContainer} />
       <ProtectedRoute exact path="/guides/:guideId" component={GuideShowContainer} />
-      <ProtectedRoute exact path="/cities/:cityId" component={CityShowContainer} />
-      <ProtectedRoute exact path="/guides/" component={GuideIndexContainer} />
+      <ProtectedRoute exact path="/forum" component={ForumContainer} />
       <ProtectedRoute exact path="/breweries" component={BreweryIndexContainer} />
       <ProtectedRoute exact path="/cities" component={CityIndexContainer} />
+      <ProtectedRoute exact path="/cities/:cityId" component={CityShowContainer} />
       <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
       <ProtectedRoute exact path="/" component={SplashContainer} />
     </Switch>

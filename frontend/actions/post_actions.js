@@ -22,17 +22,17 @@ export const fetchPosts = () => dispatch => (
     .then(posts => dispatch(receivePosts(posts)))
 );
 
-export const fetchPost = (postId) => dispatch => (
+export const fetchPost = postId => dispatch => (
   PostAPIUtil.fetchPost(postId)
     .then(post => dispatch(receivePost(post)))
 );
 
-export const createPost = (post) => dispatch => (
+export const createPost = post => dispatch => (
   PostAPIUtil.createPost(post)
     .then(post => dispatch(receivePost(post)))
 );
 
-export const deletePost = (postId) => dispatch => (
+export const deletePost = postId => dispatch => (
   PostAPIUtil.deletePost(postId)
     .then(res => dispatch(removePost(postId)))
 );
