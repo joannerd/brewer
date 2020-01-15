@@ -8,25 +8,37 @@ class Map extends React.Component {
   }
   
   componentDidMount() {
-    const { cityLng, cityLat, brewInfo } = this.props.guide;
+    let mapOptions;
+    let mapbox;
+    let places;
     mapboxgl.accessToken = window.mboxAPIKey;
 
-    const mapOptions = {
-      container: 'map',
-      minZoom: 11.5,
-      center: [cityLng, cityLat],
-      style: 'mapbox://styles/mapbox/dark-v9'
-    };
+    if (this.props.cities !== undefined) {     
+      places = this.props.cities;
 
-    let mapbox;
+      mapOptions = {
+        container: 'map',
+        minZoom: 3,
+        center: [-98, 38],
+        style: 'mapbox://styles/mapbox/dark-v9'
+      };
+    } else {
+      const { cityLng, cityLat, brewInfo } = this.props.guide;
+      places = brewInfo;
+      mapOptions = {
+        container: 'map',
+        minZoom: 11.5,
+        center: [cityLng, cityLat],
+        style: 'mapbox://styles/mapbox/dark-v9'
+      };
+    }
+
     mapbox = new mapboxgl.Map(mapOptions);
     this.MarkerManager = new MarkerManager(mapbox);
-    this.MarkerManager.updateMarkers(brewInfo);
+    this.MarkerManager.updateMarkers(places);
   }
 
-
   render() {
-    if (this.props.guide === undefined) return null;
     return (
       <div id="map-container">
         <div id='map'></div>
