@@ -9,10 +9,6 @@ class Api::PostsController < ApplicationController
     render '/api/posts/show'
   end
 
-  def new
-    @post = Post.new
-  end
-
   def create
     @post = Post.new(guide_params)
     if @post.save

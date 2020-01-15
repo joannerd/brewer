@@ -5,9 +5,9 @@ const postsReducer = (oldState = {}, action) => {
   const newState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_ALL_POSTS:
-      return action.payload.posts;
+      return action.posts;
     case RECEIVE_POST:
-      return action.payload.posts
+      return action.posts
     case REMOVE_POST:
       delete newState[action.postId];
       return newState;
