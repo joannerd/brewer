@@ -7,14 +7,14 @@ const Splash = ({ fetchCities, cities }) => {
   useEffect(() => {
     fetchCities()
       .then(() => {
-        console.log(cities)
-        // Object.keys(cities).forEach(cityId => {
-        //   document.getElementsByClassName(`${cityId}`)[0].addEventListener('click', () => {
-        //     document.getElementById(`brewery${cityId}`).scrollIntoView({
-        //       block: "start"
-        //     });
-        //   })
-        // })
+        debugger
+        Object.keys(cities).forEach(cityId => {
+          document.getElementsByClassName(`${cityId}`)[0].addEventListener('click', () => {
+            document.getElementById(`brewery${cityId}`).scrollIntoView({
+              block: "start"
+            });
+          })
+        })
       })
   }, [])
 
