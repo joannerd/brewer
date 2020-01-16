@@ -5,7 +5,6 @@ const CityIndex = ({ cities, fetchCities }) => {
   window.scrollTo(0, 0);
   
   useEffect(() => {
-    document.title = "Brewer - Cities";
     fetchCities();
   }, [])
 

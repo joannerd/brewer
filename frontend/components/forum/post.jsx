@@ -8,21 +8,17 @@ const Post = ({ post }) => {
 
   return (
     <li className="post">
-      <div className="post-header">
-        <h2>{title}</h2>
-        <h4>Posted by {author} | {date.toDateString()}</h4>
-      </div>
+      <h4>Posted by {author} | {date.toDateString()}</h4>
+      <h2>{title}</h2>
       <p>{body}</p>
     </li>
   );
   // return (
   //   <Link to={`/posts/${id}`}>
   //     <li className="post">
-  //       <div className="post-header">
-  //         <h2>{title}</h2>
-  //         <h4>Posted by {author} | {date.toDateString()}</h4>
-  //       </div>
+//         <h2>{title}</h2>
   //       <p>{body}</p>
+//         <h4>Posted by {author} | {date.toDateString()}</h4>
   //     </li>
   //   </Link>
   // );

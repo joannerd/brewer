@@ -12,9 +12,8 @@
 
 class Post < ApplicationRecord
   validates :title, :body, :user_id, presence: true
-  validates :title, length: { minimum: 6, maximum: 20 }
   validates :title, :body, length: { minimum: 6 }
-  validates :title, length: { minimum: 6, maximum: 30 }
+  validates :title, length: { maximum: 40 }
 
   belongs_to :user
 end
