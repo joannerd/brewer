@@ -1,3 +1,1 @@
-json.posts do
-  json.partial! 'api/post/post', post: @post
-end
+json.partial! 'api/posts/post', post: @post

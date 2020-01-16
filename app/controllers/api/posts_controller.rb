@@ -10,9 +10,9 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(guide_params)
+    @post = Post.new(post_params)
     if @post.save
-      render '/api/posts/posts'
+      render '/api/posts/show'
     else
       render json: @post.errors.full_messages, status: 422
     end
@@ -21,7 +21,7 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
-      render '/api/posts/posts'
+      render '/api/posts/index'
     else
       render json: ['Post not found.'], status: 404
     end

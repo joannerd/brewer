@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
-const GuideForm = props => {
-  const { match, guide, formType, cities, breweries, formAction, fetchGuide, fetchBreweries, fetchCities } = props;
-
-  const [title, setTitle] = useState(guide.title);
-  const [body, setBody] = useState(guide.body);
-  const [cityId, setCity] = useState(guide.cityId);
+const GuideForm = ({ cities, breweries, authorId, createGuide, fetchBreweries, fetchCities }) => {
+  const [title, setTitle] = useState();
+  const [body, setBody] = useState();
+  const [cityId, setCity] = useState();
 
   useEffect(() => {
-    if (formType === 'Update Form') fetchGuide(match.params.guideId);
     fetchCities()
       .then(() => fetchBreweries())
   }, [])
 
   function submitGuide(e) {
     e.preventDefault();
-    formAction(formGuide);
+    createGuide({ title, body, city_id: cityId, user_id: authorId });
   }
 
   return (
     <form className="guide-form" onSubmit={submitGuide}>
-      <h1>{formType}</h1>
+      <h1>Create Guide</h1>
       <input
         value={title}
         onChange={e => setTitle(e.target.value)}
@@ -62,7 +59,7 @@ const GuideForm = props => {
         ))}
       </div>
 
-      <input className="submit" type="submit" value={formType} />
+      <input className="submit" type="submit" value='Create Guide' />
     </form>
   );
 }

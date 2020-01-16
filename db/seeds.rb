@@ -7,11 +7,17 @@ ActiveRecord::Base.transaction do
   Guide.delete_all
   BreweryGuide.delete_all
   Favorite.delete_all
+  Post.delete_all
 
   User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
   User.create({username: "BeerJo", password: "123456", email: "beerjo@email.com"})
   User.create({username: "BeerBob", password: "123456", email: "beerbob@email.com"})
   User.create({username: "BeerBear", password: "123456", email: "BeerBear@email.com"})
+  
+  Post.create({user_id: 1, title: "post1", body: "postpostpostpostpostpostpostpostpostpostpostpostpostpostpost"})
+  Post.create({user_id: 1, title: "post2", body: "postpostpostpostpostpostpostpostpostpostpostpostpostpostpost"})
+  Post.create({user_id: 1, title: "post3", body: "postpostpostpostpostpostpostpostpostpostpostpostpostpostpost"})
+  Post.create({user_id: 1, title: "post4", body: "postpostpostpostpostpostpostpostpostpostpostpostpostpostpost"})
 
   City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/asheville.jpg"), filename: "asheville.jpg")
 
