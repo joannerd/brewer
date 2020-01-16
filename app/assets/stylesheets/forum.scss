@@ -91,6 +91,7 @@
   border: none;
   padding: 10px;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .post-form .write {
@@ -98,10 +99,6 @@
 }
 
 .post-form-submit {
-  // padding: 12px 24px;
-  // border-radius: 10px;
-  // font-size: 15px;
-  // color: black;
   outline: none;
   transition: .3s;
 }
