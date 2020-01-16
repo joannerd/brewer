@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Post from './post';
 import PostFormContainer from './post_form_container';
 
-const Forum = ({ posts, fetchPosts, fetchPost }) => {
+const Forum = ({ posts, fetchPosts }) => {
   window.scrollTo(0, 0);
 
   useEffect(() => {
@@ -13,9 +13,9 @@ const Forum = ({ posts, fetchPosts, fetchPost }) => {
     <section className="forum">
       <h1>Forum</h1>
       <PostFormContainer />
-      <ul className="post-container">
+      <ul>
         {posts.map((post, i) => (
-          <Post key={i} post={post} fetchPost={fetchPost}/>
+          <Post key={i} post={post} />
         ))}
       </ul>
     </section>

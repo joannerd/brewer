@@ -1,18 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Post = ({ post, fetchPost }) => {
-  const {userId, title, body } = post;
+const Post = ({ post }) => {
+  const { title, body, author, timestamp, id } = post;
   window.scrollTo(0, 0);
 
-  // useEffect(() => {
-  //   fetchPost(match.params.postId);
-  // }, [match.params.postId]);
+  let date = new Date(timestamp)
 
   return (
-    <li className="post">
-      <h1>{title}</h1>
-      <p>{body}</p>
-    </li>
+    <Link to={`/posts/${id}`}>
+      <li className="post">
+        <div className="post-header">
+          <h2>{title}</h2>
+          <h4>Posted by {author} | {date.toDateString()}</h4>
+        </div>
+        <p>{body}</p>
+      </li>
+    </Link>
   );
 }
 
