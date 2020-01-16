@@ -7,16 +7,25 @@ const Post = ({ post }) => {
   window.scrollTo(0, 0);
 
   return (
-    <Link to={`/posts/${id}`}>
-      <li className="post">
-        <div className="post-header">
-          <h2>{title}</h2>
-          <h4>Posted by {author} | {date.toDateString()}</h4>
-        </div>
-        <p>{body}</p>
-      </li>
-    </Link>
+    <li className="post">
+      <div className="post-header">
+        <h2>{title}</h2>
+        <h4>Posted by {author} | {date.toDateString()}</h4>
+      </div>
+      <p>{body}</p>
+    </li>
   );
+  // return (
+  //   <Link to={`/posts/${id}`}>
+  //     <li className="post">
+  //       <div className="post-header">
+  //         <h2>{title}</h2>
+  //         <h4>Posted by {author} | {date.toDateString()}</h4>
+  //       </div>
+  //       <p>{body}</p>
+  //     </li>
+  //   </Link>
+  // );
 }
 
 export default Post;
