@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
   const { title, body, author, timestamp, id } = post;
-  window.scrollTo(0, 0);
-
   let date = new Date(timestamp)
+  window.scrollTo(0, 0);
 
   return (
     <Link to={`/posts/${id}`}>
