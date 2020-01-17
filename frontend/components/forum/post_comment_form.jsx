@@ -6,11 +6,12 @@ const PostCommentForm = ({ formAction, formType, match, post }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    formType = "Write post" ? formAction({ title, body, user_id: authorId }) : formAction({ body, user_id: post.user_id, post_id: match.params.postId })
+    formType === "Write post" ? formAction({ title, body, user_id: authorId }) : formAction({ body, user_id: post.user_id, post_id: match.params.postId })
   }
 
   useEffect(() => {
-    if (formType = "Write comment") document.getElementById("post-form-title-input").className = "hidden";
+    let titleInput = document.getElementById("post-form-title-input");
+    formType === "Write comment" ? titleInput.className += "hidden" : titleInput.className -= "hidden";
   }, [])
 
   return (
@@ -27,7 +28,6 @@ const PostCommentForm = ({ formAction, formType, match, post }) => {
         onChange={e => setBody(e.target.value)}
         placeholder={formType}
       />
-
       <input
         type="submit"
         value="Submit"
