@@ -21,21 +21,30 @@ const PostShow = ({ post, comments, match, history, fetchPost, deletePost, delet
     return (post.userId === currentUserId) ? <button onClick={handleDelete}>Delete</button> : null
   }
 
+  function showComments() {
+    return comments.length > 0 ? 
+      comments.map((comment, i) => (
+        <Comment
+          key={i}
+          comment={comment}
+          currentUserId={currentUserId}
+          deleteComment={deleteComment}
+          postId={post.id}
+          history={history}
+        />
+      )) :
+      <li className="post comment none">
+        <p>This post has no comments yet.<br/>
+        Write a comment below!</p>
+      </li>
+  }
+
   return (post === undefined) ? null : (
     <section className="forum post-show">
       <Post post={post} />
       <ul>
         <h2>Comments</h2>
-        {comments.map((comment, i) => (
-          <Comment
-            key={i}
-            comment={comment}
-            currentUserId={currentUserId}
-            deleteComment={deleteComment}
-            postId={post.id}
-            history={history}
-          />
-        ))}
+        {showComments()}
       </ul>
       <CommentFormContainer />
       {deleteButton()}

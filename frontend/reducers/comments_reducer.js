@@ -6,7 +6,7 @@ const commentsReducer = (oldState = {}, action) => {
   const newState = Object.assign({}, oldState);
   switch (action.type) {
     case RECEIVE_POST:
-      return action.payload.comments
+      return !action.payload.comments ? {} : action.payload.comments
     case RECEIVE_COMMENT:
       return action.comment
     case REMOVE_COMMENT:
