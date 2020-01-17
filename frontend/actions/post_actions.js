@@ -8,9 +8,9 @@ const receivePosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
   posts
 })
-const receivePost = (post) => ({
+const receivePost = (payload) => ({
   type: RECEIVE_POST,
-  post
+  payload
 })
 const removePost = (postId) => ({
   type: REMOVE_POST,
@@ -24,12 +24,12 @@ export const fetchPosts = () => dispatch => (
 
 export const fetchPost = postId => dispatch => (
   PostAPIUtil.fetchPost(postId)
-    .then(post => dispatch(receivePost(post)))
+    .then(payload => dispatch(receivePost(payload)))
 );
 
 export const createPost = post => dispatch => (
   PostAPIUtil.createPost(post)
-    .then(post => dispatch(receivePost(post)))
+    .then(payload => dispatch(receivePost(payload)))
 );
 
 export const deletePost = postId => dispatch => (

@@ -8,47 +8,23 @@ ActiveRecord::Base.transaction do
   BreweryGuide.delete_all
   Favorite.delete_all
   Post.delete_all
+  Comment.delete_all
 
   User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
   User.create({username: "BeerJo", password: "123456", email: "beerjo@email.com"})
   User.create({username: "BeerBob", password: "123456", email: "beerbob@email.com"})
   User.create({username: "BeerBear", password: "123456", email: "BeerBear@email.com"})
   
-  Post.create({user_id: 1, title: "Welcome Beginning Brewers!", body: "This is a great place to start if you have ANY questions at all about brewing your own beer.
-
-From Mr. Beer and extract kits to all-grain brewing, we welcome all new brewers who have questions or need advice on their equipment, techniques, fermentation, wort making, yeast, and more.
-
-If you have a question, that means that others probably have had the same question too so no question is too silly. I promise. Ask us!
-
-And to more experienced brewers, it goes without saying that we will be welcoming of those questions and be as helpful as possible in our answers. If someone feels that they can't be positive and helpful, they should refrain from posting in the Beginner's Forum. Ask me if you are unsure if something is appropriate- remember what your mother told you, 'If you can't say something nice, then don't say anything at all!'
-
-Feel free to message one of the admins or moderators if you have any problems with posting on the forum, or if you have any problems with navigating around the forum at all.
-
-Cheers!"})
-  Post.create({user_id: 1, title: "Aeration Question", body: "I've yet to start my first brew. Call me a nervous Nellie, but I want to be sure I have all my ducks in a row before I start. I've still got to pick up a few things to complete my starting gear, but I'm thinking I'll bite the bullet and start boiling water tomorrow morning. But I have this question on aerating the wort before adding yeast.
-
-I'm using a six-gallon carboy for the primary. The directions in my kit (Block Party Amber Ale from Northern Brewers) say to put two gallons of water in the primary, then add the wort, then top up to five gallons with more water. Will pouring those liquids into the primary via a funnel aerate the wart enough for the yeast?
-
-The directions also say to rock the primary back and forth for several minutes for aeration before adding the yeast, but is that necessary when the primary is a carboy and you are pouring the stuff in, letting it drop a couple of feet in a cascade?
-
-Thanks for any advice!"})
+  Post.create({user_id: 1, title: "Welcome Beginning Brewers!", body: "This is a great place to start if you have ANY questions at all about brewing your own beer. From Mr. Beer and extract kits to all-grain brewing, we welcome all new brewers who have questions or need advice on their equipment, techniques, fermentation, wort making, yeast, and more. If you have a question, that means that others probably have had the same question too so no question is too silly. I promise. Ask us! And to more experienced brewers, it goes without saying that we will be welcoming of those questions and be as helpful as possible in our answers. If someone feels that they can't be positive and helpful, they should refrain from posting in the Beginner's Forum. Ask me if you are unsure if something is appropriate- remember what your mother told you, 'If you can't say something nice, then don't say anything at all!' Feel free to message one of the admins or moderators if you have any problems with posting on the forum, or if you have any problems with navigating around the forum at all. Cheers!"})
+  Post.create({user_id: 1, title: "Aeration Question", body: "I've yet to start my first brew. Call me a nervous Nellie, but I want to be sure I have all my ducks in a row before I start. I've still got to pick up a few things to complete my starting gear, but I'm thinking I'll bite the bullet and start boiling water tomorrow morning. But I have this question on aerating the wort before adding yeast. I'm using a six-gallon carboy for the primary. The directions in my kit (Block Party Amber Ale from Northern Brewers) say to put two gallons of water in the primary, then add the wort, then top up to five gallons with more water. Will pouring those liquids into the primary via a funnel aerate the wart enough for the yeast? The directions also say to rock the primary back and forth for several minutes for aeration before adding the yeast, but is that necessary when the primary is a carboy and you are pouring the stuff in, letting it drop a couple of feet in a cascade? Thanks for any advice!"})
   Post.create({user_id: 1, title: "Beerworks President's Sierra Kit", body: "Hi All,
-Bit of advice please - I pitched yeast into the Sierra kit too hot @ 26c on sunday.
-By Monday am, however, there was vigorous fermentation with healthy krausen but when I returned last night this had died down and there seemed to be a bit of a rotten egg smell (seems to have gone)This is the 1st time I am using bottled spring water and not tap water.
-The gravity has dropped from 1.054 to 1.020 so there has been some activity but I wonder if it has stalled and the yeast stressed due to pitching temperature.
-I have upped the temperature to 20c
-Should I throw in some more yeast?
-Any advice appreciated
-"})
-  Post.create({user_id: 1, title: "Recipe suggestions", body: "Hi fellow brewers. So by now I have brewed 3 batches of beer from extract only. My plan was to find an extract that I like and then modify it to suit my taste. I like a comercial style beer, that is not very hoppy. I have brewed a pale ale, what's called an Australian lager (not an actual lager) and a Czech Pilsner. They were all quite hoppy and not quite what I am after. So I have now decided to try all grain brewing to get closer to what I want. So my question is this:
+  Bit of advice please - I pitched yeast into the Sierra kit too hot @ 26c on sunday. By Monday am, however, there was vigorous fermentation with healthy krausen but when I returned last night this had died down and there seemed to be a bit of a rotten egg smell (seems to have gone)This is the 1st time I am using bottled spring water and not tap water. The gravity has dropped from 1.054 to 1.020 so there has been some activity but I wonder if it has stalled and the yeast stressed due to pitching temperature. I have upped the temperature to 20c. Should I throw in some more yeast? Any advice appreciated"})
+  Post.create({user_id: 1, title: "Recipe suggestions", body: "Hi fellow brewers. So by now I have brewed 3 batches of beer from extract only. My plan was to find an extract that I like and then modify it to suit my taste. I like a comercial style beer, that is not very hoppy. I have brewed a pale ale, what's called an Australian lager (not an actual lager) and a Czech Pilsner. They were all quite hoppy and not quite what I am after. So I have now decided to try all grain brewing to get closer to what I want. So my question is this: If I want something of this description: Subdued malt and hop flavours, fruity esters, caramel notes and sweet finish. What would a simple base recipe be? Thank you"})
 
-If I want something of this description:
-
-Subdued malt and hop flavours, fruity esters, caramel notes and sweet finish.
-
-What would a simple base recipe be?
-
-Thank you"})
+  Comment.create({user_id: 2, post_id: 4, body: "My suggestion to new brewers asking this is to purchase kits where the description meets your goals. That way you get a proven recipe and you will get to know the ingredients. Just don't follow there directions to the letter when it comes to fermenting. Good Brewing, and welcome to my obsession!"})
+  Comment.create({user_id: 3, post_id: 4, body: "I typically do 5-gallon batches. I also have a couple 20-gallon kettles so I can do 10-gallon batches, which occasionally I do. But my BIAB days are behind me for now. It's LODO electric brewing, RIMS system, recirculating, Spike conical, all the stuff indicating a brewer who may have had too many dollars and not enough sense."})
+  Comment.create({user_id: 4, post_id: 4, body: "I am a huge fan of all-grain brewing, but there are plenty of great extract based kits and recipes out there. Are you in the US? The following kits from Morebeer might fit your tastes for something more malty/sweet with less hops. For all of them you can click through to the 'Recipe Sheet' link to see the exact ingredients in the kit, and then purchase the ingredients yourself."})
+  Comment.create({user_id: 1, post_id: 4, body: "Thanks for all the info!"})
 
   City.create({name: "Asheville", state: "North Carolina", lat: 35.5951, lng: -82.5515}).photo.attach(io: open("https://brewer-dev.s3-us-west-1.amazonaws.com/asheville.jpg"), filename: "asheville.jpg")
 

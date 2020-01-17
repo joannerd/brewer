@@ -4,13 +4,15 @@ import breweries from "./breweries_reducer";
 import cities from "./cities_reducer";
 import guides from "./guides_reducer";
 import posts from "./posts_reducer";
+import comments from "./comments_reducer";
 
 const entitiesReducer = combineReducers({
   users,
   breweries,
   cities,
   guides,
-  posts
+  posts,
+  comments
 });
 
 export default entitiesReducer;
