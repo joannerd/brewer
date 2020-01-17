@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const PostForm = ({ createPost, authorId }) => {
+const PostCommentForm = ({ formAction, authorId, formType }) => {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
-    createPost({ title, body, user_id: authorId });
+    formType = "Write post" ? formAction({ title, body, user_id: authorId }) : formAction({ body, user_id: authorId })
   }
+
+  useEffect(() => {
+    // formType = "Write post" ?
+  }, [])
 
   return (
     <form onSubmit={handleSubmit} className="post-form">
@@ -17,12 +21,10 @@ const PostForm = ({ createPost, authorId }) => {
         onChange={e => setTitle(e.target.value)}
         placeholder="Title"
       />
-      <input
-        className="write"
-        type="textarea"
+      <textarea
         value={body}
         onChange={e => setBody(e.target.value)}
-        placeholder="Write post"
+        placeholder={formType}
       />
 
       <input
@@ -34,4 +36,4 @@ const PostForm = ({ createPost, authorId }) => {
   );
 };
 
-export default PostForm;
+export default PostCommentForm;

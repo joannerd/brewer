@@ -17,17 +17,6 @@
   padding-top: 120px;
 }
 
-
-.post-show {
-  padding: 20% 15% 15% 15%;
-
-  height: 100vh;
-  width: 700px;
-
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
 .post-form-container {
   width: 60%;
   min-width: 550px;
@@ -54,33 +43,34 @@
   
   padding: 0px 30px 30px 30px;
   margin: 20px;
-  transition: 0.3s;
   border-bottom: 2px solid white;
   overflow-wrap: break-word;
   word-wrap: break-word;
   width: 575px;
 }
 
-.post h2, .post-show h2, .post h4, .post-show h4 {
-  text-transform: capitalize;
-  font-size: 25px;
-  text-align: center;
-  margin-bottom: 15px;
+.post h2:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
-.post h4, .post-show h4 {
+.post h2, .post h4,  {
+  text-transform: capitalize;
+  font-size: 25px;
+  text-align: left;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.post h4 {
   font-size: 13px;
   text-align: right;
 }
 
-.post p, .post-show p {
+.post  {
   font-size: 17px;
   text-align: left;
   line-height: 1.3;
-}
-
-.post-show p {
-  padding: 10px;
 }
 
 .post-form {
@@ -88,32 +78,53 @@
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 15px 20px 15px 20px;
-  width: 100%;
+  width: 95%;
   min-width: 550px;
 
   display: flex;
   justify-content: space-evenly;
-  align-items: baseline;
+  align-items: center;
 }
 
-.post-form input {
+.post-form input:not([type="submit"]), .post-form textarea {
   outline: none;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  min-height: 30px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.post-form textarea {
+  width: 70%;
+  line-height: 10px;
+}
+
+.post-form-submit {
+  outline: none;
+  transition: .3s;
   border: none;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
 }
 
-.post-form .write {
-  width: 50%;
-}
-
-.post-form-submit {
-  outline: none;
-  transition: .3s;
-}
-
 .post-form-submit:hover {
   opacity: 0.5;
   cursor: pointer;
+}
+
+.post-show {
+  padding-top: 0px;
+}
+
+.post-show li, .post-show li:hover {
+  margin: 0px;
+}
+
+.post-show a {
+  pointer-events: none;
+  cursor: default;
 }
