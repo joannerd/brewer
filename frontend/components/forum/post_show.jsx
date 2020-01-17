@@ -3,7 +3,7 @@ import Post from './post';
 import CommentFormContainer from './comment_form_container';
 import Comment from './comment';
 
-const PostShow = ({ post, comments, match, history, fetchPost, deletePost, currentUserId }) => {
+const PostShow = ({ post, comments, match, history, fetchPost, deletePost, deleteComment, currentUserId }) => {
   window.scrollTo(0, 0);
 
   useEffect(() => {
@@ -27,7 +27,14 @@ const PostShow = ({ post, comments, match, history, fetchPost, deletePost, curre
       <ul>
         <h2>Comments</h2>
         {comments.map((comment, i) => (
-          <Comment key={i} comment={comment} />
+          <Comment
+            key={i}
+            comment={comment}
+            currentUserId={currentUserId}
+            deleteComment={deleteComment}
+            postId={post.id}
+            history={history}
+          />
         ))}
       </ul>
       <CommentFormContainer />

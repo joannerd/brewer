@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import PostShow from './post_show';
 import { fetchPost, deletePost } from '../../actions/post_actions';
+import { deleteComment } from '../../actions/comment_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
@@ -11,7 +12,8 @@ const msp = (state, ownProps) => ({
 
 const mdp = dispatch => ({
   fetchPost: postId => dispatch(fetchPost(postId)),
-  deletePost: postId => dispatch(deletePost(postId))
+  deletePost: postId => dispatch(deletePost(postId)),
+  deleteComment: commentId => dispatch(deleteComment(commentId))
 });
 
 export default withRouter(connect(msp, mdp)(PostShow));
