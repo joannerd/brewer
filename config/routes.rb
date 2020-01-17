@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resources :cities, only: [:index, :show]
     resources :guides, except: [:new, :edit]
     resources :posts, except: [:new, :edit] do
-      resources :comments, except: [:new, :edit]
+      resources :comments, only: [:new]
     end
+    resources :comments, except: [:new, :edit, :show, :index]
   end
 end
