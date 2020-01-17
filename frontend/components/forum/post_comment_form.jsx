@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 const PostCommentForm = ({ formAction, formType, match, post, fetchAction }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  // const [, updateState] = React.useState();
 
   function handleSubmit(e) {
     e.preventDefault();

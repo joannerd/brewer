@@ -8,7 +8,7 @@ const Post = ({ post }) => {
 
   return (
     <li className="post">
-      <h4 id="post-creator">Posted by {author} | {date}</h4>
+      <h4>Posted by {author} | {date}</h4>
       <Link to={`/posts/${id}`}>
         <h2>{title}</h2>
       </Link>

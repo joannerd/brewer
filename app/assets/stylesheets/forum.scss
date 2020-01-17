@@ -40,9 +40,7 @@
 .post {
   list-style-type: none;
   box-sizing: border-box;
-  
-  padding: 0px 30px 30px 30px;
-  margin: 20px;
+  padding: 30px;
   border-bottom: 2px solid white;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -54,12 +52,17 @@
   opacity: 0.5;
 }
 
-.post h2, .post h4,  {
+.post h2, .post h4, .post-show h2  {
   text-transform: capitalize;
   font-size: 25px;
   text-align: left;
   margin-bottom: 15px;
   transition: 0.3s;
+}
+
+.post-show ul h2 {
+  margin: 15px 0px 0px 0px;
+  text-align: center;
 }
 
 .post h4 {
@@ -115,10 +118,6 @@
   cursor: pointer;
 }
 
-.post-show {
-  padding-top: 0px;
-}
-
 .post-show li, .post-show li:hover {
   margin: 0px;
 }
@@ -130,4 +129,9 @@
 
 .post-show button {
   margin: 20px;
+}
+
+.post-show ul {
+  border-right: 1px solid white;
+  border-left: 1px solid white;
 }

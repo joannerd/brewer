@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
   post: state.entities.posts[ownProps.match.params.postId],
+  comments: Object.values(state.entities.comments),
   currentUserId: parseInt(state.session.id)
 });
 

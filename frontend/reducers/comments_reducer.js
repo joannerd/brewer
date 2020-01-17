@@ -8,7 +8,7 @@ const commentsReducer = (oldState = {}, action) => {
     case RECEIVE_POST:
       return action.payload.comments
     case RECEIVE_COMMENT:
-      return action.comments
+      return action.comment
     case REMOVE_COMMENT:
       delete newState[action.commentId];
       return newState;
