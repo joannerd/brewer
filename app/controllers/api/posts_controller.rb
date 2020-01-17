@@ -21,6 +21,7 @@ class Api::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     if @post.destroy
+      @posts = Post.all
       render '/api/posts/index'
     else
       render json: ['Post not found.'], status: 404

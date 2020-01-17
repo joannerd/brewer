@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-const PostCommentForm = ({ formAction, formType, match, post }) => {
+const PostCommentForm = ({ formAction, formType, match, post, fetchAction }) => {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
+  // const [, updateState] = React.useState();
 
   function handleSubmit(e) {
     e.preventDefault();
-    formType === "Write post" ? formAction({ title, body, user_id: authorId }) : formAction({ body, user_id: post.user_id, post_id: match.params.postId })
+    let createdItem;
+    formType === "Write post" ? createdItem = { title, body, user_id: post.userId } : createdItem = { body, user_id: post.userId, post_id: match.params.postId };
+
+    formAction(createdItem)
+      .then(() => {
+        formType === "Write post" ? fetchAction() : fetchAction(match.params.postId)
+      });
   }
 
   useEffect(() => {
