@@ -4,11 +4,7 @@ import PostCommentForm from './post_comment_form';
 import { withRouter } from 'react-router-dom';
 
 const msp = state => ({
-  post: {
-    title: "",
-    body: "",
-    userId: state.session.id
-  },
+  currentUserId: state.session.id,
   formType: "Write post"
 });
 

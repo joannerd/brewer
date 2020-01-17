@@ -4,8 +4,8 @@ import { fetchPost } from '../../actions/post_actions';
 import { createComment } from '../../actions/comment_actions';
 import { withRouter } from 'react-router-dom';
 
-const msp = (state, ownProps) => ({
-  post: state.entities.posts[ownProps.match.params.postId],
+const msp = state => ({
+  currentUserId: state.session.id,
   formType: "Write comment"
 });
 

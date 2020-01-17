@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const PostCommentForm = ({ formAction, formType, match, post, fetchAction }) => {
+const PostCommentForm = ({ formAction, formType, match, fetchAction, currentUserId }) => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     let createdItem;
-    formType === "Write post" ? createdItem = { title, body, user_id: post.userId } : createdItem = { body, user_id: post.userId, post_id: match.params.postId };
+    formType === "Write post" ? createdItem = { title, body, user_id: currentUserId } : createdItem = { body, user_id: currentUserId, post_id: match.params.postId };
 
     formAction(createdItem)
       .then(() => {
@@ -16,7 +16,7 @@ const PostCommentForm = ({ formAction, formType, match, post, fetchAction }) => 
   }
 
   useEffect(() => {
-    let titleInput = document.getElementById("post-form-title-input");
+    const titleInput = document.getElementById("post-form-title-input");
     formType === "Write comment" ? titleInput.className += "hidden" : titleInput.className -= "hidden";
   }, [])
 
