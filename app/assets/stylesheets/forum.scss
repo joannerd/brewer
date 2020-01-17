@@ -77,11 +77,11 @@
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 15px 20px 15px 20px;
-  min-width: 575px;
+  width: 575px;
 
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: flex-start;
   border-bottom: 2px solid white;
 }
 
