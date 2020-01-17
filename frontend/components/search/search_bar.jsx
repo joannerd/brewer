@@ -5,7 +5,7 @@ const SearchBar = props => {
 
   function handleClick(e) {
     e.preventDefault();
-    alert('clicked!')
+    alert('Search feature in progress!')
   }
 
   function handleEnter(e) {
