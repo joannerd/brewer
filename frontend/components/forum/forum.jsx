@@ -14,7 +14,7 @@ const Forum = ({ posts, fetchPosts }) => {
       <h1>Forum</h1>
       <PostFormContainer />
       <ul>
-        {posts.map((post, i) => (
+        {posts.reverse().map((post, i) => (
           <Post key={i} post={post} />
         ))}
       </ul>

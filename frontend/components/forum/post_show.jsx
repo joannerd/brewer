@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Post from './post';
 import CommentFormContainer from './comment_form_container';
 
-const PostShow = ({ post, match, history, fetchPost, deletePost }) => {
+const PostShow = ({ post, match, history, fetchPost, deletePost, currentUserId }) => {
   window.scrollTo(0, 0);
 
   useEffect(() => {
@@ -16,11 +16,15 @@ const PostShow = ({ post, match, history, fetchPost, deletePost }) => {
       })
   }
 
+  function deleteButton() {
+    return (post.userId === currentUserId) ? <button onClick={handleDelete}>Delete</button> : null
+  }
+
   return (post === undefined) ? null : (
     <section className="forum post-show">
       <Post post={post} />
       <CommentFormContainer />
-      <button onClick={handleDelete}>Delete</button>
+      {deleteButton()}
     </section>
   );
 }

@@ -74,16 +74,15 @@
 }
 
 .post-form {
-  border-radius: 20px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 15px 20px 15px 20px;
-  width: 95%;
-  min-width: 550px;
+  min-width: 575px;
 
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  border-bottom: 2px solid white;
 }
 
 .post-form input:not([type="submit"]), .post-form textarea {
@@ -127,4 +126,8 @@
 .post-show a {
   pointer-events: none;
   cursor: default;
+}
+
+.post-show button {
+  margin: 20px;
 }
