@@ -15,7 +15,7 @@ const Splash = ({ fetchCities, cities, match, history }) => {
       // })
   }, [match.params])
 
-  return (cities.length === 0) ? null : (
+  return (cities.length < 2) ? null : (
     <main className="splash">
       <Map cities={cities}/>
       <div className="splash-welcome">
