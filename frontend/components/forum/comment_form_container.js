@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import PostCommentForm from './post_comment_form';
-import { createPost, fetchPost } from '../../actions/post_actions';
-// import { createComment } from '../../actions/comment_actions';
+import { fetchPost } from '../../actions/post_actions';
+import { createComment } from '../../actions/comment_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
@@ -11,8 +11,7 @@ const msp = (state, ownProps) => ({
 
 const mdp = dispatch => ({
   fetchAction: postId => dispatch(fetchPost(postId)),
-  // formAction: comment => dispatch(createComment(comment))
-  formAction: post => dispatch(createPost(post))
+  formAction: comment => dispatch(createComment(comment))
 });
 
 export default withRouter(connect(msp, mdp)(PostCommentForm));
