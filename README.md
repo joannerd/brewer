@@ -38,24 +38,25 @@ $ rails s
 ## <a name="features">Features</a>
 * User signup/login
 ![Screen Shot 2019-12-01 at 4 51 56 PM](https://user-images.githubusercontent.com/32081352/69923586-e92eec00-145a-11ea-90bd-662b4399c75a.png)
-* Navigation bar
+
+* Navigation bar and splash page
+![Screen Shot 2020-01-25 at 5 38 45 PM](https://user-images.githubusercontent.com/32081352/73129525-f4098700-3f9a-11ea-837a-24a4e6612391.png)
 
 * User profile page
-![Screen Shot 2019-12-24 at 2 49 30 PM](https://user-images.githubusercontent.com/32081352/71426334-cd36f880-265c-11ea-9129-8a44c99b209a.png)
+![Screen Shot 2020-01-25 at 5 50 10 PM](https://user-images.githubusercontent.com/32081352/73129535-359a3200-3f9b-11ea-8ec8-cd7c1ac4d061.png)
+
+* Forum
+![forum](https://user-images.githubusercontent.com/32081352/73129513-a2f99300-3f9a-11ea-8331-75dba2e806ef.gif)
 
 * Index of guides created by demo users
 * Guide show pages
-![Screen Shot 2019-12-24 at 2 50 30 PM](https://user-images.githubusercontent.com/32081352/71426336-cdcf8f00-265c-11ea-8b03-f6f94650fdfb.png)
-
-* Guide creation form
-![Screen Shot 2019-12-24 at 2 49 40 PM](https://user-images.githubusercontent.com/32081352/71426335-cdcf8f00-265c-11ea-8cb9-278409f8e596.png)
+![guide](https://user-images.githubusercontent.com/32081352/73129512-a2f99300-3f9a-11ea-9f2b-6a7724125a32.gif)
 
 * Index of breweries
-![Screen Shot 2019-12-24 at 2 48 33 PM](https://user-images.githubusercontent.com/32081352/71426331-cc9e6200-265c-11ea-8289-b0626d4d192e.png)
+![breweries_index](https://user-images.githubusercontent.com/32081352/73129516-a3922980-3f9a-11ea-95c1-2bf98c8b9130.gif)
 
 * Index of top craft beer cities in America
-![Screen Shot 2019-12-24 at 2 49 01 PM](https://user-images.githubusercontent.com/32081352/71426332-cd36f880-265c-11ea-8084-1cdd22d8cb00.png)
-
+![cities](https://user-images.githubusercontent.com/32081352/73129515-a2f99300-3f9a-11ea-92d5-a7bb1a685c70.gif)
 
 
 ## <a name="technologies">Technologies</a>
@@ -75,10 +76,8 @@ I decided to implement Mapbox in my application's guide show pages to render loc
 * In progress
 * Future Features
   * Search in brewery index page
-  * City show page renders all guides and breweries of a city
   * User creation of brewery guides
   * User can favorite breweries
-  * User profile (shows user's guides and favorite breweries)
 
 ## <a name="inspiration">Inspiration</a>
 * Content organization based off of <a href="https://www.eater.com/">Eater.com</a>
