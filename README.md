@@ -46,17 +46,21 @@ $ rails s
 ![Screen Shot 2020-01-25 at 5 50 10 PM](https://user-images.githubusercontent.com/32081352/73129535-359a3200-3f9b-11ea-8ec8-cd7c1ac4d061.png)
 
 * Forum
-![forum](https://user-images.githubusercontent.com/32081352/73129513-a2f99300-3f9a-11ea-8331-75dba2e806ef.gif)
+
+  ![forum](https://user-images.githubusercontent.com/32081352/73129513-a2f99300-3f9a-11ea-8331-75dba2e806ef.gif)
 
 * Index of guides created by demo users
 * Guide show pages
-![guide](https://user-images.githubusercontent.com/32081352/73129512-a2f99300-3f9a-11ea-9f2b-6a7724125a32.gif)
+
+  ![guide](https://user-images.githubusercontent.com/32081352/73129512-a2f99300-3f9a-11ea-9f2b-6a7724125a32.gif)
 
 * Index of breweries
-![breweries_index](https://user-images.githubusercontent.com/32081352/73129516-a3922980-3f9a-11ea-95c1-2bf98c8b9130.gif)
+
+  ![breweries_index](https://user-images.githubusercontent.com/32081352/73129516-a3922980-3f9a-11ea-95c1-2bf98c8b9130.gif)
 
 * Index of top craft beer cities in America
-![cities](https://user-images.githubusercontent.com/32081352/73129515-a2f99300-3f9a-11ea-92d5-a7bb1a685c70.gif)
+
+  ![cities](https://user-images.githubusercontent.com/32081352/73129515-a2f99300-3f9a-11ea-92d5-a7bb1a685c70.gif)
 
 
 ## <a name="technologies">Technologies</a>
