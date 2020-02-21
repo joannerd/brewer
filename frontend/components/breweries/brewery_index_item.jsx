@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 
-const Brewery = ({ brewery, fetchBrewery }) => {
+const Brewery = ({ brewery, fetchBrewery, match }) => {
 
   if (fetchBrewery) {
     useEffect(() => {
-      fetchBrewery(brewery.id);
+      fetchBrewery(match.params.id);
     }, [])
   }
 

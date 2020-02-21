@@ -3,17 +3,16 @@ import React, { useState, useEffect } from 'react';
 const SearchBar = ({ fetchSearchBreweries, searchItems, history }) => {
   const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  // const [breweryId, setBreweryId] = useState('');
+  const [breweryId, setBreweryId] = useState(1);
 
   useEffect(() => {
-    // if (history.location.pathname !== "/")
-      fetchSearchBreweries();
+    fetchSearchBreweries();
   }, [])
 
   const handleClick = e => {
     e.preventDefault();
-    // if (e.type === 'submit' || e.keyCode === 13)
-  //     history.push(`/breweries/${breweryId}`)
+    if (e.type === 'submit' || e.keyCode === 13)
+      history.push(`/breweries/${breweryId}`)
   };
 
   const getSearchResults = e => {
