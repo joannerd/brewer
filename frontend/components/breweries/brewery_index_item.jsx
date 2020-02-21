@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Brewery = ({ brewery }) => {
-  if (brewery.id === '') return null;
-  const addressLink = brewery.address.split(" ").join("+")
+  const addressLink = brewery.address.split(" ").join("+");
+
   return (
     <>
       <h1>
@@ -19,20 +19,14 @@ const Brewery = ({ brewery }) => {
         Open in Google Maps
       </button></a>
     </>
-  )
+  );
 }
 
 Brewery.defaultProps = {
   brewery: {
     id: '',
-    name: '',
-    lat: '',
-    lng: '',
-    address: '',
-    website: '',
-    description: '',
-    cityId: ''
+    address: ''
   }
-}
+};
 
 export default Brewery;

@@ -1,19 +1,17 @@
 import { logout } from '../../actions/session_actions';
-import { fetchBreweries } from '../../actions/brewery_actions';
-import { fetchUsers } from '../../actions/user_actions';
+import { fetchSearchBreweries } from '../../actions/search_actions';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import NavBar from './navigation_bar';
 
 const msp = state => ({
   currentUser: state.entities.users[state.session.id],
-  breweries: Object.values(state.entities.breweries),
-  users: Object.values(state.entities.users)
+  searchItems: state.entities.search
 });
 
 const mdp = dispatch => ({
   logout: () => dispatch(logout()),
-  fetchBreweries: () => dispatch(fetchBreweries()),
-  fetchUsers: () => dispatch(fetchUsers())
+  fetchSearchBreweries: () => dispatch(fetchSearchBreweries())
 });
 
-export default connect(msp, mdp)(NavBar);
+export default withRouter(connect(msp, mdp)(NavBar));

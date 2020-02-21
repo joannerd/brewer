@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import BreweryIndex from './brewery_index';
-import { fetchBreweries, fetchBrewery } from '../../actions/brewery_actions';
+import { fetchBreweries } from '../../actions/brewery_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state) => ({

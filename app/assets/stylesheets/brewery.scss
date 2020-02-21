@@ -118,10 +118,8 @@
   cursor: pointer;
 }
 
-.beer-diagram {
-  // width: 50%;
-  // position: fixed;
-  // top: 155px;
-  // right: 5%;
-  // overflow: hidden;
+.brewery.show {
+  background: black;
+  margin-top: 200px;
+  max-width: 800px;
 }
