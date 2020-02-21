@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const Brewery = ({ brewery }) => {
-  if (brewery.id === '') return null;
+const Brewery = ({ brewery, fetchBrewery }) => {
+
+  if (fetchBrewery) {
+    useEffect(() => {
+      fetchBrewery(brewery.id);
+    }, [])
+  }
+
   const addressLink = brewery.address.split(" ").join("+")
   return (
     <>
@@ -25,14 +31,19 @@ const Brewery = ({ brewery }) => {
 Brewery.defaultProps = {
   brewery: {
     id: '',
-    name: '',
-    lat: '',
-    lng: '',
-    address: '',
-    website: '',
-    description: '',
-    cityId: ''
+    address: ''
   }
 }
+// Brewery.defaultProps = {
+//   brewery: {
+//     name: '',
+//     lat: '',
+//     lng: '',
+//     address: '',
+//     website: '',
+//     description: '',
+//     cityId: ''
+//   }
+// }
 
 export default Brewery;

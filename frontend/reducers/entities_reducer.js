@@ -5,6 +5,7 @@ import cities from "./cities_reducer";
 import guides from "./guides_reducer";
 import posts from "./posts_reducer";
 import comments from "./comments_reducer";
+import search from "./search_reducer";
 
 const entitiesReducer = combineReducers({
   users,
@@ -12,7 +13,8 @@ const entitiesReducer = combineReducers({
   cities,
   guides,
   posts,
-  comments
+  comments,
+  search
 });
 
 export default entitiesReducer;
