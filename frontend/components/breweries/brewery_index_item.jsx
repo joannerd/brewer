@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 
 const Brewery = ({ brewery, fetchBrewery, match }) => {
+  const addressLink = brewery.address.split(" ").join("+");
+
   if (match) {
     useEffect(() => {
       fetchBrewery(match.params.breweryId);
-    }, [match.params.breweryId])
+    }, [match.params.breweryId]);
   }
 
-  const addressLink = brewery.address.split(" ").join("+")
   return (
     <>
       <h1>
@@ -24,7 +25,7 @@ const Brewery = ({ brewery, fetchBrewery, match }) => {
         Open in Google Maps
       </button></a>
     </>
-  )
+  );
 }
 
 Brewery.defaultProps = {
@@ -32,17 +33,6 @@ Brewery.defaultProps = {
     id: '',
     address: ''
   }
-}
-// Brewery.defaultProps = {
-//   brewery: {
-//     name: '',
-//     lat: '',
-//     lng: '',
-//     address: '',
-//     website: '',
-//     description: '',
-//     cityId: ''
-//   }
-// }
+};
 
 export default Brewery;
