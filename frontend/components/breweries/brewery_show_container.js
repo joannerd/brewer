@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import BreweryIndexItem from './brewery_index_item';
+import BreweryShow from './brewery_show';
 import { fetchBrewery } from '../../actions/brewery_actions';
 import { withRouter } from 'react-router-dom';
 
@@ -11,4 +11,4 @@ const mdp = dispatch => ({
   fetchBrewery: breweryId => dispatch(fetchBrewery(breweryId))
 });
 
-export default withRouter(connect(msp, mdp)(BreweryIndexItem));
+export default withRouter(connect(msp, mdp)(BreweryShow));

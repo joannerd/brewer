@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 
-const Brewery = ({ brewery, fetchBrewery, match }) => {
+const Brewery = ({ brewery }) => {
   const addressLink = brewery.address.split(" ").join("+");
 
-  if (match) {
-    useEffect(() => {
-      fetchBrewery(match.params.breweryId);
-    }, [match.params.breweryId]);
-  }
+  // if (match) {
+  //   useEffect(() => {
+  //     fetchBrewery(match.params.breweryId);
+  //   }, [match.params.breweryId]);
+  // }
 
   return (
     <>
