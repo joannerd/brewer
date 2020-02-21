@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import Brewery from './brewery_index_item'
 
 const BreweryShow = ({ brewery, fetchBrewery, match }) => {
-  // const addressLink = brewery.address.split(" ").join("+");
-
   if (match) {
     useEffect(() => {
       fetchBrewery(match.params.breweryId);
@@ -16,12 +14,5 @@ const BreweryShow = ({ brewery, fetchBrewery, match }) => {
     </div>
   );
 }
-
-BreweryShow.defaultProps = {
-  brewery: {
-    id: '',
-    address: ''
-  }
-};
 
 export default BreweryShow;

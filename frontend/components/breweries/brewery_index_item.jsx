@@ -1,13 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 const Brewery = ({ brewery }) => {
   const addressLink = brewery.address.split(" ").join("+");
-
-  // if (match) {
-  //   useEffect(() => {
-  //     fetchBrewery(match.params.breweryId);
-  //   }, [match.params.breweryId]);
-  // }
 
   return (
     <>
