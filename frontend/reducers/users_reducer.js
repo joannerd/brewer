@@ -7,7 +7,7 @@ const usersReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-    newState[Object.keys(action.payload.users)[0]] = Object.values(action.payload.users)[0];
+      newState[Object.keys(action.payload.users)[0]] = Object.values(action.payload.users)[0];
     return newState;
     case LOG_OUT_CURRENT_USER:
       return Object.assign({}, null)

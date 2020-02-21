@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../search/search_bar';
 
-const NavBar = ({ logout, currentUser }) => {
+const NavBar = ({ logout, currentUser, fetchBreweries, breweries }) => {
   if (currentUser === undefined) return null;
 
   return (
@@ -81,7 +81,7 @@ const NavBar = ({ logout, currentUser }) => {
         />
       </div>
 
-      <SearchBar />
+      <SearchBar fetchBreweries={fetchBreweries} breweries={breweries}/>
 
       <button className="input submit logout" onClick={logout}>
         Logout

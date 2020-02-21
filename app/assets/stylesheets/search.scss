@@ -12,7 +12,7 @@
 .search-form-input {
   color: black;
   border: none;
-  margin-left: 15px;
+  margin: 10px;
 }
 
 .search-form-input:focus {
@@ -30,10 +30,21 @@
   cursor: pointer;
 }
 
-.fa-search {
+.fa-search, .fa-search:hover {
   color: black;
+  opacity: 1;
 }
 
-.fa-search:hover {
-  cursor: pointer;
+li.search {
+  width: inherit;
+  color: black;
+  margin: 5px 10px 5px 10px;
+  font-family: 'Alata', sans-serif;
+  font-size: 12px;
+  text-align: left;
+}
+
+li.search:hover {
+  padding: 0px;
+  border: none;
 }

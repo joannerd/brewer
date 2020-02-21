@@ -37,9 +37,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'pry-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'web-console', '>= 3.3.0'
+  gem 'pry-rails'
   gem 'better_errors'
   gem 'spring'
   gem 'binding_of_caller'
