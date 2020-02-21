@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 const SearchBar = ({ fetchBreweries, breweries }) => {
   const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
+  useEffect(() => {
+    fetchBreweries();
+  }, [])
+
   const handleClick = e => {
     e.preventDefault();
-    getSearchResults();
-  };
-
-  const handleEnter = e => {
-    if (e.keyCode === 13) {
-      this.handleClick(e);
-    }
+    if (e.type === 'submit' || e.keyCode === 13)
+      alert('clicked')
   };
 
   const clearSearchInput = () => {
@@ -34,10 +32,6 @@ const SearchBar = ({ fetchBreweries, breweries }) => {
       clearSearchInput();
     }
   };
-
-  useEffect(() => {
-    fetchBreweries();
-  }, [])
 
   return (
     <div className="search-bar-container">
@@ -61,11 +55,6 @@ const SearchBar = ({ fetchBreweries, breweries }) => {
           <li key={i} className="search">{result.name}</li>
         ))}
       </ul>
-      <input
-        className="search-form-submit"
-        onKeyDown={handleEnter}
-        type="submit"
-      />
     </div>
   )
 }

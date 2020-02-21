@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../search/search_bar';
 
-const NavBar = ({ logout, currentUser, fetchBreweries, breweries }) => {
+const NavBar = ({ logout, currentUser, fetchBreweries, breweries, users, fetchUsers }) => {
   if (currentUser === undefined) return null;
 
   return (
@@ -62,7 +62,7 @@ const NavBar = ({ logout, currentUser, fetchBreweries, breweries }) => {
 
       <div className="nav-contact">
         <a
-          href="http://www.junnac.org/"
+          href="https://junnac.com/"
           className="fa fa-folder"
           target="_blank"
           alt="portfolio"
@@ -81,7 +81,12 @@ const NavBar = ({ logout, currentUser, fetchBreweries, breweries }) => {
         />
       </div>
 
-      <SearchBar fetchBreweries={fetchBreweries} breweries={breweries}/>
+      <SearchBar
+        fetchBreweries={fetchBreweries}
+        breweries={breweries}
+        fetchUsers={fetchUsers}
+        users={users}
+      />
 
       <button className="input submit logout" onClick={logout}>
         Logout

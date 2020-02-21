@@ -35,6 +35,12 @@
   opacity: 1;
 }
 
+.search-form-input, li.search {
+  height: 20px;
+  width: 250px;
+  box-sizing: border-box;
+}
+
 li.search {
   width: inherit;
   color: black;
