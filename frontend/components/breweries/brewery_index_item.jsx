@@ -6,7 +6,12 @@ const Brewery = ({ brewery }) => {
   const [yelp, setYelp] = useState({});
 
   useEffect(() => {
-    fetchYelp(brewery.name, brewery.address).then(res => console.log(res));
+    let place = brewery.location.split(" ")
+    let address = place.slice(0, 3).join(" ");
+    let city = place[3];
+    let state = place[4][0] + place[5][0];
+
+    fetchYelp(brewery.name, address, city, state).then(res => console.log(res));
     console.log('hi')
   }, [brewery]);
 
