@@ -6,7 +6,7 @@ const yelpReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_YELP:
-      newState[Object.keys(action.yelpId)] = {};
+      newState[Object.keys(action.yelp.businesses[0].id)] = {};
       return newState;
     case RECEIVE_YELP_INFO:
       newState[Object.keys(action.yelpId)] = { info: action.yelpInfo };
