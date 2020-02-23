@@ -1,10 +1,10 @@
 // import $ from "jquery";
+
 const apiKey =
   "vzh1i1hR4yfOuZoRB02e9ghzooAJOsjV43aGqbRBPxcPnHjdgqxIDs2CKif2Olrlgqnpue0D0-VzsBu4w70EvDQbT3o0zlOsssBTu8nc8DvFe6HIM8YXN4SYNTdSXnYx";
 
 export const fetchYelp = (term, location) =>{
-  let place = location
-    .split(" ")
+  let place = location.split(" ")
 
   let address = place.slice(0, 3).join(" ");
   let city = place[3];
@@ -33,7 +33,8 @@ export const fetchYelp = (term, location) =>{
       .then(res => {
         yelpInfo["reviews"] = res.reviews;
       })
-    .then(() => console.log(yelpInfo))
+    
+  return yelpInfo;
 }
 
 const fetchYelpInfo = yelpId =>
@@ -52,4 +53,4 @@ const fetchYelpReviews = yelpId =>
     }
   })
 
-fetchYelp("Archetype", "265 Haywood Rd, Asheville, North Carolina, 28806");
+// fetchYelp("Archetype", "265 Haywood Rd, Asheville, North Carolina, 28806");
