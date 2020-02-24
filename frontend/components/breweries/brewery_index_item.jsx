@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { fetchYelp } from '../../util/yelp_api_util';
 
 const Brewery = ({ brewery }) => {
   const addressLink = brewery.address.split(" ").join("+");
-  const [yelp, setYelp] = useState({});
-
-  useEffect(() => {
-    let place = brewery.location.split(" ")
-    let address = place.slice(0, 3).join(" ");
-    let city = place[3];
-    let state = place[4][0] + place[5][0];
-
-    fetchYelp(brewery.name, address, city, state).then(res => console.log(res));
-    console.log('hi')
-  }, [brewery]);
 
   return (
     <>

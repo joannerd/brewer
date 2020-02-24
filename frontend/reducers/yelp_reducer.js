@@ -5,15 +5,24 @@ const yelpReducer = (oldState = {}, action) => {
   const newState = Object.assign({}, oldState);
 
   switch (action.type) {
-    case RECEIVE_YELP:
-      newState[Object.keys(action.yelp.businesses[0].id)] = {};
-      return newState;
+    // case RECEIVE_YELP:
+      // newState[action.yelp.businesses[0].id] = {
+      //   id: action.yelp.businesses[0].id
+      // };
+      // return newState;
+      // return null;
     case RECEIVE_YELP_INFO:
-      newState[Object.keys(action.yelpId)] = { info: action.yelpInfo };
+      newState[action.yelpInfo.id] = {
+        id: action.yelpInfo.id,
+        rating: action.yelpInfo.rating,
+        price: action.yelpInfo.price,
+        hours: action.yelpInfo.hours,
+        reviewCount: action.yelpInfo.review_count
+      };
       return newState;
-    case RECEIVE_YELP_REVIEWS:
-      newState[Object.keys(action.yelpId)] = { reviews: action.yelpReviews };
-      return newState;
+    // case RECEIVE_YELP_REVIEWS:
+    //   newState[action.yelpReviews] = { reviews: action.yelpReviews };
+    //   return newState;
     default:
       return oldState;
   }

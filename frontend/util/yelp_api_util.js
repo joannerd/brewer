@@ -6,7 +6,8 @@ export const fetchYelp = (term, address, city, state) =>
     url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/matches\?name=${term}&address1=${address}&city=${city}&state=${state}&country=US`,
     headers: {
       Authorization: `Bearer ${apiKey}`
-    }
+    },
+    method: 'GET'
   })
     // .then(res => res.businesses[0].id)
     // .then(id => {
@@ -31,7 +32,8 @@ export const fetchYelpInfo = yelpId =>
     url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${yelpId}`,
     headers: {
       Authorization: `Bearer ${apiKey}`
-    }
+    },
+    method: 'GET'
   })
 
 export const fetchYelpReviews = yelpId =>
@@ -39,7 +41,8 @@ export const fetchYelpReviews = yelpId =>
     url: `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${yelpId}/reviews`,
     headers: {
       Authorization: `Bearer ${apiKey}`
-    }
+    },
+    method: 'GET'
   })
 
 // fetchYelp("Archetype", "265 Haywood Rd, Asheville, North Carolina, 28806");

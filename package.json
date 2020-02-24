@@ -6,6 +6,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
+    "core-js": "^3.6.4",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",
     "react": "^16.11.0",
@@ -15,8 +16,7 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "yelp-fusion": "^3.0.0"
+    "webpack-cli": "^3.3.10"
   },
   "devDependencies": {
     "redux-logger": "^3.0.6"
