@@ -122,6 +122,7 @@
   background: black;
   margin-top: 150px;
   max-width: 775px;
+  border-radius: 10px;
 }
 
 .brewery-yelp {
@@ -137,7 +138,11 @@
 }
 
 .review {
-  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .yelp-user {

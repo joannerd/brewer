@@ -39,9 +39,10 @@ class BreweryShow extends React.Component {
 
         fetchYelp(this.props.brewery.name, address, city, state)
           .then(res => {
-            let yelpId = res.yelp.businesses[0].id;
-
-            fetchYelpInfo(yelpId)
+            // let yelpId = res.yelp.businesses[0].id;
+            this.setState({ id: res.yelp.businesses[0].id });
+          }).then(() => {
+            fetchYelpInfo(this.state.id)
               .then(res => {
                 let { rating, price, hours, review_count } = res.yelpInfo;
                 this.setState({
@@ -52,30 +53,33 @@ class BreweryShow extends React.Component {
                 });
               });
 
-            fetchYelpReviews(yelpId)
-              .then(res => this.setState({ reviews: res.yelp.reviews }));
+            fetchYelpReviews(this.state.id)
+              // .then(res => this.setState({ reviews: res.yelp.reviews }));
           });
       });
   }
 
   render() {
-    const { yelp, brewery } = this.props;
-    const { rating, price, hours, reviewCount, reviews } = this.state;
+    const { yelp, brewery, reviews } = this.props;
+    if (!yelp || reviews.length === 0) {
+      return null;
+    } else {
+      const { rating, price, hours, review_count } = Object.values(yelp)[0];
+      return (
+        <div className="brewery show">
+          <Brewery brewery={brewery} />
+          <div className="brewery-yelp">
+            <h3>Price Range: {price}</h3>
+            <img src={`/${rating}.png`} className="yelp-stars"/>
+            <h3>{review_count} reviews</h3>
 
-    return (yelp.length < 1 || reviews.length < 1) ? null : (
-      <div className="brewery show">
-        <Brewery brewery={brewery} />
-        <div className="brewery-yelp">
-          <h3>{price}</h3>
-          <img src={`/${rating}.png`} className="yelp-stars"/>
-          <h3>{reviewCount} reviews</h3>
-
-          {reviews.map((review, i) => (
-            <Review review={review} key={i} />
-          ))}
+            {reviews.map((review, i) => (
+              <Review review={review} key={i} />
+            ))}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
