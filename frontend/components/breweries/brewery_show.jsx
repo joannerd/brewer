@@ -55,13 +55,13 @@ class BreweryShow extends React.Component {
     const { yelp, brewery } = this.props;
     const { rating, price, hours, reviewCount } = this.state;
 
-    return (yelp.length < 1) ? null : (
+    return yelp.length < 1 ? null : (
       <div className="brewery show">
         <Brewery brewery={brewery} />
         <div className="brewery-yelp">
-          <h2>{rating}</h2>
-          <h2>{price}</h2>
-          <h2>{reviewCount}</h2>
+          <h3>{price}</h3>
+          <img src={`/${rating}.png`} className="yelp-stars"/>
+          <h3>{reviewCount} reviews</h3>
         </div>
       </div>
     );
