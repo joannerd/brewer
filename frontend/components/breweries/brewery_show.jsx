@@ -46,13 +46,13 @@ class BreweryShow extends React.Component {
                   reviewCount: review_count
                 });
               })
-            // fetchYelpReviews(yelpId);
+            fetchYelpReviews(yelpId);
           })
       })
   }
 
   render() {
-    const { yelp, brewery } = this.props;
+    const { yelp, brewery, reviews } = this.props;
     const { rating, price, hours, reviewCount } = this.state;
 
     return yelp.length < 1 ? null : (

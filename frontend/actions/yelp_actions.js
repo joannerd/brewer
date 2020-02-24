@@ -8,15 +8,15 @@ const receiveYelp = yelp => ({
   yelp
 });
 
-const receiveYelpInfo = (yelpInfo) => ({
+const receiveYelpInfo = yelpInfo => ({
   type: RECEIVE_YELP_INFO,
   yelpInfo
 });
 
-// const receiveYelpReviews = (yelpReviews) => ({
-//   type: RECEIVE_YELP_REVIEWS,
-//   yelpReviews
-// });
+const receiveYelpReviews = yelp => ({
+  type: RECEIVE_YELP_REVIEWS,
+  yelp
+});
 
 export const fetchYelp = (term, address, city, state) => () => (
   YelpAPIUtil.fetchYelp(term, address, city, state)
@@ -25,10 +25,10 @@ export const fetchYelp = (term, address, city, state) => () => (
 
 export const fetchYelpInfo = yelpId => dispatch => (
   YelpAPIUtil.fetchYelpInfo(yelpId)
-    .then((yelpInfo) => dispatch(receiveYelpInfo(yelpInfo))
+    .then(yelpInfo => dispatch(receiveYelpInfo(yelpInfo))
 ));
 
-// export const fetchYelpReviews = yelpId => dispatch => (
-//   YelpAPIUtil.fetchYelpReviews(yelpId)
-//     .then((yelpReviews) => dispatch(receiveYelpReviews(yelpReviews))
-// ));
+export const fetchYelpReviews = yelpId => dispatch => (
+  YelpAPIUtil.fetchYelpReviews(yelpId)
+    .then(yelp => dispatch(receiveYelpReviews(yelp))
+));
