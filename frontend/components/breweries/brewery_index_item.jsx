@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const Brewery = ({ brewery }) => {
   const addressLink = brewery.address.split(" ").join("+");

@@ -9,23 +9,6 @@ export const fetchYelp = (term, address, city, state) =>
     },
     method: 'GET'
   })
-    // .then(res => res.businesses[0].id)
-    // .then(id => {
-    //   yelpInfo["id"] = id;
-    //   return fetchYelpInfo(id);
-    // })
-    // .then(res => {
-    //   let { hours, price, rating, review_count } = res;
-    //   yelpInfo["hours"] = hours;
-    //   yelpInfo["price"] = price;
-    //   yelpInfo["rating"] = rating;
-    //   yelpInfo["reviewCount"] = review_count;
-    // }).then(() => fetchYelpReviews(yelpInfo["id"]))
-    //   .then(res => {
-    //     yelpInfo["reviews"] = res.reviews;
-    //   })
-    
-  // return yelpInfo;
 
 export const fetchYelpInfo = yelpId =>
   $.ajax({
