@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
   brewery: state.entities.breweries[ownProps.match.params.breweryId],
-  yelp: Object.values(state.entities.yelp),
+  yelp: Object.values(state.entities.yelp)[0],
   reviews: state.entities.reviews
 });
 
