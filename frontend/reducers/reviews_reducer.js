@@ -1,6 +1,6 @@
 import { RECEIVE_YELP_REVIEWS } from "../actions/yelp_actions";
 
-const reviewsReducer = (oldState = {}, action) => {
+const reviewsReducer = (oldState = [], action) => {
   Object.freeze(oldState);
 
   switch (action.type) {

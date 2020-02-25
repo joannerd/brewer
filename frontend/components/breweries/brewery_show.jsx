@@ -1,82 +1,68 @@
-import React from 'react';
+require("regenerator-runtime");
+import React, { useState, useEffect } from 'react';
 import Brewery from './brewery_index_item';
 import Review from './review';
 
-class BreweryShow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      address: "",
-      city: "",
-      state: "",
-      id: "",
-      rating: 0,
-      price: "",
-      hours: "",
-      reviewCount: 0,
-      reviews: []
-    };
-  }
+const BreweryShow = ({
+  fetchBrewery,
+  fetchYelp,
+  fetchYelpInfo,
+  fetchYelpReviews,
+  match,
+  brewery,
+  yelp,
+  reviews
+}) => {
+  const [isLoading, setIsLoading] = useState(true);
 
-  componentDidMount() {
-    const { fetchBrewery, fetchYelp, fetchYelpInfo, fetchYelpReviews, match } = this.props;
+  useEffect(() => {
+    async function fetchBreweryShowInfo() {
+      const res = await fetchBrewery(match.params.breweryId);
 
-    fetchBrewery(match.params.breweryId)
-      .then(res => {
-        let place = Object.values(res.brewery)[0].address.split(" ");
-        let address = place.slice(0, 3).join(" ");
-        let city = place[3];
-        let state = place[4][0] + place[5][0];
+      const { name, address } = Object.values(res.brewery)[0];
 
-        this.setState({
-          address,
-          city,
-          state,
-        });
+      let place = address.split(" ");
 
-      }).then(() => {
-        let { address, city, state } = this.state;
+      let streetAddress = await place.slice(0, 3).join(" ");
+      let city = await place[3];
+      let state = (await place[4][0]) + place[5][0];
 
-        fetchYelp(this.props.brewery.name, address, city, state)
-          .then(res => {
-            let yelpId = res.yelp.businesses[0].id;
+      const result = await fetchYelp(name, streetAddress, city, state);
+      setIsLoading(false);
 
-            fetchYelpInfo(yelpId)
-              .then(res => {
-                let { rating, price, hours, review_count } = res.yelpInfo;
-                this.setState({
-                  rating,
-                  price,
-                  hours,
-                  reviewCount: review_count
-                });
-              });
+      const yelpId = await result.yelp.businesses[0].id;
+      fetchYelpInfo(yelpId);
+      fetchYelpReviews(yelpId);
+    }
 
-            fetchYelpReviews(yelpId)
-              .then(res => this.setState({ reviews: res.yelp.reviews }));
-          });
-      });
-  }
+    fetchBreweryShowInfo();
+  }, [match.params.breweryId]);
 
-  render() {
-    const { yelp, brewery } = this.props;
-    const { rating, price, hours, reviewCount, reviews } = this.state;
-
-    return (yelp.length < 1 || reviews.length < 1) ? null : (
-      <div className="brewery show">
-        <Brewery brewery={brewery} />
+  const yelpSection = () => {
+    if (reviews.length === 0) {
+      return null
+    } else {
+      const { rating, price, hours, review_count } = yelp;
+      return (
         <div className="brewery-yelp">
-          <h3>{price}</h3>
-          <img src={`/${rating}.png`} className="yelp-stars"/>
-          <h3>{reviewCount} reviews</h3>
+          <h3>Price Range: {price}</h3>
+          <img src={`/${rating}.png`} className="yelp-stars" />
+          <h3>{review_count} reviews</h3>
 
           {reviews.map((review, i) => (
             <Review review={review} key={i} />
           ))}
         </div>
-      </div>
-    );
+      );
+    }
   }
-}
+
+  return isLoading ? null : (
+    <div className="brewery show">
+      <Brewery brewery={brewery} />
+      {yelpSection()}
+    </div>
+  );
+};
 
 export default BreweryShow;

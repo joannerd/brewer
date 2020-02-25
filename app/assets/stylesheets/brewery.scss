@@ -77,6 +77,7 @@
   padding-top: 3%;
   padding-bottom: 3%;
   border-bottom: 1px solid grey;
+  line-height: 20px;
 }
 
 .brewery-photo {
@@ -89,6 +90,7 @@
   text-decoration: none;
   color: white;
   transition: 0.3s;
+  background: none;
 }
 
 .brewery a:hover {
@@ -122,6 +124,7 @@
   background: black;
   margin-top: 150px;
   max-width: 775px;
+  border-radius: 10px;
 }
 
 .brewery-yelp {
@@ -137,7 +140,11 @@
 }
 
 .review {
-  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .yelp-user {

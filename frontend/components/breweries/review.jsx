@@ -8,15 +8,19 @@ const Review = ({ review }) => {
 
   return (
     <div className="review">
-      <h3>{date}</h3>
-      <a href={profile_url} target="_blank">
-        <h1>{name}</h1>
-        <img src={image_url} className="yelp-user" />
-      </a>
-      <a href={url} target="_blank">
-        <img src={`/${rating}.png`} className="yelp-stars" />
-      </a>
-      <p>{text}</p>
+      <div>
+        <a href={profile_url} target="_blank">
+          <img src={image_url} className="yelp-user" />
+          <h1>{name}</h1>
+        </a>
+      </div>
+      <div>
+        <h3>{date}</h3>
+        <a href={url} target="_blank">
+          <img src={`/${rating}.png`} className="yelp-stars" />
+        </a>
+        <p>{text}</p>
+      </div>
     </div>
   );
 };
