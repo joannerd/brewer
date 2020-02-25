@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 const SearchBar = ({ fetchSearchBreweries, searchItems, history }) => {
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [breweryId, setBreweryId] = useState(1);
+  const [breweryId, setBreweryId] = useState("");
 
   useEffect(() => {
     fetchSearchBreweries();
@@ -11,7 +11,7 @@ const SearchBar = ({ fetchSearchBreweries, searchItems, history }) => {
 
   const handleClick = e => {
     e.preventDefault();
-    if (e.type === 'submit' || e.keyCode === 13)
+    if (e.type === "submit")
       history.push(`/breweries/${breweryId}`)
   };
 

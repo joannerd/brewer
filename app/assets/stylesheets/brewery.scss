@@ -42,7 +42,7 @@
 
 .brewery-index-list {
   min-width: 500px;
-  width: 55%;
+  width: 60%;
   opacity: .9;
 }
 
@@ -120,6 +120,27 @@
 
 .brewery.show {
   background: black;
-  margin-top: 200px;
-  max-width: 800px;
+  margin-top: 150px;
+  max-width: 775px;
+}
+
+.brewery-yelp {
+  margin-top: 30px;
+}
+
+.brewery-yelp * {
+  margin: 10px;
+}
+
+.yelp-stars {
+  width: 200px;
+}
+
+.review {
+  border: 1px solid white;
+}
+
+.yelp-user {
+  max-width: 200px;
+  max-height: 200px;
 }

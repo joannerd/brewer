@@ -8,14 +8,15 @@ const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
 
   useEffect(() => {
     fetchGuide(match.params.guideId)
-      .then(() => {
-        Object.keys(guide.brewInfo).forEach(brewId => {
-          document.getElementsByClassName(`${brewId}`)[0].addEventListener('click', () => {
-            document.getElementById(`brewery${brewId}`).scrollIntoView({
-              block: "start"
-            });
-          })
-        })
+      .then(res => {
+        console.log(res)
+        // Object.keys(guide.brewInfo).forEach(brewId => {
+        //   document.getElementsByClassName(`${brewId}`)[0].addEventListener('click', () => {
+        //     document.getElementById(`brewery${brewId}`).scrollIntoView({
+        //       block: "start"
+        //     });
+        //   })
+        // })
       })
   }, [match.params.guideId]);
 
