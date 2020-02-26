@@ -8,6 +8,7 @@ class MarkerManager {
   createMarkerFromPlace(id, coordinates) {
     const el = document.createElement('div');
     el.className = `marker ${id}`;
+    el.id = id;
 
     new mapboxgl.Marker(el)
       .setLngLat(coordinates)
