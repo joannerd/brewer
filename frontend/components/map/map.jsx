@@ -13,9 +13,8 @@ class Map extends React.Component {
     let places;
     mapboxgl.accessToken = window.mboxAPIKey;
 
-    if (this.props.cities !== undefined) {     
+    if (Object.keys(this.props.cities).length !== 0) {     
       places = this.props.cities;
-
       mapOptions = {
         container: 'map',
         minZoom: 3,

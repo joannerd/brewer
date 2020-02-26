@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Brewery from '../breweries/brewery_index_item';
 import Map from '../map/map';
+import Loading from '../loading';
 
 const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
   window.scrollTo(0, 0);
@@ -10,7 +11,7 @@ const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
     fetchGuide(match.params.guideId);
   }, [match.params.guideId]);
 
-  return (guide === undefined) ? null : (
+  return (guide === undefined) ? <Loading /> : (
     <section className="guide-index-list">
       <Map guide={guide} />
       

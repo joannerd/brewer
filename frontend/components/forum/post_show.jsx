@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Post from './post';
 import CommentFormContainer from './comment_form_container';
 import Comment from './comment';
+import Loading from '../loading';
 
 const PostShow = ({ post, comments, match, history, fetchPost, deletePost, deleteComment, currentUserId }) => {
   window.scrollTo(0, 0);
@@ -39,7 +40,7 @@ const PostShow = ({ post, comments, match, history, fetchPost, deletePost, delet
       </li>
   }
 
-  return (post === undefined) ? null : (
+  return (post === undefined) ? <Loading /> : (
     <section className="forum post-show">
       <Post post={post} />
       <ul>

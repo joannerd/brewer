@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Post from './post';
 import PostFormContainer from './post_form_container';
+import Loading from '../loading';
 
 const Forum = ({ posts, fetchPosts }) => {
   window.scrollTo(0, 0);
@@ -9,7 +10,7 @@ const Forum = ({ posts, fetchPosts }) => {
     fetchPosts();
   }, [])
 
-  return (posts.length === 0) ? null : (
+  return (posts.length === 0) ? <Loading /> : (
     <section className="forum">
       <h1>Forum</h1>
       <PostFormContainer />
