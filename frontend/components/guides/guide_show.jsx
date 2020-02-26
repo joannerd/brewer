@@ -7,17 +7,7 @@ const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
   window.scrollTo(0, 0);
 
   useEffect(() => {
-    fetchGuide(match.params.guideId)
-      .then(res => {
-        console.log(res)
-        // Object.keys(guide.brewInfo).forEach(brewId => {
-        //   document.getElementsByClassName(`${brewId}`)[0].addEventListener('click', () => {
-        //     document.getElementById(`brewery${brewId}`).scrollIntoView({
-        //       block: "start"
-        //     });
-        //   })
-        // })
-      })
+    fetchGuide(match.params.guideId);
   }, [match.params.guideId]);
 
   return (guide === undefined) ? null : (

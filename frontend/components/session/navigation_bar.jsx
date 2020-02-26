@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../search/search_bar';
+import Loading from '../loading';
 
 const NavBar = ({ logout, currentUser, fetchSearchBreweries, searchItems, history }) => {
-  if (currentUser === undefined) return null;
+  if (currentUser === undefined) return <Loading />;
 
   return (
     <nav className="nav-container">

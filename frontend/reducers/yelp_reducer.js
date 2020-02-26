@@ -6,12 +6,15 @@ const yelpReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_YELP_INFO:
+      const { id, rating, price, hours, review_count, url } = action.yelpInfo;
+
       newState[action.yelpInfo.id] = {
-        id: action.yelpInfo.id,
-        rating: action.yelpInfo.rating,
-        price: action.yelpInfo.price,
-        hours: action.yelpInfo.hours,
-        reviewCount: action.yelpInfo.review_count
+        id,
+        url,
+        rating,
+        price,
+        hours,
+        reviewCount: review_count
       };
       return newState;
     default:

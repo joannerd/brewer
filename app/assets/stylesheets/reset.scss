@@ -3,16 +3,6 @@
    License: none (public domain)
 */
 
-// #cover {
-// 	background: image-url("beer-anim_slower.gif") no-repeat scroll center center #1F1F1D;
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	height: 100vh;
-// 	width: 100%;
-// 	z-index: 101;
-// }
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -78,4 +68,13 @@ table {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#loading {
+	position: fixed;
+	top: 40%;
+	left: 42%;
+	border-radius: 100%;
+	width: 225px;
+	height: 200px;
 }

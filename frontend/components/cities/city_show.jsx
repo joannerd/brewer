@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
+import Loading from '../loading';
 
 const CityShow = ({ match, breweries, guides, city, fetchCity }) => {
   useEffect(() => {
     fetchCity(match.params.cityId)
   }, [match.params.cityId])
 
-  if (city === undefined) return null;
+  if (city === undefined) return <Loading />;
 
   const cityGuides = 
     guides.length === 0 ? 

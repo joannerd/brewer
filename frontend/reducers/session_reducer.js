@@ -3,6 +3,7 @@ import { RECEIVE_SEARCH_BREWERIES } from "../actions/search_actions";
 
 const sessionReducer = (oldState = { id: null }, action) => {
   Object.freeze(oldState);
+  
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, { id: Object.values(action.payload.users)[0].id });

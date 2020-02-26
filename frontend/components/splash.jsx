@@ -6,13 +6,6 @@ const Splash = ({ fetchCities, cities, match, history }) => {
 
   useEffect(() => {
     fetchCities()
-      // .then(() => {
-      //   Object.keys(cities).forEach(cityId => {
-      //     document.getElementsByClassName(`marker ${cityId - 1}`)[0].addEventListener('click', () => {
-      //       history.push(`/cities/${cityId}`);
-      //     })
-      //   })
-      // })
   }, [match.params])
 
   return (cities.length < 2) ? null : (
