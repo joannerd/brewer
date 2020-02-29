@@ -2,6 +2,7 @@ import * as YelpAPIUtil from '../util/yelp_api_util';
 export const RECEIVE_YELP = 'RECEIVE_YELP';
 export const RECEIVE_YELP_INFO = 'RECEIVE_YELP_INFO';
 export const RECEIVE_YELP_REVIEWS = 'RECEIVE_YELP_REVIEWS';
+export const CLEAR_YELP = 'CLEAR_YELP';
 
 const receiveYelp = yelp => ({
   type: RECEIVE_YELP,
@@ -16,6 +17,10 @@ const receiveYelpInfo = yelpInfo => ({
 const receiveYelpReviews = yelp => ({
   type: RECEIVE_YELP_REVIEWS,
   yelp
+});
+
+export const clearYelp = () => ({
+  type: CLEAR_YELP
 });
 
 export const fetchYelp = (term, address, city, state) => () => (

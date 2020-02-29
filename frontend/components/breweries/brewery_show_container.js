@@ -4,7 +4,8 @@ import { fetchBrewery } from '../../actions/brewery_actions';
 import {
   fetchYelp,
   fetchYelpInfo,
-  fetchYelpReviews
+  fetchYelpReviews,
+  clearYelp
 } from "../../actions/yelp_actions";
 import { withRouter } from 'react-router-dom';
 
@@ -18,7 +19,8 @@ const mdp = dispatch => ({
   fetchBrewery: breweryId => dispatch(fetchBrewery(breweryId)),
   fetchYelp: (term, address, city, state) => dispatch(fetchYelp(term, address, city, state)),
   fetchYelpInfo: yelpId => dispatch(fetchYelpInfo(yelpId)),
-  fetchYelpReviews: yelpId => dispatch(fetchYelpReviews(yelpId))
+  fetchYelpReviews: yelpId => dispatch(fetchYelpReviews(yelpId)),
+  clearYelp: () => dispatch(clearYelp())
 });
 
 export default withRouter(connect(msp, mdp)(BreweryShow));

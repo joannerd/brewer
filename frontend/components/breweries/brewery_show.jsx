@@ -9,33 +9,43 @@ const BreweryShow = ({
   fetchYelp,
   fetchYelpInfo,
   fetchYelpReviews,
+  clearYelp,
   match,
   brewery,
   yelp,
   reviews
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasYelp, setHasYelp] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
     async function fetchBreweryShowInfo() {
+      await clearYelp();
+      
       const res = await fetchBrewery(match.params.breweryId);
       const { name, address, city, state } = Object.values(res.brewery)[0];
       let streetAddress = address.split(",")[0]
-      setIsLoading(false);
       
       const result = await fetchYelp(name, streetAddress, city, state);
-      const yelpId = result.yelp.businesses[0].id;
+      const yelpResult = result.yelp.businesses[0];
 
-      fetchYelpInfo(yelpId);
-      fetchYelpReviews(yelpId);
+      setIsLoading(false);
+
+      if (yelpResult !== undefined) {
+        const yelpId = yelpResult.id;
+        fetchYelpInfo(yelpId);
+        fetchYelpReviews(yelpId);
+        setHasYelp(true);
+      }
     }
 
     fetchBreweryShowInfo();
   }, [match.params.breweryId]);
 
   const yelpSection = () => {
-    if (!yelp || reviews.length === 0) {
+    if (!hasYelp || !yelp || reviews.length === 0) {
       return null;
     } else {
       const { rating, price, hours, reviewCount, url } = yelp;

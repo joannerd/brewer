@@ -1,4 +1,4 @@
-import { RECEIVE_YELP_INFO, RECEIVE_YELP } from "../actions/yelp_actions";
+import { RECEIVE_YELP_INFO, RECEIVE_YELP, CLEAR_YELP } from "../actions/yelp_actions";
 
 const yelpReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -18,6 +18,8 @@ const yelpReducer = (oldState = {}, action) => {
         reviewCount: review_count
       };
       return newState;
+    case CLEAR_YELP:
+      return oldState;
     default:
       return oldState;
   }
