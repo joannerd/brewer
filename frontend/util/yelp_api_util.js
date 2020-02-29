@@ -28,4 +28,4 @@ export const fetchYelpReviews = yelpId =>
     method: 'GET'
   })
 
-// fetchYelp("Archetype", "265 Haywood Rd, Asheville, North Carolina, 28806");
+// fetchYelp("Archetype", "265 Haywood Rd", "Asheville", "NC");

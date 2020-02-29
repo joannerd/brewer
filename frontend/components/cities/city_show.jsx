@@ -22,9 +22,9 @@ const CityShow = ({ match, breweries, guides, city, fetchCity }) => {
     breweries.length === 0 ? 
       <h2>There are no breweries for this city yet.</h2> : <> {
         breweries.map((brewery, i) => (
-          <a href={brewery.website} target="_blank" key={i}>
+          <Link to={`/breweries/${brewery.id}`} key={i}>
             <h2>{brewery.name}</h2>
-          </a>
+          </Link>
         ))} </>
 
   return (

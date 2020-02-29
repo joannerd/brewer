@@ -1,14 +1,15 @@
-import { RECEIVE_YELP_INFO } from "../actions/yelp_actions";
+import { RECEIVE_YELP_INFO, RECEIVE_YELP } from "../actions/yelp_actions";
 
 const yelpReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   const newState = Object.assign({}, oldState);
 
   switch (action.type) {
+    case RECEIVE_YELP:
     case RECEIVE_YELP_INFO:
       const { id, rating, price, hours, review_count, url } = action.yelpInfo;
 
-      newState[action.yelpInfo.id] = {
+      newState[id] = {
         id,
         url,
         rating,

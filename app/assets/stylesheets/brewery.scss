@@ -1,6 +1,5 @@
 .brewery-index {
   position: absolute;
-  min-width: 600px;
   top: 90px;
   left: 0;
 
@@ -44,6 +43,7 @@
   min-width: 500px;
   width: 60%;
   opacity: .9;
+  min-width: 750px;
 }
 
 .brewery-index-list * {

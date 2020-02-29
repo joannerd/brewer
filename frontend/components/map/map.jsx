@@ -13,7 +13,7 @@ class Map extends React.Component {
     let places;
     mapboxgl.accessToken = window.mboxAPIKey;
 
-    if (Object.keys(this.props.cities).length !== 0) {     
+    if (this.props.cities) {     
       places = this.props.cities;
       mapOptions = {
         container: 'map',
