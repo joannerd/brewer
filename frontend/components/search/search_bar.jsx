@@ -49,7 +49,6 @@ const SearchBar = ({ fetchSearchBreweries, searchItems, history }) => {
           }}
         />
       </form>
-      {/* <ul onClick={e => history.push(`/breweries/${e.target.id}`)}> */}
       <ul onClick={e => history.push(`/breweries/${e.target.id}`)}>
         {searchResults.map((result, i) => (
           <li id={result.id} key={i} className="search">{result.name}</li>

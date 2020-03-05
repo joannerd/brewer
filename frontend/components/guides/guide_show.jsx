@@ -11,8 +11,16 @@ const GuideShow = ({ fetchGuide, match, guide, breweries }) => {
     fetchGuide(match.params.guideId);
   }, [match.params.guideId]);
 
+  const clickMarker = e => {
+    if (e.target.className.includes("marker"))
+      document.getElementById(`brewery${e.target.id}`)
+        .scrollIntoView({
+          block: "center"
+        });
+  }
+
   return (guide === undefined) ? <Loading /> : (
-    <section className="guide-index-list">
+    <section className="guide-index-list" onClick={clickMarker}>
       <Map guide={guide} />
       
       <div className="guide">
