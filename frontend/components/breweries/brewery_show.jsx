@@ -1,4 +1,4 @@
-require("regenerator-runtime");
+import regeneratorRuntime from "regenerator-runtime";
 import React, { useState, useEffect } from 'react';
 import Brewery from './brewery_index_item';
 import Review from './review';
