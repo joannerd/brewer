@@ -5,12 +5,10 @@ import { fetchBrewery } from '../../actions/brewery_actions';
 import Guide from './guide_show';
 
 
-const msp = (state, ownProps) => {
-  return ({
-    breweries: Object.values(state.entities.breweries),
-    guide: state.entities.guides[ownProps.match.params.guideId],
-  })
-};
+const msp = (state, ownProps) => ({
+  breweries: Object.values(state.entities.breweries),
+  guide: state.entities.guides[ownProps.match.params.guideId],
+});
 
 const mdp = dispatch => ({
   fetchGuide: guideId => dispatch(fetchGuide(guideId)),

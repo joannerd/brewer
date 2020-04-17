@@ -21,6 +21,12 @@
     "webpack-cli": "^3.3.10"
   },
   "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "redux-logger": "^3.0.6"
   },
   "description": "Eater clone containing guides, articles, and videos about breweries in the top craft beer cities around the world.",
