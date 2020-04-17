@@ -1,4 +1,4 @@
-import { RECEIVE_SEARCH_BREWERIES } from "../actions/search_actions";
+import { RECEIVE_SEARCH_BREWERIES } from '../actions/search_actions';
 
 const searchReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -7,7 +7,7 @@ const searchReducer = (oldState = {}, action) => {
     case RECEIVE_SEARCH_BREWERIES:
       return Object.values(action.breweries);
     default:
-      return oldState
+      return oldState;
   }
 };
 

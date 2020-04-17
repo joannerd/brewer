@@ -45,7 +45,8 @@
     "start": "webpack --watch --mode=development",
     "startproduction": "webpack --mode=production",
     "postinstall": "webpack",
-    "guard": "bundle exec guard -P livereload"
+    "guard": "bundle exec guard -P livereload",
+    "lint": "eslint './frontend/**/*.js' --fix"
   },
   "repository": {
     "type": "git",

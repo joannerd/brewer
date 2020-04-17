@@ -9,17 +9,17 @@ const msp = state => ({
     title: '',
     body: '',
     cityId: '',
-    userId: state.session.id
+    userId: state.session.id,
   },
   cities: Object.values(state.entities.cities),
   breweries: Object.values(state.entities.breweries),
-  authorId: state.session.id
-})
+  authorId: state.session.id,
+});
 
 const mdp = dispatch => ({
   createGuide: guide => dispatch(createGuide(guide)),
   fetchBreweries: () => dispatch(fetchBreweries()),
-  fetchCities: () => dispatch(fetchCities())
-})
+  fetchCities: () => dispatch(fetchCities()),
+});
 
 export default connect(msp, mdp)(GuideForm);

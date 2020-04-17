@@ -9,7 +9,9 @@
     ],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "mapboxgl": "readonly",
+        "$": "readonly"
     },
     "parserOptions": {
         "ecmaFeatures": {

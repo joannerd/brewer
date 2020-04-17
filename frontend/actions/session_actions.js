@@ -7,20 +7,20 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receiveCurrentUser = payload => ({
   type: RECEIVE_CURRENT_USER,
-  payload
+  payload,
 });
 
 const logoutCurrentUser = () => ({
-  type: LOG_OUT_CURRENT_USER
+  type: LOG_OUT_CURRENT_USER,
 });
 
 export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
-  errors: errors.responseJSON
+  errors: errors.responseJSON,
 });
 
 export const clearErrors = () => ({
-  type: CLEAR_ERRORS
+  type: CLEAR_ERRORS,
 });
 
 export const login = user => dispatch => (
