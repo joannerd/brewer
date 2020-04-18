@@ -1,15 +1,16 @@
 import * as CityAPIUtil from '../util/city_api_util';
+
 export const RECEIVE_ALL_CITIES = 'RECEIVE_ALL_CITIES';
 export const RECEIVE_CITY = 'RECEIVE_CITY';
 
 const receiveAllCities = (cities) => ({
   type: RECEIVE_ALL_CITIES,
-  cities
+  cities,
 });
 
 const receiveCity = (payload) => ({
   type: RECEIVE_CITY,
-  payload
+  payload,
 });
 export const fetchCities = () => dispatch => (
   CityAPIUtil.fetchCities()

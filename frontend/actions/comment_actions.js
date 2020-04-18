@@ -1,23 +1,23 @@
 import * as CommentApiUtil from '../util/comment_api_util';
 
-export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
-export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 const receiveComment = comment => ({
   type: RECEIVE_COMMENT,
-  comment
-})
+  comment,
+});
 const removeComment = commentId => ({
   type: REMOVE_COMMENT,
-  commentId
-})
+  commentId,
+});
 
 export const createComment = comment => dispatch => (
   CommentApiUtil.createComment(comment)
-    .then(comment => dispatch(receiveComment(comment)))
+    .then(res => dispatch(receiveComment(res)))
 );
 
 export const deleteComment = commentId => dispatch => (
   CommentApiUtil.deleteComment(commentId)
-    .then(res => dispatch(removeComment(commentId)))
+    .then(() => dispatch(removeComment(commentId)))
 );

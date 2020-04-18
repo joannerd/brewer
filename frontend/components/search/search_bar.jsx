@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const SearchBar = ({ fetchSearchBreweries, searchItems, history }) => {
+const SearchBar = ({ fetchSearchEntities, searchItems, history }) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [breweryId, setBreweryId] = useState("");
 
   useEffect(() => {
-    fetchSearchBreweries();
+    fetchSearchEntities();
   }, [])
 
   const handleClick = e => {

@@ -17,7 +17,7 @@ class MarkerManager {
 
   updateMarkers(places) {
     Object.keys(places).forEach(placeId => {
-      let place = places[placeId]
+      const place = places[placeId];
       this.createMarkerFromPlace(placeId, place);
     });
   }

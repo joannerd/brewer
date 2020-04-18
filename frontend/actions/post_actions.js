@@ -1,21 +1,21 @@
 import * as PostAPIUtil from '../util/post_api_util';
 
-export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
-export const RECEIVE_POST = "RECEIVE_POST";
-export const REMOVE_POST = "REMOVE_POST";
+export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
+export const RECEIVE_POST = 'RECEIVE_POST';
+export const REMOVE_POST = 'REMOVE_POST';
 
 const receivePosts = (posts) => ({
   type: RECEIVE_ALL_POSTS,
-  posts
-})
+  posts,
+});
 const receivePost = (payload) => ({
   type: RECEIVE_POST,
-  payload
-})
+  payload,
+});
 const removePost = (postId) => ({
   type: REMOVE_POST,
-  postId
-})
+  postId,
+});
 
 export const fetchPosts = () => dispatch => (
   PostAPIUtil.fetchPosts()
@@ -34,5 +34,5 @@ export const createPost = post => dispatch => (
 
 export const deletePost = postId => dispatch => (
   PostAPIUtil.deletePost(postId)
-    .then(res => dispatch(removePost(postId)))
+    .then(() => dispatch(removePost(postId)))
 );

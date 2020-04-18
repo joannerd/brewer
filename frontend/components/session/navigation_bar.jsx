@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../search/search_bar';
 import Loading from '../loading';
 
-const NavBar = ({ logout, currentUser, fetchSearchBreweries, searchItems, history }) => {
+const NavBar = ({
+  logout,
+  currentUser,
+  fetchSearchEntities,
+  searchItems,
+  history 
+}) => {
   if (currentUser === undefined) return <Loading />;
 
   return (
@@ -12,7 +18,10 @@ const NavBar = ({ logout, currentUser, fetchSearchBreweries, searchItems, histor
         <Link className="nav-logo" to="/">
           BREWER
         </Link>
-        <h3 className="nav-welcome">Welcome {currentUser.username}</h3>
+        <h3 className="nav-welcome">
+          Welcome
+          {currentUser.username}
+        </h3>
       </div>
 
       <ul className="nav-index">
@@ -25,7 +34,7 @@ const NavBar = ({ logout, currentUser, fetchSearchBreweries, searchItems, histor
         </li>
 
         <li>
-          <Link to={`/forum`}>Forum</Link>
+          <Link to="/forum">Forum</Link>
         </li>
 
         {/* <div className="dropdown">
@@ -67,33 +76,45 @@ const NavBar = ({ logout, currentUser, fetchSearchBreweries, searchItems, histor
           className="fa fa-folder"
           target="_blank"
           alt="portfolio"
-        />
+          rel="noopener noreferrer"
+        >
+          {null}
+        </a>
         <a
           href="https://www.linkedin.com/in/xchenj/"
           className="fa fa-linkedin-square"
           target="_blank"
           alt="linkedin"
-        />
+          rel="noopener noreferrer"
+        >
+          {null}
+        </a>
         <a
           href="mailto:x.chenj@gmail.com"
           className="fa fa-envelope"
           target="_blank"
           alt="email"
-        />
+          rel="noopener noreferrer"
+        >
+          {null}
+        </a>
       </div>
 
       <SearchBar
-        fetchSearchBreweries={fetchSearchBreweries}
+        fetchSearchEntities={fetchSearchEntities}
         searchItems={searchItems}
         history={history}
       />
 
-      <button className="input submit logout" onClick={logout}>
+      <button
+        type="button"
+        className="input submit logout"
+        onClick={logout}
+      >
         Logout
       </button>
     </nav>
   );
-}
-
+};
 
 export default NavBar;
