@@ -1,15 +1,16 @@
 import * as UserAPIUtil from '../util/user_api_util';
+
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 
 const receiveUser = payload => ({
   type: RECEIVE_USER,
-  payload
+  payload,
 });
 
 const receiveUsers = users => ({
   type: RECEIVE_USERS,
-  users
+  users,
 });
 
 export const fetchUser = userId => dispatch => (

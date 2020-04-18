@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Brewery = ({ brewery }) => {
-  const addressLink = brewery.address.split(" ").join("+");
+  const addressLink = brewery.address.split(' ').join('+');
 
   return (
     <>
@@ -12,28 +12,29 @@ const Brewery = ({ brewery }) => {
       <h2>
         {brewery.address}
       </h2>
-      <img src={brewery.photoUrl} className="brewery-photo" />
+      <img alt="brewery" src={brewery.photoUrl} className="brewery-photo" />
       <p>{brewery.description}</p>
       <br />
       <a
         href={`https://www.google.com/maps/place/${addressLink}/`}
         target="_blank"
+        rel="noopener noreferrer"
       >
-        <button className="gmap-link">Open in Google Maps</button>
+        <button type="button" className="gmap-link">Open in Google Maps</button>
       </a>
       <br />
-      <a href={brewery.website} target="_blank">
-        <button className="gmap-link">Website</button>
+      <a href={brewery.website} target="_blank" rel="noopener noreferrer">
+        <button type="button" className="gmap-link">Website</button>
       </a>
     </>
   );
-}
+};
 
 Brewery.defaultProps = {
   brewery: {
     id: '',
-    address: ''
-  }
+    address: '',
+  },
 };
 
 export default Brewery;
