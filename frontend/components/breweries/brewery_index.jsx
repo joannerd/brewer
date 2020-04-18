@@ -8,15 +8,15 @@ const BreweryIndex = ({ breweries, fetchBreweries }) => {
   window.scrollTo(0, 0);
 
   useEffect(() => {
-    fetchBreweries()
-  }, [])
+    fetchBreweries();
+  }, []);
 
   const clickAlpha = e => {
     document.getElementsByClassName(e.target.id)[0]
       .scrollIntoView({
-        block: "center"
+        block: 'center',
       });
-  }
+  };
 
   if (breweries.length < 49) return <Loading />;
   return (
@@ -37,10 +37,10 @@ const BreweryIndex = ({ breweries, fetchBreweries }) => {
             />
           </div>
         ))}
-        <div className="Z"></div>
+        <div className="Z" />
       </div>
     </section>
   );
-}
+};
 
 export default BreweryIndex;

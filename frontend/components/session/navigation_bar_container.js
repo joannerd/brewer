@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
-import fetchSearchBreweries from '../../actions/search_actions';
+import { fetchSearchEntities } from '../../actions/search_actions';
 import NavBar from './navigation_bar';
 
 const msp = state => ({
@@ -11,7 +11,7 @@ const msp = state => ({
 
 const mdp = dispatch => ({
   logout: () => dispatch(logout()),
-  fetchSearchBreweries: () => dispatch(fetchSearchBreweries()),
+  fetchSearchEntities: () => dispatch(fetchSearchEntities()),
 });
 
 export default withRouter(connect(msp, mdp)(NavBar));
