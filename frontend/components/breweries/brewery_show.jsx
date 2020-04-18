@@ -27,6 +27,7 @@ const BreweryShow = ({
 }) => {
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -52,6 +53,7 @@ const BreweryShow = ({
     fetchBreweryShowInfo();
   }, [match.params.breweryId]);
 
+
   const reverse = str => {
     let newStr = "";
     for (let i = str.length - 1; i >= 0; i--) {
@@ -59,6 +61,7 @@ const BreweryShow = ({
     }
     return newStr;
   }
+
 
   const formatTime = time => {
     const timeStr = reverse(time);
@@ -68,11 +71,23 @@ const BreweryShow = ({
     return `${hours}:${minutes}`;
   }
 
+
+  const getFormattedTime = hour => {
+    const timeInt = parseInt(hour);
+    let time = hour;
+
+    if (timeInt > 1200)
+      time = formatTime((startInt - 1200).toString());
+
+    return time;
+  };
+
+
   const yelpSection = () => {
     if (!yelp || reviews.length === 0) {
       return null;
     } else {
-      const { price, hours } = yelp;
+      const { price, hours, rating, reviewCount, url } = yelp;
 
       const openMessage = i => {
         let currentDay = new Date().getDay() - 1
@@ -86,61 +101,41 @@ const BreweryShow = ({
 
           <table className="table-center">
             <tbody>
-              {hours[0].open.map((hours, i) =>  {
-
-                const startInt = parseInt(hours.start);
-                const endInt = parseInt(hours.end);
-                let openTime = hours.start;
-                let closeTime = hours.end;
-
-                if (startInt > 1200) {
-                  openTime = formatTime((startInt - 1200).toString());
-                }
-
-                if (parseInt(hours.end) > 1200) {
-                  closeTime = formatTime((endInt - 1200).toString());
-                }
-
-                return (
-                  <tr key={i}>
-                    <th>{DAYS[i]}</th>
-                    <td>{openTime} - {closeTime}</td>
-                    <td className="open">{openMessage(i)}</td>
-                  </tr>
-              )})}
+              {hours[0].open.map((hours, i) =>  (
+                <tr key={i}>
+                  <th>{DAYS[i]}</th>
+                  <td>{getFormattedTime(hours.start)} - {getFormattedTime(hours.end)}</td>
+                  <td className="open">{openMessage(i)}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
-          {yelpReviewsSection()}
+          {yelpReviewsSection(rating, reviewCount, url)}
         </div>
       );
     }
   }
 
-  const yelpReviewsSection = () => {
-    const { rating, reviewCount, url } = yelp;
 
-    return (
-      <div className="brewery-yelp">
-        <h3>{reviewCount} reviews</h3>
-        <a href={url} alt={url} target="_blank">
-          <img src={`/${rating}.png`} className="yelp-stars" />
-        </a>
+  const yelpReviewsSection = (rating, reviewCount, url) => (
+    <div className="brewery-yelp">
+      <h3>{reviewCount} reviews</h3>
+      <a href={url} alt={url} target="_blank">
+        <img src={`/${rating}.png`} className="yelp-stars" />
+      </a>
 
-        {reviews.map((review, i) => (
-          <Review review={review} key={i} />
-        ))}
-      </div>
-    );
-  }
-
+      {reviews.map((review, i) => (
+        <Review review={review} key={i} />
+      ))}
+    </div>
+  );
 
 
   return isLoading ? <Loading /> : (
     <div className="brewery show">
       <Brewery brewery={brewery} />
       {yelpSection()}
-      {yelpReviewsSection()}
     </div>
   );
 };
