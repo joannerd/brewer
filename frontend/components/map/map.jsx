@@ -1,49 +1,63 @@
-import React from 'react';
+import 'regenerator-runtime';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import MarkerManager from './marker_manager';
 
-class Map extends React.Component {
-  constructor(props) {
-    super(props);
-    this.MarkerManager;
-  }
-  
-  componentDidMount() {
-    let mapOptions;
-    let mapbox;
-    let places;
+const Map = ({ cities, guide }) => {
+  const [mapZoom, setMapZoom] = useState();
+  const [mapCenter, setMapCenter] = useState();
+
+  const generateMap = (places, minZoom, center) => {
+    const mapOptions = {
+      container: 'map',
+      minZoom,
+      center,
+      style: 'mapbox://styles/mapbox/dark-v9',
+    };
+
+    const mapbox = new mapboxgl.Map(mapOptions);
+    const mapMarkerManager = new MarkerManager(mapbox);
+    mapMarkerManager.updateMarkers(places);
+  };
+
+
+  useEffect(() => {
     mapboxgl.accessToken = window.mboxAPIKey;
 
-    if (this.props.cities) {     
-      places = this.props.cities;
-      mapOptions = {
-        container: 'map',
-        minZoom: 3,
-        center: [-98, 38],
-        style: 'mapbox://styles/mapbox/dark-v9'
-      };
-    } else {
-      const { cityLng, cityLat, brewInfo } = this.props.guide;
-      places = brewInfo;
-      mapOptions = {
-        container: 'map',
-        minZoom: 11.5,
-        center: [cityLng, cityLat],
-        style: 'mapbox://styles/mapbox/dark-v9'
-      };
+    if (cities) {
+      const places = {};
+      Object.keys(cities).forEach((cityId) => {
+        const city = cities[cityId];
+        places[cityId] = [city.lng, city.lat];
+      });
+      setMapZoom(3);
+      setMapCenter([-98, 38]);
+      generateMap(places, mapZoom, mapCenter);
     }
 
-    mapbox = new mapboxgl.Map(mapOptions);
-    this.MarkerManager = new MarkerManager(mapbox);
-    this.MarkerManager.updateMarkers(places);
-  }
+    if (guide) {
+      const { cityLng, cityLat, brewInfo } = guide;
+      setMapZoom(11.5);
+      setMapCenter([cityLng, cityLat]);
+      generateMap(brewInfo, mapZoom, mapCenter);
+    }
+  }, [cities, guide]);
 
-  render() {
-    return (
-      <div id="map-container">
-        <div id='map'></div>
-      </div>
-    )
-  }
-}
+  return (
+    <div id="map-container">
+      <div id="map" />
+    </div>
+  );
+};
+
+Map.propTypes = {
+  cities: PropTypes.array,
+  guide: PropTypes.object,
+};
+
+Map.defaultProps = {
+  cities: undefined,
+  guide: undefined,
+};
 
 export default Map;

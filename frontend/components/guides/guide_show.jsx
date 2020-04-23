@@ -54,7 +54,7 @@ const GuideShow = ({
 
 GuideShow.propTypes = {
   match: PropTypes.object.isRequired,
-  guide: PropTypes.object.isRequired,
+  guide: PropTypes.object,
   breweries: PropTypes.array.isRequired,
   fetchGuide: PropTypes.func.isRequired,
 };
