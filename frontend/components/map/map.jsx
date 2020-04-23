@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 import MarkerManager from './marker_manager';
 
 const Map = ({ cities, guide }) => {
-  const [mapZoom, setMapZoom] = useState();
-  const [mapCenter, setMapCenter] = useState();
-
   const generateMap = (places, minZoom, center) => {
+    mapboxgl.accessToken = window.mboxAPIKey;
     const mapOptions = {
       container: 'map',
       minZoom,
@@ -22,7 +20,10 @@ const Map = ({ cities, guide }) => {
 
 
   useEffect(() => {
-    mapboxgl.accessToken = window.mboxAPIKey;
+    if (guide) {
+      const { cityLng, cityLat, brewInfo } = guide;
+      generateMap(brewInfo, 11.5, [cityLng, cityLat]);
+    }
 
     if (cities) {
       const places = {};
@@ -30,16 +31,7 @@ const Map = ({ cities, guide }) => {
         const city = cities[cityId];
         places[cityId] = [city.lng, city.lat];
       });
-      setMapZoom(3);
-      setMapCenter([-98, 38]);
-      generateMap(places, mapZoom, mapCenter);
-    }
-
-    if (guide) {
-      const { cityLng, cityLat, brewInfo } = guide;
-      setMapZoom(11.5);
-      setMapCenter([cityLng, cityLat]);
-      generateMap(brewInfo, mapZoom, mapCenter);
+      generateMap(places, 3, [-95, 38]);
     }
   }, [cities, guide]);
 
@@ -51,7 +43,7 @@ const Map = ({ cities, guide }) => {
 };
 
 Map.propTypes = {
-  cities: PropTypes.array,
+  cities: PropTypes.object,
   guide: PropTypes.object,
 };
 
