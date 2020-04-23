@@ -1,19 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const City = ({ city }) => {
-  const imgUrl = city.photoUrl
+  const { photoUrl, id, name } = city;
   const divStyle = {
-    backgroundImage: `url('${imgUrl}')`,
+    backgroundImage: `url('${photoUrl}')`,
   };
 
   return (
-    <Link to={`/cities/${city.id}`} style={divStyle} className="city-info">
+    <Link to={`/cities/${id}`} style={divStyle} className="city-info">
       <div>
-        {city.name}
+        {name}
       </div>
     </Link>
-  )
-}
+  );
+};
+
+City.propTypes = {
+  city: PropTypes.object.isRequired,
+};
 
 export default City;
