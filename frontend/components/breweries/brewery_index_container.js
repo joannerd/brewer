@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import BreweryIndex from './brewery_index';
 import { fetchBreweries } from '../../actions/brewery_actions';
+import BreweryIndex from './brewery_index';
 
-const msp = (state) => ({
-  breweries: Object.values(state.entities.breweries),
+const msp = ({ entities }) => ({
+  breweries: Object.values(entities.breweries),
 });
 
 const mdp = dispatch => ({

@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import BreweryShow from './brewery_show';
 import { fetchBrewery } from '../../actions/brewery_actions';
 import {
   fetchYelp,
@@ -8,11 +7,12 @@ import {
   fetchYelpReviews,
   clearYelp,
 } from '../../actions/yelp_actions';
+import BreweryShow from './brewery_show';
 
-const msp = (state, ownProps) => ({
-  brewery: state.entities.breweries[ownProps.match.params.breweryId],
-  yelp: Object.values(state.entities.yelp)[0],
-  reviews: state.entities.reviews,
+const msp = ({ entities }, ownProps) => ({
+  brewery: entities.breweries[ownProps.match.params.breweryId],
+  yelp: Object.values(entities.yelp)[0],
+  reviews: entities.reviews,
 });
 
 const mdp = dispatch => ({
