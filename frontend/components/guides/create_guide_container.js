@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
-import GuideForm from './guide_form';
 import { createGuide } from '../../actions/guide_actions';
 import { fetchBreweries } from '../../actions/brewery_actions';
 import { fetchCities } from '../../actions/city_actions';
+import GuideForm from './guide_form';
 
-const msp = state => ({
+const msp = ({ entities, session }) => ({
   guide: {
     title: '',
     body: '',
     cityId: '',
-    userId: state.session.id,
+    userId: session.id,
   },
-  cities: Object.values(state.entities.cities),
-  breweries: Object.values(state.entities.breweries),
-  authorId: state.session.id,
+  cities: Object.values(entities.cities),
+  breweries: Object.values(entities.breweries),
+  authorId: session.id,
 });
 
 const mdp = dispatch => ({

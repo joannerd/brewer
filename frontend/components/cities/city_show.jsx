@@ -67,7 +67,7 @@ CityShow.propTypes = {
   match: PropTypes.object.isRequired,
   breweries: PropTypes.array.isRequired,
   guides: PropTypes.array.isRequired,
-  city: PropTypes.object.isRequired,
+  city: PropTypes.object,
   fetchCity: PropTypes.func.isRequired,
 };
 

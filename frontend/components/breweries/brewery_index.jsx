@@ -21,6 +21,8 @@ const BreweryIndex = ({ breweries, fetchBreweries }) => {
 
   if (breweries.length < 49) return <Loading />;
   return (
+    // TODO: ESLint
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <section className="brewery-index">
       <div className="brewery-nav" onClick={clickAlpha}>
         {alphabet.map((alpha, i) => (
