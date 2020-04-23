@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { formatTime, DAYS } from '../../util';
 
 const BreweryYelp = ({ price, hours }) => {
   const openMessage = i => {
     const currentDay = new Date().getDay() - 1;
-    if (hours[0].is_open_now && currentDay === i) return 'Open now';
+    if (hours.is_open_now && currentDay === i) return 'Open now';
+    return null;
   };
 
   return (
@@ -16,7 +18,7 @@ const BreweryYelp = ({ price, hours }) => {
 
       <table className="table-center">
         <tbody>
-          {hours[0].open.map((brewHours, i) => {
+          {hours.open.map((brewHours, i) => {
             const startInt = parseInt(brewHours.start, 10);
             const endInt = parseInt(brewHours.end, 10);
             const openTime = (startInt <= 1200)
@@ -42,6 +44,11 @@ const BreweryYelp = ({ price, hours }) => {
       </table>
     </div>
   );
+};
+
+BreweryYelp.propTypes = {
+  price: PropTypes.string.isRequired,
+  hours: PropTypes.object.isRequired,
 };
 
 export default BreweryYelp;

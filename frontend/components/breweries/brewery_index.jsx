@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Brewery from './brewery_index_item';
 import Loading from '../loading';
 
@@ -41,6 +42,11 @@ const BreweryIndex = ({ breweries, fetchBreweries }) => {
       </div>
     </section>
   );
+};
+
+BreweryIndex.propTypes = {
+  breweries: PropTypes.array.isRequired,
+  fetchBreweries: PropTypes.func.isRequired,
 };
 
 export default BreweryIndex;

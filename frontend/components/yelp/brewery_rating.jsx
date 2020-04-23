@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
-const BreweryRating = ({ rating, reviewCount, url }) => (
+const BreweryRating = ({
+  rating, reviewCount, url
+}) => (
   <>
     <h3>
       {reviewCount}
@@ -11,5 +14,11 @@ const BreweryRating = ({ rating, reviewCount, url }) => (
     </a>
   </>
 );
+
+BreweryRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  reviewCount: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
+};
 
 export default BreweryRating;
