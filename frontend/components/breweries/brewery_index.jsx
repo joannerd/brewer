@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
 import Brewery from './brewery_index_item';
+import { fetchBreweries } from '../../actions/brewery_actions';
 import Loading from '../loading';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 
-const BreweryIndex = ({ breweries, fetchBreweries }) => {
+const BreweryIndex = () => {
+  const dispatch = useDispatch();
+  const breweries = useSelector((state) => Object.values(state.entities.breweries));
   window.scrollTo(0, 0);
 
   useEffect(() => {
-    fetchBreweries();
+    dispatch(fetchBreweries());
   }, []);
 
   const clickAlpha = e => {
@@ -44,11 +47,6 @@ const BreweryIndex = ({ breweries, fetchBreweries }) => {
       </div>
     </section>
   );
-};
-
-BreweryIndex.propTypes = {
-  breweries: PropTypes.array.isRequired,
-  fetchBreweries: PropTypes.func.isRequired,
 };
 
 export default BreweryIndex;

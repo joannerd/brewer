@@ -1,32 +1,37 @@
 import 'regenerator-runtime';
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { useRouteMatch } from 'react-router-dom';
 import Brewery from './brewery_index_item';
 import Loading from '../loading';
-import BreweryYelp from '../yelp/brewery_yelp';
-import BreweryReviews from '../yelp/brewery_reviews';
-
-const BreweryShow = ({
-  fetchBrewery,
+import { fetchBrewery } from '../../actions/brewery_actions';
+import {
   fetchYelp,
   fetchYelpInfo,
   fetchYelpReviews,
   clearYelp,
-  match,
-  brewery,
-  yelp,
-  reviews,
-}) => {
-  const [isLoading, setIsLoading] = useState(true);
+} from '../../actions/yelp_actions';
+import BreweryYelp from '../yelp/brewery_yelp';
+import BreweryReviews from '../yelp/brewery_reviews';
 
+const BreweryShow = () => {
+  const match = useRouteMatch();
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const brewery = useSelector(
+    state => state.entities.breweries[match.params.breweryId],
+  );
+  const yelp = useSelector(state => Object.values(state.entities.yelp)[0]);
+  const reviews = useSelector(state => state.entities.reviews);
 
   useEffect(() => {
+    let isMounted = true;
     window.scrollTo(0, 0);
 
     async function fetchBreweryShowInfo() {
-      await clearYelp();
+      await dispatch(clearYelp());
 
-      const res = await fetchBrewery(match.params.breweryId);
+      const res = await dispatch(fetchBrewery(match.params.breweryId));
       const {
         name,
         address,
@@ -35,19 +40,21 @@ const BreweryShow = ({
       } = Object.values(res.brewery)[0];
       const streetAddress = address.split(',')[0];
 
-      const result = await fetchYelp(name, streetAddress, city, state);
+      const result = await dispatch(fetchYelp(name, streetAddress, city, state));
       const yelpResult = result.yelp.businesses[0];
 
       setIsLoading(false);
 
       if (yelpResult !== undefined) {
         const yelpId = yelpResult.id;
-        fetchYelpInfo(yelpId);
-        fetchYelpReviews(yelpId);
+        dispatch(fetchYelpInfo(yelpId));
+        dispatch(fetchYelpReviews(yelpId));
       }
     }
 
-    fetchBreweryShowInfo();
+    if (isMounted) fetchBreweryShowInfo();
+
+    return () => { isMounted = false; };
   }, [match.params.breweryId]);
 
   const yelpInfo = () => {
@@ -71,18 +78,6 @@ const BreweryShow = ({
       {yelpInfo()}
     </div>
   );
-};
-
-BreweryShow.propTypes = {
-  match: PropTypes.object.isRequired,
-  brewery: PropTypes.object,
-  yelp: PropTypes.object,
-  reviews: PropTypes.array.isRequired,
-  fetchBrewery: PropTypes.func.isRequired,
-  fetchYelp: PropTypes.func.isRequired,
-  fetchYelpInfo: PropTypes.func.isRequired,
-  fetchYelpReviews: PropTypes.func.isRequired,
-  clearYelp: PropTypes.func.isRequired,
 };
 
 export default BreweryShow;

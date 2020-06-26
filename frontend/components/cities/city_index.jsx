@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCities } from '../../actions/city_actions';
 import City from './city_index_item';
 
-const CityIndex = ({ cities, fetchCities }) => {
+const CityIndex = () => {
+  const dispatch = useDispatch();
+  const cities = useSelector((state => Object.values(state.entities.cities)));
+
   window.scrollTo(0, 0);
 
   useEffect(() => {
-    fetchCities();
+    dispatch(fetchCities());
   }, []);
 
   return (
@@ -18,11 +22,6 @@ const CityIndex = ({ cities, fetchCities }) => {
       </ul>
     </section>
   );
-};
-
-CityIndex.propTypes = {
-  cities: PropTypes.array.isRequired,
-  fetchCities: PropTypes.func.isRequired,
 };
 
 export default CityIndex;

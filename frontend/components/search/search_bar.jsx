@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { fetchSearchEntities } from '../../actions/search_actions';
 
-const SearchBar = ({ fetchSearchEntities, searchItems, history }) => {
-  const [searchInput, setSearchInput] = useState("");
+const SearchBar = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const searchItems = useSelector(state => state.entities.search);
+  const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [breweryId, setBreweryId] = useState("");
+  const [breweryId, setBreweryId] = useState(1);
 
-  useEffect(() => {
-    fetchSearchEntities();
-  }, [])
+  const loadBrewerySearch = () => dispatch(fetchSearchEntities());
 
-  const handleClick = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    if (e.type === "submit")
-      history.push(`/breweries/${breweryId}`)
+    if (e.type === 'submit') {
+      history.push(`/breweries/${breweryId}`);
+    }
+  };
+
+  const handleSearchListClick = e => {
+    history.push(`/breweries/${e.target.id}`);
   };
 
   const getSearchResults = e => {
     const search = e.target.value;
     if (e.target.value.length > 0) {
-      let searchInputResults = searchItems.filter(brewery => {
-        let potentialSearch = brewery.name.toLowerCase();
-        let filter = search.toLowerCase();
+      const searchInputResults = searchItems.filter(brewery => {
+        const potentialSearch = brewery.name.toLowerCase();
+        const filter = search.toLowerCase();
         return potentialSearch.includes(filter);
       });
       setSearchResults(searchInputResults);
@@ -28,12 +37,13 @@ const SearchBar = ({ fetchSearchEntities, searchItems, history }) => {
       setSearchResults([]);
     }
   };
-  
+
   return (
     <div className="search-bar-container">
-      <form className="search-form" onSubmit={handleClick}>
+      <form className="search-form" onSubmit={handleSubmit}>
         <i className="fa fa-search" />
         <input
+          onClick={loadBrewerySearch}
           className="search-form-input"
           placeholder="Search for brewery"
           onChange={e => {
@@ -44,18 +54,18 @@ const SearchBar = ({ fetchSearchEntities, searchItems, history }) => {
           autoComplete="off"
           value={searchInput}
           onBlur={() => {
-            setSearchInput("");
+            setSearchInput('');
             setTimeout(() => setSearchResults([]), 100);
           }}
         />
       </form>
-      <ul onClick={e => history.push(`/breweries/${e.target.id}`)}>
-        {searchResults.map((result, i) => (
-          <li id={result.id} key={i} className="search">{result.name}</li>
+      <ul onClick={handleSearchListClick}>
+        {searchResults.map(result => (
+          <li id={result.id} key={result.id} className="search">{result.name}</li>
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default SearchBar;

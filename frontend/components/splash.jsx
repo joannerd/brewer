@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams, useHistory } from 'react-router-dom';
+import { fetchCities } from '../actions/city_actions';
 import Map from './map/map';
 import Loading from './loading';
 
-const Splash = ({ fetchCities, cities, match, history }) => {
+const Splash = () => {
+  const dispatch = useDispatch();
+  const params = useParams();
+  const history = useHistory();
+  const cities = useSelector(state => state.entities.cities);
   window.scrollTo(0, 0);
 
   useEffect(() => {
-    fetchCities();
-  }, [match.params])
+    dispatch(fetchCities());
+  }, [params]);
 
   const redirectToCity = e => {
     if (e.target.id) history.push(`/cities/${e.target.id}`);

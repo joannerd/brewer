@@ -1,11 +1,11 @@
 import 'regenerator-runtime';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MarkerManager from './marker_manager';
 
 const Map = ({ cities, guide }) => {
   const generateMap = (places, minZoom, center) => {
-    mapboxgl.accessToken = window.mboxAPIKey;
+    mapboxgl.accessToken = localStorage.getItem('mboxToken');
     const mapOptions = {
       container: 'map',
       minZoom,

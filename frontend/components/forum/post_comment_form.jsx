@@ -1,24 +1,50 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-const PostCommentForm = ({ formAction, formType, match, fetchAction, currentUserId }) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+const PostCommentForm = ({ formType, formAction, fetchAction }) => {
+  const dispatch = useDispatch();
+  const { postId } = useParams();
+  const currentUserId = useSelector((state) => state.session.id);
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const isPostForm = formType === 'Write post';
+  const isCommentForm = formType === 'Write comment';
 
   function handleSubmit(e) {
     e.preventDefault();
     let createdItem;
-    formType === "Write post" ? createdItem = { title, body, user_id: currentUserId } : createdItem = { body, user_id: currentUserId, post_id: match.params.postId };
+    if (isPostForm) {
+      createdItem = {
+        title,
+        body,
+        user_id: currentUserId,
+      };
+    } else {
+      createdItem = {
+        body,
+        user_id: currentUserId,
+        post_id: postId,
+      };
+    }
 
-    formAction(createdItem)
-      .then(() => {
-        formType === "Write post" ? fetchAction() : fetchAction(match.params.postId)
-      });
+    dispatch(formAction(createdItem)).then(() => {
+      if (isPostForm) {
+        dispatch(fetchAction());
+      } else {
+        dispatch(fetchAction(postId));
+      }
+    });
   }
 
   useEffect(() => {
-    const titleInput = document.getElementById("post-form-title-input");
-    formType === "Write comment" ? titleInput.className += "hidden" : titleInput.className -= "hidden";
-  }, [])
+    const titleInput = document.getElementById('post-form-title-input');
+    if (isCommentForm) {
+      titleInput.className += 'hidden';
+    } else {
+      titleInput.className -= 'hidden';
+    }
+  }, []);
 
   return (
     <form onSubmit={handleSubmit} className="post-form">
@@ -26,19 +52,15 @@ const PostCommentForm = ({ formAction, formType, match, fetchAction, currentUser
         id="post-form-title-input"
         type="text"
         value={title}
-        onChange={e => setTitle(e.target.value)}
+        onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
       />
       <textarea
         value={body}
-        onChange={e => setBody(e.target.value)}
+        onChange={(e) => setBody(e.target.value)}
         placeholder={formType}
       />
-      <input
-        type="submit"
-        value="Submit"
-        className="post-form-submit"
-      />
+      <input type="submit" value="Submit" className="post-form-submit" />
     </form>
   );
 };

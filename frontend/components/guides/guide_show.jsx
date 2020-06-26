@@ -1,19 +1,22 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
+import { fetchGuide } from '../../actions/guide_actions';
 import Brewery from '../breweries/brewery_index_item';
 import Map from '../map/map';
 import Loading from '../loading';
 
-const GuideShow = ({
-  fetchGuide, match, guide, breweries,
-}) => {
+const GuideShow = () => {
+  const { guideId } = useParams();
   window.scrollTo(0, 0);
+  const dispatch = useDispatch();
+  const breweries = useSelector(state => Object.values(state.entities.breweries));
+  const guide = useSelector(state => state.entities.guides[guideId]);
 
   useEffect(() => {
-    fetchGuide(match.params.guideId);
-  }, [match.params.guideId]);
+    dispatch(fetchGuide(guideId));
+  }, [guideId]);
 
   if (!guide) return <Loading />;
 
@@ -38,25 +41,24 @@ const GuideShow = ({
       <div className="guide">
         <img src={cityPhotoUrl} className="city-photo" alt={title} />
         <div className="guide-info">
-          <h1><Link to={`/guides/${id}`}>{title}</Link></h1>
+          <h1>
+            <Link to={`/guides/${id}`}>{title}</Link>
+          </h1>
           <h2>{author}</h2>
           <p>{body}</p>
         </div>
-        {breweries.map((brewery, i) => (
-          <div id={`brewery${brewery.id}`} key={i} className="guide-brewery">
+        {breweries.map((brewery) => (
+          <div
+            id={`brewery${brewery.id}`}
+            key={brewery.id}
+            className="guide-brewery"
+          >
             <Brewery brewery={brewery} />
           </div>
         ))}
       </div>
     </section>
   );
-};
-
-GuideShow.propTypes = {
-  match: PropTypes.object.isRequired,
-  guide: PropTypes.object,
-  breweries: PropTypes.array.isRequired,
-  fetchGuide: PropTypes.func.isRequired,
 };
 
 export default GuideShow;

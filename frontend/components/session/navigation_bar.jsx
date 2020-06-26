@@ -1,16 +1,16 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logout } from '../../actions/session_actions';
 import SearchBar from '../search/search_bar';
 import Loading from '../loading';
 
-const NavBar = ({
-  logout,
-  currentUser,
-  fetchSearchEntities,
-  searchItems,
-  history 
-}) => {
+const NavBar = () => {
+  const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.entities.users[state.session.id]);
   if (currentUser === undefined) return <Loading />;
+
+  const handleLogout = () => dispatch(logout());
 
   return (
     <nav className="nav-container">
@@ -100,16 +100,12 @@ const NavBar = ({
         </a>
       </div>
 
-      <SearchBar
-        fetchSearchEntities={fetchSearchEntities}
-        searchItems={searchItems}
-        history={history}
-      />
+      <SearchBar />
 
       <button
         type="button"
         className="input submit logout"
-        onClick={logout}
+        onClick={handleLogout}
       >
         Logout
       </button>

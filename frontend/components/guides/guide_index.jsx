@@ -1,32 +1,27 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchGuides } from '../../actions/guide_actions';
 import GuidePreview from './guide_index_item';
 
-const GuideIndex = ({
-  guides, fetchGuides, fetchGuide,
-}) => {
+const GuideIndex = () => {
+  const dispatch = useDispatch();
+  const guides = useSelector(state => Object.values(state.entities.guides));
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchGuides();
+    dispatch(fetchGuides());
   }, []);
 
   return (
     <div className="guide-index">
-      {guides.map((guide, i) => (
+      {guides.map((guide) => (
         <GuidePreview
-          key={i}
+          key={guide.id}
           guide={guide}
-          fetchGuide={fetchGuide}
         />
       ))}
     </div>
   );
-};
-
-GuideIndex.propTypes = {
-  guides: PropTypes.array.isRequired,
-  fetchGuides: PropTypes.func.isRequired,
-  fetchGuide: PropTypes.func.isRequired,
 };
 
 export default GuideIndex;
