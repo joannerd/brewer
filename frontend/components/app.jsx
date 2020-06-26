@@ -8,7 +8,7 @@ import NavBarContainer from './session/navigation_bar_container';
 import SplashContainer from './splash_container';
 
 import BreweryIndex from './breweries/brewery_index';
-import BreweryShowContainer from './breweries/brewery_show_container';
+import BreweryShow from './breweries/brewery_show';
 import CityIndexContainer from './cities/city_index_container';
 import CityShowContainer from './cities/city_show_container';
 import GuideIndexContainer from './guides/guide_index_container';
@@ -36,7 +36,7 @@ const App = () => (
       <ProtectedRoute exact path="/forum" component={ForumContainer} />
       <ProtectedRoute exact path="/posts/:postId" component={PostContainer} />
       <ProtectedRoute exact path="/breweries" component={BreweryIndex} />
-      <ProtectedRoute exact path="/breweries/:breweryId" component={BreweryShowContainer} />
+      <ProtectedRoute exact path="/breweries/:breweryId" component={BreweryShow} />
       <ProtectedRoute exact path="/cities" component={CityIndexContainer} />
       <ProtectedRoute exact path="/cities/:cityId" component={CityShowContainer} />
       <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
