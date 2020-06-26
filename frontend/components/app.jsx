@@ -16,7 +16,7 @@ import GuideShow from './guides/guide_show';
 import CreateGuideContainer from './guides/create_guide_container';
 import ForumContainer from './forum/forum_container';
 import PostContainer from './forum/post_container';
-import ProfileContainer from './profile/profile_container';
+import Profile from './profile/profile';
 
 
 const App = () => (
@@ -39,7 +39,7 @@ const App = () => (
       <ProtectedRoute exact path="/breweries/:breweryId" component={BreweryShow} />
       <ProtectedRoute exact path="/cities" component={CityIndex} />
       <ProtectedRoute exact path="/cities/:cityId" component={CityShow} />
-      <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
+      <ProtectedRoute exact path="/users/:userId" component={Profile} />
       <ProtectedRoute exact path="/" component={SplashContainer} />
     </Switch>
   </div>
