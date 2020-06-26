@@ -1,19 +1,29 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { createPost, fetchPosts } from '../../actions/post_actions';
+import PostCommentForm from './post_comment_form';
 import Post from './post';
-import PostFormContainer from './post_form_container';
 import Loading from '../loading';
 
-const Forum = ({ posts, fetchPosts }) => {
+const Forum = () => {
+  const posts = useSelector(state => Object.values(state.entities.posts));
+  const dispatch = useDispatch();
   window.scrollTo(0, 0);
 
   useEffect(() => {
-    fetchPosts();
-  }, [])
+    dispatch(fetchPosts());
+  }, []);
 
-  return (posts.length === 0) ? <Loading /> : (
+  return posts.length === 0 ? (
+    <Loading />
+  ) : (
     <section className="forum">
       <h1>Forum</h1>
-      <PostFormContainer />
+      <PostCommentForm
+        fetchAction={fetchPosts}
+        formAction={createPost}
+        formType="Write post"
+      />
       <ul>
         {posts.reverse().map((post, i) => (
           <Post key={i} post={post} />
@@ -21,6 +31,6 @@ const Forum = ({ posts, fetchPosts }) => {
       </ul>
     </section>
   );
-}
+};
 
 export default Forum;

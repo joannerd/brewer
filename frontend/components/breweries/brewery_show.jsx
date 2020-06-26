@@ -1,7 +1,7 @@
 import 'regenerator-runtime';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useRouteMatch } from 'react-router-dom';
 import Brewery from './brewery_index_item';
 import Loading from '../loading';
 import { fetchBrewery } from '../../actions/brewery_actions';
@@ -14,7 +14,8 @@ import {
 import BreweryYelp from '../yelp/brewery_yelp';
 import BreweryReviews from '../yelp/brewery_reviews';
 
-const BreweryShow = ({ match }) => {
+const BreweryShow = () => {
+  const match = useRouteMatch();
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const brewery = useSelector(
@@ -24,6 +25,7 @@ const BreweryShow = ({ match }) => {
   const reviews = useSelector(state => state.entities.reviews);
 
   useEffect(() => {
+    let isMounted = true;
     window.scrollTo(0, 0);
 
     async function fetchBreweryShowInfo() {
@@ -50,7 +52,9 @@ const BreweryShow = ({ match }) => {
       }
     }
 
-    fetchBreweryShowInfo();
+    if (isMounted) fetchBreweryShowInfo();
+
+    return () => { isMounted = false; };
   }, [match.params.breweryId]);
 
   const yelpInfo = () => {
@@ -74,10 +78,6 @@ const BreweryShow = ({ match }) => {
       {yelpInfo()}
     </div>
   );
-};
-
-BreweryShow.propTypes = {
-  match: PropTypes.object.isRequired,
 };
 
 export default BreweryShow;

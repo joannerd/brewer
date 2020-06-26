@@ -1,22 +1,22 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchGuide } from '../../actions/guide_actions';
 import Brewery from '../breweries/brewery_index_item';
 import Map from '../map/map';
 import Loading from '../loading';
 
-const GuideShow = ({ match }) => {
+const GuideShow = () => {
+  const { guideId } = useParams();
   window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const breweries = useSelector(state => Object.values(state.entities.breweries));
-  const guide = useSelector(state => state.entities.guides[match.params.guideId]);
+  const guide = useSelector(state => state.entities.guides[guideId]);
 
   useEffect(() => {
-    dispatch(fetchGuide(match.params.guideId));
-  }, [match.params.guideId]);
+    dispatch(fetchGuide(guideId));
+  }, [guideId]);
 
   if (!guide) return <Loading />;
 
@@ -59,10 +59,6 @@ const GuideShow = ({ match }) => {
       </div>
     </section>
   );
-};
-
-GuideShow.propTypes = {
-  match: PropTypes.object.isRequired,
 };
 
 export default GuideShow;

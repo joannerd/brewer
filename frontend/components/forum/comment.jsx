@@ -1,20 +1,29 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { deleteComment } from '../../actions/comment_actions';
 
-const Comment = ({ comment, currentUserId, deleteComment, postId, history }) => {
-  const { body, author, timestamp, id } = comment;
-  let date = new Date(timestamp).toDateString()
+const Comment = ({ comment, currentUserId, postId }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const {
+    body,
+    author,
+    timestamp,
+    id,
+  } = comment;
+  let date = new Date(timestamp).toDateString();
   window.scrollTo(0, 0);
 
-  function handleDelete() {
-    deleteComment(id)
-      .then(() => {
-        history.push(`/posts/${postId}`)
-      })
-  }
+  const handleDelete = () => {
+    dispatch(deleteComment(id)).then(() => {
+      history.push(`/posts/${postId}`);
+    });
+  };
 
-  function deleteButton() {
-    return (comment.userId === currentUserId) ? <button onClick={handleDelete}>Delete</button> : null
-  }
+  const deleteButton = () => {
+    return (comment.userId === currentUserId) ? <button onClick={handleDelete}>Delete</button> : null;
+  };
 
   return (
     <li className="post comment">
@@ -23,6 +32,6 @@ const Comment = ({ comment, currentUserId, deleteComment, postId, history }) => 
       {deleteButton()}
     </li>
   );
-}
+};
 
 export default Comment;

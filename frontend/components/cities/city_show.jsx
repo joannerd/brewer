@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { fetchCity } from '../../actions/city_actions';
 import Loading from '../loading';
 
-const CityShow = ({ match }) => {
+const CityShow = () => {
+  const { cityId } = useParams();
   const dispatch = useDispatch();
-  const city = useSelector(state => state.entities.cities[match.params.cityId]);
+  const city = useSelector(state => state.entities.cities[cityId]);
   const breweries = useSelector(state => Object.values(state.entities.breweries));
   const guides = useSelector(state => Object.values(state.entities.guides));
 
   useEffect(() => {
-    dispatch(fetchCity(match.params.cityId));
-  }, [match.params.cityId]);
+    dispatch(fetchCity(cityId));
+  }, [cityId]);
 
   if (city === undefined) return <Loading />;
   const { name, photoUrl } = city;
@@ -66,14 +67,6 @@ const CityShow = ({ match }) => {
       </div>
     </div>
   );
-};
-
-CityShow.propTypes = {
-  match: PropTypes.object.isRequired,
-  breweries: PropTypes.array.isRequired,
-  guides: PropTypes.array.isRequired,
-  city: PropTypes.object,
-  fetchCity: PropTypes.func.isRequired,
 };
 
 export default CityShow;

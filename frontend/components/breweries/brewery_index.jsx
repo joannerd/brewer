@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import Brewery from './brewery_index_item';
 import { fetchBreweries } from '../../actions/brewery_actions';
 import Loading from '../loading';
@@ -48,10 +47,6 @@ const BreweryIndex = () => {
       </div>
     </section>
   );
-};
-
-BreweryIndex.propTypes = {
-  fetchBreweries: PropTypes.func.isRequired,
 };
 
 export default BreweryIndex;

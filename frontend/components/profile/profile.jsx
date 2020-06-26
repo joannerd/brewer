@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
 
-const Profile = ({ match }) => {
+const Profile = () => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.entities.users[match.params.userId]);
+  const { userId } = useParams();
+  const user = useSelector(state => state.entities.users[userId]);
   const userGuides = useSelector(state => Object.values(state.entities.guides));
   const userFavBrews = useSelector(state => Object.values(state.entities.breweries));
 
   useEffect(() => {
-    dispatch(fetchUser(match.params.userId));
-  }, [match.params.userId]);
+    dispatch(fetchUser(userId));
+  }, [userId]);
 
   const breweries = userFavBrews.length === 0 ? (
     <h4>No favorite breweries yet.</h4>
