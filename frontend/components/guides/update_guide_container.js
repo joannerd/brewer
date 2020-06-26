@@ -1,13 +1,13 @@
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import GuideForm from './guide_form';
 import { fetchGuide, updateGuide } from '../../actions/guide_actions';
+import GuideForm from './guide_form';
 
-const msp = (state, ownProps) => ({
-  guide: state.entities.guides[ownProps.match.params.guideId],
+const msp = ({ entities }, ownProps) => ({
+  guide: entities.guides[ownProps.match.params.guideId],
   formType: 'Update Guide',
-  cities: Object.values(state.entities.cities),
-  breweries: Object.values(state.entities.breweries),
+  cities: Object.values(entities.cities),
+  breweries: Object.values(entities.breweries),
 });
 
 const mdp = dispatch => ({

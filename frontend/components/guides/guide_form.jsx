@@ -1,18 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const GuideForm = ({ cities, breweries, authorId, createGuide, fetchBreweries, fetchCities }) => {
+const GuideForm = ({
+  cities, breweries, authorId, createGuide, fetchBreweries, fetchCities,
+}) => {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
   const [cityId, setCity] = useState();
 
   useEffect(() => {
     fetchCities()
-      .then(() => fetchBreweries())
-  }, [])
+      .then(() => fetchBreweries());
+  }, []);
 
   function submitGuide(e) {
     e.preventDefault();
-    createGuide({ title, body, city_id: cityId, user_id: authorId });
+    createGuide({
+      title,
+      body,
+      city_id: cityId,
+      user_id: authorId,
+    });
   }
 
   return (
@@ -33,35 +41,49 @@ const GuideForm = ({ cities, breweries, authorId, createGuide, fetchBreweries, f
         <select
           defaultValue="City"
           name="city"
-          onChange={e => setCity(e.target.value)}>
+          onChange={e => setCity(e.target.value)}
+        >
           <option disabled>City</option>
           {cities.map((city, i) => (
             <option value={city.id} key={i}>
-              {city.name}, {city.state}
+              {city.name}
+              ,
+              {city.state}
             </option>
           ))}
         </select>
 
-        {[...Array(5).keys()].map((breweryNum, i) => (
+        {[0, 1, 2, 3, 4].map((breweryNum, i) => (
           <select
             defaultValue={`Brewery #${breweryNum + 1}`}
             name={`brewery-${breweryNum + 1}`}
             onChange={e => setCity(e.target.value)}
             key={i}>
-            <option disabled>Brewery #{breweryNum + 1}</option>
-            {breweries
-              .map((brewery, i) => (
-                <option value={brewery.id} key={i}>
-                  {brewery.name}
-                </option>
+            <option disabled>
+              Brewery #
+              {breweryNum + 1}
+            </option>
+            {breweries.map((brewery, idx) => (
+              <option value={brewery.id} key={idx}>
+                {brewery.name}
+              </option>
             ))}
           </select>
         ))}
       </div>
 
-      <input className="submit" type="submit" value='Create Guide' />
+      <input className="submit" type="submit" value="Create Guide" />
     </form>
   );
-}
+};
+
+GuideForm.propTypes = {
+  cities: PropTypes.array.isRequired,
+  breweries: PropTypes.array.isRequired,
+  authorId: PropTypes.number.isRequired,
+  createGuide: PropTypes.func.isRequired,
+  fetchBreweries: PropTypes.func.isRequired,
+  fetchCities: PropTypes.func.isRequired,
+};
 
 export default GuideForm;

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import CityIndex from './city_index';
 import { fetchCities } from '../../actions/city_actions';
+import CityIndex from './city_index';
 
-const msp = (state) => ({
-  cities: Object.values(state.entities.cities),
+const msp = ({ entities }) => ({
+  cities: Object.values(entities.cities),
 });
 
 const mdp = dispatch => ({
