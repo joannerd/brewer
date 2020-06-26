@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { fetchCity } from '../../actions/city_actions';
 import Loading from '../loading';
 
-const CityShow = ({
-  match, breweries, guides, city, fetchCity,
-}) => {
+const CityShow = ({ match }) => {
+  const dispatch = useDispatch();
+  const city = useSelector(state => state.entities.cities[match.params.cityId]);
+  const breweries = useSelector(state => Object.values(state.entities.breweries));
+  const guides = useSelector(state => Object.values(state.entities.guides));
+
   useEffect(() => {
-    fetchCity(match.params.cityId);
+    dispatch(fetchCity(match.params.cityId));
   }, [match.params.cityId]);
 
   if (city === undefined) return <Loading />;

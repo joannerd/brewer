@@ -9,8 +9,8 @@ import SplashContainer from './splash_container';
 
 import BreweryIndex from './breweries/brewery_index';
 import BreweryShow from './breweries/brewery_show';
-import CityIndexContainer from './cities/city_index_container';
-import CityShowContainer from './cities/city_show_container';
+import CityIndex from './cities/city_index';
+import CityShow from './cities/city_show';
 import GuideIndexContainer from './guides/guide_index_container';
 import GuideShowContainer from './guides/guide_show_container';
 import CreateGuideContainer from './guides/create_guide_container';
@@ -37,8 +37,8 @@ const App = () => (
       <ProtectedRoute exact path="/posts/:postId" component={PostContainer} />
       <ProtectedRoute exact path="/breweries" component={BreweryIndex} />
       <ProtectedRoute exact path="/breweries/:breweryId" component={BreweryShow} />
-      <ProtectedRoute exact path="/cities" component={CityIndexContainer} />
-      <ProtectedRoute exact path="/cities/:cityId" component={CityShowContainer} />
+      <ProtectedRoute exact path="/cities" component={CityIndex} />
+      <ProtectedRoute exact path="/cities/:cityId" component={CityShow} />
       <ProtectedRoute exact path="/users/:userId" component={ProfileContainer} />
       <ProtectedRoute exact path="/" component={SplashContainer} />
     </Switch>
