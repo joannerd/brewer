@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const SessionForm = ({
   clearErrors,
@@ -140,6 +141,17 @@ const SessionForm = ({
       </form>
     </div>
   );
+};
+
+SessionForm.propTypes = {
+  clearErrors: PropTypes.func.isRequired,
+  processForm: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  formType: PropTypes.string.isRequired,
+  formHeader: PropTypes.string.isRequired,
+  errors: PropTypes.array.isRequired,
 };
 
 export default SessionForm;
