@@ -8,7 +8,6 @@ const msp = state => ({
   formType: 'Write post',
 });
 
-
 const mdp = dispatch => ({
   fetchAction: () => dispatch(fetchPosts()),
   formAction: post => dispatch(createPost(post)),
