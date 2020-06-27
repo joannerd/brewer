@@ -13,7 +13,7 @@ import CityIndex from './cities/city_index';
 import CityShow from './cities/city_show';
 import GuideIndex from './guides/guide_index';
 import GuideShow from './guides/guide_show';
-import CreateGuideContainer from './guides/create_guide_container';
+import GuideForm from './guides/guide_form';
 import Forum from './forum/forum';
 import PostShow from './forum/post_show';
 import Profile from './profile/profile';
@@ -30,7 +30,7 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     </Switch>
     <Switch>
-      <ProtectedRoute exact path="/guides/new" component={CreateGuideContainer} />
+      <ProtectedRoute exact path="/guides/new" component={GuideForm} />
       <ProtectedRoute exact path="/guides" component={GuideIndex} />
       <ProtectedRoute exact path="/guides/:guideId" component={GuideShow} />
       <ProtectedRoute exact path="/forum" component={Forum} />

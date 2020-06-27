@@ -22,17 +22,17 @@ const PostShow = () => {
     dispatch(fetchPost(postId));
   }, [postId]);
 
-  function handleDelete() {
+  const handleDelete = () => {
     dispatch(deletePost(post.id)).then(() => {
       history.push('/forum');
     });
-  }
+  };
 
-  function deleteButton() {
+  const deleteButton = () => {
     return (post.userId === currentUserId) ? <button onClick={handleDelete}>Delete</button> : null;
-  }
+  };
 
-  function showComments() {
+  const showComments = () => {
     return comments.length > 0 ? (
       comments.map((comment) => (
         <Comment
@@ -51,7 +51,7 @@ const PostShow = () => {
         </p>
       </li>
     );
-  }
+  };
 
   return post === undefined ? (
     <Loading />

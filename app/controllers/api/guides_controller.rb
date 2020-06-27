@@ -16,7 +16,10 @@ class Api::GuidesController < ApplicationController
   def create
     @guide = Guide.new(guide_params)
     if @guide.save
-      render '/api/guides/guides'
+      params[:guide][:breweries].each_with_index do | brewery, ord |
+        BreweryGuide.create({brewery_id: brewery.to_i, guide_id: @guide.id, order: ord + 1})
+      end
+      render '/api/guides/show'
     else
       render json: @guide.errors.full_messages, status: 422
     end
@@ -25,7 +28,7 @@ class Api::GuidesController < ApplicationController
   def update
     @guide = Guide.find(params[:id])
     if @guide.update(guide_params)
-      render '/api/guides/guides'
+      render '/api/guides/show'
     else
       render json: @guide.errors.full_messages, status: 422
     end
@@ -34,7 +37,7 @@ class Api::GuidesController < ApplicationController
   def destroy
     @guide = Guide.find(params[:id])
     if @guide.destroy
-      render '/api/guides/guides'
+      render '/api/guides/show'
     else
       render json: ['Guide not found.'], status: 404
     end

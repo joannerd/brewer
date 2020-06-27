@@ -15,6 +15,7 @@
 }
 
 .guide-form h1 {
+  margin-top: 20px;
   font-size: 30px;
   color: white;
 }
@@ -28,18 +29,25 @@
   width: 60%;
   align-self: center;
   font-family: 'Alata', sans-serif;
-  padding: 15px;
-  border-radius: 10px;
+  padding: 5px;
+  border-radius: 5px;
   outline: none;
   border: none;
   margin-bottom: 10px;
   font-size: 15px;
 }
 
+.guide-form input, .guide-form textarea, .guide-form select {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.guide-form input, .guide-form textarea {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .breweries-select {
   width: 80%;
-  text-align-last:center;
-
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }

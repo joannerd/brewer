@@ -6,12 +6,13 @@ const PostCommentForm = ({ formType, formAction, fetchAction }) => {
   const dispatch = useDispatch();
   const { postId } = useParams();
   const currentUserId = useSelector((state) => state.session.id);
+  const errors = useSelector((state) => state.errors.session);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const isPostForm = formType === 'Write post';
   const isCommentForm = formType === 'Write comment';
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let createdItem;
     if (isPostForm) {
@@ -35,7 +36,7 @@ const PostCommentForm = ({ formType, formAction, fetchAction }) => {
         dispatch(fetchAction(postId));
       }
     });
-  }
+  };
 
   useEffect(() => {
     const titleInput = document.getElementById('post-form-title-input');
@@ -60,6 +61,13 @@ const PostCommentForm = ({ formType, formAction, fetchAction }) => {
         onChange={(e) => setBody(e.target.value)}
         placeholder={formType}
       />
+      <div>
+        {errors.map((err, i) => (
+          <div className="user-auth-errors" key={i}>
+            {err}
+          </div>
+        ))}
+      </div>
       <input type="submit" value="Submit" className="post-form-submit" />
     </form>
   );
