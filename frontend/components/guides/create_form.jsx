@@ -13,27 +13,25 @@ const GuideForm = () => {
   const [guideBreweries, setGuideBreweries] = useState([]);
   const [selectedBreweryIDs, setSelectedBreweryIDs] = useState([]);
   const [cityId, setCityId] = useState(-1);
-  const [guide, setGuide] = useState({
-    title: '',
-    body: '',
-    authorId: currentUserId,
-  });
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
 
   useEffect(() => {
     dispatch(fetchCities());
     dispatch(fetchBreweries());
   }, []);
 
-  const submitGuide = async (e) => {
+  const submitGuide = (e) => {
     e.preventDefault();
     const newGuide = {
-      ...guide,
-      cityId,
+      title,
+      body,
+      city_id: cityId,
+      user_id: currentUserId,
+      breweries: selectedBreweryIDs,
     };
-    await dispatch(createGuide(newGuide));
+    dispatch(createGuide(newGuide));
   };
-
-  const update = (field) => e => setGuide({ [field]: e.target.value });
 
   const updateCity = (e) => {
     const id = parseInt(e.target.value, 10);
@@ -56,6 +54,10 @@ const GuideForm = () => {
       setNumberOfBreweryInputs(inputs);
     }
   };
+
+  const updateTitle = (e) => setTitle(e.target.value);
+
+  const updateBody = (e) => setBody(e.target.value);
 
   const updateSelectedBreweryIDs = (e) => {
     console.log(e.target);
@@ -98,13 +100,13 @@ const GuideForm = () => {
     <form className="guide-form" onSubmit={submitGuide}>
       <h1>Create Guide</h1>
       <input
-        value={guide.title}
-        onChange={update('title')}
+        value={title}
+        onChange={updateTitle}
         placeholder="Title"
       />
       <textarea
-        value={guide.body}
-        onChange={update('body')}
+        value={body}
+        onChange={updateBody}
         placeholder="Body"
       />
 

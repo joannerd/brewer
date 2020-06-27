@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :breweries, only: [:index, :show]
     resources :cities, only: [:index, :show]
     resources :guides, except: [:new, :edit]
+    resources :brewery_guides, only: [:create, :update, :destroy]
     resources :posts, except: [:new, :edit] do
       resources :comments, only: [:new]
     end
