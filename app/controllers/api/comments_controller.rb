@@ -5,7 +5,7 @@ class Api::CommentsController < ApplicationController
       @post = Post.find(@comment.post_id)
       render '/api/posts/show'
     else
-      render json: @comment.errors.full_messages, status: 422
+      render json: [@comment.errors.full_messages], status: 422
     end
   end
 

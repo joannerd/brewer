@@ -1,4 +1,5 @@
 import * as PostAPIUtil from '../util/post_api_util';
+import { receiveErrors } from './session_actions';
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
@@ -29,7 +30,8 @@ export const fetchPost = postId => dispatch => (
 
 export const createPost = post => dispatch => (
   PostAPIUtil.createPost(post)
-    .then(payload => dispatch(receivePost(payload)))
+    .then(payload => dispatch(receivePost(payload),
+      errors => dispatch(receiveErrors(errors))))
 );
 
 export const deletePost = postId => dispatch => (
