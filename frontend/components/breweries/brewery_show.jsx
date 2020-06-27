@@ -1,7 +1,7 @@
 import 'regenerator-runtime';
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useRouteMatch } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Brewery from './brewery_index_item';
 import Loading from '../loading';
 import { fetchBrewery } from '../../actions/brewery_actions';
@@ -15,23 +15,22 @@ import BreweryYelp from '../yelp/brewery_yelp';
 import BreweryReviews from '../yelp/brewery_reviews';
 
 const BreweryShow = () => {
-  const match = useRouteMatch();
+  const { breweryId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const brewery = useSelector(
-    state => state.entities.breweries[match.params.breweryId],
+    state => state.entities.breweries[breweryId],
   );
   const yelp = useSelector(state => Object.values(state.entities.yelp)[0]);
   const reviews = useSelector(state => state.entities.reviews);
 
   useEffect(() => {
-    let isMounted = true;
     window.scrollTo(0, 0);
 
-    async function fetchBreweryShowInfo() {
+    const fetchBreweryShowInfo = async () => {
       await dispatch(clearYelp());
 
-      const res = await dispatch(fetchBrewery(match.params.breweryId));
+      const res = await dispatch(fetchBrewery(breweryId));
       const {
         name,
         address,
@@ -50,12 +49,10 @@ const BreweryShow = () => {
         dispatch(fetchYelpInfo(yelpId));
         dispatch(fetchYelpReviews(yelpId));
       }
-    }
+    };
 
-    if (isMounted) fetchBreweryShowInfo();
-
-    return () => { isMounted = false; };
-  }, [match.params.breweryId]);
+    fetchBreweryShowInfo();
+  }, [breweryId]);
 
   const yelpInfo = () => {
     if (!yelp) return null;

@@ -68,7 +68,7 @@ const NavBar = () => {
 
       <div className="nav-contact">
         <a
-          href="https://junnac.com/"
+          href="https://junnac.github.io/"
           className="fa fa-folder"
           target="_blank"
           alt="portfolio"
@@ -77,7 +77,7 @@ const NavBar = () => {
           {null}
         </a>
         <a
-          href="https://www.linkedin.com/in/xchenj/"
+          href="https://www.linkedin.com/in/joannerd/"
           className="fa fa-linkedin-square"
           target="_blank"
           alt="linkedin"
@@ -86,7 +86,7 @@ const NavBar = () => {
           {null}
         </a>
         <a
-          href="mailto:x.chenj@gmail.com"
+          href="mailto:joannerdchen@gmail.com"
           className="fa fa-envelope"
           target="_blank"
           alt="email"

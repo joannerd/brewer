@@ -13,7 +13,7 @@ import CityIndex from './cities/city_index';
 import CityShow from './cities/city_show';
 import GuideIndex from './guides/guide_index';
 import GuideShow from './guides/guide_show';
-import GuideForm from './guides/create_form';
+import GuideForm from './guides/guide_form';
 import Forum from './forum/forum';
 import PostShow from './forum/post_show';
 import Profile from './profile/profile';
