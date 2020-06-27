@@ -29,21 +29,17 @@ const NavBar = () => {
           <Link to={`/users/${currentUser.id}`}>Profile</Link>
         </li>
 
-        <li className="dropdown">
-          <Link to="/guides">Guides</Link>
-        </li>
-
-        <li>
-          <Link to="/forum">Forum</Link>
-        </li>
-
-        {/* <div className="dropdown">
+        <div className="dropdown">
           <Link to="/guides">Guides</Link>
           <div className="dropdown-content">
             <Link to="/guides">All</Link>
             <Link to="/guides/new">Create</Link>
           </div>
-        </div> */}
+        </div>
+
+        <li>
+          <Link to="/forum">Forum</Link>
+        </li>
 
         <li>
           <Link to="/breweries">Breweries</Link>
