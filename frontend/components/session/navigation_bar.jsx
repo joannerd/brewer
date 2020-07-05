@@ -68,7 +68,7 @@ const NavBar = () => {
 
       <div className="nav-contact">
         <a
-          href="https://junnac.github.io/"
+          href="https://junnac.com/"
           className="fa fa-folder"
           target="_blank"
           alt="portfolio"
