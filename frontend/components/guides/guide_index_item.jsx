@@ -19,7 +19,7 @@ const GuidePreview = ({ guide }) => {
       <div className="guide-preview-info">
         <h1>{title}</h1>
         <h2>
-          by
+          by&nbsp;
           {author}
         </h2>
       </div>

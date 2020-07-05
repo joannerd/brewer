@@ -20,15 +20,20 @@ const Comment = ({ comment, currentUserId, postId }) => {
     });
   };
 
-  const deleteButton = () => {
-    return (comment.userId === currentUserId) ? <button onClick={handleDelete}>Delete</button> : null;
-  };
+  const deleteButton = comment.userId === currentUserId
+    ? <button onClick={handleDelete}>Delete</button>
+    : null;
 
   return (
     <li className="post comment">
-      <h4>Posted by {author} | {date}</h4>
+      <h4>
+        Posted by&nbsp;
+        {author}
+        &nbsp;|&nbsp;
+        {date}
+      </h4>
       <p>{body}</p>
-      {deleteButton()}
+      {deleteButton}
     </li>
   );
 };
