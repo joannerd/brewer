@@ -56,6 +56,7 @@ const CityShow = () => {
       <img src={photoUrl} alt={name} />
       <h1>
         {name}
+        &nbsp;
         Guides
       </h1>
       <div className="city-show-guides">
@@ -64,6 +65,7 @@ const CityShow = () => {
 
       <h1>
         {name}
+        &nbsp;
         Breweries
       </h1>
       <div className="city-show-breweries">
