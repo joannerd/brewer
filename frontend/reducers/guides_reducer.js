@@ -1,4 +1,9 @@
-import { RECEIVE_ALL_GUIDES, RECEIVE_GUIDE, REMOVE_GUIDE } from '../actions/guide_actions';
+import {
+  RECEIVE_ALL_GUIDES,
+  RECEIVE_GUIDE,
+  REMOVE_GUIDE,
+  CLEAR_GUIDE,
+} from '../actions/guide_actions';
 import { RECEIVE_CITY } from '../actions/city_actions';
 import { RECEIVE_USER } from '../actions/user_actions';
 
@@ -17,6 +22,8 @@ const guidesReducer = (oldState = {}, action) => {
       return { ...action.payload.guides };
     case RECEIVE_USER:
       return { ...action.payload.guides };
+    case CLEAR_GUIDE:
+      return {};
     default:
       return oldState;
   }

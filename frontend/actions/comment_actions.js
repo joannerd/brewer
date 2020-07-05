@@ -15,8 +15,8 @@ const removeComment = commentId => ({
 
 export const createComment = comment => dispatch => (
   CommentApiUtil.createComment(comment)
-    .then(res => dispatch(receiveComment(res),
-      errors => dispatch(receiveErrors(errors)))));
+    .then(res => dispatch(receiveComment(res)),
+      errors => dispatch(receiveErrors(errors))));
 
 export const deleteComment = commentId => dispatch => (
   CommentApiUtil.deleteComment(commentId)

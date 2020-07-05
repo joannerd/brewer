@@ -100,7 +100,7 @@ li:active {
   transition: 0.3s;
 }
 
-.fa:hover {
+.fa:hover, .logout:hover {
   opacity: 0.5;
 }
 
@@ -112,6 +112,7 @@ li:active {
 
 .logout {
   width: 80px;
+  font-family: 'Alata', sans-serif;
 }
 
 

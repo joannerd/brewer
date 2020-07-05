@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :breweries, only: [:index, :show]
     resources :cities, only: [:index, :show]
-    resources :guides, except: [:new, :edit]
+    resources :guides, except: [:edit]
     resources :brewery_guides, only: [:create, :update, :destroy]
     resources :posts, except: [:new, :edit] do
       resources :comments, only: [:new]

@@ -51,3 +51,13 @@
   width: 80%;
   position: relative;
 }
+
+.guide-form-errors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.guide-form-errors * {
+  padding: 0px;
+}

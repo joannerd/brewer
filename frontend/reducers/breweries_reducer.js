@@ -1,5 +1,15 @@
-import { RECEIVE_ALL_BREWERIES, RECEIVE_BREWERY } from '../actions/brewery_actions';
-import { RECEIVE_GUIDE, RECEIVE_ALL_GUIDES } from '../actions/guide_actions';
+import {
+  RECEIVE_ALL_BREWERIES,
+  RECEIVE_BREWERY,
+  CLEAR_BREWERIES,
+} from '../actions/brewery_actions';
+import {
+  RECEIVE_GUIDE,
+  RECEIVE_ALL_GUIDES,
+  RECEIVE_NEW_GUIDE,
+  CLEAR_NEW_GUIDE,
+  CLEAR_GUIDE,
+} from '../actions/guide_actions';
 import { RECEIVE_CITY } from '../actions/city_actions';
 // import { RECEIVE_USER } from '../actions/user_actions';
 
@@ -15,6 +25,14 @@ const breweriesReducer = (oldState = {}, action) => {
       return action.payload.breweries;
     case RECEIVE_GUIDE:
       return action.payload.breweries;
+    case RECEIVE_NEW_GUIDE:
+      return action.payload.breweries;
+    case CLEAR_NEW_GUIDE:
+      return {};
+    case CLEAR_BREWERIES:
+      return {};
+    case CLEAR_GUIDE:
+      return {};
     case RECEIVE_CITY:
       return { ...action.payload.breweries };
     // case RECEIVE_USER:

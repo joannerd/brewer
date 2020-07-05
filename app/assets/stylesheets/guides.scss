@@ -142,3 +142,19 @@
   border: 1px solid black;
   cursor: pointer;
 }
+
+#guide-delete {
+  background-color: #BF965C;
+  color: #222121;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #222121;
+  transition: 0.3s;
+}
+
+#guide-delete:hover {
+  background-color: #222121;
+  color: #BF965C;
+  cursor: pointer;
+}

@@ -1,4 +1,13 @@
-import { RECEIVE_ALL_CITIES, RECEIVE_CITY } from '../actions/city_actions';
+import {
+  RECEIVE_ALL_CITIES,
+  RECEIVE_CITY,
+  CLEAR_CITIES,
+} from '../actions/city_actions';
+import {
+  RECEIVE_NEW_GUIDE,
+  CLEAR_NEW_GUIDE,
+  CLEAR_GUIDE,
+} from '../actions/guide_actions';
 
 const citiesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -8,6 +17,14 @@ const citiesReducer = (oldState = {}, action) => {
       return action.cities;
     case RECEIVE_CITY:
       return action.payload.cities;
+    case RECEIVE_NEW_GUIDE:
+      return action.payload.cities;
+    case CLEAR_NEW_GUIDE:
+      return {};
+    case CLEAR_CITIES:
+      return {};
+    case CLEAR_GUIDE:
+      return {};
     default:
       return oldState;
   }

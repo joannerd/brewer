@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Brewery from './brewery_index_item';
-import { fetchBreweries } from '../../actions/brewery_actions';
+import { fetchBreweries, clearBreweries } from '../../actions/brewery_actions';
 import Loading from '../loading';
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
@@ -13,6 +13,7 @@ const BreweryIndex = () => {
 
   useEffect(() => {
     dispatch(fetchBreweries());
+    return () => dispatch(clearBreweries());
   }, []);
 
   const clickAlpha = e => {

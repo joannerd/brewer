@@ -1,9 +1,14 @@
 import 'regenerator-runtime';
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import MarkerManager from './marker_manager';
+import { fetchCities, clearCities } from '../../actions/city_actions';
+import Loading from '../loading';
 
-const Map = ({ cities, guide }) => {
+const Map = ({ guide }) => {
+  const dispatch = useDispatch();
+  const cities = useSelector(state => Object.values(state.entities.cities));
   const generateMap = (places, minZoom, center) => {
     mapboxgl.accessToken = localStorage.getItem('mboxToken');
     const mapOptions = {
@@ -18,24 +23,28 @@ const Map = ({ cities, guide }) => {
     mapMarkerManager.updateMarkers(places);
   };
 
-
   useEffect(() => {
     if (guide) {
       const { cityLng, cityLat, brewInfo } = guide;
       generateMap(brewInfo, 11.5, [cityLng, cityLat]);
+    } else {
+      dispatch(fetchCities());
     }
 
-    if (cities) {
+    return () => dispatch(clearCities());
+  }, [guide]);
+
+  useEffect(() => {
+    if (cities.length) {
       const places = {};
-      Object.keys(cities).forEach((cityId) => {
-        const city = cities[cityId];
-        places[cityId] = [city.lng, city.lat];
+      cities.forEach((city) => {
+        places[city.id] = [city.lng, city.lat];
       });
       generateMap(places, 3, [-95, 38]);
     }
-  }, [cities, guide]);
+  }, [cities]);
 
-  return (
+  return (!guide && !cities.length) ? <Loading /> : (
     <div id="map-container">
       <div id="map" />
     </div>
@@ -43,12 +52,10 @@ const Map = ({ cities, guide }) => {
 };
 
 Map.propTypes = {
-  cities: PropTypes.object,
   guide: PropTypes.object,
 };
 
 Map.defaultProps = {
-  cities: undefined,
   guide: undefined,
 };
 

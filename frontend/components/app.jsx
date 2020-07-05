@@ -1,12 +1,9 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-
-import LogInFormContainer from './session/login_form_container';
-import SignUpFormContainer from './session/signup_form_container';
+import SessionForm from './session/session_form';
 import NavBar from './session/navigation_bar';
 import Splash from './splash';
-
 import BreweryIndex from './breweries/brewery_index';
 import BreweryShow from './breweries/brewery_show';
 import CityIndex from './cities/city_index';
@@ -18,7 +15,6 @@ import Forum from './forum/forum';
 import PostShow from './forum/post_show';
 import Profile from './profile/profile';
 
-
 const App = () => (
   <div className="app flex-center">
     <header>
@@ -26,8 +22,8 @@ const App = () => (
       <div id="cover" />
     </header>
     <Switch>
-      <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <AuthRoute exact path="/signup" component={SignUpFormContainer} />
+      <AuthRoute exact path="/login" component={SessionForm} />
+      <AuthRoute exact path="/signup" component={SessionForm} />
     </Switch>
     <Switch>
       <ProtectedRoute exact path="/guides/new" component={GuideForm} />

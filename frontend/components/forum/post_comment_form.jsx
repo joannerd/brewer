@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { clearErrors } from '../../actions/session_actions';
 
 const PostCommentForm = ({ formType, formAction, fetchAction }) => {
   const dispatch = useDispatch();
@@ -39,36 +40,39 @@ const PostCommentForm = ({ formType, formAction, fetchAction }) => {
   };
 
   useEffect(() => {
-    const titleInput = document.getElementById('post-form-title-input');
-    if (isCommentForm) {
-      titleInput.className += 'hidden';
-    } else {
-      titleInput.className -= 'hidden';
-    }
+    if (errors.length) dispatch(clearErrors());
   }, []);
+
+  const titleInput = isCommentForm ? null : (
+    <input
+      required
+      id="post-form-title-input"
+      type="text"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
+      placeholder="Title"
+    />
+  );
 
   return (
     <form onSubmit={handleSubmit} className="post-form">
-      <input
-        id="post-form-title-input"
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
-      />
-      <textarea
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        placeholder={formType}
-      />
       <div>
+        {titleInput}
+        <textarea
+          required
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          placeholder={formType}
+        />
+        <input type="submit" value="Submit" className="post-form-submit" />
+      </div>
+      <ul>
         {errors.map((err, i) => (
           <div className="user-auth-errors" key={i}>
             {err}
           </div>
         ))}
-      </div>
-      <input type="submit" value="Submit" className="post-form-submit" />
+      </ul>
     </form>
   );
 };

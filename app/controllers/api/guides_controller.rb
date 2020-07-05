@@ -10,14 +10,16 @@ class Api::GuidesController < ApplicationController
   end
 
   def new
-    @guide = Guide.new
+    @breweries = Brewery.all.order(:city_id)
+    @cities = City.all
+    render '/api/guides/new'
   end
 
   def create
     @guide = Guide.new(guide_params)
     if @guide.save
-      params[:guide][:breweries].each_with_index do | brewery, ord |
-        BreweryGuide.create({brewery_id: brewery.to_i, guide_id: @guide.id, order: ord + 1})
+      params[:guide][:breweries].each do | order, brewery_id |
+        BreweryGuide.create({brewery_id: brewery_id.to_i, guide_id: @guide.id, order: order})
       end
       render '/api/guides/show'
     else
