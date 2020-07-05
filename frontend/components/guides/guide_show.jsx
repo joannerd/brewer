@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import { fetchGuide } from '../../actions/guide_actions';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import { fetchGuide, clearGuide, deleteGuide } from '../../actions/guide_actions';
 import Brewery from '../breweries/brewery_index_item';
 import Map from '../map/map';
 import Loading from '../loading';
@@ -11,11 +11,14 @@ const GuideShow = () => {
   const { guideId } = useParams();
   window.scrollTo(0, 0);
   const dispatch = useDispatch();
+  const history = useHistory();
   const breweries = useSelector(state => Object.values(state.entities.breweries));
   const guide = useSelector(state => state.entities.guides[guideId]);
+  const currentUserId = useSelector(state => parseInt(state.session.id, 10));
 
   useEffect(() => {
     dispatch(fetchGuide(guideId));
+    return () => dispatch(clearGuide());
   }, [guideId]);
 
   if (!guide) return <Loading />;
@@ -23,6 +26,18 @@ const GuideShow = () => {
   const {
     id, cityPhotoUrl, title, author, body,
   } = guide;
+
+  const handleDelete = () => {
+    dispatch(deleteGuide(id)).then(() => {
+      history.push('/guides');
+    });
+  };
+
+  const deleteButton = (guide.userId === currentUserId) ? (
+    <button id="guide-delete" onClick={handleDelete}>Delete</button>
+  ) : (
+    null
+  );
 
   const clickMarker = e => {
     if (e.target.className.includes('marker')) {
@@ -46,6 +61,7 @@ const GuideShow = () => {
           </h1>
           <h2>{author}</h2>
           <p>{body}</p>
+          {deleteButton}
         </div>
         {breweries.map((brewery) => (
           <div
