@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { login, signup, clearErrors } from '../../actions/session_actions';
 
-const SessionForm = ({
-  clearErrors,
-  processForm,
-  history,
-  formType,
-  errors,
-  formHeader,
-}) => {
-  const [user, setUser] = useState({
-    username: '',
-    password: '',
-    email: '',
-  });
+const SessionForm = () => {
+  const dispatch = useDispatch();
+  const match = useRouteMatch();
+  const history = useHistory();
+  const errors = useSelector(state => state.errors.session);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const isLogin = match.path === '/login';
+  const isSignup = !isLogin;
 
   useEffect(() => {
-    clearErrors();
-  }, [history]);
+    if (errors.length) dispatch(clearErrors());
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await processForm(user);
+    const user = {
+      username,
+      password,
+      email,
+    };
+    if (isLogin) {
+      await dispatch(login(user));
+    } else {
+      await dispatch(signup(user));
+    }
     history.push('/');
   };
 
@@ -56,7 +63,7 @@ const SessionForm = ({
       }
     };
 
-    if (formType === 'login') {
+    if (isLogin) {
       typeUser();
       window.setTimeout(() => typePw(), 1000);
       window.setTimeout(() => {
@@ -64,13 +71,15 @@ const SessionForm = ({
           username: 'DemoUser',
           password: '123456',
         };
-        processForm(demoUser)
+        dispatch(login((demoUser)))
           .then(() => history.push('/'));
       }, 1600);
     }
   };
 
-  const update = (field) => e => setUser({ [field]: e.target.value });
+  const updateUsername = e => setUsername(e.target.value);
+  const updatePassword = e => setPassword(e.target.value);
+  const updateEmail = e => setEmail(e.target.value);
 
   return (
     <div className="form-container flex-center">
@@ -78,11 +87,11 @@ const SessionForm = ({
 
       <div className="links">
         <Link to="/login" className="session-link">
-          <span className={formType === 'login' ? 'active' : 'inactive'}>LOG IN</span>
+          <span className={isLogin ? 'active' : 'inactive'}>LOG IN</span>
         </Link>
 
         <Link to="/signup" className="session-link">
-          <span className={formType === 'signup' ? 'active' : 'inactive'}>SIGN UP</span>
+          <span className={isSignup ? 'active' : 'inactive'}>SIGN UP</span>
         </Link>
       </div>
       <br />
@@ -98,42 +107,42 @@ const SessionForm = ({
       <form className="form flex-center">
         <input
           id="username"
-          className="input" 
-          onChange={update("username")}
+          className="input"
+          onChange={updateUsername}
           placeholder="Username"
           type="text"
           name="username"
-          value={user.username}
+          value={username}
         />
 
         <input
           id="password"
           className="input"
-          onChange={update('password')}
+          onChange={updatePassword}
           placeholder="Password"
           type="password"
           name="password"
-          value={user.password}
+          value={password}
         />
 
         <input
-          className={formType === 'signup' ? 'input email' : 'hidden'}
-          onChange={update('email')}
+          className={isSignup ? 'input email' : 'hidden'}
+          onChange={updateEmail}
           placeholder="Email"
           type="text"
-          name="email" 
-          value={user.email}
+          name="email"
+          value={email}
         />
 
         <input
           className="input submit"
           onClick={handleSubmit}
           type="submit"
-          value={formHeader}
+          value={isLogin ? 'Log In' : 'Sign Up'}
         />
 
         <input
-          className={formType === 'login' ? 'input submit' : 'hidden'}
+          className={isLogin ? 'input submit' : 'hidden'}
           onClick={handleDemo}
           type="submit"
           value="Demo Login"
@@ -141,17 +150,6 @@ const SessionForm = ({
       </form>
     </div>
   );
-};
-
-SessionForm.propTypes = {
-  clearErrors: PropTypes.func.isRequired,
-  processForm: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  formType: PropTypes.string.isRequired,
-  formHeader: PropTypes.string.isRequired,
-  errors: PropTypes.array.isRequired,
 };
 
 export default SessionForm;
