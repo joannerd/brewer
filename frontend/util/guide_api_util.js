@@ -12,6 +12,13 @@ export const fetchGuide = (guideId) => (
   })
 );
 
+export const fetchNewGuide = () => (
+  $.ajax({
+    url: '/api/guides/new',
+    method: 'GET',
+  })
+);
+
 export const createGuide = (guide) => (
   $.ajax({
     url: '/api/guides',
