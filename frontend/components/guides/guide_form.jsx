@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createGuide } from '../../actions/guide_actions';
-import { fetchBreweries } from '../../actions/brewery_actions';
-import { fetchCities } from '../../actions/city_actions';
+import { createGuide, fetchNewGuide, clearNewGuide } from '../../actions/guide_actions';
+import { clearErrors } from '../../actions/session_actions';
 
 const GuideForm = () => {
   const dispatch = useDispatch();
@@ -12,14 +11,16 @@ const GuideForm = () => {
   const errors = useSelector((state) => state.errors.session);
   const [numberOfBreweryInputs, setNumberOfBreweryInputs] = useState([1]);
   const [guideBreweries, setGuideBreweries] = useState([]);
-  const [selectedBreweryIDs, setSelectedBreweryIDs] = useState([]);
+  const [selectedBreweryIDs, setSelectedBreweryIDs] = useState({});
   const [cityId, setCityId] = useState(-1);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
   useEffect(() => {
-    dispatch(fetchCities());
-    dispatch(fetchBreweries());
+    dispatch(fetchNewGuide());
+    if (errors.length) dispatch(clearErrors());
+
+    return () => dispatch(clearNewGuide());
   }, []);
 
   const submitGuide = (e) => {
@@ -54,34 +55,33 @@ const GuideForm = () => {
       const inputs = numberOfBreweryInputs.slice(0, numberOfBreweryInputs.length - 1);
       setNumberOfBreweryInputs(inputs);
     }
+    const selectedBreweries = { ...selectedBreweryIDs };
+    delete selectedBreweries[numberOfBreweryInputs.length];
+    setSelectedBreweryIDs(selectedBreweries);
   };
 
   const updateTitle = (e) => setTitle(e.target.value);
 
   const updateBody = (e) => setBody(e.target.value);
 
-  const updateSelectedBreweryIDs = (e) => {
-    console.log(e.target);
-    console.log(e.currentTarget);
+  const updateSelectedBreweryIDs = (idx, e) => {
     const id = parseInt(e.target.value, 10);
-    if (!selectedBreweryIDs.includes(id)) {
-      const selectedBreweries = [...selectedBreweryIDs];
-      selectedBreweries.push(id);
-      console.log(selectedBreweries);
-      setSelectedBreweryIDs(selectedBreweries);
-    }
+    const selectedBreweries = { ...selectedBreweryIDs };
+    selectedBreweries[idx + 1] = id;
+    setSelectedBreweryIDs(selectedBreweries);
   };
 
   const createBreweryInputFields = (idx) => (
     <select
+      required
       key={idx}
       defaultValue="Choose a favorite brewery"
       name="brewery"
-      onChange={updateSelectedBreweryIDs}
+      onChange={(e) => updateSelectedBreweryIDs(idx, e)}
     >
       <option disabled>Choose a favorite brewery</option>
       {guideBreweries.map((brewery) => {
-        if (selectedBreweryIDs.includes(brewery.id)) {
+        if (Object.values(selectedBreweryIDs).includes(brewery.id)) {
           return (
             <option disabled key={`${idx}-${brewery.id}`}>
               {brewery.name}
@@ -100,15 +100,9 @@ const GuideForm = () => {
   return (
     <form className="guide-form" onSubmit={submitGuide}>
       <h1>Create Guide</h1>
-      <div>
-        {errors.map((err, i) => (
-          <div className="user-auth-errors" key={i}>
-            {err}
-          </div>
-        ))}
-      </div>
       <div className="breweries-select">
         <select
+          required
           defaultValue="Choose a city"
           name="city"
           onChange={updateCity}
@@ -124,11 +118,13 @@ const GuideForm = () => {
         </select>
       </div>
       <input
+        required
         value={title}
         onChange={updateTitle}
         placeholder="Title"
       />
       <textarea
+        required
         value={body}
         onChange={updateBody}
         placeholder="Body"
@@ -136,6 +132,13 @@ const GuideForm = () => {
       <div className="breweries-select">
         {numberOfBreweryInputs.map((_, idx) => (
           createBreweryInputFields(idx)
+        ))}
+      </div>
+      <div className="guide-form-errors">
+        {errors.map((err, i) => (
+          <div className="user-auth-errors" key={i}>
+            {err}
+          </div>
         ))}
       </div>
       <button
