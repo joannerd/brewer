@@ -16,8 +16,6 @@ const PostShow = () => {
   const comments = useSelector(state => Object.values(state.entities.comments));
   const currentUserId = useSelector(state => parseInt(state.session.id, 10));
 
-  window.scrollTo(0, 0);
-
   useEffect(() => {
     dispatch(fetchPost(postId));
   }, [postId]);

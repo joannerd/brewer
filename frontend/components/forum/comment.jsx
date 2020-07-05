@@ -13,7 +13,6 @@ const Comment = ({ comment, currentUserId, postId }) => {
     id,
   } = comment;
   let date = new Date(timestamp).toDateString();
-  window.scrollTo(0, 0);
 
   const handleDelete = () => {
     dispatch(deleteComment(id)).then(() => {

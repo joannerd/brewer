@@ -83,9 +83,14 @@
   width: 575px;
 
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   border-bottom: 2px solid white;
+}
+
+.post-form div {
+  display: flex;
 }
 
 .post-form input:not([type="submit"]), .post-form textarea {
@@ -97,6 +102,7 @@
   min-height: 30px;
   height: 30px;
   box-sizing: border-box;
+  font-family: 'Alata', sans-serif;
 }
 
 .post-form textarea {
@@ -108,9 +114,10 @@
   outline: none;
   transition: .3s;
   border: none;
-  padding: 10px;
+  padding: 5px 10px 5px 10px;
   margin: 10px;
   border-radius: 5px;
+  font-family: 'Alata', sans-serif;
 }
 
 .post-form-submit:hover {
@@ -138,4 +145,11 @@
 
 .none {
   text-align: center;
+}
+
+.post-form ul {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-right: 5%;
 }
