@@ -3,6 +3,7 @@ import * as CityAPIUtil from '../util/city_api_util';
 export const RECEIVE_ALL_CITIES = 'RECEIVE_ALL_CITIES';
 export const RECEIVE_CITY = 'RECEIVE_CITY';
 export const CLEAR_CITIES = 'CLEAR_CITIES';
+export const CLEAR_CITY = 'CLEAR_CITY';
 
 const receiveAllCities = (cities) => ({
   type: RECEIVE_ALL_CITIES,
@@ -16,6 +17,10 @@ const receiveCity = (payload) => ({
 
 export const clearCities = () => ({
   type: CLEAR_CITIES,
+});
+
+export const clearCity = () => ({
+  type: CLEAR_CITY,
 });
 
 export const fetchCities = () => dispatch => (

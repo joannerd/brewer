@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { fetchCity, clearCities } from '../../actions/city_actions';
-import { clearBreweries } from '../../actions/brewery_actions';
+import { fetchCity, clearCity } from '../../actions/city_actions';
 import Loading from '../loading';
 
 const CityShow = () => {
@@ -14,10 +13,7 @@ const CityShow = () => {
 
   useEffect(() => {
     dispatch(fetchCity(cityId));
-    return () => {
-      dispatch(clearCities());
-      dispatch(clearBreweries());
-    };
+    return () => dispatch(clearCity());
   }, [cityId]);
 
   if (city === undefined) return <Loading />;

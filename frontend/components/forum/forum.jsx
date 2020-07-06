@@ -8,9 +8,9 @@ import Loading from '../loading';
 const Forum = () => {
   const posts = useSelector(state => Object.values(state.entities.posts));
   const dispatch = useDispatch();
-  window.scrollTo(0, 0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchPosts());
   }, []);
 

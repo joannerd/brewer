@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchGuides } from '../../actions/guide_actions';
+import { clearBreweries } from '../../actions/brewery_actions';
 import GuidePreview from './guide_index_item';
 
 const GuideIndex = () => {
@@ -10,6 +11,7 @@ const GuideIndex = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     dispatch(fetchGuides());
+    return () => dispatch(clearBreweries());
   }, []);
 
   return (

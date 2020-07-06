@@ -9,9 +9,9 @@ const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 const BreweryIndex = () => {
   const dispatch = useDispatch();
   const breweries = useSelector((state) => Object.values(state.entities.breweries));
-  window.scrollTo(0, 0);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchBreweries());
     return () => dispatch(clearBreweries());
   }, []);

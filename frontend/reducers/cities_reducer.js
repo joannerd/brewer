@@ -2,6 +2,7 @@ import {
   RECEIVE_ALL_CITIES,
   RECEIVE_CITY,
   CLEAR_CITIES,
+  CLEAR_CITY,
 } from '../actions/city_actions';
 import {
   RECEIVE_NEW_GUIDE,
@@ -24,6 +25,8 @@ const citiesReducer = (oldState = {}, action) => {
     case CLEAR_CITIES:
       return {};
     case CLEAR_GUIDE:
+      return {};
+    case CLEAR_CITY:
       return {};
     default:
       return oldState;

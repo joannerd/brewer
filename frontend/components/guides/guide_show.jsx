@@ -9,7 +9,6 @@ import Loading from '../loading';
 
 const GuideShow = () => {
   const { guideId } = useParams();
-  window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const history = useHistory();
   const breweries = useSelector(state => Object.values(state.entities.breweries));
@@ -17,6 +16,7 @@ const GuideShow = () => {
   const currentUserId = useSelector(state => parseInt(state.session.id, 10));
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchGuide(guideId));
     return () => dispatch(clearGuide());
   }, [guideId]);

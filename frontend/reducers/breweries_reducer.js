@@ -10,7 +10,7 @@ import {
   CLEAR_NEW_GUIDE,
   CLEAR_GUIDE,
 } from '../actions/guide_actions';
-import { RECEIVE_CITY } from '../actions/city_actions';
+import { RECEIVE_CITY, CLEAR_CITY } from '../actions/city_actions';
 // import { RECEIVE_USER } from '../actions/user_actions';
 
 const breweriesReducer = (oldState = {}, action) => {
@@ -32,6 +32,8 @@ const breweriesReducer = (oldState = {}, action) => {
     case CLEAR_BREWERIES:
       return {};
     case CLEAR_GUIDE:
+      return {};
+    case CLEAR_CITY:
       return {};
     case RECEIVE_CITY:
       return { ...action.payload.breweries };
