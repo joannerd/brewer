@@ -1,5 +1,4 @@
 import { RECEIVE_CURRENT_USER, LOG_OUT_CURRENT_USER } from '../actions/session_actions';
-// import { RECEIVE_SEARCH_BREWERIES } from '../actions/search_actions';
 
 const sessionReducer = (oldState = { id: null }, action) => {
   Object.freeze(oldState);
