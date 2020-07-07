@@ -1,12 +1,13 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const BreweryRating = ({
-  rating, reviewCount, url
+  rating, reviewCount, url,
 }) => (
   <>
     <h3>
       {reviewCount}
+      &nbsp;
       reviews
     </h3>
     <a href={url} alt={url} target="_blank" rel="noopener noreferrer">
