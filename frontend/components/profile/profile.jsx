@@ -9,25 +9,23 @@ const Profile = () => {
   const { userId } = useParams();
   const user = useSelector(state => state.entities.users[userId]);
   const userGuides = useSelector(state => Object.values(state.entities.guides));
-  const userFavBrews = useSelector(state => Object.values(state.entities.breweries));
+  const favoriteBreweries = useSelector(state => Object.values(state.entities.favorites));
 
   useEffect(() => {
     dispatch(fetchUser(userId));
   }, [userId]);
 
-  const breweries = userFavBrews.length === 0 ? (
+  const breweries = !favoriteBreweries ? (
     <h4>No favorite breweries yet.</h4>
   ) : (
     <ul>
-      {userFavBrews.map(brewery => (
-        <a
+      {favoriteBreweries.map(brewery => (
+        <Link
           key={brewery.id}
-          href={brewery.website}
-          target="_blank"
-          rel="noreferrer"
+          to={`/breweries/${brewery.id}`}
         >
           {brewery.name}
-        </a>
+        </Link>
       ))}
     </ul>
   );
