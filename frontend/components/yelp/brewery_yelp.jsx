@@ -12,7 +12,7 @@ const BreweryYelp = ({ price, hours }) => {
   return (
     <div className="brewery-yelp">
       <h3>
-        Price Range:
+        Price Range:&nbsp;
         {price}
       </h3>
 

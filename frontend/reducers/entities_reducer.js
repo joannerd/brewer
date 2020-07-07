@@ -6,8 +6,7 @@ import guides from './guides_reducer';
 import posts from './posts_reducer';
 import comments from './comments_reducer';
 import search from './search_reducer';
-import yelp from './yelp_reducer';
-import reviews from './reviews_reducer';
+import favorites from './favorites_reducer';
 
 const entitiesReducer = combineReducers({
   users,
@@ -17,8 +16,7 @@ const entitiesReducer = combineReducers({
   posts,
   comments,
   search,
-  yelp,
-  reviews,
+  favorites,
 });
 
 export default entitiesReducer;

@@ -48,8 +48,6 @@ const GuideShow = () => {
   };
 
   return (
-    // TODO: ESLint
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <section className="guide-index-list" onClick={clickMarker}>
       <Map guide={guide} />
 

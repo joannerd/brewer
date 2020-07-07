@@ -11,7 +11,6 @@ import {
   CLEAR_GUIDE,
 } from '../actions/guide_actions';
 import { RECEIVE_CITY, CLEAR_CITY } from '../actions/city_actions';
-// import { RECEIVE_USER } from '../actions/user_actions';
 
 const breweriesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -37,8 +36,6 @@ const breweriesReducer = (oldState = {}, action) => {
       return {};
     case RECEIVE_CITY:
       return { ...action.payload.breweries };
-    // case RECEIVE_USER:
-    //   return action.payload.breweries
     default:
       return oldState;
   }

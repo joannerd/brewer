@@ -7,12 +7,12 @@ const Review = ({ review }) => {
     text,
     rating,
     user,
-    time_created: timeCreated,
+    timeCreated,
   } = review;
   const {
     name,
-    profile_url: profileUrl,
-    image_url: imageUrl,
+    profileUrl,
+    imageUrl,
   } = user;
 
   const date = new Date(timeCreated).toDateString();
@@ -38,7 +38,7 @@ const Review = ({ review }) => {
 
 Review.propTypes = {
   review: PropTypes.shape({
-    time_created: PropTypes.string.isRequired,
+    timeCreated: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
