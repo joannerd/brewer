@@ -11,7 +11,7 @@
 
 class Favorite < ApplicationRecord
   validates :user_id, :brewery_id, presence: true
-  validates :user_id, :brewery_id, uniqueness: true
+  validates :user_id, uniqueness: { scope: :brewery_id, message: "Each user should only favorite a brewery once" }
 
   belongs_to :user
   belongs_to :brewery

@@ -21,7 +21,7 @@ class Brewery < ApplicationRecord
   has_one_attached :photo
 
   belongs_to :city
-  # has_many :favorites
+  has_many :favorites
   has_many :brewery_guides
   has_many :guides,
     through: :brewery_guides,

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Brewery = ({ brewery }) => {
+const Brewery = ({ brewery, isCurrentUserFavorite, toggleFavorite }) => {
   const {
     id,
     name,
@@ -12,10 +12,21 @@ const Brewery = ({ brewery }) => {
     photoUrl,
   } = brewery;
   const addressLink = address.split(' ').join('+');
+  const favoriteButton = isCurrentUserFavorite !== undefined
+    ? (
+      <i className="fa fa-star"
+        id={isCurrentUserFavorite ? 'star' : 'black-star'}
+        onClick={toggleFavorite}
+      />
+    ) : null;
 
   return (
     <>
-      <h1><Link to={`/breweries/${id}`}>{name}</Link></h1>
+      <h1>
+        <Link to={`/breweries/${id}`}>{name}</Link>
+        &nbsp;&nbsp;
+        {favoriteButton}
+      </h1>
       <h2>{address}</h2>
       <img alt={name} src={photoUrl} className="brewery-photo" />
       <p>{description}</p>
@@ -44,6 +55,13 @@ Brewery.propTypes = {
     website: PropTypes.string.isRequired,
     photoUrl: PropTypes.string,
   }).isRequired,
+  isCurrentUserFavorite: PropTypes.bool,
+  toggleFavorite: PropTypes.func,
+};
+
+Brewery.defaultProps = {
+  isCurrentUserFavorite: undefined,
+  toggleFavorite: undefined,
 };
 
 export default Brewery;

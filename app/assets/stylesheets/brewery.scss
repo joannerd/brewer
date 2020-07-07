@@ -161,3 +161,17 @@
 .open {
   color: green;
 }
+
+#black-star {
+  color: rgb(85, 85, 85);
+}
+
+#black-star:hover {
+  cursor: pointer;
+  color: #BF965C;
+}
+
+#star:hover {
+  cursor: pointer;
+  color: rgb(85, 85, 85);
+}

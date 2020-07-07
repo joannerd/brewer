@@ -1,16 +1,16 @@
 require 'open-uri'
 
 ActiveRecord::Base.transaction do
-  User.delete_all
-  City.delete_all
   Brewery.delete_all
+  City.delete_all
   Guide.delete_all
-  BreweryGuide.delete_all
   Favorite.delete_all
+  BreweryGuide.delete_all
   Post.delete_all
   Comment.delete_all
+  User.delete_all
 
-  User.create({username: "DemoUser", password: "123456", email: "demo@email.com"})
+  User.create({username: "Joannerd", password: "123456", email: "demo@email.com"})
   User.create({username: "BeerJo", password: "123456", email: "beerjo@email.com"})
   User.create({username: "BeerBob", password: "123456", email: "beerbob@email.com"})
   User.create({username: "BeerBear", password: "123456", email: "BeerBear@email.com"})
@@ -310,5 +310,8 @@ ActiveRecord::Base.transaction do
   BreweryGuide.create!({brewery_id: 22, guide_id: 4, order: 4})
   BreweryGuide.create!({brewery_id: 25, guide_id: 4, order: 5})
 
-  Favorite.create({user_id: 1, brewery_id: 36})
+  Favorite.create!({user_id: 1, brewery_id: 35})
+  Favorite.create!({user_id: 1, brewery_id: 36})
+  Favorite.create!({user_id: 1, brewery_id: 38})
+  Favorite.create!({user_id: 1, brewery_id: 40})
 end

@@ -8,10 +8,10 @@ json.guides do
   end
 end
 
-# json.breweries do
-#   @user.favorite_breweries.each do |brewery|
-#     json.set! brewery.id do
-#       json.partial! 'api/breweries/brewery', brewery: brewery
-#     end
-#   end 
-# end
+json.favorites do
+  @user.favorite_breweries.each do |brewery|
+    json.set! brewery.id do
+      json.extract! brewery, :id, :name
+    end
+  end
+end
