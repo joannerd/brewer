@@ -20,6 +20,7 @@ const NavBar = () => {
         </Link>
         <h3 className="nav-welcome">
           Welcome
+          &nbsp;
           {currentUser.username}
         </h3>
       </div>

@@ -38,13 +38,14 @@ const SessionForm = () => {
 
     let i = 0;
     let j = 0;
-    const demoUsername = 'DemoUser';
-    const demoPassword = '123456';
-
+    const demoUser = {
+      username: 'Joannerd',
+      password: '123456',
+    };
     const typeUser = () => {
       let timeout;
-      if (i < demoUsername.length) {
-        document.getElementById('username').value += demoUsername.charAt(i);
+      if (i < demoUser.username.length) {
+        document.getElementById('username').value += demoUser.username.charAt(i);
         i += 1;
         timeout = setTimeout(typeUser, 100);
       } else {
@@ -54,8 +55,8 @@ const SessionForm = () => {
 
     const typePw = () => {
       let timeout;
-      if (j < demoPassword.length) {
-        document.getElementById('password').value += demoPassword.charAt(j);
+      if (j < demoUser.password.length) {
+        document.getElementById('password').value += demoUser.password.charAt(j);
         j += 1;
         timeout = setTimeout(typePw, 100);
       } else {
@@ -67,10 +68,6 @@ const SessionForm = () => {
       typeUser();
       window.setTimeout(() => typePw(), 1000);
       window.setTimeout(() => {
-        const demoUser = {
-          username: 'DemoUser',
-          password: '123456',
-        };
         dispatch(login((demoUser)))
           .then(() => history.push('/'));
       }, 1600);
