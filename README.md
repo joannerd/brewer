@@ -1,9 +1,12 @@
 # Brewer
 
 Brewer is an application to connect beer enthusiasts. Users create brewery
-travel guides and share brewery knowledge in a forum. Visit
-[Brewer](https://junnac-brewer.herokuapp.com/#/) to explore top guides, learn
-from the Brewer forum, and search for your favorite breweries.
+travel guides and share brewery knowledge in a forum. Explore top guides, 
+learn from the Brewer forum, and search for your favorite breweries.
+
+[Brewer Live](https://junnac-brewer.herokuapp.com/#/)
+
+![brewer-demo-gif](https://user-images.githubusercontent.com/32081352/89004586-5e3b1580-d2b7-11ea-8f4b-3167de9377bb.gif)
 
 ## Features
 
@@ -48,8 +51,6 @@ of the platform, Yelp API to gather information and opinions about each brewery,
 and cloud storage (AWS S3 and Rails Active Storage) to reduce server load and
 allow the application to scale.
 
-![brewer-demo-gif](https://user-images.githubusercontent.com/32081352/89004586-5e3b1580-d2b7-11ea-8f4b-3167de9377bb.gif)
-
 ### Dynamically generated brewery creation form
 
 The `GuideForm` is a dynamically generated form for brewery guide creation. A
@@ -70,7 +71,7 @@ Based on the updated `guideBreweries` state, the `createBreweryInputFields`
 method is invoked to generate a dropdown menu with breweries in the selected
 city. A new dropdown menu is generated for each brewery input field.
 
-If a brewery as already been selected (i.e. the brewery's ID is in the
+If a brewery has already been selected (i.e. the brewery's ID is in the
 `selectedBreweryIDs` state), a `disabled` select option will be generated for
 that brewery. Rendering a `disabled` select option ensures that users will not
 create a guide with duplicate breweries while communicating that previously
