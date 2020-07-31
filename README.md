@@ -32,15 +32,15 @@ learn from the Brewer forum, and search for your favorite breweries.
 
 1. Clone this repository to your local machine.
 2. Install npm and bundle packages:
-    ```sh
-    npm install
-    bundle install
-    ```
-3. Start the frontend and backend servers with these terminal commands:
-    ```sh
-    rails s
-    npm start
-    ```
+```sh
+$ npm install
+$ bundle install
+```
+3. Start the backend and frontend servers:
+```sh
+$ rails s
+$ npm start
+```
 
 ## Overview of features
 
