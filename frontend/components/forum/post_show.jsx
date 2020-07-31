@@ -21,51 +21,48 @@ const PostShow = () => {
   }, [postId]);
 
   const handleDelete = () => {
-    dispatch(deletePost(post.id)).then(() => {
-      history.push('/forum');
-    });
+    dispatch(deletePost(postId));
+    history.push('/forum');
   };
 
-  const deleteButton = () => {
-    return (post.userId === currentUserId) ? <button onClick={handleDelete}>Delete</button> : null;
-  };
+  if (post === undefined) return <Loading />;
 
-  const showComments = () => {
-    return comments.length > 0 ? (
-      comments.map((comment) => (
-        <Comment
-          key={comment.id}
-          comment={comment}
-          currentUserId={currentUserId}
-          postId={post.id}
-        />
-      ))
-    ) : (
-      <li className="post comment none">
-        <p>
-          This post has no comments yet.
-          <br />
-          Write a comment below!
-        </p>
-      </li>
-    );
-  };
+  const deleteButton = post.userId === currentUserId
+    ? <button onClick={handleDelete}>Delete</button>
+    : null;
 
-  return post === undefined ? (
-    <Loading />
+  const postComments = comments.length > 0 ? (
+    comments.map((comment, i) => (
+      <Comment
+        key={`comment-${i}`}
+        comment={comment}
+        currentUserId={currentUserId}
+        postId={post.id}
+      />
+    ))
   ) : (
+    <li key="none" className="post comment none">
+      <p>
+        This post has no comments yet.
+        <br />
+        Write a comment below!
+      </p>
+    </li>
+  );
+
+  return (
     <section className="forum post-show">
       <Post post={post} />
       <ul>
         <h2>Comments</h2>
-        {showComments()}
+        {postComments}
       </ul>
       <PostCommentForm
         fetchAction={fetchPost}
         formAction={createComment}
         formType="Write comment"
       />
-      {deleteButton()}
+      {deleteButton}
     </section>
   );
 };

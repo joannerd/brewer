@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
   const { title, body, author, timestamp, id } = post;
-  let date = new Date(timestamp).toDateString();
-  window.scrollTo(0, 0);
+  const date = new Date(timestamp).toDateString();
 
   return (
     <li className="post">

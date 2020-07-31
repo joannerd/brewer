@@ -15,18 +15,17 @@ const PostCommentForm = ({ formType, formAction, fetchAction }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let createdItem;
+    let createdItem = {
+      body,
+      user_id: currentUserId,
+      post_id: postId,
+    };
+
     if (isPostForm) {
       createdItem = {
         title,
         body,
         user_id: currentUserId,
-      };
-    } else {
-      createdItem = {
-        body,
-        user_id: currentUserId,
-        post_id: postId,
       };
     }
 
@@ -37,6 +36,9 @@ const PostCommentForm = ({ formType, formAction, fetchAction }) => {
         dispatch(fetchAction(postId));
       }
     });
+
+    setTitle('');
+    setBody('');
   };
 
   useEffect(() => {

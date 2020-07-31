@@ -23,66 +23,6 @@ class Api::BreweriesController < ApplicationController
     render '/api/breweries/show'
   end
 
-  # def fetch_yelp_id(name, address, city, state)
-  #   yelp_res = Faraday.get(
-  #     'https://api.yelp.com/v3/businesses/matches',
-  #     {
-  #       name: name,
-  #       address1: address,
-  #       city: city,
-  #       state: state,
-  #       country: 'US',
-  #     },
-  #     {
-  #       'Content-Type' => 'application/json',
-  #       'Accept' => 'application/json',
-  #       'Authorization' => "Bearer #{ENV['YELP_API_KEY']}"
-  #     }
-  #   )
-
-  #   JSON.parse(yelp_res.body)['businesses'][0]['id']
-  # end
-
-  # def fetch_yelp_info(yelp_id)
-  #   yelp_info = Faraday.get(
-  #     "https://api.yelp.com/v3/businesses/#{yelp_id}",
-  #     nil,
-  #     {
-  #       'Content-Type' => 'application/json',
-  #       'Accept' => 'application/json',
-  #       'Authorization' => "Bearer #{ENV['YELP_API_KEY']}"
-  #     }
-  #   )
-
-  #   JSON.parse(yelp_info.body)
-  # end
-
-  # def fetch_yelp_reviews(yelp_id)
-  #   yelp_reviews = Faraday.get(
-  #     "https://api.yelp.com/v3/businesses/#{yelp_id}/reviews",
-  #     nil,
-  #     {
-  #       'Content-Type' => 'application/json',
-  #       'Accept' => 'application/json',
-  #       'Authorization' => "Bearer #{ENV['YELP_API_KEY']}"
-  #     }
-  #   )
-
-  #   JSON.parse(yelp_reviews.body)
-  # end
-
-  # def search_yelp(name, address, city, state)
-  #   yelp_id = fetch_yelp_id(name, address, city, state)
-  #   info = fetch_yelp_info(yelp_id)
-  #   reviews = fetch_yelp_reviews(yelp_id)
-
-  #   yelp = {
-  #     info: info,
-  #     reviews: reviews,
-  #   }
-
-  #   yelp
-  # end
   def search_yelp(name, address, city, state)
     conn = Faraday.new(
       url: 'https://api.yelp.com/v3/businesses',

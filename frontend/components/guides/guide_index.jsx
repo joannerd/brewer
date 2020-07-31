@@ -9,7 +9,6 @@ const GuideIndex = () => {
   const guides = useSelector(state => Object.values(state.entities.guides));
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     dispatch(fetchGuides());
     return () => dispatch(clearBreweries());
   }, []);

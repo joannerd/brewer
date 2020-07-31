@@ -23,8 +23,8 @@ const CityShow = () => {
     ? <h2>There are no guides for this city yet.</h2> : (
       <>
         {
-          guides.map((guide, i) => (
-            <Link to={`/guides/${guide.id}`} key={i} className="guide-link">
+          guides.map((guide) => (
+            <Link to={`/guides/${guide.id}`} key={guide.id} className="guide-link">
               <h2>{guide.title}</h2>
               &nbsp;by&nbsp;
               <h3>{guide.author}</h3>
@@ -38,9 +38,9 @@ const CityShow = () => {
     ? <h2>There are no breweries for this city yet.</h2> : (
       <>
         {
-          breweries.map((brewery, i) => (
-            <Link to={`/breweries/${brewery.id}`} key={i}>
-              <h2>{brewery.name}</h2>
+          breweries.map(({ id, name }) => (
+            <Link to={`/breweries/${id}`} key={id}>
+              <h2>{name}</h2>
             </Link>
           ))
         }

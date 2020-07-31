@@ -9,8 +9,8 @@ const BreweryReviews = ({
   <div className="brewery-yelp">
     <BreweryRating rating={rating} reviewCount={reviewCount} url={url} />
 
-    {reviews.map((review, i) => (
-      <Review review={review} key={i} />
+    {reviews.map((review) => (
+      <Review review={review} key={review.id} />
     ))}
   </div>
 );

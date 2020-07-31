@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
@@ -16,7 +15,6 @@ const GuideShow = () => {
   const currentUserId = useSelector(state => parseInt(state.session.id, 10));
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     dispatch(fetchGuide(guideId));
     return () => dispatch(clearGuide());
   }, [guideId]);
@@ -28,9 +26,8 @@ const GuideShow = () => {
   } = guide;
 
   const handleDelete = () => {
-    dispatch(deleteGuide(id)).then(() => {
-      history.push('/guides');
-    });
+    dispatch(deleteGuide(id));
+    history.push('/guides');
   };
 
   const deleteButton = (guide.userId === currentUserId) ? (

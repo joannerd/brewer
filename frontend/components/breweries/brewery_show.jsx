@@ -18,7 +18,6 @@ const BreweryShow = () => {
   const [isUpdated, setIsUpdated] = useState(false);
   useEffect(() => {
     setIsUpdated(false);
-    window.scrollTo(0, 0);
     dispatch(fetchBrewery(breweryId));
     return () => dispatch(clearBreweries());
   }, [isUpdated]);

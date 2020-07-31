@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createGuide, fetchNewGuide, clearNewGuide } from '../../actions/guide_actions';
+import { useHistory } from 'react-router-dom';
+import { fetchGuides, createGuide, fetchNewGuide, clearNewGuide } from '../../actions/guide_actions';
 import { clearErrors } from '../../actions/session_actions';
 
 const GuideForm = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const currentUserId = useSelector((state) => state.session.id);
   const cities = useSelector((state) => Object.values(state.entities.cities));
@@ -32,7 +34,10 @@ const GuideForm = () => {
       user_id: currentUserId,
       breweries: selectedBreweryIDs,
     };
-    dispatch(createGuide(newGuide));
+    dispatch(createGuide(newGuide)).then(() => {
+      dispatch(fetchGuides());
+      history.push('/guides');
+    });
   };
 
   const updateCity = (e) => {
@@ -88,6 +93,7 @@ const GuideForm = () => {
             </option>
           );
         }
+
         return (
           <option value={brewery.id} key={`${idx}-${brewery.id}`}>
             {brewery.name}

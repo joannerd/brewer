@@ -24,13 +24,12 @@ const SearchBar = () => {
     history.push(`/breweries/${e.target.id}`);
   };
 
-  const getSearchResults = e => {
-    const search = e.target.value;
-    if (e.target.value.length > 0) {
-      const searchInputResults = searchItems.filter(brewery => {
-        const potentialSearch = brewery.name.toLowerCase();
-        const filter = search.toLowerCase();
-        return potentialSearch.includes(filter);
+  const getSearchResults = (searchTerm) => {
+    if (searchTerm.length > 0) {
+      const searchInputResults = searchItems.filter((item) => {
+        const potentialResult = item.name.toLowerCase();
+        const term = searchTerm.toLowerCase();
+        return potentialResult.includes(term);
       });
       setSearchResults(searchInputResults);
     } else {
@@ -48,7 +47,7 @@ const SearchBar = () => {
           placeholder="Search for brewery"
           onChange={e => {
             setSearchInput(e.target.value);
-            getSearchResults(e);
+            getSearchResults(e.target.value);
           }}
           type="search"
           autoComplete="off"

@@ -9,6 +9,7 @@ import Loading from '../loading';
 const Map = ({ guide }) => {
   const dispatch = useDispatch();
   const cities = useSelector(state => Object.values(state.entities.cities));
+
   const generateMap = (places, minZoom, center) => {
     mapboxgl.accessToken = localStorage.getItem('mboxToken');
     const mapOptions = {

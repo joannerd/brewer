@@ -8,15 +8,14 @@ const CityIndex = () => {
   const cities = useSelector((state => Object.values(state.entities.cities)));
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     dispatch(fetchCities());
   }, []);
 
   return (
     <section className="city-index">
       <ul className="city-index-list">
-        {cities.map((city, i) => (
-          <City city={city} key={i} />
+        {cities.map((city) => (
+          <City city={city} key={city.id} />
         ))}
       </ul>
     </section>

@@ -12,7 +12,6 @@ const SessionForm = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const isLogin = match.path === '/login';
-  const isSignup = !isLogin;
 
   useEffect(() => {
     if (errors.length) dispatch(clearErrors());
@@ -42,6 +41,7 @@ const SessionForm = () => {
       username: 'Joannerd',
       password: '123456',
     };
+
     const typeUser = () => {
       let timeout;
       if (i < demoUser.username.length) {
@@ -68,8 +68,8 @@ const SessionForm = () => {
       typeUser();
       window.setTimeout(() => typePw(), 1000);
       window.setTimeout(() => {
-        dispatch(login((demoUser)))
-          .then(() => history.push('/'));
+        dispatch(login((demoUser)));
+        history.push('/');
       }, 1600);
     }
   };
@@ -88,7 +88,7 @@ const SessionForm = () => {
         </Link>
 
         <Link to="/signup" className="session-link">
-          <span className={isSignup ? 'active' : 'inactive'}>SIGN UP</span>
+          <span className={!isLogin ? 'active' : 'inactive'}>SIGN UP</span>
         </Link>
       </div>
       <br />
@@ -123,7 +123,7 @@ const SessionForm = () => {
         />
 
         <input
-          className={isSignup ? 'input email' : 'hidden'}
+          className={!isLogin ? 'input email' : 'hidden'}
           onChange={updateEmail}
           placeholder="Email"
           type="text"

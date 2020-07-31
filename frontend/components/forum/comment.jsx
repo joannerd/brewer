@@ -6,26 +6,29 @@ import { deleteComment } from '../../actions/comment_actions';
 const Comment = ({ comment, currentUserId, postId }) => {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  if (!comment) return null;
+
   const {
     body,
     author,
     timestamp,
     id,
+    userId,
   } = comment;
-  let date = new Date(timestamp).toDateString();
+  const date = new Date(timestamp).toDateString();
 
   const handleDelete = () => {
-    dispatch(deleteComment(id)).then(() => {
-      history.push(`/posts/${postId}`);
-    });
+    dispatch(deleteComment(id))
+    history.push(`/posts/${postId}`);
   };
 
-  const deleteButton = comment.userId === currentUserId
+  const deleteButton = userId === currentUserId
     ? <button onClick={handleDelete}>Delete</button>
     : null;
 
   return (
-    <li className="post comment">
+    <li key={comment.id} className="post comment">
       <h4>
         Posted by&nbsp;
         {author}

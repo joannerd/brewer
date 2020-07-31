@@ -10,7 +10,6 @@ const Forum = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     dispatch(fetchPosts());
   }, []);
 
@@ -25,8 +24,8 @@ const Forum = () => {
         formType="Write post"
       />
       <ul>
-        {posts.reverse().map((post, i) => (
-          <Post key={i} post={post} />
+        {posts.reverse().map((post) => (
+          <Post key={post.id} post={post} />
         ))}
       </ul>
     </section>

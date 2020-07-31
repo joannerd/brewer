@@ -11,7 +11,6 @@ const BreweryIndex = () => {
   const breweries = useSelector((state) => Object.values(state.entities.breweries));
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     dispatch(fetchBreweries());
     return () => dispatch(clearBreweries());
   }, []);
@@ -34,8 +33,8 @@ const BreweryIndex = () => {
         ))}
       </div>
       <div className="brewery-index-list">
-        {breweries.map((brewery, i) => (
-          <div key={i} className={`brewery ${brewery.name[0]}`}>
+        {breweries.map((brewery) => (
+          <div key={brewery.id} className={`brewery ${brewery.name[0]}`}>
             <Brewery
               breweryId={brewery.id}
               brewery={brewery}

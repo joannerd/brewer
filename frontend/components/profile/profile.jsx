@@ -1,25 +1,34 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
+import Loading from '../loading';
 
 const Profile = () => {
   const dispatch = useDispatch();
   const { userId } = useParams();
-  const user = useSelector(state => state.entities.users[userId]);
-  const userGuides = useSelector(state => Object.values(state.entities.guides));
-  const favoriteBreweries = useSelector(state => Object.values(state.entities.favorites));
+  const profileUser = useSelector(state => {
+    const user = state.entities.users[userId];
+    user.guides = Object.values(state.entities.guides)
+      .map(({ id, title }) => ({ id, title }));
+    user.breweries = Object.values(state.entities.favorites)
+      .map(({ id, name }) => ({ id, name }));
+    return user;
+  });
 
   useEffect(() => {
     dispatch(fetchUser(userId));
   }, [userId]);
 
-  const breweries = !favoriteBreweries ? (
+  if (!profileUser) return <Loading />;
+
+  const { username, breweries, guides } = profileUser;
+
+  const profileBreweries = !breweries ? (
     <h4>No favorite breweries yet.</h4>
   ) : (
     <ul>
-      {favoriteBreweries.map(brewery => (
+      {breweries.map(brewery => (
         <Link
           key={brewery.id}
           to={`/breweries/${brewery.id}`}
@@ -34,7 +43,7 @@ const Profile = () => {
     <div className="profile">
       <span>
         <div>
-          <h1>{user.username}</h1>
+          <h1>{username}</h1>
           <img src="/beer.svg" alt="" id="profile-pic" />
         </div>
 
@@ -43,7 +52,7 @@ const Profile = () => {
             <i className="fa fa-list-ol" />
             Guides
           </h2>
-          {userGuides.map(guide => (
+          {guides.map(guide => (
             <Link
               to={`/guides/${guide.id}`}
               className="guide-preview"
@@ -59,14 +68,10 @@ const Profile = () => {
           <i className="fa fa-star" />
           Favorite Breweries
         </h2>
-        {breweries}
+        {profileBreweries}
       </div>
     </div>
   );
-};
-
-Profile.propTypes = {
-  match: PropTypes.object.isRequired,
 };
 
 export default Profile;
