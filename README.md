@@ -1,90 +1,410 @@
 # Brewer
 
-Brewer is an application based on Eater that contains guides to top breweries of different cities. Brewer was created with a React-Redux front-end and a Ruby on Rails back-end.
+Brewer is an application to connect beer enthusiasts. Users create brewery
+travel guides and share brewery knowledge in a forum. Visit
+[Brewer](https://junnac-brewer.herokuapp.com/#/) to explore top guides, learn
+from the Brewer forum, and search for your favorite breweries.
 
-<a href="https://junnac-brewer.herokuapp.com/#/">Brewer Live</a>
+## Features
 
-## Table of Contents
+* [Overview of features](#Overview-of-features)
+* [Dynamically generated brewery creation form](#Dynamically-generated-brewery-creation-form)
+* [Backend Yelp integration](#Backend-Yelp-integration)
+* [Interactive map markers](#Interactive-map-markers)
+* [User profile and favorites](#User-profile-and-favorites)
+* [Brewery search](#Brewery-search)
+* [User login and registration](#User-login-and-registration)
+* [Forum posts and comments](#Forum-posts-and-comments)
 
-* [Installation](#installation)
-* [Features](#features)
-* [Technologies](#technologies)
-* [Status](#status)
-* [Inspiration](#inspiration)
+## Technologies
 
-## <a name="Installation">Installation</a>
-### Clone
-* Clone this to your local machine using `https://github.com/junnac/Brewer.git`
-### Setup
-> Install npm and bundle packages
-```sh
-$ npm install
-$ bundle install
-```
-
-> Open your terminal and run these commands.
-
-First Tab:
-```sh
-$ npm start
-```
-
-Second Tab:
-```sh
-$ rails s
-```
-
-
-## <a name="features">Features</a>
-* User signup/login
-![Screen Shot 2019-12-01 at 4 51 56 PM](https://user-images.githubusercontent.com/32081352/69923586-e92eec00-145a-11ea-90bd-662b4399c75a.png)
-
-* Navigation bar and splash page
-![Screen Shot 2020-01-25 at 5 38 45 PM](https://user-images.githubusercontent.com/32081352/73129525-f4098700-3f9a-11ea-837a-24a4e6612391.png)
-
-* User profile page
-![Screen Shot 2020-01-25 at 5 50 10 PM](https://user-images.githubusercontent.com/32081352/73129535-359a3200-3f9b-11ea-8ec8-cd7c1ac4d061.png)
-
-* Forum
-
-  ![forum](https://user-images.githubusercontent.com/32081352/73129513-a2f99300-3f9a-11ea-8331-75dba2e806ef.gif)
-
-* Index of guides created by demo users
-* Guide show pages
-
-  ![guide](https://user-images.githubusercontent.com/32081352/73129512-a2f99300-3f9a-11ea-9f2b-6a7724125a32.gif)
-
-* Index of breweries
-
-  ![breweries_index](https://user-images.githubusercontent.com/32081352/73129516-a3922980-3f9a-11ea-95c1-2bf98c8b9130.gif)
-
-* Index of top craft beer cities in America
-
-  ![cities](https://user-images.githubusercontent.com/32081352/73129515-a2f99300-3f9a-11ea-92d5-a7bb1a685c70.gif)
-
-
-## <a name="technologies">Technologies</a>
-* React-Redux
-* Mapbox API
-* Ruby On Rails
-* AWS
-* jQuery
+* Ruby on Rails
+* React/Redux
 * PostgreSQL
-* Heroku
+* Mapbox API
+* Yelp REST API
+* AWS S3
 
-Throughout the project's workflow, I learned about the <a name="react-redux">React-Redux</a> cycle and good ways of formatting state shape and obtaining desired state.
+## Installation
 
-I decided to implement Mapbox in my application's guide show pages to render locations of a guide's breweries. I designed my backend database for my `Breweries` and `Cities` tables with map marker creation in mind. Each brewery and city has a latitute `:lat` and longitude `:lng`.  Saving this information in the database resulted in a smooth transition when rendering each guide's map. The map component pulls a brewery's location to render a corresponding marker. The map's center point was based on the city's longitude and latitude (`:cityLat` and `:cityLng`).
+1. Clone this repository to your local machine.
+2. Install npm and bundle packages:
+    ```sh
+    npm install
+    bundle install
+    ```
+3. Start the frontend and backend servers with these terminal commands:
+    ```sh
+    rails s
+    npm start
+    ```
 
-## <a name="status">Status</a>
-* In progress
-* Future Features
-  * Search in brewery index page
-  * User creation of brewery guides
-  * User can favorite breweries
+## Overview of features
 
-## <a name="inspiration">Inspiration</a>
-* Content organization based off of <a href="https://www.eater.com/">Eater.com</a>
-* Color scheme inspired by <a href="https://lordhobobrewing.com/">Lord Hobo Brewing Co.</a>
-* Guide show page based off of <a href="https://www.eater.com/maps/best-sao-paulo-restaurants">Eater Guide</a>
-  * I was inspired by Eater's restaurant guide show page and their beautiful rendition of a map highlighting the relative coordination of each restaurant.
+While developing the app's database schema, web API, and frontend application, I
+kept in mind ways to scale the application for more user-interactivity-focused
+features. The end-product utilizes Mapbox API to aid with clickable navigation
+of the platform, Yelp API to gather information and opinions about each brewery,
+and cloud storage (AWS S3 and Rails Active Storage) to reduce server load and
+allow the application to scale.
+
+![brewer-demo-gif](https://user-images.githubusercontent.com/32081352/89004586-5e3b1580-d2b7-11ea-8f4b-3167de9377bb.gif)
+
+### Dynamically generated brewery creation form
+
+The `GuideForm` is a dynamically generated form for brewery guide creation. A
+user begins by selecting a city from a dropdown menu. The dropdown menu has an
+`onChange` listener that invokes the `updateCity` method to update the
+component's `cityId` and `guideBreweries` state.
+
+```js
+const updateCity = (e) => {
+  const id = parseInt(e.target.value, 10);
+  const cityBreweries = breweries.filter(brewery => brewery.cityId === id);
+  setCityId(id);
+  setGuideBreweries(cityBreweries);
+};
+```
+
+Based on the updated `guideBreweries` state, the `createBreweryInputFields`
+method is invoked to generate a dropdown menu with breweries in the selected
+city. A new dropdown menu is generated for each brewery input field.
+
+If a brewery as already been selected (i.e. the brewery's ID is in the
+`selectedBreweryIDs` state), a `disabled` select option will be generated for
+that brewery. Rendering a `disabled` select option ensures that users will not
+create a guide with duplicate breweries while communicating that previously
+selected breweries are not available for selection.
+
+```js
+const createBreweryInputFields = (idx) => (
+  <select
+    required
+    key={idx}
+    defaultValue="Choose a favorite brewery"
+    name="brewery"
+    onChange={(e) => updateSelectedBreweryIDs(idx, e)}
+  >
+    <option disabled>Choose a favorite brewery</option>
+    {guideBreweries.map((brewery) => {
+      if (Object.values(selectedBreweryIDs).includes(brewery.id)) {
+        return (
+          <option disabled key={`${idx}-${brewery.id}`}>
+            {brewery.name}
+          </option>
+        );
+      }
+
+      return (
+        <option value={brewery.id} key={`${idx}-${brewery.id}`}>
+          {brewery.name}
+        </option>
+      );
+    })}
+  </select>
+);
+```
+
+Users can then create or delete additional brewery select menus to add or remove
+breweries from the guide they are creating. The button to add a brewery invokes
+the `createBreweryInput` method upon click, while the button to remove a brewery
+invokes the `deleteBreweryInput` method upon click.
+
+```js
+const createBreweryInput = () => {
+  if (numberOfBreweryInputs.length < 5) {
+    const inputs = [...numberOfBreweryInputs];
+    inputs.push(numberOfBreweryInputs.length + 1);
+    setNumberOfBreweryInputs(inputs);
+  }
+};
+```
+
+The deletion of a brewery input field also updates the `selectedBreweryIDs`
+state of the component, removing the brewery ID corresponding to the brewery
+input removed.
+
+```js
+const deleteBreweryInput = () => {
+  if (numberOfBreweryInputs.length > 1) {
+    const inputs = numberOfBreweryInputs.slice(0, numberOfBreweryInputs.length - 1);
+    setNumberOfBreweryInputs(inputs);
+  }
+  const selectedBreweries = { ...selectedBreweryIDs };
+  delete selectedBreweries[numberOfBreweryInputs.length];
+  setSelectedBreweryIDs(selectedBreweries);
+};
+```
+
+### Backend Yelp integration
+
+The first iteration of Yelp integration into the brewery pages simply
+implemented the `fetch` API to send requests to the Yelp API upon mounting of
+the `BreweryShow` component. I decided to improve the feature by refactoring and
+moving the Yelp integration into a backend Rails controller. This way the Yelp
+information is fetched within the component's `fetchBrewery` invocation, instead
+of in additional front-end fetch requests.
+
+This backend Yelp integration results in faster performance by minimizing the
+front-end fetch requests within the `BreweryShow` component. In the updated
+iteration, the `fetchBrewery` action creator function is dispatched in the
+component's `useEffect` hook upon mounting of the `BreweryShow` component.
+
+```js
+useEffect(() => {
+  setIsUpdated(false);
+  dispatch(fetchBrewery(breweryId));
+  return () => dispatch(clearBreweries());
+}, [isUpdated]);
+```
+
+The dispatch of the `fetchBrewer` action creator function dispatches the
+response of the `BreweryAPIUtil.fetchBrewery` function's GET request to
+`/api/breweries/:id`.
+
+```js
+export const fetchBrewery = (breweryId) => dispatch => (
+  BreweryAPIUtil.fetchBrewery(breweryId)
+    .then(brewery => dispatch(receiveBrewery(brewery))));
+```
+
+The request to `/api/breweries/:id` is routed to the brewery controller's `show`
+action, where the `@brewery` is found via the `id` parameter, and the brewery's
+`@yelp` information is fetched by invoking the `search_yelp` helper method in
+the brewery controller class.
+
+```rb
+def show
+  @brewery = Brewery.find(params[:id])
+
+  brewery_state = @brewery.city.state.split(' ')
+  if brewery_state.length == 1
+    brewery_state = @brewery.city.state[0] + @brewery.city.state[1]
+  else
+    brewery_state = brewery_state.map{|el| el[0]}.join('')
+  end
+
+  @yelp = search_yelp(
+    @brewery.name.split(' ')[0],
+    @brewery.address.split(',')[0],
+    @brewery.city.name,
+    brewery_state,
+  )
+  render '/api/breweries/show'
+end
+```
+
+The `search_yelp` method uses the name and location of the fetched `@brewery` to
+send a GET request to `https://api.yelp.com/v3/businesses/matches` and find the
+brewery's `yelp_id`. The `yelp_id` is then used in a subsequent GET request to
+`https://api.yelp.com/v3/businesses/:id/reviews` to fetch the brewery's
+`yelp_info` and a GET request to
+`https://api.yelp.com/v3/businesses/:id/reviews` to fetch the brewery's
+`yelp_reviews`. The `search_yelp` method then returns the fetched `yelp_info`
+and `yelp_reviews` as payload keys of the `yelp` object returned by the method.
+
+```rb
+def search_yelp(name, address, city, state)
+  conn = Faraday.new(
+    url: 'https://api.yelp.com/v3/businesses',
+    headers: {
+      'Content-Type' => 'application/json',
+      'Accept' => 'application/json',
+      'Authorization' => "Bearer #{ENV['YELP_API_KEY']}"
+    },
+    params: { country: 'US' },
+  ) do |c|
+    c.use Faraday::Request::UrlEncoded
+    c.use Faraday::Response::Logger
+  end
+
+  yelp_res = conn.get(
+    'matches',
+    {
+      name: name,
+      address1: address,
+      city: city,
+      state: state,
+    }
+  )
+  
+  yelp_id = JSON.parse(yelp_res.body)['businesses'][0]['id']
+  yelp_info = conn.get(yelp_id)
+  yelp_reviews = conn.get("#{yelp_id}/reviews")    
+
+  yelp = {
+    info: JSON.parse(yelp_info.body),
+    reviews: JSON.parse(yelp_reviews.body),
+  }
+
+  return yelp
+end
+```
+
+After fetching a brewery and its Yelp information, the `show` action renders its
+response in JSON via the `/api/breweries/show.json.jbuilder` file. Jbuilder
+takes care of structuring the fetched data into a JSON structure with organized
+payload keys (`favoritedBy`, `yelp`, `reviews`) for front-end consumption.
+
+```rb
+json.set! @brewery.id do
+  json.partial! 'api/breweries/brewery', brewery: @brewery
+
+  json.favoritedBy do
+    if @brewery.favorites.length == 0
+      json.favorites []
+    else
+      @brewery.favorites.each do |favorite|
+        json.set! favorite.user_id do
+          json.id favorite.id
+        end
+      end
+    end
+  end
+
+  json.yelp do
+    json.rating @yelp[:info]['rating']
+    json.url @yelp[:info]['url']
+    json.price @yelp[:info]['price']
+    json.hours @yelp[:info]['hours'][0]
+    json.reviewCount @yelp[:info]['review_count']
+  end
+
+  json.reviews do 
+    json.array!(@yelp[:reviews]['reviews']) do |review|
+      json.url review['url']
+      json.text review['text']
+      json.rating review['rating']
+
+      json.user do
+        json.name review['user']['name']
+        json.profileUrl review['user']['profile_url']
+        json.imageUrl review['user']['image_url']
+      end
+
+      json.timeCreated review['time_created']
+    end
+  end
+end
+```
+
+### Interactive map markers
+
+The `Map` component visualizes the distance between different guide breweries
+and top brewery cities with Mapbox API. By default, the `Map` component hooks
+into Redux to select the longitude and latitude coordinates for each city marker
+to generate. Each city marker links to the city's page upon click.
+
+```js
+const generateMap = (places, minZoom, center) => {
+  mapboxgl.accessToken = localStorage.getItem('mboxToken');
+  const mapOptions = {
+    container: 'map',
+    minZoom,
+    center,
+    style: 'mapbox://styles/mapbox/dark-v9',
+  };
+
+  const mapbox = new mapboxgl.Map(mapOptions);
+  const mapMarkerManager = new MarkerManager(mapbox);
+  mapMarkerManager.updateMarkers(places);
+};
+
+useEffect(() => {
+  if (cities.length) {
+    const places = {};
+    cities.forEach((city) => {
+      places[city.id] = [city.lng, city.lat];
+    });
+    generateMap(places, 3, [-95, 38]);
+  }
+}, [cities]);
+```
+
+Alternatively, the `Map` component takes an optional `guide` prop to render
+markers for each guide brewery.
+
+```js
+useEffect(() => {
+  if (guide) {
+    const { cityLng, cityLat, brewInfo } = guide;
+    generateMap(brewInfo, 11.5, [cityLng, cityLat]);
+  } else {
+    dispatch(fetchCities());
+  }
+
+  return () => dispatch(clearCities());
+}, [guide]);
+```
+
+### User profile and favorites
+
+The `Profile` component uses `useSelector` hook to reference a specific user
+based on the `userId` parameter. The `guides` and `breweries` in the Redux
+store's state are payload values fetched by the `fetchUser` action creator
+function for the `RECEIVE_USER` action type.
+
+```js
+const { userId } = useParams();
+const profileUser = useSelector(state => {
+  const user = state.entities.users[userId];
+  user.guides = Object.values(state.entities.guides)
+    .map(({ id, title }) => ({ id, title }));
+  user.breweries = Object.values(state.entities.favorites)
+    .map(({ id, name }) => ({ id, name }));
+  return user;
+});
+
+useEffect(() => {
+  dispatch(fetchUser(userId));
+}, [userId]);
+```
+
+### Brewery search
+
+The brewery search input field updates the `searchInput` and `searchResults`
+state upon change. The `searchResults` state is updated by invoking the
+`getSearchResults` method with the change event.
+
+```js
+onChange={e => {
+  setSearchInput(e.target.value);
+  getSearchResults(e.target.value);
+}}
+```
+
+The current event target's value is set as the `searchTerm` parameter. Whenever
+the `searchTerm` is not an empty string, the `searchItems` will be filtered
+based on whether the `potentialResult` includes the `term` being searched.
+
+```js
+const getSearchResults = (searchTerm) => {
+  if (searchTerm.length > 0) {
+    const searchInputResults = searchItems.filter((item) => {
+      const potentialResult = item.name.toLowerCase();
+      const term = searchTerm.toLowerCase();
+      return potentialResult.includes(term);
+    });
+    setSearchResults(searchInputResults);
+  } else {
+    setSearchResults([]);
+  }
+};
+```
+
+### User login and registration
+
+The `SessionForm` component renders as a login form or a registration form based
+on the path of the `match` prop. The `isLogin` boolean values is used to
+determine the submit button's text value (`Log In` or `Sign Up`) and whether an
+`Email` field or `Demo Login` button is hidden.
+
+```js
+const isLogin = match.path === '/login';
+```
+
+### Forum posts and comments
+
+The `Forum` and `PostShow` components re-use the `PostCommentForm` for forum
+post and comment creation. Upon creation of a post or comment, the component
+automatically reloads to render the new content.
